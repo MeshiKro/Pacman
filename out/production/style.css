@@ -1,0 +1,6 @@
+buttonstyle {
+  -fx-border-radius: 25px;
+  -fx-border-width: 2;
+    -fx-border-color: white;
+  -fx-background-color: #efe4e0;
+}

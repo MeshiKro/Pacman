@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MainScreen">
+   <children>
+      <ImageView fitHeight="361.0" fitWidth="369.0" layoutY="241.0">
+         <image>
+            <Image url="@../../images/logo2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="315.0" fitWidth="375.0" layoutX="326.0" layoutY="179.0">
+         <image>
+            <Image url="@../../images/Rectangle%20449.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="startGameBtn" fitHeight="82.0" fitWidth="200.0" layoutX="420.0" layoutY="398.0" onMouseClicked="#startGame">
+         <image>
+            <Image url="@../../images/startButton.png" />
+         </image>
+      </ImageView>
+      <ImageView layoutX="363.0" layoutY="226.0">
+         <image>
+            <Image url="@../../images/pacmanicon.png" />
+         </image>
+      </ImageView>
+      <ImageView layoutX="363.0" layoutY="300.0">
+         <image>
+            <Image url="@../../images/brushicon.png" />
+         </image>
+      </ImageView>
+      <ComboBox fx:id="themeField" accessibleText="sdfsdf" layoutX="527.0" layoutY="305.0" prefHeight="30.0" prefWidth="144.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
+      <Label layoutX="423.0" layoutY="223.0" text="Name:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="418.0" layoutY="302.0" text="Theme:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nameFeild" layoutX="525.0" layoutY="229.0" prefHeight="25.0" prefWidth="144.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
+      <ImageView layoutX="639.0" layoutY="430.0">
+         <image>
+            <Image url="@../../images/scorpion.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="259.0" fitWidth="586.0" layoutX="227.0">
+         <image>
+            <Image url="@../../images/logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="84.0" fitWidth="84.0" layoutX="939.0" layoutY="86.0">
+         <image>
+            <Image url="@../../images/buttonconinter.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="84.0" fitWidth="84.0" layoutX="939.0" layoutY="203.0">
+         <image>
+            <Image url="@../../images/buttonconinter.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="84.0" fitWidth="84.0" layoutX="939.0" layoutY="323.0">
+         <image>
+            <Image url="@../../images/buttonconinter.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="84.0" fitWidth="84.0" layoutX="939.0" layoutY="444.0">
+         <image>
+            <Image url="@../../images/buttonconinter.png" />
+         </image>
+      </ImageView>
+      <ImageView layoutX="961.0" layoutY="107.0">
+         <image>
+            <Image url="@../../images/book%20(1).png" />
+         </image>
+      </ImageView>
+      <ImageView layoutX="960.0" layoutY="224.0">
+         <image>
+            <Image url="@../../images/question%20(7)%201.png" />
+         </image>
+      </ImageView>
+      <ImageView layoutX="958.0" layoutY="463.0">
+         <image>
+            <Image url="@../../images/sports-trophy.png" />
+         </image>
+      </ImageView>
+      <ImageView layoutX="958.0" layoutY="342.0">
+         <image>
+            <Image url="@../../images/mute.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
