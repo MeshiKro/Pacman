@@ -15,12 +15,12 @@
             <Image url="@../../images/logo2.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="315.0" fitWidth="375.0" layoutX="326.0" layoutY="179.0">
+      <ImageView fitHeight="315.0" fitWidth="375.0" layoutX="333.0" layoutY="183.0">
          <image>
             <Image url="@../../images/Rectangle%20449.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="startGameBtn" fitHeight="82.0" fitWidth="200.0" layoutX="420.0" layoutY="398.0" onMouseClicked="#startGame">
+      <ImageView fx:id="startGameBtn" fitHeight="82.0" fitWidth="200.0" layoutX="420.0" layoutY="398.0" onMouseClicked="#startGame" onMouseEntered="#hoverStart" onMouseExited="#HoverEnd">
          <image>
             <Image url="@../../images/startButton.png" />
          </image>
@@ -57,44 +57,65 @@
             <Image url="@../../images/logo.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="84.0" fitWidth="84.0" layoutX="939.0" layoutY="86.0">
+      <AnchorPane fx:id="rulesPane" layoutX="939.0" layoutY="86.0" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
+         <children>
+            <ImageView fx:id="rulesBtn" fitHeight="84.0" fitWidth="84.0">
+               <image>
+                  <Image url="@../../images/buttonconinter.png" />
+               </image>
+            </ImageView>
+            <ImageView layoutX="22.0" layoutY="21.0">
+               <image>
+                  <Image url="@../../images/book%20(1).png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="qaPane" layoutX="939.0" layoutY="203.0" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
+         <children>
+            <ImageView fx:id="QABtn" fitHeight="84.0" fitWidth="84.0">
+               <image>
+                  <Image url="@../../images/buttonconinter.png" />
+               </image>
+            </ImageView>
+            <ImageView layoutX="21.0" layoutY="21.0">
+               <image>
+                  <Image url="@../../images/question%20(7)%201.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="mutePane" layoutX="939.0" layoutY="323.0" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
+         <children>
+            <ImageView fx:id="muteBtn" fitHeight="84.0" fitWidth="84.0">
+               <image>
+                  <Image url="@../../images/buttonconinter.png" />
+               </image>
+            </ImageView>
+            <ImageView layoutX="19.0" layoutY="19.0">
+               <image>
+                  <Image url="@../../images/mute.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="boardPane" layoutX="939.0" layoutY="444.0" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
+         <children>
+            <ImageView fx:id="boardBtn" fitHeight="84.0" fitWidth="84.0">
+               <image>
+                  <Image url="@../../images/buttonconinter.png" />
+               </image>
+            </ImageView>
+            <ImageView layoutX="19.0" layoutY="19.0">
+               <image>
+                  <Image url="@../../images/sports-trophy.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="startButtonClicked" fitHeight="82.0" fitWidth="200.0" layoutX="420.0" layoutY="398.0" visible="false">
          <image>
-            <Image url="@../../images/buttonconinter.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="84.0" fitWidth="84.0" layoutX="939.0" layoutY="203.0">
-         <image>
-            <Image url="@../../images/buttonconinter.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="84.0" fitWidth="84.0" layoutX="939.0" layoutY="323.0">
-         <image>
-            <Image url="@../../images/buttonconinter.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="84.0" fitWidth="84.0" layoutX="939.0" layoutY="444.0">
-         <image>
-            <Image url="@../../images/buttonconinter.png" />
-         </image>
-      </ImageView>
-      <ImageView layoutX="961.0" layoutY="107.0">
-         <image>
-            <Image url="@../../images/book%20(1).png" />
-         </image>
-      </ImageView>
-      <ImageView layoutX="960.0" layoutY="224.0">
-         <image>
-            <Image url="@../../images/question%20(7)%201.png" />
-         </image>
-      </ImageView>
-      <ImageView layoutX="958.0" layoutY="463.0">
-         <image>
-            <Image url="@../../images/sports-trophy.png" />
-         </image>
-      </ImageView>
-      <ImageView layoutX="958.0" layoutY="342.0">
-         <image>
-            <Image url="@../../images/mute.png" />
+            <Image url="@../../images/startButtonClicked.png" />
          </image>
       </ImageView>
    </children>

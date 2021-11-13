@@ -79,7 +79,6 @@ public class SysData extends JPanel{
         this.isCustom = md.isCustom();
         this.ghostBase = md.getGhostBasePosition();
 
-        //loadMap();
 
         pacman = new Pacman(md.getPacmanPosition().x,md.getPacmanPosition().y,this);
         addKeyListener(pacman);
@@ -89,7 +88,6 @@ public class SysData extends JPanel{
         ghosts = new ArrayList<>();
         teleports = new ArrayList<>();
 
-        //TODO : read food from mapData (Map 1)
 
         if(!isCustom) {
             for (int i = 0; i < m_x; i++) {
@@ -282,7 +280,7 @@ public class SysData extends JPanel{
             }
         }
         if(isSiren){
-            pac6.stop();
+           // pac6.stop();
             if(mustReactivateSiren){
                 mustReactivateSiren = false;
                 siren.start();
