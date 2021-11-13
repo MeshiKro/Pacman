@@ -1,6 +1,6 @@
 package misc;
 
-import model.FancyButton;
+
 import model.Food;
 import model.Bomb;
 import view.PacWindow;
@@ -80,14 +80,6 @@ public class MapEditor extends JFrame {
         getContentPane().add(ta);
 
 
-        FancyButton startButton = new FancyButton("Start Game");
-        startButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new PacWindow(compileMap(ta.getText()));
-            }
-        });
-        sideBar.add(startButton,BorderLayout.SOUTH);
         //setLayout(new Grid);
 
         setVisible(true);

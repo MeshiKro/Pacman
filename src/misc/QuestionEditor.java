@@ -1,8 +1,8 @@
 package misc;
 
-import model.FancyButton;
+
 import view.PacWindow;
-import view.StartWindow;
+
 
 import javax.swing.*;
 import javax.swing.border.CompoundBorder;
@@ -59,16 +59,8 @@ public class QuestionEditor extends JFrame {
         getContentPane().add(ta);
 
 
-        FancyButton startButton = new FancyButton("back To Home Page");
-        startButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new StartWindow();
-                dispose();
-            
-            }
-        });
-        sideBar.add(startButton,BorderLayout.SOUTH);
+      
+      
         //setLayout(new Grid);
 
         setVisible(true);
