@@ -1,5 +1,6 @@
 package controller;
 
+import Tests.sysDataTester;
 import javafx.application.Application;
 
 import javafx.fxml.FXMLLoader;
@@ -7,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import misc.MapData;
 import misc.QuestionJsonRead;
 import model.QuestionObject;
 
@@ -18,13 +20,11 @@ public class Main extends Application {
 	
 		System.out.println("hello Dror Check");
 		
+		sysDataTester test = new sysDataTester();
+		test.MapData_Singleton_Check(); // this is the Jtest Call For the MapData Singleton Check//
 		
 		
-		
-		//Check If deSerialazation from Json works- if so Questions Should print to the console//
-		
-		QuestionObject test = new QuestionObject("test???", null, 0, 0, "[] [] [] []");
-		System.out.println("Questions from JSON are:"+ " "+ test.toString());
+		System.out.println("Questions from JSON are:");
 		
 		launch(args);
 

@@ -7,8 +7,14 @@ import model.Teleport;
 import java.awt.*;
 import java.util.ArrayList;
 
+import Tests.sysDataTester;
+import controller.SysData;
+
 public class MapData {
 
+	
+	
+	private static MapData sinMap = null;
     public int x;
     public int y;
     public int[][] map;
@@ -16,18 +22,16 @@ public class MapData {
     public Point ghostBasePosition;
     public boolean isCustom;
     public ArrayList<Food> foodPositions;
-    public ArrayList<Bomb> pufoodPositions;
+    public ArrayList<Bomb> Bombs;
     public ArrayList<Teleport> teleports;
     public ArrayList<GhostData> ghostsData;
 
     public MapData(){
         foodPositions = new ArrayList<>();
-        pufoodPositions = new ArrayList<>();
+        Bombs = new ArrayList<>();
         teleports = new ArrayList<>();
         ghostsData = new ArrayList<>();
     }
-    
-    
     
     
     
@@ -37,7 +41,7 @@ public class MapData {
         this.y = y;
 
         foodPositions = new ArrayList<>();
-        pufoodPositions = new ArrayList<>();
+        Bombs = new ArrayList<>();
         teleports = new ArrayList<>();
         ghostsData = new ArrayList<>();
     }
@@ -49,10 +53,13 @@ public class MapData {
         pacmanPosition = pacPosition;
 
         foodPositions = new ArrayList<>();
-        pufoodPositions = new ArrayList<>();
+        Bombs = new ArrayList<>();
         teleports = new ArrayList<>();
         ghostsData = new ArrayList<>();
     }
+    
+    	
+    
 
     public int getX() {
         return x;
@@ -99,7 +106,7 @@ public class MapData {
     }
 
     public ArrayList<Bomb> getpufoodPositions() {
-        return pufoodPositions;
+        return Bombs;
     }
 
     public ArrayList<Teleport> getTeleports() {
@@ -117,4 +124,22 @@ public class MapData {
     public void setCustom(boolean custom) {
         isCustom = custom;
     }
+
+
+	public static MapData getSinMap() {
+		if(sinMap == null) {
+			 sinMap  = new MapData();
+			return sinMap;
+		}
+		return sinMap;
+	}
+
+
+
+
+
+
+	public static void setSinMap(MapData sinMap) {
+		MapData.sinMap = sinMap;
+	}
 }

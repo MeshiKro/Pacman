@@ -24,6 +24,10 @@ public class SysData extends JPanel{
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	
+	
+	private static SysData syso = null;
+	
 	public Timer redrawTimer;
     public ActionListener redrawAL;
 
@@ -68,7 +72,7 @@ public class SysData extends JPanel{
     public PacWindow windowParent;
 
     
-    
+
     
     
     
@@ -469,6 +473,24 @@ public class SysData extends JPanel{
         teleports = md_backup.getTeleports();
         */
     }
+
+	public static SysData getSyso() {
+		
+		if(syso == null) {
+		
+			 syso = new SysData(null, null, null);
+			 return syso;
+
+		}
+		return syso;
+	}
+
+	
+	
+	
+	public static void setSyso(SysData syso) {
+		SysData.syso = syso;
+	}
     
     
     

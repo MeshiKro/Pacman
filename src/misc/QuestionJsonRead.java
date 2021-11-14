@@ -19,11 +19,7 @@ public class QuestionJsonRead {
 	
 	public static ArrayList<QuestionObject> deserializedQuestions;
 	JsonDeserializer<QuestionObject> deserializer = new JsonDeserializer<QuestionObject>() {  
-		
-		
-		
-		
-		
+	
 		
 		
 		

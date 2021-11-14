@@ -1,5 +1,6 @@
 package model;
 import java.awt.*;
+import java.util.Arrays;
 
 import org.json.JSONArray;
 
@@ -86,7 +87,7 @@ public class QuestionObject {
         return questionString;
     }
 
-    public void setqBody(String qBody) {
+	public void setqBody(String qBody) {
         this.questionString = qBody;
     }
 
@@ -97,4 +98,16 @@ public class QuestionObject {
     public void setAnswers(AnswerObject[] answers) {
         this.answers = answers;
     }
+    
+    
+
+    @Override
+	public String toString() {
+		return "QuestionObject [qUestionID=" + qUestionID + ", CorrectAnswer=" + CorrectAnswer + ", position="
+				+ position + ", lvl=" + lvl + ", questionString=" + questionString + ", teamName=" + teamName
+				+ ", answers=" + Arrays.toString(answers) + "]";
+	}
+
+    
 }
+
