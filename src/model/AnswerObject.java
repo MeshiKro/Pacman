@@ -7,23 +7,13 @@ package model;
 public class AnswerObject {
 	
 	
-    public int answerID;
     public String answerString;
     public boolean isCorrect;
     
     
-    public AnswerObject(int answerID, String answerString, boolean isCorrect) {
-        this.answerID = answerID;
+    public AnswerObject(String answerString, boolean isCorrect) {
         this.answerString = answerString;
         this.isCorrect = isCorrect;
-    }
-
-    public int getId() {
-        return answerID;
-    }
-
-    public void setId(int id) {
-        this.answerID = id;
     }
 
     public String getaBody() {
@@ -41,4 +31,10 @@ public class AnswerObject {
     public void setCorrect(boolean correct) {
         isCorrect = correct;
     }
+
+	@Override
+	public String toString() {
+		return "[answerString=" + answerString + ", isCorrect=" + isCorrect + "]\n";
+	}
+    
 }

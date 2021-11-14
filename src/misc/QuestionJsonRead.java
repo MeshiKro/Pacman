@@ -1,52 +1,64 @@
 package misc;
 
+import java.io.FileReader;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.sun.glass.ui.CommonDialogs.Type;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
+import model.AnswerObject;
 import model.QuestionObject;
 
 public class QuestionJsonRead {
 
-	
-	
-	public static ArrayList<QuestionObject> deserializedQuestions;
-	JsonDeserializer<QuestionObject> deserializer = new JsonDeserializer<QuestionObject>() {  
-	
-		
-		
-		
-	    @SuppressWarnings("unused")
-		public QuestionObject deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
-	        JsonObject jsonObject = json.getAsJsonObject();
+	public static ArrayList<QuestionObject> questionsAndAnswers = new ArrayList<QuestionObject>();
 
-	        
-	   
-	        return new QuestionObject(
-	        		
-	        		//Same As the JSON format//
-	        		jsonObject.get("question").getAsString(),
-	                jsonObject.get("answers").getAsJsonArray(),
-	                jsonObject.get("correct_ans").getAsInt(),
-	                jsonObject.get("level").getAsInt(),
-	                jsonObject.get("team").getAsString());
-	    }
+	public void readQuestionsFromJson() {
 
-		@Override
-		public QuestionObject deserialize(JsonElement arg0, java.lang.reflect.Type arg1,
-				JsonDeserializationContext arg2) throws JsonParseException {
-			// TODO Auto-generated method stub
-			return null;
+		try {
+			String text = new String(Files.readAllBytes(Paths.get("QuestionsFormat.json")), StandardCharsets.UTF_8);
+
+			JSONObject obj = new JSONObject(text);
+			JSONArray arr = obj.getJSONArray("questions");
+			for (int i = 0; i < arr.length(); i++) {
+				String questionString = arr.getJSONObject(i).getString("question");
+				JSONArray answers = arr.getJSONObject(i).getJSONArray("answers");
+				String correct_ans = arr.getJSONObject(i).getString("correct_ans");
+				String level = arr.getJSONObject(i).getString("level");
+				String team = arr.getJSONObject(i).getString("team");
+
+				AnswerObject[] answersList = createAnswerList(answers, correct_ans);
+				QuestionObject question = createQuestion(questionString, level, team, answersList);
+
+				questionsAndAnswers.add(question);
+			}
+		} catch (Exception ex) {
+			System.out.println(ex.toString());
 		}
-	};
-	
-	
-	
+
+	}
+
+	private QuestionObject createQuestion(String questionString, String level, String team,
+			AnswerObject[] answersList) {
+		QuestionObject q = new QuestionObject(questionString, level, team, answersList);
+		return q;
+	}
+
+	private AnswerObject[] createAnswerList(JSONArray answers, String correct_ans) {
+
+		AnswerObject[] a = new AnswerObject[4];
+
+		for (int i = 0; i < answers.length(); i++) {
+			boolean correct = false;
+			if ((Integer.parseInt(correct_ans) - 1) == i)
+				correct = true;
+
+			a[i] = new AnswerObject(answers.get(i).toString(), correct);
+		}
+		return a;
+	}
+
 }

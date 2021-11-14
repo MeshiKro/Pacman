@@ -17,15 +17,14 @@ import model.QuestionObject;
 public class Main extends Application {
 
 	public static void main(String[] args) throws ClassNotFoundException {
-	
-		System.out.println("hello Dror Check");
+
+		
 		
 		sysDataTester test = new sysDataTester();
 		test.MapData_Singleton_Check(); // this is the Jtest Call For the MapData Singleton Check//
 		
 		
-		System.out.println("Questions from JSON are:");
-		
+		readJson();
 		launch(args);
 
 			
@@ -33,6 +32,13 @@ public class Main extends Application {
 	}
 
 	
+	private static void readJson() {
+		QuestionJsonRead r = new QuestionJsonRead ();
+		 r.readQuestionsFromJson();
+		 System.out.println(QuestionJsonRead.questionsAndAnswers);
+	}
+
+
 	public void start(Stage primaryStage) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/MainScreen.fxml"));
 		Scene scene = new Scene(root);
