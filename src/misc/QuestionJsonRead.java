@@ -12,11 +12,13 @@ import org.json.JSONObject;
 import model.AnswerObject;
 import model.QuestionObject;
 
+
+
 public class QuestionJsonRead {
 
 	public static ArrayList<QuestionObject> questionsAndAnswers = new ArrayList<QuestionObject>();
 
-	public void readQuestionsFromJson() {
+	public ArrayList<QuestionObject> readQuestionsFromJson() {
 
 		try {
 			String text = new String(Files.readAllBytes(Paths.get("QuestionsFormat.json")), StandardCharsets.UTF_8);
@@ -38,6 +40,7 @@ public class QuestionJsonRead {
 		} catch (Exception ex) {
 			System.out.println(ex.toString());
 		}
+		return questionsAndAnswers;
 
 	}
 

@@ -73,7 +73,7 @@ public class SysData extends JPanel{
 
     
 
-    
+
     
     
     public SysData(JLabel scoreboard, MapData md, PacWindow pw){
@@ -88,7 +88,7 @@ public class SysData extends JPanel{
 
         this.isCustom = md.isCustom();
         this.ghostBase = md.getGhostBasePosition();
-
+        SysData.questions = QuestionJsonRead.questionsAndAnswers;
 
         pacman = new Pacman(md.getPacmanPosition().x,md.getPacmanPosition().y,this);
         addKeyListener(pacman);

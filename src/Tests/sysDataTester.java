@@ -2,14 +2,19 @@ package Tests;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import javax.swing.JLabel;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import com.google.gson.Gson;
+
 import controller.SysData;
 import misc.MapData;
 import misc.QuestionJsonRead;
+import model.QuestionObject;
 import view.PacWindow;
 
 public class sysDataTester {
@@ -26,7 +31,6 @@ public class sysDataTester {
 	@Test
 	public void SysData_Constructor_test() {
 	
-		SysData CheckInstance = new SysData(scoreboard, md_backup, windowParent);
 		
 		
 		
@@ -50,30 +54,37 @@ public class sysDataTester {
 	//if the sda and sdb hold the same refrence - it means our singleton method is working//
 	@Test
 	public void SysData_Singleton_Check() {
-			SysData sda = SysData.getSyso();
-			SysData sdb = SysData.getSyso();
 			
-			if(sda == sdb) {
-				System.out.println("Sys Data singlton works!");
 			}
 			
 		
-	}
+	
 	
 	
 	
 	@Test
-	public void QuestionSer_test() {
-		fail("question srlizer is Not Working propely  :(");
+	public void QuestionSer_test( ArrayList<QuestionObject> QuestionArray) {
+		
+        Gson gson = new Gson();
+		String output = gson.toJson(QuestionArray);
+		
+		System.out.println("the Question ArrayList to Json convert Succeeded. \n this is the output: \n "+ output);
+		
+		
 
 	}
 	
+	
 	@Test
-	public void questionDeSer_test() {
-		fail("question Desrlizer is Not Working properly :(");
+	public ArrayList<QuestionObject> questionDeSer_test() {
+			QuestionJsonRead r = new QuestionJsonRead ();
+			 r.readQuestionsFromJson();
+			 System.out.println(QuestionJsonRead.questionsAndAnswers);
+			 return QuestionJsonRead.questionsAndAnswers;
+		}
 	}
 	
 	
 	
 
-}
+

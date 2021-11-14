@@ -1,6 +1,7 @@
 package model;
 
 import java.awt.*;
+import java.io.Serializable;
 import java.util.Arrays;
 
 import org.json.JSONArray;
@@ -8,12 +9,17 @@ import org.json.JSONArray;
 import com.google.gson.JsonArray;
 
 //this is QuestionObject class, ea question we will read from JarFile//
-public class QuestionObject {
+public class QuestionObject implements Serializable {
+
+	/**
+	 * 
+	 */
 
 	public enum LEVEL {
 		EASY, MEDIUM, HARD
 	}
-
+	
+	private static final long serialVersionUID = 1L;
 	public String questionString;
 	public Point position;
 	public LEVEL lvl;
@@ -28,14 +34,12 @@ public class QuestionObject {
 
 	}
 
-	// helpFunction//
+	// help Function//
 	private LEVEL LEVEL(int asInt2) {
-
 		if (asInt2 == 1)
 			return LEVEL.EASY;
 		if (asInt2 == 2)
 			return LEVEL.MEDIUM;
-
 		return LEVEL.HARD;
 	}
 
