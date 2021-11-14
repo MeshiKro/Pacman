@@ -16,7 +16,12 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class MapEditor extends JFrame {
 
-    public MapEditor(){
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public MapEditor(){
         setSize(650,400);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);

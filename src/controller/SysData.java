@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 
 
-//this is our SingleTon Class Here we save 
+ 
 public class SysData extends JPanel{
 
 
@@ -43,7 +43,7 @@ public class SysData extends JPanel{
     public ArrayList<Teleport> teleports;
     
     //this is the Question Dynamic DataBase that we can manipulate in the Question-Wizard// 
-    public ArrayList<QuestionObject> questions;
+    public static ArrayList<QuestionObject> questions;
 
     public boolean isCustom = false;
     public boolean isGameOver = false;

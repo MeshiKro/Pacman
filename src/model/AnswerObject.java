@@ -11,7 +11,7 @@ public class AnswerObject {
     public String answerString;
     public boolean isCorrect;
     
-
+    
     public AnswerObject(int answerID, String answerString, boolean isCorrect) {
         this.answerID = answerID;
         this.answerString = answerString;
