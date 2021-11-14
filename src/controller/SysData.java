@@ -67,6 +67,11 @@ public class SysData extends JPanel{
     public MapData md_backup;
     public PacWindow windowParent;
 
+    
+    
+    
+    
+    
     public SysData(JLabel scoreboard, MapData md, PacWindow pw){
         this.scoreboard = scoreboard;
         this.setDoubleBuffered(true);
@@ -101,7 +106,7 @@ public class SysData extends JPanel{
             foods = md.getFoodPositions();
         }
 
-        pufoods = md.getPufoodPositions();
+        pufoods = md.getpufoodPositions();
 
         ghosts = new ArrayList<>();
         for(GhostData gd : md.getGhostsData()){
@@ -117,6 +122,10 @@ public class SysData extends JPanel{
                     break;
             }
         }
+        
+        
+        
+        
 
         teleports = md.getTeleports();
 

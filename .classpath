@@ -16,5 +16,6 @@
 	<classpathentry kind="lib" path="javafx-sdk-11.0.2/lib/javafx-swt.jar"/>
 	<classpathentry kind="lib" path="D:/Programing Projects/Java/Pacman-1/Pacman/libs/json-20210307.jar"/>
 	<classpathentry kind="lib" path="D:/Programing Projects/Java/Pacman-1/Pacman/libs/gson-2.8.2.jar"/>
+	<classpathentry kind="lib" path="D:/Programing Projects/Java/Pacman-1/Pacman/libs/junit-4.13.2.jar"/>
 	<classpathentry kind="output" path="out/production/Pacman"/>
 </classpath>

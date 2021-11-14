@@ -1,5 +1,7 @@
 package misc;
 
+import java.util.ArrayList;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonDeserializationContext;
@@ -15,20 +17,30 @@ public class QuestionJsonRead {
 
 	
 	
+	public static ArrayList<QuestionObject> deserializedQuestions;
 	JsonDeserializer<QuestionObject> deserializer = new JsonDeserializer<QuestionObject>() {  
-	    public QuestionObject deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+		
+		
+		
+		
+		
+		
+		
+		
+	    @SuppressWarnings("unused")
+		public QuestionObject deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
 	        JsonObject jsonObject = json.getAsJsonObject();
 
+	        
 	   
 	        return new QuestionObject(
-	                jsonObject.get("question").getAsString(),
+	        		
+	        		//Same As the JSON format//
+	        		jsonObject.get("question").getAsString(),
 	                jsonObject.get("answers").getAsJsonArray(),
 	                jsonObject.get("correct_ans").getAsInt(),
 	                jsonObject.get("level").getAsInt(),
-	                jsonObject.get("team").getAsString(),
-	                
-	                //!!!!!Might need to create Questions Class Diffrnet So the Constructor might fit to Json Format!!!!! Delete This Comment In Future//
-	        );
+	                jsonObject.get("team").getAsString());
 	    }
 
 		@Override

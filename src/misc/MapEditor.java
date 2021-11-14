@@ -136,11 +136,11 @@ public class MapEditor extends JFrame {
             }
             if(c == 'O'){
                 map[i][j] = 0;
-                customMap.getPufoodPositions().add(new Bomb(i,j,0));
+                customMap.getpufoodPositions().add(new Bomb(i,j,0));
             }
             if(c == 'F'){
                 map[i][j] = 0;
-                customMap.getPufoodPositions().add(new Bomb(i,j, ThreadLocalRandom.current().nextInt(4)+1));
+                customMap.getpufoodPositions().add(new Bomb(i,j, ThreadLocalRandom.current().nextInt(4)+1));
             }
             if(c == 'B'){
                 map[i][j] = 0;

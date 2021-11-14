@@ -26,6 +26,11 @@ public class MapData {
         teleports = new ArrayList<>();
         ghostsData = new ArrayList<>();
     }
+    
+    
+    
+    
+    
 
     public MapData(int x, int y){
         this.x = x;
@@ -93,7 +98,7 @@ public class MapData {
         return foodPositions;
     }
 
-    public ArrayList<Bomb> getPufoodPositions() {
+    public ArrayList<Bomb> getpufoodPositions() {
         return pufoodPositions;
     }
 

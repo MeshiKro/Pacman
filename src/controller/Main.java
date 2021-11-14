@@ -7,6 +7,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import misc.QuestionJsonRead;
+import model.QuestionObject;
 
 
 
@@ -20,7 +22,9 @@ public class Main extends Application {
 		
 		
 		//Check If deSerialazation from Json works- if so Questions Should print to the console//
-		System.out.println("Questions from JSON are:"+ SysData.questions);
+		
+		QuestionObject test = new QuestionObject("test???", null, 0, 0, "[] [] [] []");
+		System.out.println("Questions from JSON are:"+ " "+ test.toString());
 		
 		launch(args);
 
