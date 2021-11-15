@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -31,6 +32,7 @@ public class Main extends Application {
 		primaryStage.setScene(scene);
 		primaryStage.setResizable(true);
 		primaryStage.setTitle("Pacman");
+		primaryStage.getIcons().add(new Image("/images/pac.png"));
 		primaryStage.initStyle(StageStyle.DECORATED);
 		primaryStage.show();
 		
