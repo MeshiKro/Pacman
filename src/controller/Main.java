@@ -32,7 +32,7 @@ public class Main extends Application {
 		primaryStage.setScene(scene);
 		primaryStage.setResizable(true);
 		primaryStage.setTitle("Pacman");
-		primaryStage.getIcons().add(new Image("/images/pac.png"));
+		primaryStage.getIcons().add(new Image("/images/pacicon.png"));
 		primaryStage.initStyle(StageStyle.DECORATED);
 		primaryStage.show();
 		
