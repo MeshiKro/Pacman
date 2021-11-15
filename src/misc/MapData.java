@@ -7,9 +7,6 @@ import model.Teleport;
 import java.awt.*;
 import java.util.ArrayList;
 
-import Tests.sysDataTester;
-import controller.SysData;
-
 public class MapData {
 
 	
