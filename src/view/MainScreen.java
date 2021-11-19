@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import misc.Global;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
@@ -64,14 +65,15 @@ public class MainScreen {
 	// Hover Section
 	@FXML
 	void HoverEnd(MouseEvent event) {
-		hoverStartButton("startButton");
+		String img ="startButton";
+		Global.hoverButton(getClass().getResourceAsStream("/images/" + img + ".png"), startGameBtn);		
 
 	}
 
 	@FXML
 	void hoverStart(MouseEvent event) {
-		hoverStartButton("startButtonClicked");
-
+		String img ="startButtonClicked";
+		Global.hoverButton(getClass().getResourceAsStream("/images/" + img + ".png"), startGameBtn);		
 	}
 
 	@FXML
@@ -87,6 +89,8 @@ public class MainScreen {
 	}
 
 	private void hoverSideButton(String id) {
+		if(id == null)
+			return;
 		Image image = createImage("buttonconinterClicked");
 		id = id.replace("Btn", "").replace("Pane", "");
 
@@ -133,6 +137,14 @@ public class MainScreen {
 		Stage stage = (Stage) startGameBtn.getScene().getWindow();
 		stage.close();
 	}
+	
+
+    @FXML
+    void QuestionWizardBtnClicked(MouseEvent event) {
+    	Global.switchScreen(pane,"QuestionScreen",(getClass().getResource("/view/" + "QuestionScreen" + ".fxml")));
+    }
+
+	
 	// End OnClick Section
 
 }

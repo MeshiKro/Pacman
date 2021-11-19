@@ -71,14 +71,14 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="qaPane" layoutX="939.0" layoutY="203.0" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
+      <AnchorPane fx:id="qaPane" layoutX="939.0" layoutY="203.0" onMouseClicked="#QuestionWizardBtnClicked" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
          <children>
-            <ImageView fx:id="QABtn" fitHeight="84.0" fitWidth="84.0">
+            <ImageView fx:id="QABtn" fitHeight="84.0" fitWidth="84.0" onMouseClicked="#QuestionWizardBtnClicked">
                <image>
                   <Image url="@../../images/buttonconinter.png" />
                </image>
             </ImageView>
-            <ImageView layoutX="21.0" layoutY="21.0">
+            <ImageView layoutX="21.0" layoutY="21.0" onMouseClicked="#QuestionWizardBtnClicked">
                <image>
                   <Image url="@../../images/question.png" />
                </image>

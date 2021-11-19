@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.QuestionScreen">
+   <children>
+      <ImageView fitHeight="361.0" fitWidth="369.0" layoutY="242.0">
+         <image>
+            <Image url="@../../images/logo2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="328.0" fitWidth="523.0" layoutX="259.0" layoutY="177.0">
+         <image>
+            <Image url="@../../images/Rectangle.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="homePane" layoutX="939.0" layoutY="86.0" onMouseClicked="#HomeBtnClicked" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
+         <children>
+            <ImageView fx:id="homeBtn" fitHeight="84.0" fitWidth="84.0" layoutY="-42.0" onMouseClicked="#HomeBtnClicked">
+               <image>
+                  <Image url="@../../images/buttonconinter.png" />
+               </image>
+            </ImageView>
+            <ImageView layoutX="22.0" layoutY="-21.0" onMouseClicked="#HomeBtnClicked">
+               <image>
+                  <Image url="@../../images/home.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="startButtonClicked" fitHeight="82.0" fitWidth="200.0" layoutX="420.0" layoutY="398.0" visible="false">
+         <image>
+            <Image url="@../../images/startButtonClicked.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="label" layoutX="296.0" layoutY="200.0" text="what would you like to do?" textFill="WHITE">
+         <font>
+            <Font name="Cascadia Code Regular" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="title" layoutX="249.0" layoutY="58.0" text="Questions Wizard" textFill="#d8a14a">
+         <font>
+            <Font name="Cascadia Code Regular" size="60.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="editDeleteBtn" fitHeight="108.0" fitWidth="398.0" layoutX="322.0" layoutY="246.0" onMouseClicked="#updateQuestionScreen" onMouseEntered="#hoverStart" onMouseExited="#HoverEnd">
+         <image>
+            <Image url="@../../images/editDeleteBtn.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="addBtn" fitHeight="108.0" fitWidth="398.0" layoutX="321.0" layoutY="369.0" onMouseClicked="#AddQuestionScreen" onMouseEntered="#hoverStart" onMouseExited="#HoverEnd">
+         <image>
+            <Image url="@../../images/addQuesiotnBtn.png" />
+         </image>
+      </ImageView>
+      <Line endX="469.0" layoutX="351.0" layoutY="137.0" startX="-100.0" stroke="#757800" strokeWidth="3.0" />
+   </children>
+</AnchorPane>
