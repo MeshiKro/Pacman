@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #2c2929;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ConfirmPopUp">
+   <children>
+      <ImageView fitHeight="495.0" fitWidth="941.0" layoutX="60.0" layoutY="24.0">
+         <image>
+            <Image url="@../../images/confirmMessage.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="startButtonClicked" fitHeight="82.0" fitWidth="200.0" layoutX="420.0" layoutY="398.0" visible="false">
+         <image>
+            <Image url="@../../images/startButtonClicked.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="okBtn" fitHeight="69.0" fitWidth="185.0" layoutX="437.0" layoutY="331.0" onMouseClicked="#OkBtnClicked" onMouseEntered="#hoverStart" onMouseExited="#HoverEnd">
+         <image>
+            <Image url="@../../images/okBtn.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="meg" layoutX="291.0" layoutY="194.0" prefHeight="145.0" prefWidth="479.0" text="The question was added successfully" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

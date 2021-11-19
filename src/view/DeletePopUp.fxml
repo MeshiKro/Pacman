@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #2c2929;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.DeletePopUp">
+   <children>
+      <ImageView fitHeight="406.0" fitWidth="753.0" layoutX="137.0" layoutY="47.0">
+         <image>
+            <Image url="@../../images/deleteMessage.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="yesBtn" fitHeight="69.0" fitWidth="185.0" layoutX="528.0" layoutY="329.0" onMouseClicked="#YesBtnClicked" onMouseEntered="#hoverStart" onMouseExited="#HoverEnd">
+         <image>
+            <Image url="@../../images/yesBtn.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="startButtonClicked" fitHeight="82.0" fitWidth="200.0" layoutX="420.0" layoutY="398.0" visible="false">
+         <image>
+            <Image url="@../../images/startButtonClicked.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="noBtn" fitHeight="69.0" fitWidth="185.0" layoutX="307.0" layoutY="329.0" onMouseClicked="#NoBtnClicked" onMouseEntered="#hoverStart" onMouseExited="#HoverEnd">
+         <image>
+            <Image url="@../../images/noBtn.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
