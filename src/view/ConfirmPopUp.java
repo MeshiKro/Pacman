@@ -9,35 +9,41 @@ import misc.Global;
 
 public class ConfirmPopUp {
 
-    @FXML
-    private AnchorPane pane;
+	@FXML
+	private AnchorPane pane;
 
-    @FXML
-    private ImageView startButtonClicked;
+	@FXML
+	private ImageView startButtonClicked;
 
-    @FXML
-    private ImageView okBtn;
+	@FXML
+	private ImageView okBtn;
 
-    @FXML
-    private Label meg;
+	@FXML
+	private Label meg;
 
-    
+	// Hover Section
+	
+	@FXML
+	void hoverStart(MouseEvent event) {
+		Global.hoverButton(getClass().getResourceAsStream("/images/" + "okBtnClicked" + ".png"), okBtn);
 
-    @FXML
-    void OkBtnClicked(MouseEvent event) {
+	}
 
-    }
+	@FXML
+	void HoverEnd(MouseEvent event) {
+		Global.hoverButton(getClass().getResourceAsStream("/images/" + "okBtn" + ".png"), okBtn);
 
-    @FXML
-    void HoverEnd(MouseEvent event) {
-		Global.hoverButton(getClass().getResourceAsStream("/images/" + "okBtn" + ".png"), okBtn);		
+	}
 
-    }
-    
-    @FXML
-    void hoverStart(MouseEvent event) {
-		Global.hoverButton(getClass().getResourceAsStream("/images/" + "okBtnClicked" + ".png"), okBtn);		
+	// End Hover Section
 
-    }
+	
+	// OnClick Section
+	@FXML
+	void OkBtnClicked(MouseEvent event) {
+
+	}
+
+	// End OnClick Section
 
 }
