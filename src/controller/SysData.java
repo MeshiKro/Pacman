@@ -170,7 +170,7 @@ public class SysData extends JPanel{
 
         //SoundPlayer.play("pacman_start.wav");
         siren = new LoopPlayer("siren.wav");
-        pac6 = new LoopPlayer("pac6.wav");
+       pac6 = new LoopPlayer("pac6.wav");
         siren.start();
     }
 

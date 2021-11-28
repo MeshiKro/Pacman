@@ -19,7 +19,7 @@ public class PacWindow extends JFrame {
         setLayout(new BorderLayout());
         getContentPane().setBackground(Color.black);
 
-        setSize(794, 884);
+        setSize(794, 694);
         setLocationRelativeTo(null);
 
         JLabel scoreboard = new JLabel("    Score : 0");
@@ -39,26 +39,34 @@ public class PacWindow extends JFrame {
     }
 
     public PacWindow(MapData md) {
-        setTitle("AKP Pacman v1.0");
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setLayout(new BorderLayout());
-        getContentPane().setBackground(Color.black);
+//        setTitle("AKP Pacman v1.0");
+  //      setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    //    setLayout(new BorderLayout());
+      //  getContentPane().setBackground(Color.black);
 
-        setSize(794, 884);
-        setLocationRelativeTo(null);
+//        setSize(794, 884);
+  //      setLocationRelativeTo(null);
 
         JLabel scoreboard = new JLabel("    Score : 0");
         scoreboard.setForeground(new Color(255, 243, 36));
 
+        JFrame         frame=new JFrame("first way");
+
+
+        
         //int[][] mapLoaded = loadMap(27,29,"/maps/map1.txt");
         adjustMap(md);
         SysData pb = new SysData(scoreboard, md, this);
         pb.setBorder(new CompoundBorder(new EmptyBorder(10, 10, 10, 10), new LineBorder(Color.BLUE)));
         addKeyListener(pb.pacman);
 
-        this.getContentPane().add(scoreboard, BorderLayout.SOUTH);
-        this.getContentPane().add(pb);
-        setVisible(true);
+        frame.setSize(1000, 900);
+        
+frame.getContentPane().add(scoreboard, BorderLayout.SOUTH);
+frame.getContentPane().add(pb);
+this.getContentPane().add(frame);
+frame.setVisible(true);
+      //  setVisible(true);
     }
 
 

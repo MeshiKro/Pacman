@@ -27,7 +27,7 @@ public class Main extends Application {
 
 
 	public void start(Stage primaryStage) throws Exception {
-	//	Parent root = FXMLLoader.load(getClass().getResource("/view/MainScreen.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/view/MainScreen.fxml"));
 //		Parent root = FXMLLoader.load(getClass().getResource("/view/ConfirmPopUp.fxml"));
 
 		Scene scene = new Scene(root);

@@ -18,5 +18,13 @@
 	<classpathentry exported="true" kind="lib" path="libs/gson-2.8.2.jar"/>
 	<classpathentry exported="true" kind="lib" path="libs/json-20210307.jar"/>
 	<classpathentry exported="true" kind="lib" path="libs/junit-4.13.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/USER001/Desktop/יובל/שנה אחרונה/הנדסת תוכנה/Pacman-master/javafx-sdk-11.0.2/lib/javafx.base.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/USER001/Desktop/יובל/שנה אחרונה/הנדסת תוכנה/Pacman-master/javafx-sdk-11.0.2/lib/javafx.controls.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/USER001/Desktop/יובל/שנה אחרונה/הנדסת תוכנה/Pacman-master/javafx-sdk-11.0.2/lib/javafx.fxml.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/USER001/Desktop/יובל/שנה אחרונה/הנדסת תוכנה/Pacman-master/javafx-sdk-11.0.2/lib/javafx.graphics.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/USER001/Desktop/יובל/שנה אחרונה/הנדסת תוכנה/Pacman-master/javafx-sdk-11.0.2/lib/javafx.media.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/USER001/Desktop/יובל/שנה אחרונה/הנדסת תוכנה/Pacman-master/javafx-sdk-11.0.2/lib/javafx.swing.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/USER001/Desktop/יובל/שנה אחרונה/הנדסת תוכנה/Pacman-master/javafx-sdk-11.0.2/lib/javafx.web.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/USER001/Desktop/יובל/שנה אחרונה/הנדסת תוכנה/Pacman-master/javafx-sdk-11.0.2/lib/javafx-swt.jar"/>
 	<classpathentry kind="output" path="out/production/Pacman"/>
 </classpath>
