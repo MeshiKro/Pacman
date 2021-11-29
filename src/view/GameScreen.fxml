@@ -4,37 +4,38 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MainScreen">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.GameScreen">
    <children>
-      <ImageView fitHeight="606.0" fitWidth="1067.0">
+      <ImageView fx:id="paneImage" fitHeight="606.0" fitWidth="1067.0" layoutX="2.0" layoutY="-3.0">
          <image>
             <Image url="@../images/back.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="qaPane" layoutX="939.0" layoutY="51.0" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
-         <children>
-            <ImageView fx:id="QABtn" fitHeight="84.0" fitWidth="84.0">
-               <image>
-                  <Image url="@../../../../../../Pacman-master/Pacman-master/images/buttonconinter.png" />
-               </image>
-            </ImageView>
-            <ImageView layoutX="21.0" layoutY="22.0">
-               <image>
-                  <Image url="@../images/home.png" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="mutePane" layoutX="939.0" layoutY="157.0" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
+      <AnchorPane fx:id="gamePane" layoutX="221.0" layoutY="14.0" prefHeight="475.0" prefWidth="591.0" />
+      <AnchorPane fx:id="mutePane" layoutX="939.0" layoutY="168.0" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
          <children>
             <ImageView fx:id="muteBtn" fitHeight="84.0" fitWidth="84.0">
                <image>
-                  <Image url="@../../../../../../Pacman-master/Pacman-master/images/buttonconinter.png" />
+                  <Image url="@../../images/buttonconinter.png" />
                </image>
             </ImageView>
             <ImageView layoutX="19.0" layoutY="19.0">
                <image>
-                  <Image url="@../../../../../../Pacman-master/Pacman-master/images/mute.png" />
+                  <Image url="@../../images/mute.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="homePane" layoutX="939.0" layoutY="96.0" onMouseClicked="#HomeBtnClicked" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
+         <children>
+            <ImageView fx:id="homeBtn" fitHeight="84.0" fitWidth="84.0" layoutY="-42.0" onMouseClicked="#HomeBtnClicked">
+               <image>
+                  <Image url="@../../images/buttonconinter.png" />
+               </image>
+            </ImageView>
+            <ImageView layoutX="22.0" layoutY="-21.0" onMouseClicked="#HomeBtnClicked">
+               <image>
+                  <Image url="@../../images/home.png" />
                </image>
             </ImageView>
          </children>

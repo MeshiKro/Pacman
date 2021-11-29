@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 public class PacWindow extends JFrame {
 
-    public PacWindow() {
+   /* public PacWindow() {
         setTitle("AKP Pacman v1.0");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
@@ -36,8 +36,32 @@ public class PacWindow extends JFrame {
         this.getContentPane().add(scoreboard, BorderLayout.SOUTH);
         this.getContentPane().add(pb);
         setVisible(true);
-    }
+    }*/
+	  public JPanel createGameBoard()
+	  {
+			
+	        JPanel panel = new JPanel(new BorderLayout());
 
+	        panel.setPreferredSize(new Dimension(594, 494));
+	        panel.setBackground(Color.black);
+	        
+	        JLabel scoreboard = new JLabel("    Score : 0         Level : 1");
+	        scoreboard.setForeground(new Color(255, 243, 36));
+
+	        MapData map1 = getMapFromResource("/resources/maps/map1_c.txt");
+	        adjustMap(map1);
+
+	        SysData pb = new SysData(scoreboard, map1, this);
+
+	        pb.setBorder(new CompoundBorder(new EmptyBorder(10, 10, 10, 10), new LineBorder(Color.BLUE)));
+	        addKeyListener(pb.pacman);
+	        
+	        panel.add(scoreboard, BorderLayout.SOUTH);
+	        panel.add(pb);
+	return panel;
+	  }
+	
+   
     public PacWindow(MapData md) {
 //        setTitle("AKP Pacman v1.0");
   //      setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -70,7 +94,13 @@ frame.setVisible(true);
     }
 
 
-    public int[][] loadMap(int mx, int my, String relPath) {
+    public PacWindow() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+	public int[][] loadMap(int mx, int my, String relPath) {
         try {
             Scanner scn = new Scanner(this.getClass().getResourceAsStream(relPath));
             int[][] map;

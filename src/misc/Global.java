@@ -35,6 +35,7 @@ public class Global {
 
 	}
 
+
 	private static void initializeConroller(FXMLLoader loader, String screenName) {
 
 		switch (screenName) {

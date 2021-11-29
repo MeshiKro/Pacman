@@ -45,7 +45,7 @@ public class QuestionScreen {
 
 	@FXML
 	void hoverStartSideButton(MouseEvent event) {
-		String img ="buttonconinterClicked";
+		String img ="buttonconinterClicked";		
 		Global.hoverButton(getClass().getResourceAsStream("/images/" + img + ".png"), homeBtn);		
 
 	}
