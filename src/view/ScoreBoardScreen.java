@@ -9,7 +9,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.TextFlow;
 import misc.Global;
 
-public class ScoreBoard {
+public class ScoreBoardScreen {
 
     @FXML
     private AnchorPane pane;
@@ -37,27 +37,42 @@ public class ScoreBoard {
     
 
     
-    
+	// Hover Section
+
 	public void initialize() {
 
 		//Here the scoreBoard ArrayList Will Be injected to the ScoreBoard Components//
 	}
     
+   
     
+    
+    @FXML
+	void hoverStartSideButton(MouseEvent event) {
+		String img ="buttonconinterClicked";
+		Global.hoverButton(getClass().getResourceAsStream("/images/" + img + ".png"), homeBtn);		
+
+	}
+	
+	@FXML
+	void hoverEndSideButton(MouseEvent event) {
+		String img ="buttonconinter";
+		Global.hoverButton(getClass().getResourceAsStream("/images/" + img + ".png"), homeBtn);		
+	}
+
+
+	// End Hover Section
+
+	
+	
+	
+	// OnClick Section//
+	 
     @FXML
     void HomeBtnClicked(MouseEvent event) {
     	Global.switchScreen(pane,"MainScreen",(getClass().getResource("/view/" + "MainScreen" + ".fxml")));
     }
     
-    
-    @FXML
-    void hoverEndSideButton(MouseEvent event) {
-
-    }
-
-    @FXML
-    void hoverStartSideButton(MouseEvent event) {
-
-    }
+	// End OnClick Section
 
 }

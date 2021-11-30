@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MainScreen">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MainScreen">
    <children>
       <ImageView fitHeight="361.0" fitWidth="369.0" layoutY="241.0">
          <image>
@@ -99,9 +99,9 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="boardPane" layoutX="939.0" layoutY="444.0" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
+      <AnchorPane fx:id="boardPane" layoutX="939.0" layoutY="444.0" onMouseClicked="#ScoreBoardButtonClicked" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
          <children>
-            <ImageView fx:id="boardBtn" fitHeight="84.0" fitWidth="84.0">
+            <ImageView fx:id="boardBtn" fitHeight="84.0" fitWidth="84.0" onMouseClicked="#ScoreBoardButtonClicked">
                <image>
                   <Image url="@../../images/buttonconinter.png" />
                </image>

@@ -3,9 +3,10 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<fx:root fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #000000;" type="AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ScoreBoard">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ScoreBoardScreen">
    <children>
       <ImageView fitHeight="600.0" fitWidth="1060.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -32,5 +33,6 @@
       <TextFlow layoutX="381.0" layoutY="265.0" prefHeight="27.0" prefWidth="180.0" />
       <TextFlow fx:id="NickName4" layoutX="365.0" layoutY="326.0" prefHeight="27.0" prefWidth="180.0" />
       <TextFlow fx:id="NickName5" layoutX="365.0" layoutY="363.0" prefHeight="27.0" prefWidth="180.0" />
+      <Text layoutX="507.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="test!!" />
    </children>
-</fx:root>
+</AnchorPane>
