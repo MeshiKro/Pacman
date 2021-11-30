@@ -128,7 +128,10 @@ public class MainScreen {
 
 	// End Hover Section
 
-	// OnClick Section
+	
+	
+	
+	// OnClick Section//
 
 	@FXML
 	void startGame(MouseEvent event) {
@@ -143,6 +146,15 @@ public class MainScreen {
     void QuestionWizardBtnClicked(MouseEvent event) {
     	Global.switchScreen(pane,"QuestionScreen",(getClass().getResource("/view/" + "QuestionScreen" + ".fxml")));
     }
+    
+    
+    
+    @FXML
+    void ScoreBoardButtonClicked(MouseEvent event) {
+    	Global.switchScreen(pane,"ScoreBoard",(getClass().getResource("/view/" + "ScoreBoardScreen" + ".fxml")));
+    	
+    }
+
 
 	
 	// End OnClick Section

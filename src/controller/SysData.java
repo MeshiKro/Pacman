@@ -491,6 +491,11 @@ public class SysData extends JPanel{
 	public static void setSyso(SysData syso) {
 		SysData.syso = syso;
 	}
+
+	public static ArrayList<QuestionObject> getQuestions() {
+		return questions;
+		
+	}
     
     
     

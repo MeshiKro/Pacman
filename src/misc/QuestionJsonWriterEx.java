@@ -1,23 +1,48 @@
 package misc;
 
-import java.util.ArrayList;
-
+import java.io.FileWriter;
 import com.google.gson.Gson;
+import com.google.gson.JsonIOException;
 
+import model.AnswerObject;
 import model.QuestionObject;
+import model.questions;
 
 public class QuestionJsonWriterEx {
 
 	
-	public void serialazation(ArrayList<QuestionObject> Questions) {
+	public static boolean serialazation() throws Exception {
 		
-	
-        Gson gson = new Gson();
-		String output = gson.toJson(Questions);
+		questions helper = new questions();
 		
-		System.out.println(output);
+		 AnswerObject[] answers = new AnswerObject[4];
+		 
+		answers[0]= new AnswerObject("111", false);
+		answers[1]= new AnswerObject("222", false);
+		answers[2]= new AnswerObject("333", false);
+		answers[3]= new AnswerObject("444", true);
+
 		
-		return;
+		QuestionObject Question = new QuestionObject("Hello How Are you?", "3", "Scorpions",answers );
+		helper.questions.add(Question);
+
+		Gson gson = new Gson();
+        
+		FileWriter writer = new FileWriter("QuestionBank.json");
+        try {
+			gson.toJson(helper,writer);
+			
+		} catch (JsonIOException e) {
+			e.printStackTrace();
+			return false;
+		}
+        
+        
+        writer.flush(); //flush data to file   <---
+        writer.close(); //close write 
+        
+		
+		return true;
 	}
 	
 	

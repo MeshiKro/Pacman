@@ -6,6 +6,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="JunitTest"/>
 	<classpathentry kind="src" path="libs"/>
 	<classpathentry exported="true" kind="lib" path="javafx-sdk-11.0.2/lib/javafx.base.jar"/>
 	<classpathentry exported="true" kind="lib" path="javafx-sdk-11.0.2/lib/javafx.controls.jar"/>

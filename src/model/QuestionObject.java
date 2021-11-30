@@ -20,14 +20,14 @@ public class QuestionObject implements Serializable {
 	}
 	
 	private static final long serialVersionUID = 1L;
-	public String questionString;
+	public String question;
 	public Point position;
 	public LEVEL lvl;
 	public String teamName;
 	public AnswerObject[] answers;
 
 	public QuestionObject(String question, String level, String team, AnswerObject[] answersList) {
-		this.questionString = question;
+		this.question = question;
 		this.lvl = LEVEL(Integer.parseInt(level));
 		this.teamName = team;
 		this.answers = answersList;
@@ -60,11 +60,11 @@ public class QuestionObject implements Serializable {
 	}
 
 	public String getqBody() {
-		return questionString;
+		return question;
 	}
 
 	public void setqBody(String qBody) {
-		this.questionString = qBody;
+		this.question = qBody;
 	}
 
 	public AnswerObject[] getAnswers() {
@@ -77,7 +77,7 @@ public class QuestionObject implements Serializable {
 
 	@Override
 	public String toString() {
-		return " [questionString=" + questionString + ", position=" + position + ", lvl=" + lvl
+		return " [questionString=" + question + ", position=" + position + ", lvl=" + lvl
 				+ ", teamName=" + teamName + ",\n answers=" + Arrays.toString(answers) + "]\n";
 	}
 
