@@ -25,7 +25,10 @@ public class Main extends Application {
 		QuestionJsonRead JR = new QuestionJsonRead();
 		QuestionJsonWriterEx JW = new QuestionJsonWriterEx();
 		
+		//Read Json Question  from file
 		a = JR.readQuestionsFromJson();
+		
+		//Write to json file
 		JW.serialazation(a);
 		
 		

@@ -4,13 +4,13 @@
  * game board, the score label, the level label, and the Game Over label.
  */
 
-package finalPacman;
+package misc;
 
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import finalPacman.PacManModel.CellValue;
+import misc.PacManModel.CellValue;
 
 public class PacManView extends Group {
     public final static double CELL_WIDTH = 20.0;

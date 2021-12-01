@@ -4,7 +4,7 @@
  * text file), various boolean indicators about game state, level, score, and the movement of PacMan and ghosts.
  */
 
-package finalPacman;
+package misc;
 
 import javafx.geometry.Point2D;
 
