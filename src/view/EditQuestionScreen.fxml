@@ -78,5 +78,29 @@
       <TextField fx:id="nameFeild3" layoutX="408.0" layoutY="374.0" prefHeight="22.0" prefWidth="438.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
       <TextField fx:id="nameFeild4" layoutX="406.0" layoutY="421.0" prefHeight="22.0" prefWidth="438.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
       <ComboBox fx:id="themeField" accessibleText="sdfsdf" layoutX="406.0" layoutY="189.0" prefHeight="22.0" prefWidth="108.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
+      <AnchorPane fx:id="backBtnPane" layoutX="55.0" layoutY="86.0" onMouseClicked="#BackBtnClicked" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
+         <children>
+            <ImageView fx:id="backBtn" fitHeight="84.0" fitWidth="84.0" layoutY="-42.0" onMouseClicked="#BackBtnClicked">
+               <image>
+                  <Image url="@../../images/buttonconinter.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="backicon" fitHeight="42.0" fitWidth="41.0" layoutX="20.0" layoutY="-22.0" onMouseClicked="#BackBtnClicked">
+               <image>
+                  <Image url="@../../images/arrow.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="saveBtn" fitHeight="63.0" fitWidth="174.0" layoutX="679.0" layoutY="468.0">
+         <image>
+            <Image url="@../../images/saveBtn.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="adddBtn" fitHeight="72.0" fitWidth="191.0" layoutX="671.0" layoutY="464.0" visible="false">
+         <image>
+            <Image url="@../../images/addBtn.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
