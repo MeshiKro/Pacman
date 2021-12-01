@@ -23,10 +23,10 @@ public class Main extends Application {
 		QuestionJsonWriterEx JW = new QuestionJsonWriterEx();
 
 		// Read Json Question from file
-		a = JR.readQuestionsFromJson();
+	//	a = JR.readQuestionsFromJson();
 
 		// Write to json file
-		JW.serialazation(a);
+	//	JW.serialazation(a);
 
 		launch(args);
 

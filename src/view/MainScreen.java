@@ -76,12 +76,14 @@ public class MainScreen {
 
 	@FXML
 	void hoverStartSideButton(MouseEvent event) {
+		if(event != null)
 		hoverSideButton(event.getPickResult().getIntersectedNode().getId());
 
 	}
 
 	@FXML
 	void hoverEndSideButton(MouseEvent event) {
+		if(event != null)
 		hoverSideButton(event.getPickResult().getIntersectedNode().getId());
 
 	}

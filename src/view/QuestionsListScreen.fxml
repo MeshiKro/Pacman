@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.QuestionsListScreen">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.QuestionsListScreen">
    <children>
       <ImageView fitHeight="361.0" fitWidth="369.0" layoutY="242.0">
          <image>
@@ -50,7 +50,7 @@
          </font>
       </Label>
       <Line endX="402.0" layoutX="378.0" layoutY="131.0" startX="-100.0" stroke="#757800" strokeWidth="3.0" />
-      <Label fx:id="label1" layoutX="432.0" layoutY="181.0" text="Difficulty Level " textFill="WHITE">
+      <Label fx:id="label1" layoutX="411.0" layoutY="181.0" text="Difficulty Level " textFill="WHITE">
          <font>
             <Font name="Cascadia Code Regular" size="24.0" />
          </font>
@@ -127,62 +127,62 @@
       </Text>
       <ImageView fitHeight="26.0" fitWidth="40.0" layoutX="668.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/delete-256.png" />
+            <Image url="@../../images/delete.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="26.0" fitWidth="33.0" layoutX="763.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/edit-256.png" />
+            <Image url="@../../images/edit.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="26.0" fitWidth="40.0" layoutX="668.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/delete-256.png" />
+            <Image url="@../../images/delete.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="26.0" fitWidth="40.0" layoutX="668.0" layoutY="337.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/delete-256.png" />
+            <Image url="@../../images/delete.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="26.0" fitWidth="40.0" layoutX="668.0" layoutY="385.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/delete-256.png" />
+            <Image url="@../../images/delete.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="26.0" fitWidth="40.0" layoutX="668.0" layoutY="433.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/delete-256.png" />
+            <Image url="@../../images/delete.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="26.0" fitWidth="40.0" layoutX="668.0" layoutY="479.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/delete-256.png" />
+            <Image url="@../../images/delete.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="26.0" fitWidth="33.0" layoutX="763.0" layoutY="337.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/edit-256.png" />
+            <Image url="@../../images/edit.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="26.0" fitWidth="33.0" layoutX="763.0" layoutY="385.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/edit-256.png" />
+            <Image url="@../../images/edit.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="26.0" fitWidth="33.0" layoutX="763.0" layoutY="433.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/edit-256.png" />
+            <Image url="@../../images/edit.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="26.0" fitWidth="33.0" layoutX="763.0" layoutY="479.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/edit-256.png" />
+            <Image url="@../../images/edit.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="26.0" fitWidth="33.0" layoutX="763.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/edit-256.png" />
+            <Image url="@../../images/edit.png" />
          </image>
       </ImageView>
       <AnchorPane fx:id="backBtnPane" layoutX="45.0" layoutY="76.0" onMouseClicked="#BackBtnClicked" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
@@ -194,7 +194,7 @@
             </ImageView>
             <ImageView fx:id="backicon" fitHeight="42.0" fitWidth="41.0" layoutX="20.0" layoutY="-22.0" onMouseClicked="#BackBtnClicked">
                <image>
-                  <Image url="@../images/arrow-112-256.png" />
+                  <Image url="@../../images/arrow.png" />
                </image>
             </ImageView>
          </children>

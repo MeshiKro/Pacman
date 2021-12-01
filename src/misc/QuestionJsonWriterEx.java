@@ -13,7 +13,7 @@ import model.questions;
 public class QuestionJsonWriterEx {
 
 	
-	public static boolean serialazation(ArrayList<QuestionObject> arg) throws Exception {
+	public boolean serialazation(ArrayList<QuestionObject> arg) throws Exception {
 		
 		questions helper = new questions();
 		
