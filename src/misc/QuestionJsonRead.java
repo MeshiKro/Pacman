@@ -20,7 +20,7 @@ public class QuestionJsonRead {
 	public ArrayList<QuestionObject> readQuestionsFromJson() {
 
 		try {
-			String text = new String(Files.readAllBytes(Paths.get("QuestionBank.json")), StandardCharsets.UTF_8);
+			String text = new String(Files.readAllBytes(Paths.get("QuestionsFormat.json")), StandardCharsets.UTF_8);
 
 			JSONObject obj = new JSONObject(text);
 			JSONArray arr = obj.getJSONArray("questions");

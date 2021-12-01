@@ -2,11 +2,9 @@ package view;
 
 import java.io.InputStream;
 
-import javafx.event.ActionEvent;
+
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -14,7 +12,6 @@ import misc.GlobalFuncations;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 
 public class MainScreen {

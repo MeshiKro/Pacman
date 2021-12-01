@@ -13,7 +13,12 @@ import java.util.Scanner;
 
 public class PacWindow extends JFrame {
 
-    public PacWindow() {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public PacWindow() {
         setTitle("AKP Pacman v1.0");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
@@ -72,7 +77,8 @@ frame.setVisible(true);
 
     public int[][] loadMap(int mx, int my, String relPath) {
         try {
-            Scanner scn = new Scanner(this.getClass().getResourceAsStream(relPath));
+            @SuppressWarnings("resource")
+			Scanner scn = new Scanner(this.getClass().getResourceAsStream(relPath));
             int[][] map;
             map = new int[mx][my];
             for (int y = 0; y < my; y++) {
