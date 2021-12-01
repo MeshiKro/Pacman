@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import misc.Global;
+import misc.GlobalFuncations;
 
 public class DeletePopUp {
 
@@ -31,8 +31,8 @@ public class DeletePopUp {
 	private void setHover(String id, String isClicked) {
 		if(id == null)
 		{
-			Global.hoverButton(getClass().getResourceAsStream("/images/" + "yesBtn" + ".png"), yesBtn);		
-			Global.hoverButton(getClass().getResourceAsStream("/images/" + "noBtn" + ".png"), noBtn);	
+			GlobalFuncations.hoverButton(getClass().getResourceAsStream("/images/" + "yesBtn" + ".png"), yesBtn);		
+			GlobalFuncations.hoverButton(getClass().getResourceAsStream("/images/" + "noBtn" + ".png"), noBtn);	
 			return;
 		}
 		//System.out.println(id);
@@ -48,7 +48,7 @@ public class DeletePopUp {
 			imgToHover = noBtn;
 		}
 		
-		Global.hoverButton(getClass().getResourceAsStream("/images/" + img + ".png"), imgToHover);		
+		GlobalFuncations.hoverButton(getClass().getResourceAsStream("/images/" + img + ".png"), imgToHover);		
 	}
 
 	@FXML

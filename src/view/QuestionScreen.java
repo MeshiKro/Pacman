@@ -5,7 +5,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
-import misc.Global;
+
+import misc.GlobalFuncations;
 import javafx.scene.input.MouseEvent;
 
 public class QuestionScreen {
@@ -46,14 +47,14 @@ public class QuestionScreen {
 	@FXML
 	void hoverStartSideButton(MouseEvent event) {
 		String img ="buttonconinterClicked";
-		Global.hoverButton(getClass().getResourceAsStream("/images/" + img + ".png"), homeBtn);		
+		GlobalFuncations.hoverButton(getClass().getResourceAsStream("/images/" + img + ".png"), homeBtn);		
 
 	}
 	
 	@FXML
 	void hoverEndSideButton(MouseEvent event) {
 		String img ="buttonconinter";
-		Global.hoverButton(getClass().getResourceAsStream("/images/" + img + ".png"), homeBtn);		
+		GlobalFuncations.hoverButton(getClass().getResourceAsStream("/images/" + img + ".png"), homeBtn);		
 	}
 
 	
@@ -74,7 +75,7 @@ public class QuestionScreen {
 
 	private void setHover(ImageView imageView, boolean b) {
 		    String img =getImage(imageView.idProperty().toString(),b);
-			Global.hoverButton(getClass().getResourceAsStream("/images/" + img + ".png"), imageView);		
+		    GlobalFuncations.hoverButton(getClass().getResourceAsStream("/images/" + img + ".png"), imageView);		
 	}
 	private String getImage(String id, boolean b) {
 		 String img ="";
@@ -97,19 +98,19 @@ public class QuestionScreen {
 
     @FXML
     void HomeBtnClicked(MouseEvent event) {
-    	Global.switchScreen(pane,"MainScreen",(getClass().getResource("/view/" + "MainScreen" + ".fxml")),"");
+    	GlobalFuncations.switchScreen(pane,"MainScreen",(getClass().getResource("/view/" + "MainScreen" + ".fxml")),"");
 
     }
 	
 	@FXML
 	void AddQuestionScreen(MouseEvent event) {
-    	//Global.switchScreen(pane,"EditQuestionScreen",(getClass().getResource("/view/" + "EditQuestionScreen" + ".fxml")),"Add");
+		GlobalFuncations.switchScreen(pane,"EditQuestionScreen",(getClass().getResource("/view/" + "EditQuestionScreen" + ".fxml")),"Add");
 
 	}
 
 	@FXML
 	void updateQuestionScreen(MouseEvent event) {
-    	Global.switchScreen(pane,"EditQuestionScreen",(getClass().getResource("/view/" + "EditQuestionScreen" + ".fxml")),"Edit");
+		GlobalFuncations.switchScreen(pane,"QuestionsListScreen",(getClass().getResource("/view/" + "QuestionsListScreen" + ".fxml")),"");
 
 	}
 	// End OnClick Section

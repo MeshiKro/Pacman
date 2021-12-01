@@ -10,7 +10,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import misc.Global;
+import misc.GlobalFuncations;
+
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
@@ -66,14 +67,14 @@ public class MainScreen {
 	@FXML
 	void HoverEnd(MouseEvent event) {
 		String img ="startButton";
-		Global.hoverButton(getClass().getResourceAsStream("/images/" + img + ".png"), startGameBtn);		
+		GlobalFuncations.hoverButton(getClass().getResourceAsStream("/images/" + img + ".png"), startGameBtn);		
 
 	}
 
 	@FXML
 	void hoverStart(MouseEvent event) {
 		String img ="startButtonClicked";
-		Global.hoverButton(getClass().getResourceAsStream("/images/" + img + ".png"), startGameBtn);		
+		GlobalFuncations.hoverButton(getClass().getResourceAsStream("/images/" + img + ".png"), startGameBtn);		
 	}
 
 	@FXML
@@ -147,14 +148,14 @@ public class MainScreen {
 
     @FXML
     void QuestionWizardBtnClicked(MouseEvent event) {
-    	Global.switchScreen(pane,"QuestionScreen",(getClass().getResource("/view/" + "QuestionScreen" + ".fxml")),"");
+    	GlobalFuncations.switchScreen(pane,"QuestionScreen",(getClass().getResource("/view/" + "QuestionScreen" + ".fxml")),"");
     }
     
     
     
     @FXML
     void ScoreBoardButtonClicked(MouseEvent event) {
-    	Global.switchScreen(pane,"ScoreBoardScreen",(getClass().getResource("/view/" + "ScoreBoardScreen" + ".fxml")),"");
+    	GlobalFuncations.switchScreen(pane,"ScoreBoardScreen",(getClass().getResource("/view/" + "ScoreBoardScreen" + ".fxml")),"");
     	
     }
 

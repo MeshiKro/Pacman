@@ -12,7 +12,7 @@ import javafx.scene.layout.Pane;
 import view.EditQuestionScreen;
 import view.QuestionScreen;
 
-public class Global {
+public class GlobalFuncations {
 
 	public static void hoverButton(InputStream inStream, ImageView element) {
 		element.setImage(new Image(inStream));

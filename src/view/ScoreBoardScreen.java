@@ -7,7 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import misc.Global;
+import misc.GlobalFuncations;
 
 public class ScoreBoardScreen {
 
@@ -165,14 +165,14 @@ public class ScoreBoardScreen {
     @FXML
 	void hoverStartSideButton(MouseEvent event) {
 		String img ="buttonconinterClicked";
-		Global.hoverButton(getClass().getResourceAsStream("/images/" + img + ".png"), homeBtn);		
+		GlobalFuncations.hoverButton(getClass().getResourceAsStream("/images/" + img + ".png"), homeBtn);		
 
 	}
 	
 	@FXML
 	void hoverEndSideButton(MouseEvent event) {
 		String img ="buttonconinter";
-		Global.hoverButton(getClass().getResourceAsStream("/images/" + img + ".png"), homeBtn);		
+		GlobalFuncations.hoverButton(getClass().getResourceAsStream("/images/" + img + ".png"), homeBtn);		
 	}
 
 
@@ -185,7 +185,7 @@ public class ScoreBoardScreen {
 	 
     @FXML
     void HomeBtnClicked(MouseEvent event) {
-    	Global.switchScreen(pane,"MainScreen",(getClass().getResource("/view/" + "MainScreen" + ".fxml")),"");
+    	GlobalFuncations.switchScreen(pane,"MainScreen",(getClass().getResource("/view/" + "MainScreen" + ".fxml")),"");
     }
     
 	// End OnClick Section

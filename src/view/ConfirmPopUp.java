@@ -5,7 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import misc.Global;
+import misc.GlobalFuncations;
 
 public class ConfirmPopUp {
 
@@ -25,13 +25,13 @@ public class ConfirmPopUp {
 	
 	@FXML
 	void hoverStart(MouseEvent event) {
-		Global.hoverButton(getClass().getResourceAsStream("/images/" + "okBtnClicked" + ".png"), okBtn);
+		GlobalFuncations.hoverButton(getClass().getResourceAsStream("/images/" + "okBtnClicked" + ".png"), okBtn);
 
 	}
 
 	@FXML
 	void HoverEnd(MouseEvent event) {
-		Global.hoverButton(getClass().getResourceAsStream("/images/" + "okBtn" + ".png"), okBtn);
+		GlobalFuncations.hoverButton(getClass().getResourceAsStream("/images/" + "okBtn" + ".png"), okBtn);
 
 	}
 

@@ -29,7 +29,7 @@
                   <Image url="@../../images/buttonconinter.png" />
                </image>
             </ImageView>
-            <ImageView layoutX="22.0" layoutY="-21.0" onMouseClicked="#HomeBtnClicked">
+            <ImageView fx:id="homeicon" layoutX="22.0" layoutY="-21.0" onMouseClicked="#HomeBtnClicked">
                <image>
                   <Image url="@../../images/home.png" />
                </image>

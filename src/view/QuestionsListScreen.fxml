@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.QuestionsListScreen">
+   <children>
+      <ImageView fitHeight="361.0" fitWidth="369.0" layoutY="242.0">
+         <image>
+            <Image url="@../../images/logo2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="382.0" fitWidth="693.0" layoutX="184.0" layoutY="156.0">
+         <image>
+            <Image url="@../../images/Rectangle.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="homePane" layoutX="939.0" layoutY="86.0" onMouseClicked="#HomeBtnClicked" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
+         <children>
+            <ImageView fx:id="homeBtn" fitHeight="84.0" fitWidth="84.0" layoutY="-42.0" onMouseClicked="#HomeBtnClicked">
+               <image>
+                  <Image url="@../../images/buttonconinter.png" />
+               </image>
+            </ImageView>
+            <ImageView layoutX="22.0" layoutY="-21.0" onMouseClicked="#HomeBtnClicked">
+               <image>
+                  <Image url="@../../images/home.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="startButtonClicked" fitHeight="82.0" fitWidth="200.0" layoutX="420.0" layoutY="398.0" visible="false">
+         <image>
+            <Image url="@../../images/startButtonClicked.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="label" layoutX="233.0" layoutY="181.0" text="The Question" textFill="WHITE">
+         <font>
+            <Font name="Cascadia Code Regular" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="title" layoutX="276.0" layoutY="64.0" text="Questions List" textFill="#d8a14a">
+         <font>
+            <Font name="OCR A Extended" size="60.0" />
+         </font>
+      </Label>
+      <Line endX="402.0" layoutX="378.0" layoutY="131.0" startX="-100.0" stroke="#757800" strokeWidth="3.0" />
+      <Label fx:id="label1" layoutX="432.0" layoutY="181.0" text="Difficulty Level " textFill="WHITE">
+         <font>
+            <Font name="Cascadia Code Regular" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="label11" layoutX="646.0" layoutY="181.0" text="Delete" textFill="WHITE">
+         <font>
+            <Font name="Cascadia Code Regular" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="label111" layoutX="755.0" layoutY="181.0" text="Edit" textFill="WHITE">
+         <font>
+            <Font name="Cascadia Code Regular" size="24.0" />
+         </font>
+      </Label>
+      <Text fill="WHITE" layoutX="244.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="what is Scrum?">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="244.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="what is Agile?">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="243.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="what is Waterfall?">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="243.0" layoutY="404.0" strokeType="OUTSIDE" strokeWidth="0.0" text="what is Unit Testing?">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="244.0" layoutY="452.0" strokeType="OUTSIDE" strokeWidth="0.0" text="what is GANT chart?">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="243.0" layoutY="498.0" strokeType="OUTSIDE" strokeWidth="0.0" text="what is TDD?">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="487.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="easy">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="487.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="easy">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="487.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="easy">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="487.0" layoutY="404.0" strokeType="OUTSIDE" strokeWidth="0.0" text="easy">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="487.0" layoutY="452.0" strokeType="OUTSIDE" strokeWidth="0.0" text="easy">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="487.0" layoutY="498.0" strokeType="OUTSIDE" strokeWidth="0.0" text="easy">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="26.0" fitWidth="40.0" layoutX="668.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/delete-256.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="33.0" layoutX="763.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/edit-256.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="40.0" layoutX="668.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/delete-256.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="40.0" layoutX="668.0" layoutY="337.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/delete-256.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="40.0" layoutX="668.0" layoutY="385.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/delete-256.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="40.0" layoutX="668.0" layoutY="433.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/delete-256.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="40.0" layoutX="668.0" layoutY="479.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/delete-256.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="33.0" layoutX="763.0" layoutY="337.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/edit-256.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="33.0" layoutX="763.0" layoutY="385.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/edit-256.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="33.0" layoutX="763.0" layoutY="433.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/edit-256.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="33.0" layoutX="763.0" layoutY="479.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/edit-256.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="33.0" layoutX="763.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/edit-256.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="backBtnPane" layoutX="45.0" layoutY="76.0" onMouseClicked="#BackBtnClicked" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
+         <children>
+            <ImageView fx:id="backBtn" fitHeight="84.0" fitWidth="84.0" layoutY="-42.0" onMouseClicked="#BackBtnClicked">
+               <image>
+                  <Image url="@../../images/buttonconinter.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="backicon" fitHeight="42.0" fitWidth="41.0" layoutX="20.0" layoutY="-22.0" onMouseClicked="#BackBtnClicked">
+               <image>
+                  <Image url="@../images/arrow-112-256.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
