@@ -14,31 +14,23 @@ import misc.QuestionJsonRead;
 import misc.QuestionJsonWriterEx;
 import model.QuestionObject;
 
-
-
-
-
 public class Main extends Application {
 
 	public static void main(String[] args) throws Exception {
-		
+
 		ArrayList<QuestionObject> a = new ArrayList<QuestionObject>();
 		QuestionJsonRead JR = new QuestionJsonRead();
 		QuestionJsonWriterEx JW = new QuestionJsonWriterEx();
-		
+
+		// Read Json Question from file
 		a = JR.readQuestionsFromJson();
+
+		// Write to json file
 		JW.serialazation(a);
-		
-		
-		
+
 		launch(args);
 
-			
 	}
-
-	
-	
-
 
 	public void start(Stage primaryStage) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/MainScreen.fxml"));
@@ -51,7 +43,7 @@ public class Main extends Application {
 		primaryStage.getIcons().add(new Image("/images/pacicon.png"));
 		primaryStage.initStyle(StageStyle.DECORATED);
 		primaryStage.show();
-		
+
 	}
 
 }
