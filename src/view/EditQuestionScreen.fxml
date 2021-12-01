@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.EditQuestionScreen">
+   <children>
+      <ImageView fitHeight="361.0" fitWidth="369.0" layoutY="242.0">
+         <image>
+            <Image url="@../../images/logo2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="399.0" fitWidth="771.0" layoutX="158.0" layoutY="153.0">
+         <image>
+            <Image url="@../../images/Rectangle.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="homePane" layoutX="939.0" layoutY="86.0" onMouseClicked="#HomeBtnClicked" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
+         <children>
+            <ImageView fx:id="homeBtn" fitHeight="84.0" fitWidth="84.0" layoutY="-42.0" onMouseClicked="#HomeBtnClicked">
+               <image>
+                  <Image url="@../../images/buttonconinter.png" />
+               </image>
+            </ImageView>
+            <ImageView layoutX="22.0" layoutY="-21.0" onMouseClicked="#HomeBtnClicked">
+               <image>
+                  <Image url="@../../images/home.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Line endX="359.0" layoutX="413.0" layoutY="136.0" startX="-100.0" stroke="#757800" strokeWidth="3.0" />
+      <Text fx:id="title" fill="#d8a14a" layoutX="335.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Questions " wrappingWidth="495.263671875">
+         <font>
+            <Font name="OCR A Extended" size="60.0" />
+         </font>
+      </Text>
+      <Label layoutX="231.0" layoutY="189.0" prefHeight="30.0" prefWidth="160.0" text="Difficulty Level:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="231.0" layoutY="236.0" prefHeight="30.0" prefWidth="143.0" text="The Question:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="231.0" layoutY="282.0" prefHeight="30.0" prefWidth="132.0" text="The Answer:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="231.0" layoutY="325.0" prefHeight="30.0" prefWidth="160.0" text="Wrong choices: " textFill="#fffdfd">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="361.0" layoutY="375.0" text=" 2:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="366.0" layoutY="418.0" text="3:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nameFeild" layoutX="406.0" layoutY="233.0" prefHeight="22.0" prefWidth="438.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
+      <TextField fx:id="nameFeild1" layoutX="408.0" layoutY="328.0" prefHeight="22.0" prefWidth="438.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
+      <TextField fx:id="nameFeild2" layoutX="406.0" layoutY="280.0" prefHeight="22.0" prefWidth="438.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
+      <TextField fx:id="nameFeild3" layoutX="408.0" layoutY="374.0" prefHeight="22.0" prefWidth="438.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
+      <TextField fx:id="nameFeild4" layoutX="406.0" layoutY="421.0" prefHeight="22.0" prefWidth="438.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
+      <ComboBox fx:id="themeField" accessibleText="sdfsdf" layoutX="406.0" layoutY="189.0" prefHeight="22.0" prefWidth="108.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
+   </children>
+</AnchorPane>

@@ -147,14 +147,14 @@ public class MainScreen {
 
     @FXML
     void QuestionWizardBtnClicked(MouseEvent event) {
-    	Global.switchScreen(pane,"QuestionScreen",(getClass().getResource("/view/" + "QuestionScreen" + ".fxml")));
+    	Global.switchScreen(pane,"QuestionScreen",(getClass().getResource("/view/" + "QuestionScreen" + ".fxml")),"");
     }
     
     
     
     @FXML
     void ScoreBoardButtonClicked(MouseEvent event) {
-    	Global.switchScreen(pane,"ScoreBoardScreen",(getClass().getResource("/view/" + "ScoreBoardScreen" + ".fxml")));
+    	Global.switchScreen(pane,"ScoreBoardScreen",(getClass().getResource("/view/" + "ScoreBoardScreen" + ".fxml")),"");
     	
     }
 

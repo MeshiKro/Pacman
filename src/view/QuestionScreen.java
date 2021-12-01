@@ -97,17 +97,19 @@ public class QuestionScreen {
 
     @FXML
     void HomeBtnClicked(MouseEvent event) {
-    	Global.switchScreen(pane,"MainScreen",(getClass().getResource("/view/" + "MainScreen" + ".fxml")));
+    	Global.switchScreen(pane,"MainScreen",(getClass().getResource("/view/" + "MainScreen" + ".fxml")),"");
 
     }
 	
 	@FXML
 	void AddQuestionScreen(MouseEvent event) {
+    	Global.switchScreen(pane,"EditQuestionScreen",(getClass().getResource("/view/" + "EditQuestionScreen" + ".fxml")),"Add");
 
 	}
 
 	@FXML
 	void updateQuestionScreen(MouseEvent event) {
+    	Global.switchScreen(pane,"EditQuestionScreen",(getClass().getResource("/view/" + "EditQuestionScreen" + ".fxml")),"Edit");
 
 	}
 	// End OnClick Section

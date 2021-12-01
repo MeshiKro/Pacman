@@ -185,7 +185,7 @@ public class ScoreBoardScreen {
 	 
     @FXML
     void HomeBtnClicked(MouseEvent event) {
-    	Global.switchScreen(pane,"MainScreen",(getClass().getResource("/view/" + "MainScreen" + ".fxml")));
+    	Global.switchScreen(pane,"MainScreen",(getClass().getResource("/view/" + "MainScreen" + ".fxml")),"");
     }
     
 	// End OnClick Section

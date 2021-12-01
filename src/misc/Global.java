@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import view.EditQuestionScreen;
 import view.QuestionScreen;
 
 public class Global {
@@ -17,7 +18,7 @@ public class Global {
 		element.setImage(new Image(inStream));
 	}
 
-	public static void switchScreen(Pane pane, String screenName, URL Path) {
+	public static void switchScreen(Pane pane, String screenName, URL Path,String type) {
 		FXMLLoader loader = new FXMLLoader(Path);
 		try {
 			AnchorPane newPane = loader.load();
@@ -26,7 +27,7 @@ public class Global {
 			pane.setMinSize(pane.getWidth(), pane.getHeight());
 			pane.getChildren().removeAll(pane.getChildren());
 
-			initializeConroller(loader, screenName);
+			initializeConroller(loader, screenName,type);
 
 			pane.getChildren().add(newPane);
 		} catch (IOException e) {
@@ -35,12 +36,16 @@ public class Global {
 
 	}
 
-	private static void initializeConroller(FXMLLoader loader, String screenName) {
+	private static void initializeConroller(FXMLLoader loader, String screenName,String type) {
 
 		switch (screenName) {
 		case "QuestionScreen":
 			QuestionScreen controller = loader.getController();
 			controller.initialize();
+			break;
+		case "EditQuestionScreen":
+			EditQuestionScreen controller1 = loader.getController();
+			controller1.initialize(type);
 			break;
 		default:
 			break;
