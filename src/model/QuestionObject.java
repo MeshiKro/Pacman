@@ -21,15 +21,17 @@ public class QuestionObject implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	public String question;
-	public Point position;
-	public LEVEL lvl;
-	public String teamName;
 	public AnswerObject[] answers;
+	public LEVEL level;
+	public String team;
+	
+	public Point position;
+
 
 	public QuestionObject(String question, String level, String team, AnswerObject[] answersList) {
 		this.question = question;
-		this.lvl = LEVEL(Integer.parseInt(level));
-		this.teamName = team;
+		this.level = LEVEL(Integer.parseInt(level));
+		this.team = team;
 		this.answers = answersList;
 
 	}
@@ -52,11 +54,11 @@ public class QuestionObject implements Serializable {
 	}
 
 	public LEVEL getDiff() {
-		return lvl;
+		return level;
 	}
 
 	public void setDiff(LEVEL diff) {
-		this.lvl = diff;
+		this.level = diff;
 	}
 
 	public String getqBody() {
@@ -77,8 +79,8 @@ public class QuestionObject implements Serializable {
 
 	@Override
 	public String toString() {
-		return " [questionString=" + question + ", position=" + position + ", lvl=" + lvl
-				+ ", teamName=" + teamName + ",\n answers=" + Arrays.toString(answers) + "]\n";
+		return " [questionString=" + question + ", position=" + position + ", lvl=" + level
+				+ ", teamName=" + team + ",\n answers=" + Arrays.toString(answers) + "]\n";
 	}
 
 

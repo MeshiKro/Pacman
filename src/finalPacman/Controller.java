@@ -3,7 +3,7 @@
  * The Controller handles user input and coordinates the updating of the model and the view with the help of a timer.
  */
 
-package misc;
+package finalPacman;
 
 import javafx.fxml.FXML;
 import javafx.event.EventHandler;
