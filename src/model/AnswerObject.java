@@ -7,21 +7,21 @@ package model;
 public class AnswerObject {
 	
 	
-    public String answerString;
+    public String answer;
     public boolean isCorrect;
     
     
     public AnswerObject(String answerString, boolean isCorrect) {
-        this.answerString = answerString;
+        this.answer = answerString;
         this.isCorrect = isCorrect;
     }
 
     public String getaBody() {
-        return answerString;
+        return answer;
     }
 
     public void setaBody(String aBody) {
-        this.answerString = aBody;
+        this.answer = aBody;
     }
 
     public boolean isCorrect() {
@@ -34,7 +34,7 @@ public class AnswerObject {
 
 	@Override
 	public String toString() {
-		return "[answerString=" + answerString + ", isCorrect=" + isCorrect + "]\n";
+		return "[answerString=" + answer + ", isCorrect=" + isCorrect + "]\n";
 	}
     
 }

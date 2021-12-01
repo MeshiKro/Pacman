@@ -3,7 +3,7 @@
  * Sets up the controller, loads the fxml file, and runs the application.
  */
 
-package misc;
+package finalPacman;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
