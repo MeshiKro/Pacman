@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.ArrayList;
+
 import javafx.application.Application;
 
 import javafx.fxml.FXMLLoader;
@@ -8,7 +10,9 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import misc.QuestionJsonRead;
 import misc.QuestionJsonWriterEx;
+import model.QuestionObject;
 
 
 
@@ -17,13 +21,17 @@ public class Main extends Application {
 
 	public static void main(String[] args) throws Exception {
 		
+		ArrayList<QuestionObject> a = new ArrayList<QuestionObject>();
+		QuestionJsonRead JR = new QuestionJsonRead();
+		QuestionJsonWriterEx JW = new QuestionJsonWriterEx();
+		
+		a = JR.readQuestionsFromJson();
+		JW.serialazation(a);
 		
 		
-		QuestionJsonWriterEx check = new QuestionJsonWriterEx();
-		check.serialazation();
 		
 		launch(args);
-// 
+
 			
 	}
 

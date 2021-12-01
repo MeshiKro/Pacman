@@ -46,6 +46,7 @@ public class SysData extends JPanel{
     public ArrayList<Ghost> ghosts;
     public ArrayList<Teleport> teleports;
     
+    
     //this is the Question Dynamic DataBase that we can manipulate in the Question-Wizard// 
     public static ArrayList<QuestionObject> questions;
 

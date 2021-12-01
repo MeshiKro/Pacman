@@ -1,6 +1,8 @@
 package misc;
 
 import java.io.FileWriter;
+import java.util.ArrayList;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonIOException;
 
@@ -11,7 +13,7 @@ import model.questions;
 public class QuestionJsonWriterEx {
 
 	
-	public static boolean serialazation() throws Exception {
+	public static boolean serialazation(ArrayList<QuestionObject> arg) throws Exception {
 		
 		questions helper = new questions();
 		
@@ -24,8 +26,12 @@ public class QuestionJsonWriterEx {
 
 		
 		QuestionObject Question = new QuestionObject("Hello How Are you?", "3", "Scorpions",answers );
+		
+		helper.questions.addAll(arg);
 		helper.questions.add(Question);
 
+		
+		
 		Gson gson = new Gson();
         
 		FileWriter writer = new FileWriter("QuestionBank.json");

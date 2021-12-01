@@ -30,7 +30,7 @@ public class JunitTests {
 	}
 	
 	
-	//map Data Test//
+	//map Data Test Checks For SingleTon Design Pattern//
 	@Test
 	public void MapData_Singleton_Check() {
 		MapData mda = MapData.getSinMap();

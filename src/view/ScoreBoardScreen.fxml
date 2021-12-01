@@ -1,38 +1,151 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Text?>
-<?import javafx.scene.text.TextFlow?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ScoreBoardScreen">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ScoreBoardScreen">
    <children>
-      <ImageView fitHeight="600.0" fitWidth="1060.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="600.0" fitWidth="1060.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/ScoreBoardBack.png" />
          </image>
       </ImageView>
       <AnchorPane fx:id="homePane" layoutX="949.0" layoutY="53.0" onMouseClicked="#HomeBtnClicked" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
          <children>
-            <ImageView fx:id="homeBtn" fitHeight="84.0" fitWidth="84.0" layoutY="-46.0" onMouseClicked="#HomeBtnClicked">
+            <ImageView fx:id="homeBtn" fitHeight="84.0" fitWidth="84.0" layoutY="-19.0" onMouseClicked="#HomeBtnClicked">
                <image>
                   <Image url="@../../images/buttonconinter.png" />
                </image>
             </ImageView>
-            <ImageView layoutX="22.0" layoutY="-24.0" onMouseClicked="#HomeBtnClicked">
+            <ImageView layoutX="22.0" layoutY="3.0" onMouseClicked="#HomeBtnClicked">
                <image>
                   <Image url="@../../images/home.png" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
-      <TextFlow fx:id="NickName1" layoutX="371.0" layoutY="210.0" prefHeight="27.0" prefWidth="180.0" />
-      <TextFlow fx:id="NickName2" layoutX="371.0" layoutY="255.0" prefHeight="27.0" prefWidth="180.0" />
-      <TextFlow fx:id="NickName3" layoutX="365.0" layoutY="287.0" prefHeight="27.0" prefWidth="180.0" />
-      <TextFlow layoutX="381.0" layoutY="265.0" prefHeight="27.0" prefWidth="180.0" />
-      <TextFlow fx:id="NickName4" layoutX="365.0" layoutY="326.0" prefHeight="27.0" prefWidth="180.0" />
-      <TextFlow fx:id="NickName5" layoutX="365.0" layoutY="363.0" prefHeight="27.0" prefWidth="180.0" />
-      <Text layoutX="507.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="test!!" />
+      <Label fx:id="NickName1" layoutX="410.0" layoutY="211.0" prefHeight="13.0" prefWidth="149.0" text="NickName1" textFill="#00f0ff">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label fx:id="NickName2" layoutX="411.0" layoutY="248.0" prefHeight="13.0" prefWidth="149.0" text="NickName2" textFill="#00f0ff">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label fx:id="NickName3" layoutX="411.0" layoutY="288.0" prefHeight="13.0" prefWidth="149.0" text="NickName3" textFill="#00f0ff">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label fx:id="NickName4" layoutX="411.0" layoutY="326.0" prefHeight="13.0" prefWidth="149.0" text="NickName4" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="NickName5" layoutX="412.0" layoutY="360.0" prefHeight="13.0" prefWidth="149.0" text="NickName5" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="NickName6" layoutX="412.0" layoutY="389.0" prefHeight="13.0" prefWidth="149.0" text="NickName6" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="NickName8" layoutX="412.0" layoutY="449.0" prefHeight="13.0" prefWidth="149.0" text="NickName8" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="NickName7" layoutX="412.0" layoutY="418.0" prefHeight="13.0" prefWidth="149.0" text="NickName7" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="NickName9" layoutX="412.0" layoutY="481.0" prefHeight="13.0" prefWidth="149.0" text="NickName9" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="NickName10" layoutX="412.0" layoutY="509.0" prefHeight="13.0" prefWidth="149.0" text="NickName10" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="Score1" layoutX="625.0" layoutY="210.0" prefHeight="13.0" prefWidth="149.0" text="Score1" textFill="#00f0ff">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label fx:id="Score2" layoutX="625.0" layoutY="250.0" prefHeight="13.0" prefWidth="149.0" text="Score2" textFill="#00f0ff">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label fx:id="Score3" layoutX="626.0" layoutY="288.0" prefHeight="13.0" prefWidth="149.0" text="Score3" textFill="#00f0ff">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label fx:id="Score4" layoutX="625.0" layoutY="327.0" prefHeight="13.0" prefWidth="149.0" text="Score4" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="Score5" layoutX="624.0" layoutY="359.0" prefHeight="13.0" prefWidth="149.0" text="Score5" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="Score6" layoutX="625.0" layoutY="389.0" prefHeight="13.0" prefWidth="149.0" text="Score6" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="Score8" layoutX="626.0" layoutY="448.0" prefHeight="13.0" prefWidth="149.0" text="Score8" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="Score7" layoutX="626.0" layoutY="418.0" prefHeight="13.0" prefWidth="149.0" text="Score7" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="Score9" layoutX="626.0" layoutY="480.0" prefHeight="13.0" prefWidth="149.0" text="Score9" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="Score10" layoutX="626.0" layoutY="508.0" prefHeight="13.0" prefWidth="149.0" text="Score10" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="Date1" layoutX="789.0" layoutY="213.0" prefHeight="17.0" prefWidth="122.0" text="Date1" textFill="#00f0ff">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label fx:id="Date2" layoutX="789.0" layoutY="244.0" prefHeight="17.0" prefWidth="122.0" text="Date2" textFill="#00f0ff">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label fx:id="Date3" layoutX="789.0" layoutY="288.0" prefHeight="17.0" prefWidth="122.0" text="Date3" textFill="#00f0ff">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label fx:id="Date4" layoutX="789.0" layoutY="327.0" prefHeight="17.0" prefWidth="122.0" text="Date4" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="Date5" layoutX="789.0" layoutY="362.0" prefHeight="17.0" prefWidth="122.0" text="Date5" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="Date6" layoutX="790.0" layoutY="389.0" prefHeight="17.0" prefWidth="122.0" text="Date6" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="Date8" layoutX="790.0" layoutY="449.0" prefHeight="17.0" prefWidth="122.0" text="Date8" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="Date7" layoutX="790.0" layoutY="418.0" prefHeight="17.0" prefWidth="122.0" text="Date7" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="Date9" layoutX="790.0" layoutY="481.0" prefHeight="17.0" prefWidth="122.0" text="Date9" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="Date10" layoutX="790.0" layoutY="509.0" prefHeight="17.0" prefWidth="122.0" text="Date10" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
    </children>
 </AnchorPane>
