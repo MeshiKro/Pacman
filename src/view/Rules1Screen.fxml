@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Rules1Screen">
+   <children>
+      <ImageView fitHeight="361.0" fitWidth="369.0" layoutY="241.0">
+         <image>
+            <Image url="@../../images/logo2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="376.0" fitWidth="677.0" layoutX="179.0" layoutY="162.0">
+         <image>
+            <Image url="@../../images/Rectangle.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="homePane" layoutX="939.0" layoutY="86.0" onMouseClicked="#HomeBtnClicked" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
+         <children>
+            <ImageView fx:id="homeBtn" fitHeight="84.0" fitWidth="84.0" layoutY="-42.0" onMouseClicked="#HomeBtnClicked">
+               <image>
+                  <Image url="@../../images/buttonconinter.png" />
+               </image>
+            </ImageView>
+            <ImageView layoutX="22.0" layoutY="-21.0" onMouseClicked="#HomeBtnClicked">
+               <image>
+                  <Image url="@../../images/home.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="startButtonClicked" fitHeight="82.0" fitWidth="200.0" layoutX="420.0" layoutY="398.0" visible="false">
+         <image>
+            <Image url="@../../images/startButtonClicked.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="label" layoutX="239.0" layoutY="191.0" prefHeight="40.0" prefWidth="563.0" text="Pacman munches his way around the maze using the directional buttons," textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="title" layoutX="333.0" layoutY="60.0" text="How to play" textFill="#d8a14a">
+         <font>
+            <Font name="OCR A Extended" size="60.0" />
+         </font>
+      </Label>
+      <Line endX="295.0" layoutX="431.0" layoutY="126.0" startX="-100.0" stroke="#757800" strokeWidth="3.0" />
+      <Label fx:id="label1" layoutX="239.0" layoutY="231.0" prefHeight="40.0" prefWidth="563.0" text="eating all of the pac-dots." textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="label11" layoutX="239.0" layoutY="272.0" prefHeight="40.0" prefWidth="563.0" text="When the player reaches more then 200 points he wins the game." textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="label111" layoutX="239.0" layoutY="310.0" prefHeight="40.0" prefWidth="563.0" text="In each corner of the maze there is a &quot;bomb-dots&quot;, which when pacman" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="label1111" layoutX="239.0" layoutY="350.0" prefHeight="40.0" prefWidth="563.0" text="eats one,  the pacman turn light purple and if the " textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="label11111" layoutX="239.0" layoutY="392.0" prefHeight="40.0" prefWidth="633.0" text="ghost is less than 3 squares from the pacman, by pressing the space bar he             " textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="label111111" layoutX="239.0" layoutY="432.0" prefHeight="40.0" prefWidth="633.0" text="can blow it up." textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <AnchorPane fx:id="backBtnPane" layoutX="750.0" layoutY="435.0" onMouseClicked="#BackBtnClicked" onMouseEntered="#hoverStartSideButton2" onMouseExited="#hoverEndSideButton2" prefHeight="82.0" prefWidth="84.0">
+         <children>
+            <ImageView fx:id="backBtn" fitHeight="73.0" fitWidth="74.0" layoutX="7.0" layoutY="4.0">
+               <image>
+                  <Image url="@../../images/buttonconinter.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="backicon" fitHeight="40.0" fitWidth="33.0" layoutX="29.0" layoutY="20.0" style="-fx-rotate: 180;">
+               <image>
+                  <Image url="@../images/arrow.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="7.0" fitWidth="7.0" layoutX="221.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/circle-256.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="7.0" fitWidth="7.0" layoutX="219.0" layoutY="288.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/circle-256.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="7.0" fitWidth="7.0" layoutX="220.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/circle-256.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

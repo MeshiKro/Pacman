@@ -36,8 +36,8 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <Line endX="359.0" layoutX="413.0" layoutY="136.0" startX="-100.0" stroke="#757800" strokeWidth="3.0" />
-      <Text fx:id="title" fill="#d8a14a" layoutX="335.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Questions " wrappingWidth="495.263671875">
+      <Line endX="391.0" layoutX="400.0" layoutY="125.0" startX="-100.0" stroke="#757800" strokeWidth="3.0" />
+      <Text fx:id="title" fill="#d8a14a" layoutX="293.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Questions" wrappingWidth="527.263671875">
          <font>
             <Font name="OCR A Extended" size="60.0" />
          </font>
@@ -87,19 +87,14 @@
             </ImageView>
             <ImageView fx:id="backicon" fitHeight="42.0" fitWidth="41.0" layoutX="20.0" layoutY="-22.0" onMouseClicked="#BackBtnClicked">
                <image>
-                  <Image url="@../../images/arrow.png" />
+                  <Image url="@../images/arrow.png" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
       <ImageView fx:id="saveBtn" fitHeight="63.0" fitWidth="174.0" layoutX="679.0" layoutY="468.0">
          <image>
-            <Image url="@../../images/saveBtn.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="adddBtn" fitHeight="72.0" fitWidth="191.0" layoutX="671.0" layoutY="464.0" visible="false">
-         <image>
-            <Image url="@../../images/addBtn.png" />
+            <Image url="@../images/saveBtn.png" />
          </image>
       </ImageView>
    </children>

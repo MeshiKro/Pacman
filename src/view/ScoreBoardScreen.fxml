@@ -10,7 +10,7 @@
    <children>
       <ImageView fitHeight="600.0" fitWidth="1060.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../images/ScoreBoardBack.png" />
+            <Image url="@../images/ScoreBoardBack.png" />
          </image>
       </ImageView>
       <AnchorPane fx:id="homePane" layoutX="949.0" layoutY="53.0" onMouseClicked="#HomeBtnClicked" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">

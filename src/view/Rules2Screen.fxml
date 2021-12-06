@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Rules2Screen">
+   <children>
+      <ImageView fitHeight="361.0" fitWidth="369.0" layoutY="241.0">
+         <image>
+            <Image url="@../../images/logo2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="376.0" fitWidth="677.0" layoutX="179.0" layoutY="162.0">
+         <image>
+            <Image url="@../../images/Rectangle.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="homePane" layoutX="939.0" layoutY="86.0" onMouseClicked="#HomeBtnClicked" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
+         <children>
+            <ImageView fx:id="homeBtn" fitHeight="84.0" fitWidth="84.0" layoutY="-42.0" onMouseClicked="#HomeBtnClicked">
+               <image>
+                  <Image url="@../../images/buttonconinter.png" />
+               </image>
+            </ImageView>
+            <ImageView layoutX="22.0" layoutY="-21.0" onMouseClicked="#HomeBtnClicked">
+               <image>
+                  <Image url="@../../images/home.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="startButtonClicked" fitHeight="82.0" fitWidth="200.0" layoutX="420.0" layoutY="398.0" visible="false">
+         <image>
+            <Image url="@../../images/startButtonClicked.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="label" layoutX="239.0" layoutY="191.0" prefHeight="40.0" prefWidth="663.0" text="In random points in the maze will appear the following symbolD     . each " textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="title" layoutX="333.0" layoutY="60.0" text="How to play" textFill="#d8a14a">
+         <font>
+            <Font name="OCR A Extended" size="60.0" />
+         </font>
+      </Label>
+      <Line endX="295.0" layoutX="431.0" layoutY="126.0" startX="-100.0" stroke="#757800" strokeWidth="3.0" />
+      <Label fx:id="label1" layoutX="239.0" layoutY="219.0" prefHeight="40.0" prefWidth="645.0" text="color indicate the difficulty. level of the question that will will earn points:" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="label11" layoutX="260.0" layoutY="248.0" prefHeight="40.0" prefWidth="200.0" text="White- 1 point" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="label111" layoutX="238.0" layoutY="334.0" prefHeight="40.0" prefWidth="563.0" text="If the player is wrong he will loose points:" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <AnchorPane fx:id="backBtnPane" layoutX="191.0" layoutY="441.0" onMouseClicked="#BackBtnClicked" onMouseEntered="#hoverStartSideButton2" onMouseExited="#hoverEndSideButton2" prefHeight="82.0" prefWidth="84.0">
+         <children>
+            <ImageView fx:id="backBtn" fitHeight="73.0" fitWidth="74.0" layoutX="7.0" layoutY="4.0" onMouseClicked="#BackBtnClicked">
+               <image>
+                  <Image url="@../../images/buttonconinter.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="backicon" fitHeight="40.0" fitWidth="33.0" layoutX="26.0" layoutY="21.0" onMouseClicked="#BackBtnClicked">
+               <image>
+                  <Image url="@../images/arrow.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="7.0" fitWidth="7.0" layoutX="221.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/circle-256.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="7.0" fitWidth="7.0" layoutX="219.0" layoutY="351.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/circle-256.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="label112" layoutX="260.0" layoutY="275.0" prefHeight="40.0" prefWidth="200.0" text="Yellow- 2 point" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="label1121" layoutX="260.0" layoutY="301.0" prefHeight="40.0" prefWidth="200.0" text="Red- 3 point" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="label113" layoutX="259.0" layoutY="367.0" prefHeight="40.0" prefWidth="200.0" text=" White- 10 points" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="label1122" layoutX="263.0" layoutY="394.0" prefHeight="40.0" prefWidth="200.0" text="Yellow- 20 points" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="label11211" layoutX="263.0" layoutY="420.0" prefHeight="40.0" prefWidth="200.0" text="Red- 30 points" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="20.0" fitWidth="19.0" layoutX="725.0" layoutY="198.0">
+         <image>
+            <Image url="@../images/food/4.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

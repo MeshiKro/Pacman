@@ -40,8 +40,7 @@ public class EditQuestionScreen {
 	@FXML
 	private AnchorPane pane;
 	
-	@FXML
-	private ImageView adddBtn;
+
 	
     @FXML
     private ImageView saveBtn;
@@ -62,12 +61,12 @@ public class EditQuestionScreen {
 		title.setText(screenType + " Question");
 		if(screenType.equals("Add"))
 		{
-			adddBtn.setVisible(true);
+			saveBtn.setVisible(true);
 			saveBtn.setVisible(false);
 
 		}else
 		{
-			adddBtn.setVisible(false);
+			saveBtn.setVisible(false);
 			saveBtn.setVisible(true);
 		}
 	}

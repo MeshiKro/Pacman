@@ -160,7 +160,10 @@ public class MainScreen {
     }
 
 
-	
+    @FXML
+    void rulesClicked(MouseEvent event) {
+    	GlobalFuncations.switchScreen(pane,"Rules1Screen",(getClass().getResource("/view/" + "Rules1Screen" + ".fxml")),"");
+    }
 	// End OnClick Section
 
 }
