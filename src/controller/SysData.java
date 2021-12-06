@@ -514,7 +514,10 @@ public class SysData extends JPanel{
 		
 	}
     
-    
+	// In Case of Level Up
+	public void updateGhostSpeed() {
+		speedGhost -=10;
+	}
     
     
     
