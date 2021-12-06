@@ -143,40 +143,6 @@ public class ScoreBoardScreen {
 
 		}
 		
-		/*NickName1.setText("hello Check");
-		NickName2.setText("hello Check");
-		NickName3.setText("hello Check");
-		NickName4.setText("hello Check");
-		NickName5.setText("hello Check");
-		NickName6.setText("hello Check");
-		NickName7.setText("hello Check");
-		NickName8.setText("hello Check");
-		NickName9.setText("hello Check");
-		NickName10.setText("hello Check");
-
-		
-		Score1.setText("200");
-		Score2.setText("200");
-		Score3.setText("200");
-		Score4.setText("200");
-		Score5.setText("200");
-		Score6.setText("200");
-		Score7.setText("200");
-		Score8.setText("200");
-		Score9.setText("200");
-		Score10.setText("200");
-		
-		
-		Date1.setText("dd / mm / yy");
-		Date2.setText("dd / mm / yy");
-		Date3.setText("dd / mm / yy");
-		Date4.setText("dd / mm / yy");
-		Date5.setText("dd / mm / yy");
-		Date6.setText("dd / mm / yy");
-		Date7.setText("dd / mm / yy");
-		Date8.setText("dd / mm / yy");
-		Date9.setText("dd / mm / yy");
-		Date10.setText("dd / mm /yy");*/
 		
 		
 		

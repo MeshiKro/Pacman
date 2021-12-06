@@ -57,7 +57,7 @@ public class SysData extends JPanel{
     public boolean clearScore = false;
     public int scoreToAdd = 0;
 
-
+    int speedGhost = 30;
     
     public int score;
     public JLabel scoreboard;
@@ -119,13 +119,13 @@ public class SysData extends JPanel{
         for(GhostData gd : md.getGhostsData()){
             switch(gd.getType()) {
                 case RED:
-                    ghosts.add(new RedGhost(gd.getX(), gd.getY(), this));
+                    ghosts.add(new RedGhost(gd.getX(), gd.getY(), this,speedGhost));
                     break;
                 case PINK:
-                    ghosts.add(new PinkGhost(gd.getX(), gd.getY(), this));
+                    ghosts.add(new PinkGhost(gd.getX(), gd.getY(), this,speedGhost));
                     break;
                 case CYAN:
-                    ghosts.add(new CyanGhost(gd.getX(), gd.getY(), this));
+                    ghosts.add(new CyanGhost(gd.getX(), gd.getY(), this,speedGhost));
                     break;
             }
         }
