@@ -43,7 +43,7 @@ public class JunitTests {
 	//This Test Checks That The Ghost AI method is Working//
 	@Test
 	public void RedGhostAiMove() {
-		RedGhost RGhosTest = new RedGhost(15, 15, check);
+		RedGhost RGhosTest = new RedGhost(15, 15, check,10);
 		moveType cheack = RGhosTest.getMoveAI();
 		assertNotNull(cheack);
 		
