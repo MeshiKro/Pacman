@@ -137,6 +137,7 @@ public class MainScreen {
 	void startGame(MouseEvent event) {
 
 		PacWindow pw = new PacWindow();
+		GlobalFuncations.username = nameFeild.getText();
 		Stage stage = (Stage) startGameBtn.getScene().getWindow();
 		stage.close();
 	}

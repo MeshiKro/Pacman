@@ -14,6 +14,8 @@ import view.QuestionScreen;
 
 public class GlobalFuncations {
 
+	public static String username;
+
 	public static void hoverButton(InputStream inStream, ImageView element) {
 		element.setImage(new Image(inStream));
 	}

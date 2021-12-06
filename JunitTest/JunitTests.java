@@ -8,7 +8,7 @@ import org.junit.Test;
 import controller.SysData;
 import misc.BFSFinder;
 import misc.MapData;
-import misc.QuestionJsonRead;
+import misc.JsonRead;
 import misc.moveType;
 import model.QuestionObject;
 import model.RedGhost;
@@ -54,7 +54,7 @@ public class JunitTests {
 	//This Test Checks that we were able to de-serialize the Json File //
 	@Test
 	public void JsonReadTest() {
-		QuestionJsonRead check = new QuestionJsonRead();
+		JsonRead check = new JsonRead();
 		ArrayList<QuestionObject> questionsCheck = new ArrayList<QuestionObject>();
 		questionsCheck = check.readQuestionsFromJson();
 		assertNotNull(questionsCheck);;

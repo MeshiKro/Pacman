@@ -10,8 +10,8 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import misc.QuestionJsonRead;
-import misc.QuestionJsonWriterEx;
+import misc.JsonRead;
+import misc.JsonWriterEx;
 import model.QuestionObject;
 
 public class Main extends Application {
@@ -19,8 +19,8 @@ public class Main extends Application {
 	public static void main(String[] args) throws Exception {
 
 		ArrayList<QuestionObject> a = new ArrayList<QuestionObject>();
-		QuestionJsonRead JR = new QuestionJsonRead();
-		QuestionJsonWriterEx JW = new QuestionJsonWriterEx();
+		JsonRead JR = new JsonRead();
+		JsonWriterEx JW = new JsonWriterEx();
 
 		// Read Json Question from file
 	//	a = JR.readQuestionsFromJson();
@@ -28,7 +28,11 @@ public class Main extends Application {
 		// Write to json file
 	//	JW.serialazation(a);
 
-		launch(args);
+		//JW.writeScordboardRecords("fff",132,"15.12.2021");
+		
+		//System.out.println(JR.readScoreBoardFromJson());
+
+	launch(args);
 
 	}
 

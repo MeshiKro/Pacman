@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ScoreBoardScreen">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ScoreBoardScreen">
    <children>
       <ImageView fitHeight="600.0" fitWidth="1060.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -107,43 +107,43 @@
          <font>
             <Font size="14.0" />
          </font></Label>
-      <Label fx:id="Date1" layoutX="789.0" layoutY="213.0" prefHeight="17.0" prefWidth="122.0" text="Date1" textFill="#00f0ff">
+      <Label fx:id="Date1" layoutX="768.0" layoutY="213.0" prefHeight="17.0" prefWidth="122.0" text="Date1" textFill="#00f0ff">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
-      <Label fx:id="Date2" layoutX="789.0" layoutY="244.0" prefHeight="17.0" prefWidth="122.0" text="Date2" textFill="#00f0ff">
+      <Label fx:id="Date2" layoutX="768.0" layoutY="244.0" prefHeight="17.0" prefWidth="122.0" text="Date2" textFill="#00f0ff">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
-      <Label fx:id="Date3" layoutX="789.0" layoutY="288.0" prefHeight="17.0" prefWidth="122.0" text="Date3" textFill="#00f0ff">
+      <Label fx:id="Date3" layoutX="768.0" layoutY="288.0" prefHeight="17.0" prefWidth="122.0" text="Date3" textFill="#00f0ff">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
-      <Label fx:id="Date4" layoutX="789.0" layoutY="327.0" prefHeight="17.0" prefWidth="122.0" text="Date4" textFill="WHITE">
+      <Label fx:id="Date4" layoutX="768.0" layoutY="327.0" prefHeight="17.0" prefWidth="122.0" text="Date4" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font></Label>
-      <Label fx:id="Date5" layoutX="789.0" layoutY="362.0" prefHeight="17.0" prefWidth="122.0" text="Date5" textFill="WHITE">
+      <Label fx:id="Date5" layoutX="768.0" layoutY="362.0" prefHeight="17.0" prefWidth="122.0" text="Date5" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font></Label>
-      <Label fx:id="Date6" layoutX="790.0" layoutY="389.0" prefHeight="17.0" prefWidth="122.0" text="Date6" textFill="WHITE">
+      <Label fx:id="Date6" layoutX="769.0" layoutY="389.0" prefHeight="17.0" prefWidth="122.0" text="Date6" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font></Label>
-      <Label fx:id="Date8" layoutX="790.0" layoutY="449.0" prefHeight="17.0" prefWidth="122.0" text="Date8" textFill="WHITE">
+      <Label fx:id="Date8" layoutX="769.0" layoutY="449.0" prefHeight="17.0" prefWidth="122.0" text="Date8" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font></Label>
-      <Label fx:id="Date7" layoutX="790.0" layoutY="418.0" prefHeight="17.0" prefWidth="122.0" text="Date7" textFill="WHITE">
+      <Label fx:id="Date7" layoutX="769.0" layoutY="418.0" prefHeight="17.0" prefWidth="122.0" text="Date7" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font></Label>
-      <Label fx:id="Date9" layoutX="790.0" layoutY="481.0" prefHeight="17.0" prefWidth="122.0" text="Date9" textFill="WHITE">
+      <Label fx:id="Date9" layoutX="769.0" layoutY="481.0" prefHeight="17.0" prefWidth="122.0" text="Date9" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font></Label>
-      <Label fx:id="Date10" layoutX="790.0" layoutY="509.0" prefHeight="17.0" prefWidth="122.0" text="Date10" textFill="WHITE">
+      <Label fx:id="Date10" layoutX="769.0" layoutY="509.0" prefHeight="17.0" prefWidth="122.0" text="Date10" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font></Label>

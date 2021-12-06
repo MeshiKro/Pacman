@@ -1,12 +1,18 @@
 package view;
 
 
+import java.util.ArrayList;
+
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Font;
 import misc.GlobalFuncations;
+import misc.JsonRead;
+import model.ScoreboardRecord;
 
 public class ScoreBoardScreen {
 
@@ -109,7 +115,7 @@ public class ScoreBoardScreen {
     @FXML
     private Label Date10;
     
-    
+    private  Font f;
  
 	
     
@@ -118,8 +124,26 @@ public class ScoreBoardScreen {
 	public void initialize() {
 		
 		
+		
+		JsonRead JR = new JsonRead();
 
-		NickName1.setText("hello Check");
+		ArrayList<ScoreboardRecord> records = 	JR.readScoreBoardFromJson();	
+		
+		 f = Font.loadFont(getClass().getResourceAsStream("/resources/fonts/Alef.ttf"), 20);
+		
+		for(int i=0;i<records.size();i++)
+		{
+			ScoreboardRecord record = records.get(i);
+			
+			setLabel("NickName" + String.valueOf(i+1),record.getNickname());
+			
+			setLabel("Score" + String.valueOf(i+1),String.valueOf( record.getScore()));
+			
+			setLabel("Date" + String.valueOf(i+1),record.getDate());
+
+		}
+		
+		/*NickName1.setText("hello Check");
 		NickName2.setText("hello Check");
 		NickName3.setText("hello Check");
 		NickName4.setText("hello Check");
@@ -152,12 +176,33 @@ public class ScoreBoardScreen {
 		Date7.setText("dd / mm / yy");
 		Date8.setText("dd / mm / yy");
 		Date9.setText("dd / mm / yy");
-		Date10.setText("dd / mm /yy");
+		Date10.setText("dd / mm /yy");*/
 		
 		
 		
 	}
-    //Initialize ScoreBoard end//
+    private void setLabel(String id, String text) {
+		Label label = findLabel(id);		
+		if(label == null)
+			return;
+		(label).setText(text);	
+		label.setFont(f);
+
+	}
+    
+	private Label findLabel(String id) {
+    	
+    	for( int i =0;i<pane.getChildren().size();i++)
+    	{
+    		 Node current = pane.getChildren().get(i);
+    		 if(current.getId() != null && current.getId().equals(id))
+    		 {
+    			 return (Label) current;
+    		 }
+    	}
+    	return null;
+	}
+	//Initialize ScoreBoard end//
 
     
 	// Hover Section

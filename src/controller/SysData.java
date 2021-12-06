@@ -57,6 +57,8 @@ public class SysData extends JPanel{
     public boolean clearScore = false;
     public int scoreToAdd = 0;
 
+
+    
     public int score;
     public JLabel scoreboard;
 
@@ -89,7 +91,7 @@ public class SysData extends JPanel{
 
         this.isCustom = md.isCustom();
         this.ghostBase = md.getGhostBasePosition();
-        SysData.questions = QuestionJsonRead.questionsAndAnswers;
+        SysData.questions = JsonRead.questionsAndAnswers;
 
         pacman = new Pacman(md.getPacmanPosition().x,md.getPacmanPosition().y,this);
         addKeyListener(pacman);
@@ -191,6 +193,11 @@ public class SysData extends JPanel{
                         pacman.animTimer.stop();
                         g.moveTimer.stop();
                         isGameOver = true;
+                        JsonWriterEx JW = new JsonWriterEx();
+                		String date = java.time.LocalDate.now().toString();
+
+                			JW.writeScordboardRecords(GlobalFuncations.username,score,date);        
+
                         scoreboard.setText("    Press R to try again !");
                         //scoreboard.setForeground(Color.red);
                         break;
@@ -233,6 +240,11 @@ public class SysData extends JPanel{
                 pac6.stop();
                 SoundPlayer.play("pacman_intermission.wav");
                 isWin = true;
+                JsonWriterEx JW = new JsonWriterEx();
+		String date = java.time.LocalDate.now().toString();
+
+			JW.writeScordboardRecords(GlobalFuncations.username,score,date);        
+
                 pacman.moveTimer.stop();
                 for(Ghost g : ghosts){
                     g.moveTimer.stop();
@@ -389,14 +401,18 @@ public class SysData extends JPanel{
             clearScore = true;
 
         }
-
+    
+		
         if(isGameOver){
             g.drawImage(goImage,this.getSize().width/2-315,this.getSize().height/2-75,null);
+
         }
 
         if(isWin){
             g.drawImage(vicImage,this.getSize().width/2-315,this.getSize().height/2-75,null);
+
         }
+       
 
 
     }
