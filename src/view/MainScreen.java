@@ -5,6 +5,7 @@ import java.io.InputStream;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -54,6 +55,9 @@ public class MainScreen {
 
 	@FXML
 	private TextField nameFeild;
+	
+    @FXML
+    private Label noNameLabel;
 
 	public void initialize() {
 		themeField.getItems().addAll("Basic", "Candy Land", "Zombie Land");
@@ -136,11 +140,13 @@ public class MainScreen {
 	@FXML
 	void startGame(MouseEvent event) {
 		if (nameFeild.getText().isEmpty()) {
-			
+			noNameLabel.setText("*you must enter name");
+			return;
 		}
 
 		PacWindow pw = new PacWindow();
 		GlobalFuncations.username = nameFeild.getText();
+		noNameLabel.setText("");
 		Stage stage = (Stage) startGameBtn.getScene().getWindow();
 		stage.close();
 	}
