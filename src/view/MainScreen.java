@@ -135,6 +135,9 @@ public class MainScreen {
 
 	@FXML
 	void startGame(MouseEvent event) {
+		if (nameFeild.getText().isEmpty()) {
+			
+		}
 
 		PacWindow pw = new PacWindow();
 		GlobalFuncations.username = nameFeild.getText();
