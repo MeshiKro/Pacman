@@ -4,11 +4,15 @@ import misc.MapData;
 import misc.MapEditor;
 import controller.SysData;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class PacWindow extends JFrame {
@@ -18,17 +22,30 @@ public class PacWindow extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public PacWindow() {
+	public PacWindow()  {
         setTitle("Scorpion Pacman");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
         getContentPane().setBackground(Color.black);
 
-        setSize(794, 703);
+        setSize(794, 707);
         setLocationRelativeTo(null);
+        
+        BufferedImage myPicture = null;
+   		try {
+   			myPicture = ImageIO.read(new File("./resources/images/pac/3lives.png"));
+   		} catch (IOException e) {
+   			// TODO Auto-generated catch block
+   			e.printStackTrace();
+   		}
+   		 JLabel picLabel = new JLabel(new ImageIcon(myPicture));
+   		 picLabel.setHorizontalAlignment(JLabel.RIGHT);
 
-        JLabel scoreboard = new JLabel(" Score : 0      Level : 1");
+        JLabel scoreboard = new JLabel("       Level : 1       Score : 0",new ImageIcon(myPicture), SwingConstants.HORIZONTAL);
+        scoreboard.setHorizontalAlignment(JLabel.LEFT);
         scoreboard.setFont(new Font("OCR A Extended", Font.PLAIN, 23));
+        
+      
         
         scoreboard.setForeground(new Color(255, 243, 36));
 
@@ -39,8 +56,10 @@ public class PacWindow extends JFrame {
 
         pb.setBorder(new CompoundBorder(new EmptyBorder(7, 7, 7, 7), new LineBorder(Color.BLUE)));
         addKeyListener(pb.pacman);
-
-        this.getContentPane().add(scoreboard, BorderLayout.SOUTH);
+       
+        //this.getContentPane().add(picLabel, BorderLayout.SOUTH);
+        this.getContentPane().add(scoreboard, BorderLayout.SOUTH); 
+       // this.getContentPane().add(picLabel);
         this.getContentPane().add(pb);
         setVisible(true);
     }
@@ -54,12 +73,20 @@ public class PacWindow extends JFrame {
 //        setSize(794, 884);
   //      setLocationRelativeTo(null);
 
-        JLabel scoreboard = new JLabel(" Score : 0      Level : 1");
+        JLabel scoreboard = new JLabel("       Level : 1       Score : 0");
         scoreboard.setForeground(new Color(255, 243, 36));
 
         JFrame         frame=new JFrame("first way");
 
-
+		 BufferedImage myPicture = null;
+		try {
+			myPicture = ImageIO.read(new File("./resources/images/pac/pac2.png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 JLabel picLabel = new JLabel(new ImageIcon(myPicture));
+		 picLabel.setHorizontalAlignment(JLabel.RIGHT);
         
         //int[][] mapLoaded = loadMap(27,29,"/maps/map1.txt");
         adjustMap(md);
@@ -71,6 +98,7 @@ public class PacWindow extends JFrame {
         
 frame.getContentPane().add(scoreboard, BorderLayout.SOUTH);
 frame.getContentPane().add(pb);
+this.getContentPane().add(picLabel, BorderLayout.SOUTH);
 this.getContentPane().add(frame);
 frame.setVisible(true);
       //  setVisible(true);

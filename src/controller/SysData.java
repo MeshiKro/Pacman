@@ -233,8 +233,8 @@ public class SysData extends JPanel{
             SoundPlayer.play("pacman_eat.wav");
             foods.remove(foodToEat);
             score ++;
-            scoreboard.setText(" Score : "+score+"      Level : 1"); //to change the level to a counter variable
-
+            scoreboard.setText("       Level : 1       Score : "+score); //to change the level to a counter variable
+         
             if(foods.size() == 0){
                 siren.stop();
                 pac6.stop();
