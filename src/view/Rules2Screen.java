@@ -5,6 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Font;
 import misc.GlobalFuncations;
 
 
@@ -61,7 +62,11 @@ public class Rules2Screen {
 
     @FXML
     private Label title;
-
+    public void initialize() {
+    
+    	Font f = Font.loadFont(getClass().getResourceAsStream("/resources/fonts/OCRExtendedV1.ttf"), 60);
+    	title.setFont(f);
+    	}
     @FXML
     void BackBtnClicked(MouseEvent event) {
     	GlobalFuncations.switchScreen(pane,"Rules1Screen",(getClass().getResource("/view/" + "Rules1Screen" + ".fxml")),"");

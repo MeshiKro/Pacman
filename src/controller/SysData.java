@@ -267,6 +267,7 @@ public class SysData extends JPanel{
                     siren.stop();
                     mustReactivateSiren = true;
                     pac6.start();
+                    pacman.changePacmanColor("Purple");
                     for (Ghost g : ghosts) {
                         g.weaken();
                     }
@@ -275,6 +276,8 @@ public class SysData extends JPanel{
                 default:
                     SoundPlayer.play("pacman_eatfruit.wav");
                     pufoods.remove(puFoodToEat);
+                    pacman.changePacmanColor("");
+
                     scoreToAdd = 1;
                     drawScore = true;
             }
