@@ -62,7 +62,6 @@ public class MainScreen {
     @FXML
     private Label noNameLabel;
     
-    public static boolean isMute=false;
 
 	public void initialize() {
 		themeField.getItems().addAll("Basic", "Candy Land", "Zombie Land");
@@ -169,20 +168,6 @@ public class MainScreen {
 		stage.close();
 	}
 	
-	
-	@FXML
-	void muteBtnClicked(MouseEvent event) {
-		setMute(true);	
-	}
-
-    public static boolean isMute() {
-		return isMute;
-	}
-
-	public static void setMute(boolean isMute) {
-		MainScreen.isMute = isMute;
-	}
-
 	@FXML
     void QuestionWizardBtnClicked(MouseEvent event) {
     	GlobalFuncations.switchScreen(pane,"QuestionScreen",(getClass().getResource("/view/" + "QuestionScreen" + ".fxml")),"");

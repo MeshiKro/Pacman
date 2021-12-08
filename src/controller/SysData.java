@@ -3,7 +3,6 @@ package controller;
 
 import misc.*;
 import model.*;
-import view.MainScreen;
 import view.PacWindow;
 import view.MainScreen;
 
@@ -41,7 +40,6 @@ public class SysData extends JPanel{
 
     public Image goImage;
     public Image vicImage;
-    boolean isSiren=MainScreen.isMute;
 
     public Pacman pacman;
     public ArrayList<Food> foods;
@@ -178,13 +176,10 @@ public class SysData extends JPanel{
             pac6 = new LoopPlayer("pac6.wav");
         	siren.start();
         }
-<<<<<<< HEAD
-=======
 
 
      
         
->>>>>>> 75d71b2f4218c352af5072d223c89d36877d52e6
     }
 
     public void collisionTest(){
@@ -197,10 +192,6 @@ public class SysData extends JPanel{
                 if(!g.isDead()) {
                     if (!g.isWeak()) {
                         //Game Over
-<<<<<<< HEAD
-                        siren.stop();
-=======
->>>>>>> 75d71b2f4218c352af5072d223c89d36877d52e6
                         if(!isSiren) {
                         	SoundPlayer.play("pacman_lose.wav");
                         	siren.stop();
@@ -219,16 +210,10 @@ public class SysData extends JPanel{
                         break;
                     } else {
                         //Eat Ghost
-<<<<<<< HEAD
-                    	if(!isSiren) {
-                 		   SoundPlayer.play("pacman_eatghost.wav");
-                 	   }                        //getGraphics().setFont(new Font("Arial",Font.BOLD,20));
-=======
                     	   if(!isSiren) {
                     		   SoundPlayer.play("pacman_eatghost.wav");
                     	   }
                         //getGraphics().setFont(new Font("Arial",Font.BOLD,20));
->>>>>>> 75d71b2f4218c352af5072d223c89d36877d52e6
                         drawScore = true;
                         scoreToAdd++;
                         if(ghostBase!=null)
@@ -254,20 +239,11 @@ public class SysData extends JPanel{
                 foodToEat = f;
         }
         if(foodToEat!=null) {
-<<<<<<< HEAD
-        	  if(!isSiren) {
-       		   SoundPlayer.play("pacman_eat.wav");
-              }
-        	  foods.remove(foodToEat);
-            score ++;
-            //scoreboard.setText("       Level : 1       Score : "+score); //to change the level to a counter variable
-=======
         	   if(!isSiren) {
         		   SoundPlayer.play("pacman_eat.wav");
                }
             foods.remove(foodToEat);
             score ++;
->>>>>>> 75d71b2f4218c352af5072d223c89d36877d52e6
             if (score<=2) {
             	scoreboard.setText("       Level : 1       Score : "+score); //to change the level to a counter variable	
             }
@@ -281,14 +257,6 @@ public class SysData extends JPanel{
             else {
             	scoreboard.setText("       Level : 4       Score : "+score); //to change the level to a counter variable
             }
-<<<<<<< HEAD
-            if(foods.size() == 0){
-                siren.stop();
-                pac6.stop();
-                if(!isSiren) {
-         		   SoundPlayer.play("pacman_eat.wav");
-                }                isWin = true;
-=======
             
             if(foods.size() == 0){
                 siren.stop();
@@ -297,7 +265,6 @@ public class SysData extends JPanel{
         		   SoundPlayer.play("pacman_eat.wav");
                }
                 isWin = true;
->>>>>>> 75d71b2f4218c352af5072d223c89d36877d52e6
                 JsonWriterEx JW = new JsonWriterEx();
 		String date = java.time.LocalDate.now().toString();
 
@@ -323,14 +290,12 @@ public class SysData extends JPanel{
                     //PACMAN 6
                     pufoods.remove(puFoodToEat);
                     mustReactivateSiren = true;
+                    pacman.changePacmanColor("Purple");
+
                     if(!isSiren) {
                         siren.stop();
                     	pac6.start();
-<<<<<<< HEAD
-                    }                    pacman.changePacmanColor("Purple");
-=======
                     }
->>>>>>> 75d71b2f4218c352af5072d223c89d36877d52e6
                     for (Ghost g : ghosts) {
                         g.weaken();
                     }
@@ -338,18 +303,12 @@ public class SysData extends JPanel{
                     break;
                 default:
                 	 if(!isSiren) {
-<<<<<<< HEAD
-               		  SoundPlayer.play("pacman_eatfruit.wav");
-               	 }
-                	 pufoods.remove(puFoodToEat);
-                    pacman.changePacmanColor("");
-
-=======
                 		  SoundPlayer.play("pacman_eatfruit.wav");
                 	 }
                     pufoods.remove(puFoodToEat);
->>>>>>> 75d71b2f4218c352af5072d223c89d36877d52e6
                     scoreToAdd = 1;
+                    pacman.changePacmanColor("");
+
                     drawScore = true;
             }
             //score ++;
@@ -374,21 +333,6 @@ public class SysData extends JPanel{
         }
         
         //Check isSiren
-<<<<<<< HEAD
-        if (!isSiren) {
-     	   for(Ghost g:ghosts){
-                if(g.isWeak()){
-                	isSiren=false;
-                }
-            }
-            if(!isSiren){
-               // pac6.stop();
-                if(mustReactivateSiren){
-                    mustReactivateSiren = false;
-                    siren.start();
-                }
-            }
-=======
        if (!isSiren) {
     	   for(Ghost g:ghosts){
                if(g.isWeak()){
@@ -404,7 +348,6 @@ public class SysData extends JPanel{
        }
         
 
->>>>>>> 75d71b2f4218c352af5072d223c89d36877d52e6
         }
 
 

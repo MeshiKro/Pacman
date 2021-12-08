@@ -34,9 +34,9 @@ public class JsonRead {
 
 				//AnswerObject[] answersList = createAnswerList(answers, correct_ans);
 				//QuestionObject question = createQuestion(questionString, level, team, answersList);
-				QuestionInJson question = new QuestionInJson(questionString,)
+				//QuestionInJson question = new QuestionInJson(questionString,)
 				
-				questionsAndAnswers.add(question);
+			//	questionsAndAnswers.add(question);
 			}
 		} catch (Exception ex) {
 			System.out.println(ex.toString());
