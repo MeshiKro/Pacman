@@ -471,7 +471,7 @@ public class SysData extends JPanel{
     }
 
     public void restart(){
-
+    	if( siren != null)
         siren.stop();
 
         new PacWindow();
