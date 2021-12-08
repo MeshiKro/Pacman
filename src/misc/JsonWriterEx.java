@@ -21,8 +21,8 @@ public class JsonWriterEx {
 	Gson gson = new Gson();
 
 	public boolean serialazation(ArrayList<QuestionObject> arg) throws Exception {
-
 		questions helper = new questions();
+
 
 		AnswerObject[] answers = new AnswerObject[4];
 
@@ -52,6 +52,44 @@ public class JsonWriterEx {
 		return true;
 	}
 
+	
+	public void writeQuestions()  {
+		
+		
+
+	}
+/*	private static questions createNewQuestion() {
+		String[] answers = new String[4];
+
+		answers[0] = "111";
+		answers[1] = "222";
+		answers[2] = "333";
+		answers[3] = "444";
+		new questions("Hello How Are you?",answers, "2","2", "Scorpions");
+
+		return null;
+	}
+
+	private static ArrayList<questions> getExsistQuestion(ArrayList<QuestionObject> arg) {
+		ArrayList<questions> helper = new ArrayList<questions>();
+
+		for (int i = 0; i < arg.size(); i++) {
+			String[] answers = new String[4];
+			String correctAns = "";
+			for (int j = 0; j < 4; j++) {
+				answers[j] = arg.get(j).answers[0].answer;
+
+				if (arg.get(j).answers[0].isCorrect)
+					correctAns = Integer.toString(j);
+			}
+
+			helper.add(new questions(arg.get(i).question, answers, correctAns, arg.get(i).level.toString(),
+					arg.get(i).team));
+		}
+		return helper;
+	}
+*/
+	
 	public void writeScordboardRecords(String nickname,int score ,	String date) {
 
 		

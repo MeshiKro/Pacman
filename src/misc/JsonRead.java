@@ -32,9 +32,10 @@ public class JsonRead {
 				String level = arr.getJSONObject(i).getString("level");
 				String team = arr.getJSONObject(i).getString("team");
 
-				AnswerObject[] answersList = createAnswerList(answers, correct_ans);
-				QuestionObject question = createQuestion(questionString, level, team, answersList);
-
+				//AnswerObject[] answersList = createAnswerList(answers, correct_ans);
+				//QuestionObject question = createQuestion(questionString, level, team, answersList);
+				QuestionInJson question = new QuestionInJson(questionString,)
+				
 				questionsAndAnswers.add(question);
 			}
 		} catch (Exception ex) {
@@ -50,16 +51,16 @@ public class JsonRead {
 		return q;
 	}
 
-	private AnswerObject[] createAnswerList(JSONArray answers, String correct_ans) {
+	private String[] createAnswerList(JSONArray answers, String correct_ans) {
 
-		AnswerObject[] a = new AnswerObject[4];
+		String[] a = new String[4];
 
 		for (int i = 0; i < answers.length(); i++) {
 			boolean correct = false;
 			if ((Integer.parseInt(correct_ans) - 1) == i)
 				correct = true;
 
-			a[i] = new AnswerObject(answers.get(i).toString(), correct);
+			a[i] = answers.get(i).toString();
 		}
 		return a;
 	}

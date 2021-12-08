@@ -17,6 +17,9 @@ import javafx.scene.input.MouseEvent;
 
 public class MainScreen {
 
+    public static boolean isMute=false;
+
+	
 	@FXML
 	private AnchorPane pane;
 
@@ -138,6 +141,19 @@ public class MainScreen {
 	
 	
 	// OnClick Section//
+	@FXML
+	void muteBtnClicked(MouseEvent event) {
+		setMute(true);	
+	}
+
+    @FXML
+    public static boolean isMute() {
+		return isMute;
+	}
+
+	public static void setMute(boolean isMute) {
+		MainScreen.isMute = isMute;
+	}
 
 	@FXML
 	void startGame(MouseEvent event) {

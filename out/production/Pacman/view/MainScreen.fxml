@@ -85,9 +85,9 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="mutePane" layoutX="939.0" layoutY="323.0" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
+      <AnchorPane fx:id="mutePane" layoutX="939.0" layoutY="323.0" onMouseClicked="#muteBtnClicked" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
          <children>
-            <ImageView fx:id="muteBtn" fitHeight="84.0" fitWidth="84.0">
+            <ImageView fx:id="muteBtn" fitHeight="84.0" fitWidth="84.0" onMouseClicked="#muteBtnClicked">
                <image>
                   <Image url="@../../images/buttonconinter.png" />
                </image>
