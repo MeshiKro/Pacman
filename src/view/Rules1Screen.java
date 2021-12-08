@@ -5,7 +5,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.text.Font;
 import misc.GlobalFuncations;
 
 public class Rules1Screen {
@@ -55,10 +54,8 @@ public class Rules1Screen {
     @FXML
     private Label title;
 
-    public void initialize() {
-    	Font f = Font.loadFont(getClass().getResourceAsStream("/resources/fonts/OCRExtendedV1.ttf"), 60);
-    	title.setFont(f);
-    	}
+  
+
     @FXML
     void HomeBtnClicked(MouseEvent event) {
     	GlobalFuncations.switchScreen(pane,"MainScreen",(getClass().getResource("/view/" + "MainScreen" + ".fxml")),"");

@@ -45,8 +45,21 @@ public class Pacman implements KeyListener{
 
         activeMove = moveType.NONE;
         todoMove = moveType.NONE;
-        changePacmanColor("");
-       
+
+        try 
+        {
+        	String path = this.getClass().getResource("/resources/images/pac/pac0.png").toString();
+            System.err.println("path " + path);
+
+            pac[0] = ImageIO.read(this.getClass().getResource("/resources/images/pac/pac0.png"));
+            pac[1] = ImageIO.read(this.getClass().getResource("/resources/images/pac/pac1.png"));
+            pac[2] = ImageIO.read(this.getClass().getResource("/resources/images/pac/pac2.png"));
+            pac[3] = ImageIO.read(this.getClass().getResource("/resources/images/pac/pac3.png"));
+            pac[4] = ImageIO.read(this.getClass().getResource("/resources/images/pac/pac4.png"));
+        }catch(IOException e){
+            System.err.println("Cannot Read Images !");
+        }
+
         //animation timer
         animAL = new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -161,24 +174,6 @@ public class Pacman implements KeyListener{
         };
         moveTimer = new Timer(9,moveAL);
         moveTimer.start();
-
-    }
-    public void changePacmanColor(String color){
-    	 try 
-         {    
-    		 System.err.println("path " + this.getClass().getResource("/resources/images/pac/Purplepac0.png"));
-
-         	String path = this.getClass().getResource("/resources/images/pac/" + color+"pac0.png").toString();
-            
-
-             pac[0] = ImageIO.read(this.getClass().getResource("/resources/images/pac/" + color+"pac0.png"));
-             pac[1] = ImageIO.read(this.getClass().getResource("/resources/images/pac/" + color+"pac1.png"));
-             pac[2] = ImageIO.read(this.getClass().getResource("/resources/images/pac/" + color+"pac2.png"));
-             pac[3] = ImageIO.read(this.getClass().getResource("/resources/images/pac/" + color+"pac3.png"));
-             pac[4] = ImageIO.read(this.getClass().getResource("/resources/images/pac/" + color+"pac4.png"));
-         }catch(IOException e){
-             System.err.println("Cannot Read Images !");
-         }
 
     }
 

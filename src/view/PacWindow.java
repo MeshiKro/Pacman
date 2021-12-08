@@ -123,7 +123,7 @@ frame.setVisible(true);
         return null;
     }
 
-    public MapData getMapFromResource(String relPath) {
+    public  MapData getMapFromResource(String relPath) {
         String mapStr = "";
         try {
             Scanner scn = new Scanner(this.getClass().getResourceAsStream(relPath));
