@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #2c2929;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="326.0" fitWidth="734.0" layoutX="163.0" layoutY="181.0">
+         <image>
+            <Image url="@../../images/Rectangle.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="startButtonClicked" fitHeight="82.0" fitWidth="200.0" layoutX="420.0" layoutY="398.0" visible="false">
+         <image>
+            <Image url="@../../images/startButtonClicked.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="okBtn" fitHeight="82.0" fitWidth="212.0" layoutX="428.0" layoutY="510.0" onMouseClicked="#OkBtnClicked" onMouseEntered="#hoverStart" onMouseExited="#HoverEnd">
+         <image>
+            <Image url="@../images/answer.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="meg" layoutX="455.0" layoutY="116.0" prefHeight="69.0" prefWidth="248.0" text="easy question" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="110.0" fitWidth="110.0" layoutX="475.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/question-shield-512.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="label" layoutX="425.0" layoutY="204.0" text="what is Agile?" textFill="WHITE">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Label>
+      <RadioButton layoutX="253.0" layoutY="275.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="527.0" text="iterative approach to software delivery that builds.. " textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </RadioButton>
+      <RadioButton layoutX="252.0" layoutY="327.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="563.0" text="treats analysis, design, coding, and testing as discrete.." textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </RadioButton>
+      <RadioButton layoutX="252.0" layoutY="381.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="369.0" text="a name of an angel" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </RadioButton>
+      <RadioButton layoutX="252.0" layoutY="433.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="369.0" text="kind of development plan" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </RadioButton>
+   </children>
+</AnchorPane>
