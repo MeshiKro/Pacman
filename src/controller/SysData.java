@@ -143,18 +143,18 @@ public class SysData extends JPanel{
         mapSegments[0] = null;
         for(int ms=1;ms<28;ms++){
             try {
-                mapSegments[ms] = ImageIO.read(this.getClass().getResource("/resources/images/map segments/"+ms+".png"));
+                mapSegments[ms] = ImageIO.read(this.getClass().getResource("/resources/images/candyLand/map segments/"+ms+".png"));
             }catch(Exception e){}
         }
 
         pfoodImage = new Image[5];
         for(int ms=0 ;ms<5;ms++){
             try {
-                pfoodImage[ms] = ImageIO.read(this.getClass().getResource("/resources/images/food/"+ms+".png"));
+                pfoodImage[ms] = ImageIO.read(this.getClass().getResource("/resources/images/candyLand/food/"+ms+".png"));
             }catch(Exception e){}
         }
         try{
-            foodImage = ImageIO.read(this.getClass().getResource("/resources/images/food.png"));
+            foodImage = ImageIO.read(this.getClass().getResource("/resources/images/candyLand/food.png"));
             goImage = ImageIO.read(this.getClass().getResource("/resources/images/gameover.png"));
             vicImage = ImageIO.read(this.getClass().getResource("/resources/images/victory.png"));
             //pfoodImage = ImageIO.read(this.getClass().getResource("/images/pfood.png"));
