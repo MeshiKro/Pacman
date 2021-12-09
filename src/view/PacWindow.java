@@ -51,7 +51,6 @@ public class PacWindow extends JFrame {
 
         MapData map1 = getMapFromResource("/resources/maps/map1_c.txt");
         adjustMap(map1);
-
         SysData pb = new SysData(scoreboard, map1, this);
 
         pb.setBorder(new CompoundBorder(new EmptyBorder(7, 7, 7, 7), new LineBorder(Color.BLUE)));

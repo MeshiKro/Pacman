@@ -19,6 +19,7 @@ public class MainScreen {
 
     public static boolean isMute=false;
 
+    public static String theme="Basic";
 	
 	@FXML
 	private AnchorPane pane;
@@ -156,6 +157,20 @@ public class MainScreen {
 
 	@FXML
 	void startGame(MouseEvent event) {
+		
+		String th = themeField.getSelectionModel().getSelectedItem();
+		
+		if(th.equals("Basic")){
+			theme="Basic";
+		}
+		if(th.equals("Candy Land")){
+			theme="Candy Land";
+		}
+		if(th.equals("Zombie Land")){
+			theme="Zombie Land";
+		}
+		
+		//check for a name input
 		if (nameFeild.getText().isEmpty()) {
 			noNameLabel.setText("*you must enter name");
 			return;

@@ -143,18 +143,44 @@ public class SysData extends JPanel{
         mapSegments[0] = null;
         for(int ms=1;ms<28;ms++){
             try {
-                mapSegments[ms] = ImageIO.read(this.getClass().getResource("/resources/images/candyLand/map segments/"+ms+".png"));
+            if(MainScreen.theme.equals("Basic")){
+            	  mapSegments[ms] = ImageIO.read(this.getClass().getResource("/resources/images/map segments/"+ms+".png"));
+     		}
+     		if(MainScreen.theme.equals("Candy Land")){
+     			  mapSegments[ms] = ImageIO.read(this.getClass().getResource("/resources/images/candyLand/map segments/"+ms+".png"));
+     		}
+     		if(MainScreen.theme.equals("Zombie Land")){
+     		
+     		}
+            	
             }catch(Exception e){}
         }
 
         pfoodImage = new Image[5];
         for(int ms=0 ;ms<5;ms++){
             try {
-                pfoodImage[ms] = ImageIO.read(this.getClass().getResource("/resources/images/candyLand/food/"+ms+".png"));
+                if(MainScreen.theme.equals("Basic")){
+                	 pfoodImage[ms] = ImageIO.read(this.getClass().getResource("/resources/images/food/"+ms+".png"));
+         		}
+         		if(MainScreen.theme.equals("Candy Land")){
+         			 pfoodImage[ms] = ImageIO.read(this.getClass().getResource("/resources/images/candyLand/food/"+ms+".png"));
+         		}
+         		if(MainScreen.theme.equals("Zombie Land")){
+         		
+         		}
+               
             }catch(Exception e){}
         }
         try{
-            foodImage = ImageIO.read(this.getClass().getResource("/resources/images/candyLand/food.png"));
+            if(MainScreen.theme.equals("Basic")){
+            	  foodImage = ImageIO.read(this.getClass().getResource("/resources/images/food.png"));
+         		}
+         		if(MainScreen.theme.equals("Candy Land")){
+         			  foodImage = ImageIO.read(this.getClass().getResource("/resources/images/candyLand/food.png"));
+         		}
+         		if(MainScreen.theme.equals("Zombie Land")){
+         		
+         		}
             goImage = ImageIO.read(this.getClass().getResource("/resources/images/gameover.png"));
             vicImage = ImageIO.read(this.getClass().getResource("/resources/images/victory.png"));
             //pfoodImage = ImageIO.read(this.getClass().getResource("/images/pfood.png"));
