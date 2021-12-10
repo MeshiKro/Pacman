@@ -25,7 +25,7 @@ public class JsonRead {
 		
 		try {
 			String text = new String(Files.readAllBytes(Paths.get("QuestionBank.json")), StandardCharsets.UTF_8);
-			System.out.println(text);
+			//System.out.println(text);
 			JSONObject obj = new JSONObject(text);
 			JSONArray arr = obj.getJSONArray("questions");
 			for (int i = 0; i < arr.length(); i++) {

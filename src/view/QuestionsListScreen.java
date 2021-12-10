@@ -129,60 +129,95 @@ public class QuestionsListScreen {
 	@FXML
 	private Text quesionField6;
 
+	@FXML
+	private ImageView backiquestioncon1;
 
-    @FXML
-    private ImageView backiquestioncon1;
+	@FXML
+	private ImageView backquestionBtn1;
 
-    @FXML
-    private ImageView backquestionBtn1;
+	@FXML
+	private AnchorPane backquestionBtnPane1;
 
-    @FXML
-    private AnchorPane backquestionBtnPane1;
-	
 	private int quesiotnIndex;
+
+	ArrayList<QuestionInJson> array;
 
 	public void initialize() {
 		JsonRead jr = new JsonRead();
-		ArrayList<QuestionInJson> array = jr.readQuestionsFromJson();
+		array = jr.readQuestionsFromJson();
 		quesiotnIndex = 6;
-		System.out.println(" array " + array.size());
-		if(array.size() >6)
-		{
-			nextBtnPane.setVisible(true);
-			backquestionBtnPane1.setVisible(true);
-		}else
-		{
-			nextBtnPane.setVisible(false);
-			backquestionBtnPane1.setVisible(false);
-		}
-		
-		for (int i = 0; i < quesiotnIndex; i++) {
 
-			addQuestion(array, i);
+		setNextAndBackBtn(array.size());
+
+		for (int i = 0; i < quesiotnIndex; i++) {
+			try {
+				addQuestion(array, i);
+
+			} catch (IndexOutOfBoundsException e) {
+
+			}
 		}
 
 	}
 
-	void addQuestion(ArrayList<QuestionInJson> array, int index) {
-		System.out.println(array.get(index).getQuestion());
+	private void setNextAndBackBtn(int size) {
+		if (size > 6) {
+			nextBtnPane.setVisible(true);
+			backquestionBtnPane1.setVisible(true);
+		} else {
+			nextBtnPane.setVisible(false);
+			backquestionBtnPane1.setVisible(false);
+		}
+	}
 
-		
-		Text field = findText("quesionField" + String.valueOf(index + 1));
+	// Add question to Screen
+	void addQuestion(ArrayList<QuestionInJson> array, int index) {
+
+		int indexID = index;
+		if (indexID >= 6)
+			indexID -= 6;
+
+		// Find question / level field
+		Text field = findText("quesionField" + String.valueOf(indexID + 1));
 		field.setText(array.get(index).getQuestion());
 		field.setVisible(true);
-		
-		
-		field = findText("levleField" + String.valueOf(index + 1));
+
+		field = findText("levleField" + String.valueOf(indexID + 1));
 		field.setText(getLevel(array.get(index).getLevel()));
 		field.setVisible(true);
 
-		
-		ImageView img = findImageView("editBtn" + String.valueOf(index + 1));
+		// find edit / delete icon
+		ImageView img = findImageView("editBtn" + String.valueOf(indexID + 1));
 		img.setVisible(true);
 
-		img = findImageView("deleteBtn" + String.valueOf(index + 1));
+		img = findImageView("deleteBtn" + String.valueOf(indexID + 1));
 		img.setVisible(true);
 
+	}
+
+	// Remove question from Screen
+	private void removeQuestion(ArrayList<QuestionInJson> array, int index) {
+		int indexID = index;
+		if (indexID >= 6)
+			indexID -= 6;
+
+		// Find question / level field
+		Text field = findText("quesionField" + String.valueOf(indexID + 1));
+		if(field != null)
+		field.setVisible(false);
+
+		field = findText("levleField" + String.valueOf(indexID + 1));
+		if(field != null)
+		field.setVisible(false);
+
+		// find edit / delete icon
+		ImageView img = findImageView("editBtn" + String.valueOf(indexID + 1));
+		if(img != null)
+		img.setVisible(false);
+
+		img = findImageView("deleteBtn" + String.valueOf(indexID + 1));
+		if(img != null)
+		img.setVisible(false);
 	}
 
 	private ImageView findImageView(String id) {
@@ -287,10 +322,34 @@ public class QuestionsListScreen {
 	@FXML
 	void nextQuesiotnBtnClicked(MouseEvent event) {
 
+		int nextMaxIndex = quesiotnIndex + 6;
+
+
+		for (int i = quesiotnIndex; i < nextMaxIndex; i++) {
+			try {
+				addQuestion(array, i);
+			} catch (IndexOutOfBoundsException e) {
+				removeQuestion(array, i);
+
+			}
+		}
+		quesiotnIndex = nextMaxIndex;
+
 	}
 
 	@FXML
 	void BackQuestionBtnClicked(MouseEvent event) {
+		int minIndex = quesiotnIndex - 6;
+
+		for (int i = minIndex; i < quesiotnIndex; i++) {
+			try {
+				addQuestion(array, i);
+			} catch (IndexOutOfBoundsException e) {
+				removeQuestion(array, i);
+
+			}
+		}
+		quesiotnIndex = minIndex;
 
 	}
 
