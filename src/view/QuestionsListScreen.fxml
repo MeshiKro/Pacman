@@ -65,122 +65,122 @@
             <Font name="Cascadia Code Regular" size="24.0" />
          </font>
       </Label>
-      <Text fill="WHITE" layoutX="244.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="what is Scrum?">
+      <Text fx:id="quesionField1" fill="WHITE" layoutX="244.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="what is Scrum?">
          <font>
             <Font size="17.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="244.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="what is Agile?">
+      <Text fx:id="quesionField2" fill="WHITE" layoutX="244.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="what is Agile?" visible="false">
          <font>
             <Font size="17.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="243.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="what is Waterfall?">
+      <Text fx:id="quesionField3" fill="WHITE" layoutX="243.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="what is Waterfall?" visible="false">
          <font>
             <Font size="17.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="243.0" layoutY="404.0" strokeType="OUTSIDE" strokeWidth="0.0" text="what is Unit Testing?">
+      <Text fx:id="quesionField4" fill="WHITE" layoutX="243.0" layoutY="404.0" strokeType="OUTSIDE" strokeWidth="0.0" text="what is Unit Testing?" visible="false">
          <font>
             <Font size="17.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="244.0" layoutY="452.0" strokeType="OUTSIDE" strokeWidth="0.0" text="what is GANT chart?">
+      <Text fx:id="quesionField5" fill="WHITE" layoutX="244.0" layoutY="452.0" strokeType="OUTSIDE" strokeWidth="0.0" text="what is GANT chart?" visible="false">
          <font>
             <Font size="17.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="243.0" layoutY="498.0" strokeType="OUTSIDE" strokeWidth="0.0" text="what is TDD?">
+      <Text fx:id="quesionField6" fill="WHITE" layoutX="243.0" layoutY="498.0" strokeType="OUTSIDE" strokeWidth="0.0" text="what is TDD?" visible="false">
          <font>
             <Font size="17.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="487.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="easy">
+      <Text fx:id="levleField1" fill="WHITE" layoutX="487.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="easy">
          <font>
             <Font size="17.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="487.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="easy">
+      <Text fx:id="levleField2" fill="WHITE" layoutX="487.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="easy" visible="false">
          <font>
             <Font size="17.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="487.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="easy">
+      <Text fx:id="levleField3" fill="WHITE" layoutX="487.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="easy" visible="false">
          <font>
             <Font size="17.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="487.0" layoutY="404.0" strokeType="OUTSIDE" strokeWidth="0.0" text="easy">
+      <Text fx:id="levleField4" fill="WHITE" layoutX="487.0" layoutY="404.0" strokeType="OUTSIDE" strokeWidth="0.0" text="easy" visible="false">
          <font>
             <Font size="17.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="487.0" layoutY="452.0" strokeType="OUTSIDE" strokeWidth="0.0" text="easy">
+      <Text fx:id="levleField5" fill="WHITE" layoutX="487.0" layoutY="452.0" strokeType="OUTSIDE" strokeWidth="0.0" text="easy" visible="false">
          <font>
             <Font size="17.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="487.0" layoutY="498.0" strokeType="OUTSIDE" strokeWidth="0.0" text="easy">
+      <Text fx:id="levleField6" fill="WHITE" layoutX="487.0" layoutY="498.0" strokeType="OUTSIDE" strokeWidth="0.0" text="easy" visible="false">
          <font>
             <Font size="17.0" />
          </font>
       </Text>
-      <ImageView fitHeight="26.0" fitWidth="40.0" layoutX="668.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="deleteBtn1" fitHeight="26.0" fitWidth="40.0" layoutX="668.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/delete.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="26.0" fitWidth="33.0" layoutX="763.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="editBtn1" fitHeight="26.0" fitWidth="33.0" layoutX="763.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/edit.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="26.0" fitWidth="40.0" layoutX="668.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="deleteBtn2" fitHeight="26.0" fitWidth="40.0" layoutX="668.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/delete.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="26.0" fitWidth="40.0" layoutX="668.0" layoutY="337.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="deleteBtn3" fitHeight="26.0" fitWidth="40.0" layoutX="668.0" layoutY="337.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/delete.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="26.0" fitWidth="40.0" layoutX="668.0" layoutY="385.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="deleteBtn4" fitHeight="26.0" fitWidth="40.0" layoutX="668.0" layoutY="385.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/delete.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="26.0" fitWidth="40.0" layoutX="668.0" layoutY="433.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="deleteBtn5" fitHeight="26.0" fitWidth="40.0" layoutX="668.0" layoutY="433.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/delete.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="26.0" fitWidth="40.0" layoutX="668.0" layoutY="479.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="deleteBtn6" fitHeight="26.0" fitWidth="40.0" layoutX="668.0" layoutY="479.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/delete.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="26.0" fitWidth="33.0" layoutX="763.0" layoutY="337.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="editBtn3" fitHeight="26.0" fitWidth="33.0" layoutX="763.0" layoutY="337.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/edit.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="26.0" fitWidth="33.0" layoutX="763.0" layoutY="385.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="editBtn4" fitHeight="26.0" fitWidth="33.0" layoutX="763.0" layoutY="385.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/edit.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="26.0" fitWidth="33.0" layoutX="763.0" layoutY="433.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="editBtn5" fitHeight="26.0" fitWidth="33.0" layoutX="763.0" layoutY="433.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/edit.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="26.0" fitWidth="33.0" layoutX="763.0" layoutY="479.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="editBtn6" fitHeight="26.0" fitWidth="33.0" layoutX="763.0" layoutY="479.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/edit.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="26.0" fitWidth="33.0" layoutX="763.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="editBtn2" fitHeight="26.0" fitWidth="33.0" layoutX="763.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/edit.png" />
          </image>
@@ -193,6 +193,34 @@
                </image>
             </ImageView>
             <ImageView fx:id="backicon" fitHeight="42.0" fitWidth="41.0" layoutX="20.0" layoutY="-22.0" onMouseClicked="#BackBtnClicked">
+               <image>
+                  <Image url="@../images/arrow.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="nextBtnPane" layoutX="815.0" layoutY="463.0" onMouseClicked="#nextQuesiotnBtnClicked" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton" prefHeight="40.0" prefWidth="57.0">
+         <children>
+            <ImageView fx:id="nextIcon2" fitHeight="84.0" fitWidth="84.0" onMouseClicked="#nextQuesiotnBtnClicked">
+               <image>
+                  <Image url="@../../images/buttonconinter.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="nextIcon1" fitHeight="42.0" fitWidth="41.0" layoutX="22.0" layoutY="21.0" onMouseClicked="#nextQuesiotnBtnClicked" rotate="180.0">
+               <image>
+                  <Image url="@../images/arrow.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="backquestionBtnPane1" layoutX="143.0" layoutY="517.0" onMouseClicked="#BackQuestionBtnClicked" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
+         <children>
+            <ImageView fx:id="backquestionBtn1" fitHeight="84.0" fitWidth="84.0" layoutY="-42.0" onMouseClicked="#BackQuestionBtnClicked">
+               <image>
+                  <Image url="@../../images/buttonconinter.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="backiquestioncon1" fitHeight="42.0" fitWidth="41.0" layoutX="20.0" layoutY="-22.0" onMouseClicked="#BackQuestionBtnClicked">
                <image>
                   <Image url="@../images/arrow.png" />
                </image>
