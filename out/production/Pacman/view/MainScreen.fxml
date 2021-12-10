@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MainScreen">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MainScreen">
    <children>
       <ImageView fitHeight="361.0" fitWidth="369.0" layoutY="241.0">
          <image>
@@ -25,7 +25,7 @@
             <Image url="@../../images/startButton.png" />
          </image>
       </ImageView>
-      <ImageView layoutX="363.0" layoutY="226.0">
+      <ImageView fitWidth="40.0" layoutX="365.0" layoutY="232.0">
          <image>
             <Image url="@../../images/pacmanicon.png" />
          </image>
@@ -35,8 +35,8 @@
             <Image url="@../../images/brushicon.png" />
          </image>
       </ImageView>
-      <ComboBox fx:id="themeField" accessibleText="sdfsdf" layoutX="527.0" layoutY="305.0" prefHeight="30.0" prefWidth="144.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
-      <Label layoutX="423.0" layoutY="223.0" text="Name:" textFill="WHITE">
+      <ComboBox fx:id="themeField" accessibleText="sdfsdf" layoutX="525.0" layoutY="305.0" prefHeight="30.0" prefWidth="144.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
+      <Label layoutX="423.0" layoutY="229.0" prefHeight="30.0" prefWidth="77.0" text="Name:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
@@ -57,7 +57,7 @@
             <Image url="@../../images/logo.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="rulesPane" layoutX="939.0" layoutY="86.0" onMouseClicked="#rulesClicked" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
+      <AnchorPane fx:id="rulesPane" layoutX="916.0" layoutY="55.0" onMouseClicked="#rulesClicked" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
          <children>
             <ImageView fx:id="rulesBtn" fitHeight="84.0" fitWidth="84.0">
                <image>
@@ -71,7 +71,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="qaPane" layoutX="939.0" layoutY="203.0" onMouseClicked="#QuestionWizardBtnClicked" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
+      <AnchorPane fx:id="qaPane" layoutX="916.0" layoutY="162.0" onMouseClicked="#QuestionWizardBtnClicked" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
          <children>
             <ImageView fx:id="QABtn" fitHeight="84.0" fitWidth="84.0" onMouseClicked="#QuestionWizardBtnClicked">
                <image>
@@ -85,7 +85,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="mutePane" layoutX="939.0" layoutY="323.0" onMouseClicked="#muteBtnClicked" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
+      <AnchorPane fx:id="mutePane" layoutX="916.0" layoutY="378.0" onMouseClicked="#muteBtnClicked" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
          <children>
             <ImageView fx:id="muteBtn" fitHeight="84.0" fitWidth="84.0" onMouseClicked="#muteBtnClicked">
                <image>
@@ -99,7 +99,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="boardPane" layoutX="939.0" layoutY="444.0" onMouseClicked="#ScoreBoardButtonClicked" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
+      <AnchorPane fx:id="boardPane" layoutX="916.0" layoutY="270.0" onMouseClicked="#ScoreBoardButtonClicked" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
          <children>
             <ImageView fx:id="boardBtn" fitHeight="84.0" fitWidth="84.0" onMouseClicked="#ScoreBoardButtonClicked">
                <image>
