@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class questions {
 
 	
-	public ArrayList<QuestionObject> questions = new  ArrayList<QuestionObject>();
+	public ArrayList<QuestionInJson> questions = new  ArrayList<QuestionInJson>();
 	
 
 }

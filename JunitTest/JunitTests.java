@@ -10,6 +10,7 @@ import misc.BFSFinder;
 import misc.MapData;
 import misc.JsonRead;
 import misc.moveType;
+import model.QuestionInJson;
 import model.QuestionObject;
 import model.RedGhost;
 
@@ -55,7 +56,7 @@ public class JunitTests {
 	@Test
 	public void JsonReadTest() {
 		JsonRead check = new JsonRead();
-		ArrayList<QuestionObject> questionsCheck = new ArrayList<QuestionObject>();
+		ArrayList<QuestionInJson> questionsCheck = new ArrayList<QuestionInJson>();
 		questionsCheck = check.readQuestionsFromJson();
 		assertNotNull(questionsCheck);;
 		

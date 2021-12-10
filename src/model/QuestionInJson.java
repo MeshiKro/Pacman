@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Arrays;
+
 public class QuestionInJson {
 
 	String question;
@@ -7,7 +9,6 @@ public class QuestionInJson {
 	String correct_ans;
 	String level;
 	String team;
-	
 	public QuestionInJson(String question, String[] answers, String correct_ans, String level, String team) {
 		super();
 		this.question = question;
@@ -45,6 +46,11 @@ public class QuestionInJson {
 	}
 	public void setTeam(String team) {
 		this.team = team;
+	}
+	@Override
+	public String toString() {
+		return "QuestionInJson [question=" + question + ", answers=" + Arrays.toString(answers) + ", correct_ans="
+				+ correct_ans + ", level=" + level + ", team=" + team + "]";
 	}
 
 	

@@ -12,6 +12,7 @@ import com.google.gson.JsonIOException;
 
 import model.AllScoreBoardRecords;
 import model.AnswerObject;
+import model.QuestionInJson;
 import model.QuestionObject;
 import model.ScoreboardRecord;
 import model.questions;
@@ -21,7 +22,7 @@ public class JsonWriterEx {
 	Gson gson = new Gson();
 
 	public boolean serialazation(ArrayList<QuestionObject> arg) throws Exception {
-		questions helper = new questions();
+		/*questions helper = new questions();
 
 
 		AnswerObject[] answers = new AnswerObject[4];
@@ -48,29 +49,56 @@ public class JsonWriterEx {
 
 		writer.flush(); // flush data to file <---
 		writer.close(); // close write
-
+*/
 		return true;
 	}
 
 	
-	public void writeQuestions()  {
+	public boolean writeQuestions(QuestionInJson q)  {
+		System.out.println("q: " + q);
+
+		questions qu = arrayOfQuestion(q);
+		System.out.println("q array: " + qu);
+
+		FileWriter writer;
+		try {
+			 writer = new FileWriter("QuestionBank.json");
+
+			gson.toJson(qu, writer);
+			writer.flush(); 
+			writer.close();		
+			return true;
+		} catch (JsonIOException e) {
 		
-		
+			e.printStackTrace();
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return false;
+
 
 	}
-/*	private static questions createNewQuestion() {
-		String[] answers = new String[4];
-
-		answers[0] = "111";
-		answers[1] = "222";
-		answers[2] = "333";
-		answers[3] = "444";
-		new questions("Hello How Are you?",answers, "2","2", "Scorpions");
-
-		return null;
+	private questions arrayOfQuestion(QuestionInJson q) {
+		JsonRead jr = new JsonRead();
+		ArrayList<QuestionInJson> questionsAndAnswers =	jr.readQuestionsFromJson();
+		questionsAndAnswers.add(q);
+		
+		questions qu = new questions();
+		qu.questions = questionsAndAnswers;
+		
+		return qu;
 	}
 
-	private static ArrayList<questions> getExsistQuestion(ArrayList<QuestionObject> arg) {
+
+	public QuestionInJson createNewQuestion(String question, String[] answers, String correct_ans, String level)  {
+	return new QuestionInJson(question,answers, correct_ans,level, "Scorpions");
+	
+	}
+
+	/*private static ArrayList<questions> getExsistQuestion(ArrayList<QuestionObject> arg) {
 		ArrayList<questions> helper = new ArrayList<questions>();
 
 		for (int i = 0; i < arg.size(); i++) {
@@ -89,7 +117,6 @@ public class JsonWriterEx {
 		return helper;
 	}
 */
-	
 	public void writeScordboardRecords(String nickname,int score ,	String date) {
 
 		

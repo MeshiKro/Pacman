@@ -9,6 +9,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import model.AnswerObject;
+import model.QuestionInJson;
 import model.QuestionObject;
 import model.ScoreboardRecord;
 
@@ -16,12 +17,14 @@ import model.ScoreboardRecord;
 
 public class JsonRead {
 
-	public static ArrayList<QuestionObject> questionsAndAnswers = new ArrayList<QuestionObject>();
+	public static ArrayList<QuestionInJson> questionsAndAnswers = new ArrayList<QuestionInJson>();
 
-	public ArrayList<QuestionObject> readQuestionsFromJson() {
+	public ArrayList<QuestionInJson> readQuestionsFromJson() {
 
+		questionsAndAnswers.clear();
+		
 		try {
-			String text = new String(Files.readAllBytes(Paths.get("QuestionsFormat.json")), StandardCharsets.UTF_8);
+			String text = new String(Files.readAllBytes(Paths.get("QuestionBank.json")), StandardCharsets.UTF_8);
 			System.out.println(text);
 			JSONObject obj = new JSONObject(text);
 			JSONArray arr = obj.getJSONArray("questions");
@@ -32,11 +35,12 @@ public class JsonRead {
 				String level = arr.getJSONObject(i).getString("level");
 				String team = arr.getJSONObject(i).getString("team");
 
-				//AnswerObject[] answersList = createAnswerList(answers, correct_ans);
-				//QuestionObject question = createQuestion(questionString, level, team, answersList);
-				//QuestionInJson question = new QuestionInJson(questionString,)
 				
-			//	questionsAndAnswers.add(question);
+				String[] answersList = createAnswerList(answers, correct_ans);
+
+				QuestionInJson question = new QuestionInJson(questionString,answersList,correct_ans,level,team);
+				
+				questionsAndAnswers.add(question);
 			}
 		} catch (Exception ex) {
 			System.out.println(ex.toString());
@@ -45,11 +49,7 @@ public class JsonRead {
 
 	}
 
-	private QuestionObject createQuestion(String questionString, String level, String team,
-			AnswerObject[] answersList) {
-		QuestionObject q = new QuestionObject(questionString, level, team, answersList);
-		return q;
-	}
+	
 
 	private String[] createAnswerList(JSONArray answers, String correct_ans) {
 

@@ -11,6 +11,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import view.EditQuestionScreen;
 import view.QuestionScreen;
+import view.Rules1Screen;
+import view.Rules2Screen;
 
 public class GlobalFuncations {
 
@@ -48,6 +50,14 @@ public class GlobalFuncations {
 		case "EditQuestionScreen":
 			EditQuestionScreen controller1 = loader.getController();
 			controller1.initialize(type);
+			break;
+		case "Rules2Screen":
+			Rules2Screen controller2 = loader.getController();
+			controller2.initialize();
+			break;
+		case "Rules1Screen":
+			Rules1Screen controller3 = loader.getController();
+			controller3.initialize();
 			break;
 		default:
 			break;

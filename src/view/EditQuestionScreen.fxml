@@ -12,11 +12,6 @@
 
 <AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.EditQuestionScreen">
    <children>
-      <ImageView fitHeight="361.0" fitWidth="369.0" layoutY="242.0">
-         <image>
-            <Image url="@../../images/logo2.png" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="399.0" fitWidth="771.0" layoutX="158.0" layoutY="153.0">
          <image>
             <Image url="@../../images/Rectangle.png" />
@@ -72,12 +67,12 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="nameFeild" layoutX="406.0" layoutY="233.0" prefHeight="22.0" prefWidth="438.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
-      <TextField fx:id="nameFeild1" layoutX="408.0" layoutY="328.0" prefHeight="22.0" prefWidth="438.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
-      <TextField fx:id="nameFeild2" layoutX="406.0" layoutY="280.0" prefHeight="22.0" prefWidth="438.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
-      <TextField fx:id="nameFeild3" layoutX="408.0" layoutY="374.0" prefHeight="22.0" prefWidth="438.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
-      <TextField fx:id="nameFeild4" layoutX="406.0" layoutY="421.0" prefHeight="22.0" prefWidth="438.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
-      <ComboBox fx:id="themeField" accessibleText="sdfsdf" layoutX="406.0" layoutY="189.0" prefHeight="22.0" prefWidth="108.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
+      <TextField fx:id="questionField" layoutX="406.0" layoutY="233.0" prefHeight="22.0" prefWidth="438.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
+      <TextField fx:id="wrongAns1" layoutX="408.0" layoutY="328.0" prefHeight="22.0" prefWidth="438.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
+      <TextField fx:id="correctAnsField" layoutX="406.0" layoutY="280.0" prefHeight="22.0" prefWidth="438.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
+      <TextField fx:id="wrongAns2" layoutX="408.0" layoutY="374.0" prefHeight="22.0" prefWidth="438.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
+      <TextField fx:id="wrongAns3" layoutX="406.0" layoutY="421.0" prefHeight="22.0" prefWidth="438.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
+      <ComboBox fx:id="levelField" accessibleText="sdfsdf" layoutX="406.0" layoutY="189.0" prefHeight="22.0" prefWidth="108.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
       <AnchorPane fx:id="backBtnPane" layoutX="55.0" layoutY="86.0" onMouseClicked="#BackBtnClicked" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
          <children>
             <ImageView fx:id="backBtn" fitHeight="84.0" fitWidth="84.0" layoutY="-42.0" onMouseClicked="#BackBtnClicked">
@@ -92,10 +87,20 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <ImageView fx:id="saveBtn" fitHeight="63.0" fitWidth="174.0" layoutX="679.0" layoutY="468.0">
+      <ImageView fx:id="saveBtn" fitHeight="63.0" fitWidth="174.0" layoutX="692.0" layoutY="468.0" onMouseClicked="#writeQuestion">
          <image>
-            <Image url="@../images/saveBtn.png" />
+            <Image url="@../../images/saveBtn.png" />
          </image>
       </ImageView>
+      <ImageView fx:id="addBtn" fitHeight="71.0" fitWidth="174.0" layoutX="692.0" layoutY="464.0" onMouseClicked="#writeQuestion">
+         <image>
+            <Image url="@../../images/addBtn.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="errorLabel" layoutX="418.0" layoutY="468.0" textFill="RED">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

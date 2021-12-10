@@ -49,7 +49,7 @@ public class SysData extends JPanel{
     
     
     //this is the Question Dynamic DataBase that we can manipulate in the Question-Wizard// 
-    public static ArrayList<QuestionObject> questions;
+    public static ArrayList<QuestionInJson> questions;
 
     public boolean isCustom = false;
     public boolean isGameOver = false;
@@ -570,7 +570,7 @@ public class SysData extends JPanel{
 		SysData.syso = syso;
 	}
 
-	public static ArrayList<QuestionObject> getQuestions() {
+	public static ArrayList<QuestionInJson> getQuestions() {
 		return questions;
 		
 	}

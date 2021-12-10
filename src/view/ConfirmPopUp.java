@@ -41,6 +41,7 @@ public class ConfirmPopUp {
 	// OnClick Section
 	@FXML
 	void OkBtnClicked(MouseEvent event) {
+    	GlobalFuncations.switchScreen(pane,"QuestionScreen",(getClass().getResource("/view/" + "QuestionScreen" + ".fxml")),"");
 
 	}
 
