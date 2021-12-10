@@ -374,6 +374,65 @@ public class QuestionsListScreen {
 	void EditQuestionClicked(MouseEvent event) {
 
 	}
+	
+	@FXML
+    void hoverStart(MouseEvent event) {
+		hover1(event.getPickResult().getIntersectedNode().getId());
+    }
+
+    @FXML
+    void hoverStart2(MouseEvent event) {
+    	hover2(event.getPickResult().getIntersectedNode().getId());
+    }
+    
+    @FXML
+    void hoverEnd(MouseEvent event) {
+    	hover1(event.getPickResult().getIntersectedNode().getId());
+    }
+
+    @FXML
+    void hoverEnd2(MouseEvent event) {
+    	hover2(event.getPickResult().getIntersectedNode().getId());
+    }
+	
+	private void hover1(String id) {
+		if (id == null)
+			return;
+		Image image = createImage("11");
+	//	id = id.replace("Btn", "").replace("Pane", "");
+
+		switch (id) {
+		case "nextBtnPane":
+			nextIcon2.setImage(image);
+			break;
+	
+		default:
+			image = createImage("1");
+			nextIcon2.setImage(image);
+	
+
+		}
+	}
+	
+		private void hover2(String id) {
+			if (id == null)
+				return;
+			Image image = createImage("22");
+		//	id = id.replace("Btn", "").replace("Pane", "");
+
+			switch (id) {
+			case "backquestionBtnPane1":
+				backquestionBtn1.setImage(image);
+				break;
+	
+			default:
+				image = createImage("2");
+				backquestionBtn1.setImage(image);
+	
+
+			}
+
+	}
 
 	// End OnClick Section
 

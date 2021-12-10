@@ -71,9 +71,9 @@
                   <Image url="@../../images/buttonconinter.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="backicon" fitHeight="40.0" fitWidth="33.0" layoutX="26.0" layoutY="21.0" onMouseClicked="#BackBtnClicked">
+            <ImageView fx:id="backicon" fitHeight="40.0" fitWidth="33.0" layoutX="26.0" layoutY="21.0" onMouseClicked="#BackBtnClicked" style="-fx-rotate: 180;">
                <image>
-                  <Image url="@../images/arrow.png" />
+                  <Image url="@../images/right-arrow%20(1).png" />
                </image>
             </ImageView>
          </children>
