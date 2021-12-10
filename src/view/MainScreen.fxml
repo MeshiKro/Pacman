@@ -46,7 +46,7 @@
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <TextField fx:id="nameFeild" layoutX="525.0" layoutY="229.0" prefHeight="25.0" prefWidth="144.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
+      <TextField fx:id="nameFeild" layoutX="525.0" layoutY="232.0" prefHeight="25.0" prefWidth="144.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
       <ImageView layoutX="639.0" layoutY="430.0">
          <image>
             <Image url="@../../images/scorpion.png" />
@@ -57,7 +57,7 @@
             <Image url="@../../images/logo.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="rulesPane" layoutX="916.0" layoutY="55.0" onMouseClicked="#rulesClicked" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
+      <AnchorPane fx:id="rulesPane" layoutX="915.0" layoutY="64.0" onMouseClicked="#rulesClicked" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
          <children>
             <ImageView fx:id="rulesBtn" fitHeight="84.0" fitWidth="84.0">
                <image>
@@ -71,7 +71,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="qaPane" layoutX="916.0" layoutY="162.0" onMouseClicked="#QuestionWizardBtnClicked" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
+      <AnchorPane fx:id="qaPane" layoutX="915.0" layoutY="178.0" onMouseClicked="#QuestionWizardBtnClicked" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
          <children>
             <ImageView fx:id="QABtn" fitHeight="84.0" fitWidth="84.0" onMouseClicked="#QuestionWizardBtnClicked">
                <image>
@@ -85,7 +85,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="mutePane" layoutX="916.0" layoutY="378.0" onMouseClicked="#muteBtnClicked" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
+      <AnchorPane fx:id="mutePane" layoutX="915.0" layoutY="402.0" onMouseClicked="#muteBtnClicked" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
          <children>
             <ImageView fx:id="muteBtn" fitHeight="84.0" fitWidth="84.0" onMouseClicked="#muteBtnClicked">
                <image>
@@ -99,7 +99,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="boardPane" layoutX="916.0" layoutY="270.0" onMouseClicked="#ScoreBoardButtonClicked" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
+      <AnchorPane fx:id="boardPane" layoutX="915.0" layoutY="291.0" onMouseClicked="#ScoreBoardButtonClicked" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
          <children>
             <ImageView fx:id="boardBtn" fitHeight="84.0" fitWidth="84.0" onMouseClicked="#ScoreBoardButtonClicked">
                <image>

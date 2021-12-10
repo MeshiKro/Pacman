@@ -79,14 +79,14 @@
             <Font size="17.0" />
          </font>
       </Label>
-      <AnchorPane fx:id="backBtnPane" layoutX="750.0" layoutY="435.0" onMouseClicked="#BackBtnClicked" onMouseEntered="#hoverStartSideButton2" onMouseExited="#hoverEndSideButton2" prefHeight="82.0" prefWidth="84.0">
+      <AnchorPane fx:id="backBtnPane" layoutX="748.0" layoutY="435.0" onMouseClicked="#BackBtnClicked" onMouseEntered="#hoverStartSideButton2" onMouseExited="#hoverEndSideButton2" prefHeight="82.0" prefWidth="84.0">
          <children>
-            <ImageView fx:id="backBtn" fitHeight="73.0" fitWidth="74.0" layoutX="7.0" layoutY="4.0">
+            <ImageView fx:id="backBtn" fitHeight="59.0" fitWidth="60.0" layoutX="21.0" layoutY="18.0">
                <image>
                   <Image url="@../../images/buttonconinter.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="backicon" fitHeight="40.0" fitWidth="33.0" layoutX="29.0" layoutY="20.0">
+            <ImageView fx:id="backicon" fitHeight="33.0" fitWidth="33.0" layoutX="35.0" layoutY="31.0">
                <image>
                   <Image url="@../images/right-arrow%20(1).png" />
                </image>
