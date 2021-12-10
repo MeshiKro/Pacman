@@ -142,6 +142,8 @@ public class QuestionsListScreen {
 
 	ArrayList<QuestionInJson> array;
 
+	public static String questionToDelete;
+	
 	public void initialize() {
 		JsonRead jr = new JsonRead();
 		array = jr.readQuestionsFromJson();
@@ -203,21 +205,21 @@ public class QuestionsListScreen {
 
 		// Find question / level field
 		Text field = findText("quesionField" + String.valueOf(indexID + 1));
-		if(field != null)
-		field.setVisible(false);
+		if (field != null)
+			field.setVisible(false);
 
 		field = findText("levleField" + String.valueOf(indexID + 1));
-		if(field != null)
-		field.setVisible(false);
+		if (field != null)
+			field.setVisible(false);
 
 		// find edit / delete icon
 		ImageView img = findImageView("editBtn" + String.valueOf(indexID + 1));
-		if(img != null)
-		img.setVisible(false);
+		if (img != null)
+			img.setVisible(false);
 
 		img = findImageView("deleteBtn" + String.valueOf(indexID + 1));
-		if(img != null)
-		img.setVisible(false);
+		if (img != null)
+			img.setVisible(false);
 	}
 
 	private ImageView findImageView(String id) {
@@ -324,7 +326,6 @@ public class QuestionsListScreen {
 
 		int nextMaxIndex = quesiotnIndex + 6;
 
-
 		for (int i = quesiotnIndex; i < nextMaxIndex; i++) {
 			try {
 				addQuestion(array, i);
@@ -350,6 +351,27 @@ public class QuestionsListScreen {
 			}
 		}
 		quesiotnIndex = minIndex;
+
+	}
+
+	@FXML
+	void deleteQuestionClicked(MouseEvent event) {
+		String id = event.getPickResult().getIntersectedNode().getId().substring(9);
+		System.out.print("id "   + id);
+		Text field = findText("quesionField"  + id);
+		if(field != null)
+		{
+			questionToDelete = field.getText();
+			System.out.print("questionToDelete "   + questionToDelete);
+
+	    	GlobalFuncations.switchScreen(pane,"DeletePopUp",(getClass().getResource("/view/" + "DeletePopUp" + ".fxml")),"");
+
+		}
+
+	}
+
+	@FXML
+	void EditQuestionClicked(MouseEvent event) {
 
 	}
 

@@ -68,6 +68,7 @@ public class DeletePopUp {
 
 	@FXML
 	void NoBtnClicked(MouseEvent event) {
+    	GlobalFuncations.switchScreen(pane,"QuestionsListScreen",(getClass().getResource("/view/" + "QuestionsListScreen" + ".fxml")),"");
 
 	}
 

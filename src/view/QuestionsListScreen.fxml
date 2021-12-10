@@ -125,37 +125,37 @@
             <Font size="17.0" />
          </font>
       </Text>
-      <ImageView fx:id="deleteBtn1" fitHeight="26.0" fitWidth="40.0" layoutX="668.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="deleteBtn1" fitHeight="26.0" fitWidth="40.0" layoutX="668.0" layoutY="243.0" onMouseClicked="#deleteQuestionClicked" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/delete.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="editBtn1" fitHeight="26.0" fitWidth="33.0" layoutX="763.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="editBtn1" fitHeight="26.0" fitWidth="33.0" layoutX="763.0" layoutY="243.0" onMouseClicked="#EditQuestionClicked" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/edit.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="deleteBtn2" fitHeight="26.0" fitWidth="40.0" layoutX="668.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="deleteBtn2" fitHeight="26.0" fitWidth="40.0" layoutX="668.0" layoutY="290.0" onMouseClicked="#deleteQuestionClicked" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/delete.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="deleteBtn3" fitHeight="26.0" fitWidth="40.0" layoutX="668.0" layoutY="337.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="deleteBtn3" fitHeight="26.0" fitWidth="40.0" layoutX="668.0" layoutY="337.0" onMouseClicked="#deleteQuestionClicked" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/delete.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="deleteBtn4" fitHeight="26.0" fitWidth="40.0" layoutX="668.0" layoutY="385.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="deleteBtn4" fitHeight="26.0" fitWidth="40.0" layoutX="668.0" layoutY="385.0" onMouseClicked="#deleteQuestionClicked" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/delete.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="deleteBtn5" fitHeight="26.0" fitWidth="40.0" layoutX="668.0" layoutY="433.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="deleteBtn5" fitHeight="26.0" fitWidth="40.0" layoutX="668.0" layoutY="433.0" onMouseClicked="#deleteQuestionClicked" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/delete.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="deleteBtn6" fitHeight="26.0" fitWidth="40.0" layoutX="668.0" layoutY="479.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="deleteBtn6" fitHeight="26.0" fitWidth="40.0" layoutX="668.0" layoutY="479.0" onMouseClicked="#deleteQuestionClicked" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/delete.png" />
          </image>
