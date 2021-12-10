@@ -405,12 +405,15 @@ public class QuestionsListScreen {
 		case "nextBtnPane":
 			nextIcon2.setImage(image);
 			break;
+			case "nextIcon2":
+				nextIcon2.setImage(image);
+				break;
 	
 		default:
 			image = createImage("1");
 			nextIcon2.setImage(image);
 	
-
+			
 		}
 	}
 	
@@ -422,6 +425,9 @@ public class QuestionsListScreen {
 
 			switch (id) {
 			case "backquestionBtnPane1":
+				backquestionBtn1.setImage(image);
+				break;
+			case "backquestionBtn1":
 				backquestionBtn1.setImage(image);
 				break;
 	
