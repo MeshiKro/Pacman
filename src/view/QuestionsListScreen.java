@@ -57,6 +57,9 @@ public class QuestionsListScreen {
 	@FXML
 	private ImageView editBtn4;
 
+    @FXML
+    private ImageView questionSection;
+    
 	@FXML
 	private ImageView editBtn5;
 
@@ -164,11 +167,11 @@ public class QuestionsListScreen {
 
 	private void setNextAndBackBtn(int size) {
 		if (size > 6) {
-			nextBtnPane.setVisible(true);
-			backquestionBtnPane1.setVisible(true);
+			nextIcon2.setVisible(true);
+			backquestionBtn1.setVisible(true);
 		} else {
-			nextBtnPane.setVisible(false);
-			backquestionBtnPane1.setVisible(false);
+			nextIcon2.setVisible(false);
+			backquestionBtn1.setVisible(false);
 		}
 	}
 
@@ -402,7 +405,7 @@ public class QuestionsListScreen {
 	//	id = id.replace("Btn", "").replace("Pane", "");
 
 		switch (id) {
-		case "nextBtnPane":
+		case "nextIcon2":
 			nextIcon2.setImage(image);
 			break;
 	
@@ -421,7 +424,7 @@ public class QuestionsListScreen {
 		//	id = id.replace("Btn", "").replace("Pane", "");
 
 			switch (id) {
-			case "backquestionBtnPane1":
+			case "backquestionBtn1":
 				backquestionBtn1.setImage(image);
 				break;
 	
