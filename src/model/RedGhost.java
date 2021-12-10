@@ -47,7 +47,14 @@ public class RedGhost extends Ghost {
              ghostD[1] = ImageIO.read(this.getClass().getResource("/resources/images/candyLand/ghost/red/7.png"));
  		}
  		if(MainScreen.theme.equals("Zombie Land")){
- 		
+ 		    ghostR[0] = ImageIO.read(this.getClass().getResource("/resources/images/zombieLand/ghost/red/1.png"));
+            ghostR[1] = ImageIO.read(this.getClass().getResource("/resources/images/zombieLand/ghost/red/3.png"));
+            ghostL[0] = ImageHelper.flipHor(ImageIO.read(this.getClass().getResource("/resources/images/zombieLand/ghost/red/1.png")));
+            ghostL[1] = ImageHelper.flipHor(ImageIO.read(this.getClass().getResource("/resources/images/zombieLand/ghost/red/3.png")));
+            ghostU[0] = ImageIO.read(this.getClass().getResource("/resources/images/zombieLand/ghost/red/4.png"));
+            ghostU[1] = ImageIO.read(this.getClass().getResource("/resources/images/zombieLand/ghost/red/5.png"));
+            ghostD[0] = ImageIO.read(this.getClass().getResource("/resources/images/zombieLand/ghost/red/6.png"));
+            ghostD[1] = ImageIO.read(this.getClass().getResource("/resources/images/zombieLand/ghost/red/7.png"));
  		}
    
         }catch(IOException e){

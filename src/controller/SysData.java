@@ -150,7 +150,7 @@ public class SysData extends JPanel{
      			  mapSegments[ms] = ImageIO.read(this.getClass().getResource("/resources/images/candyLand/map segments/"+ms+".png"));
      		}
      		if(MainScreen.theme.equals("Zombie Land")){
-     		
+     			 mapSegments[ms] = ImageIO.read(this.getClass().getResource("/resources/images/zombieLand/map segments/"+ms+".png"));
      		}
             	
             }catch(Exception e){}
@@ -166,7 +166,7 @@ public class SysData extends JPanel{
          			 pfoodImage[ms] = ImageIO.read(this.getClass().getResource("/resources/images/candyLand/food/"+ms+".png"));
          		}
          		if(MainScreen.theme.equals("Zombie Land")){
-         		
+         			 pfoodImage[ms] = ImageIO.read(this.getClass().getResource("/resources/images/zombieLand/food/"+ms+".png"));
          		}
                
             }catch(Exception e){}
@@ -179,7 +179,7 @@ public class SysData extends JPanel{
          			  foodImage = ImageIO.read(this.getClass().getResource("/resources/images/candyLand/food.png"));
          		}
          		if(MainScreen.theme.equals("Zombie Land")){
-         		
+         			  foodImage = ImageIO.read(this.getClass().getResource("/resources/images/zombieLand/food.png"));
          		}
             goImage = ImageIO.read(this.getClass().getResource("/resources/images/gameover.png"));
             vicImage = ImageIO.read(this.getClass().getResource("/resources/images/victory.png"));

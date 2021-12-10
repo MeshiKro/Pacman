@@ -47,7 +47,14 @@ public class PinkGhost extends Ghost {
           ghostD[1] = ImageIO.read(this.getClass().getResource("/resources/images/candyLand/ghost/pink/7.png"));
    		}
    		if(MainScreen.theme.equals("Zombie Land")){
-   		
+     	      ghostR[0] = ImageIO.read(this.getClass().getResource("/resources/images/zombieLand/ghost/pink/1.png"));
+              ghostR[1] = ImageIO.read(this.getClass().getResource("/resources/images/zombieLand/ghost/pink/3.png"));
+              ghostL[0] = ImageHelper.flipHor(ImageIO.read(this.getClass().getResource("/resources/images/zombieLand/ghost/pink/1.png")));
+              ghostL[1] = ImageHelper.flipHor(ImageIO.read(this.getClass().getResource("/resources/images/zombieLand/ghost/pink/3.png")));
+              ghostU[0] = ImageIO.read(this.getClass().getResource("/resources/images/zombieLand/ghost/pink/4.png"));
+              ghostU[1] = ImageIO.read(this.getClass().getResource("/resources/images/zombieLand/ghost/pink/5.png"));
+              ghostD[0] = ImageIO.read(this.getClass().getResource("/resources/images/zombieLand/ghost/pink/6.png"));
+              ghostD[1] = ImageIO.read(this.getClass().getResource("/resources/images/zombieLand/ghost/pink/7.png"));
    		}
         	
         	
