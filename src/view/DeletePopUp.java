@@ -5,6 +5,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import misc.GlobalFuncations;
+import misc.JsonWriterEx;
 
 public class DeletePopUp {
 
@@ -24,36 +25,35 @@ public class DeletePopUp {
 
 	@FXML
 	void hoverStart(MouseEvent event) {
-		 setHover(event.getPickResult().getIntersectedNode().getId(),"Clicked");
-	
+		setHover(event.getPickResult().getIntersectedNode().getId(), "Clicked");
+
 	}
 
 	private void setHover(String id, String isClicked) {
-		if(id == null)
-		{
-			GlobalFuncations.hoverButton(getClass().getResourceAsStream("/images/" + "yesBtn" + ".png"), yesBtn);		
-			GlobalFuncations.hoverButton(getClass().getResourceAsStream("/images/" + "noBtn" + ".png"), noBtn);	
+		if (id == null) {
+			GlobalFuncations.hoverButton(getClass().getResourceAsStream("/images/" + "yesBtn" + ".png"), yesBtn);
+			GlobalFuncations.hoverButton(getClass().getResourceAsStream("/images/" + "noBtn" + ".png"), noBtn);
 			return;
 		}
-		//System.out.println(id);
+		// System.out.println(id);
 		String img = "";
 		ImageView imgToHover = null;
-		
-		if (id.contains("yes") ) {
+
+		if (id.contains("yes")) {
 			img = "yesBtn" + isClicked;
 			imgToHover = yesBtn;
 
-		}else{
+		} else {
 			img = "noBtn" + isClicked;
 			imgToHover = noBtn;
 		}
-		
-		GlobalFuncations.hoverButton(getClass().getResourceAsStream("/images/" + img + ".png"), imgToHover);		
+
+		GlobalFuncations.hoverButton(getClass().getResourceAsStream("/images/" + img + ".png"), imgToHover);
 	}
 
 	@FXML
 	void HoverEnd(MouseEvent event) {
-		 setHover(event.getPickResult().getIntersectedNode().getId(),"");
+		setHover(event.getPickResult().getIntersectedNode().getId(), "");
 
 	}
 
@@ -63,12 +63,16 @@ public class DeletePopUp {
 
 	@FXML
 	void YesBtnClicked(MouseEvent event) {
-
+		JsonWriterEx jw = new JsonWriterEx();
+		jw.deleteQuestion();
+		GlobalFuncations.switchScreen(pane, "QuestionsListScreen",
+				(getClass().getResource("/view/" + "QuestionsListScreen" + ".fxml")), "");
 	}
 
 	@FXML
 	void NoBtnClicked(MouseEvent event) {
-    	GlobalFuncations.switchScreen(pane,"QuestionsListScreen",(getClass().getResource("/view/" + "QuestionsListScreen" + ".fxml")),"");
+		GlobalFuncations.switchScreen(pane, "QuestionsListScreen",
+				(getClass().getResource("/view/" + "QuestionsListScreen" + ".fxml")), "");
 
 	}
 

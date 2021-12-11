@@ -402,7 +402,6 @@ public class QuestionsListScreen {
 		if (id == null)
 			return;
 		Image image = createImage("11");
-	//	id = id.replace("Btn", "").replace("Pane", "");
 
 		switch (id) {
 		case "nextIcon2":
@@ -421,7 +420,6 @@ public class QuestionsListScreen {
 			if (id == null)
 				return;
 			Image image = createImage("22");
-		//	id = id.replace("Btn", "").replace("Pane", "");
 
 			switch (id) {
 

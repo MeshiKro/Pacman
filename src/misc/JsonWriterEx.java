@@ -16,27 +16,30 @@ import model.QuestionInJson;
 import model.QuestionObject;
 import model.ScoreboardRecord;
 import model.questions;
+import view.QuestionsListScreen;
 
 public class JsonWriterEx {
 
-	Gson gson = new Gson();
+	public boolean writeQuestions(QuestionInJson q) {
+		questions qu = getArrayOfQuestionFromJSON();
+		qu.questions.add(q);
 
-	public boolean writeQuestions(QuestionInJson q)  {
-		System.out.println("q: " + q);
+		return writeQuestionToJson(qu);
 
-		questions qu = arrayOfQuestion(q);
-		System.out.println("q array: " + qu);
+	}
 
+	private boolean writeQuestionToJson(questions qu) {
 		FileWriter writer;
 		try {
-			 writer = new FileWriter("QuestionBank.json");
+			writer = new FileWriter("QuestionBank.json");
+			Gson gson = new Gson();
 
 			gson.toJson(qu, writer);
-			writer.flush(); 
-			writer.close();		
+			writer.flush();
+			writer.close();
 			return true;
 		} catch (JsonIOException e) {
-		
+
 			e.printStackTrace();
 
 		} catch (IOException e) {
@@ -45,68 +48,87 @@ public class JsonWriterEx {
 		}
 
 		return false;
+	}
 
+	public void deleteQuestion() {
+		String question = QuestionsListScreen.questionToDelete;
+		questions qu = getArrayOfQuestionFromJSON();
+
+		int index = getIndexOfQuestion(qu, question);
+
+		qu.questions.remove(index);
+
+		writeQuestionToJson(qu);
 
 	}
-	private questions arrayOfQuestion(QuestionInJson q) {
+
+	private int getIndexOfQuestion(questions qu, String question) {
+		int index = -1;
+		for (int i = 0; i < qu.questions.size(); i++) {
+			String q = qu.questions.get(i).getQuestion();
+			if (q.equals(question))
+				index = i;
+		}
+		return index;
+	}
+
+	private questions getArrayOfQuestionFromJSON() {
 		JsonRead jr = new JsonRead();
-		ArrayList<QuestionInJson> questionsAndAnswers =	jr.readQuestionsFromJson();
-		questionsAndAnswers.add(q);
-		
+		ArrayList<QuestionInJson> questionsAndAnswers = jr.readQuestionsFromJson();
 		questions qu = new questions();
 		qu.questions = questionsAndAnswers;
-		
+
 		return qu;
 	}
 
+	public QuestionInJson createNewQuestion(String question, String[] answers, String correct_ans, String level) {
+		return new QuestionInJson(question, answers, correct_ans, level, "Scorpions");
 
-	public QuestionInJson createNewQuestion(String question, String[] answers, String correct_ans, String level)  {
-	return new QuestionInJson(question,answers, correct_ans,level, "Scorpions");
-	
 	}
 
-	public void writeScordboardRecords(String nickname,int score ,	String date) {
+	public void writeScordboardRecords(String nickname, int score, String date) {
 
-		
-		
 		JsonRead JR = new JsonRead();
 
-		ArrayList<ScoreboardRecord> records = 	JR.readScoreBoardFromJson();	
-		/*System.out.println("reading:");
-
-		System.out.println(records);
-		System.out.println();*/
-		int index = userExsist(records,nickname,score);
-		if(index >= 0)
-		records.get(index).setScore(score);
+		ArrayList<ScoreboardRecord> records = JR.readScoreBoardFromJson();
+		/*
+		 * System.out.println("reading:");
+		 * 
+		 * System.out.println(records); System.out.println();
+		 */
+		int index = userExsist(records, nickname, score);
+		if (index >= 0)
+			records.get(index).setScore(score);
 		else
 			records.add(new ScoreboardRecord(nickname, score, date));
-		
+
 		records.sort(new Comparator<ScoreboardRecord>() {
 
 			@Override
 			public int compare(ScoreboardRecord o1, ScoreboardRecord o2) {
-				Integer  s1 = o1.getScore();
-				Integer  s2 = o2.getScore();
+				Integer s1 = o1.getScore();
+				Integer s2 = o2.getScore();
 
-		        return (-1)*(s1.compareTo(s2));
+				return (-1) * (s1.compareTo(s2));
 			}
-			
-		});
-		
-		if(records.size() >10)
-			records.remove(10);
-		
-		
-		AllScoreBoardRecords allRecords = new AllScoreBoardRecords(records);
-		/*System.out.println();
 
-		System.out.println(records);
-		System.out.println();*/
+		});
+
+		if (records.size() > 10)
+			records.remove(10);
+
+		AllScoreBoardRecords allRecords = new AllScoreBoardRecords(records);
+		/*
+		 * System.out.println();
+		 * 
+		 * System.out.println(records); System.out.println();
+		 */
 
 		FileWriter writer;
 		try {
 			writer = new FileWriter("Scoreboard.json");
+			Gson gson = new Gson();
+
 			gson.toJson(allRecords, writer);
 			writer.flush();
 			writer.close();
@@ -118,12 +140,11 @@ public class JsonWriterEx {
 
 	}
 
-	private int userExsist(ArrayList<ScoreboardRecord> records, String nickname,int newScore ) {
-		for(int i=0;i<records.size();i++)
-		{
-			 ScoreboardRecord current = records.get(i);
-			if(current.getNickname().trim().equals(nickname.trim()) && current.getScore() < newScore) {
-				
+	private int userExsist(ArrayList<ScoreboardRecord> records, String nickname, int newScore) {
+		for (int i = 0; i < records.size(); i++) {
+			ScoreboardRecord current = records.get(i);
+			if (current.getNickname().trim().equals(nickname.trim()) && current.getScore() < newScore) {
+
 				return i;
 			}
 		}
