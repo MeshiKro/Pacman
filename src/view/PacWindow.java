@@ -3,6 +3,7 @@ package view;
 import misc.MapData;
 import misc.MapEditor;
 import controller.SysData;
+import javafx.application.Application;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -23,6 +24,12 @@ public class PacWindow extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	public PacWindow()  {
+		
+		
+		setIconImage(new ImageIcon("./resources/images/pac/pac2.png").getImage());
+
+	//	setIconImage(new ImageIcon(getClass().getResource("./resources/images/pac/pac2.png")).getImage());
+		
         setTitle("Scorpion Pacman");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
@@ -75,8 +82,12 @@ public class PacWindow extends JFrame {
         JLabel scoreboard = new JLabel("       Level : 1       Score : 0");
         scoreboard.setForeground(new Color(255, 243, 36));
 
-        JFrame         frame=new JFrame("first way");
-
+        JFrame frame=new JFrame("first way");
+        
+        JPanel  panel = new JPanel();
+        panel.setSize(794, 707);
+        
+    
 		 BufferedImage myPicture = null;
 		try {
 			myPicture = ImageIO.read(new File("./resources/images/pac/pac2.png"));
