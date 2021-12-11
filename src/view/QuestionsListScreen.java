@@ -147,6 +147,9 @@ public class QuestionsListScreen {
 
 	public static String questionToDelete;
 	
+	public static String questionToEdit;
+
+	
 	public void initialize() {
 		JsonRead jr = new JsonRead();
 		array = jr.readQuestionsFromJson();
@@ -360,12 +363,11 @@ public class QuestionsListScreen {
 	@FXML
 	void deleteQuestionClicked(MouseEvent event) {
 		String id = event.getPickResult().getIntersectedNode().getId().substring(9);
-		System.out.print("id "   + id);
+
 		Text field = findText("quesionField"  + id);
 		if(field != null)
 		{
 			questionToDelete = field.getText();
-			System.out.print("questionToDelete "   + questionToDelete);
 
 	    	GlobalFuncations.switchScreen(pane,"DeletePopUp",(getClass().getResource("/view/" + "DeletePopUp" + ".fxml")),"");
 
@@ -375,7 +377,16 @@ public class QuestionsListScreen {
 
 	@FXML
 	void EditQuestionClicked(MouseEvent event) {
+		String id = event.getPickResult().getIntersectedNode().getId().substring(7);
+System.out.print(" id " + id);
+		Text field = findText("quesionField"  + id);
+		if(field != null)
+		{
+			questionToEdit = field.getText();
 
+	    	GlobalFuncations.switchScreen(pane,"EditQuestionScreen",(getClass().getResource("/view/" + "EditQuestionScreen" + ".fxml")),"Edit");
+
+		}
 	}
 	
 	@FXML

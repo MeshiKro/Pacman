@@ -8,12 +8,11 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import model.AnswerObject;
+
 import model.QuestionInJson;
-import model.QuestionObject;
+
 import model.ScoreboardRecord;
-
-
+import view.QuestionsListScreen;
 
 public class JsonRead {
 
@@ -22,10 +21,10 @@ public class JsonRead {
 	public ArrayList<QuestionInJson> readQuestionsFromJson() {
 
 		questionsAndAnswers.clear();
-		
+
 		try {
 			String text = new String(Files.readAllBytes(Paths.get("QuestionBank.json")), StandardCharsets.UTF_8);
-			//System.out.println(text);
+			// System.out.println(text);
 			JSONObject obj = new JSONObject(text);
 			JSONArray arr = obj.getJSONArray("questions");
 			for (int i = 0; i < arr.length(); i++) {
@@ -35,11 +34,10 @@ public class JsonRead {
 				String level = arr.getJSONObject(i).getString("level");
 				String team = arr.getJSONObject(i).getString("team");
 
-				
 				String[] answersList = createAnswerList(answers, correct_ans);
 
-				QuestionInJson question = new QuestionInJson(questionString,answersList,correct_ans,level,team);
-				
+				QuestionInJson question = new QuestionInJson(questionString, answersList, correct_ans, level, team);
+
 				questionsAndAnswers.add(question);
 			}
 		} catch (Exception ex) {
@@ -49,7 +47,16 @@ public class JsonRead {
 
 	}
 
-	
+	public QuestionInJson getQuestionFromJson() {
+		ArrayList<QuestionInJson> array = readQuestionsFromJson();
+		String question = QuestionsListScreen.questionToEdit;
+
+		for (int i = 0; i < array.size(); i++) {
+			if (array.get(i).getQuestion().equals(question))
+				return array.get(i);
+		}
+		return null;
+	}
 
 	private String[] createAnswerList(JSONArray answers, String correct_ans) {
 
@@ -65,28 +72,23 @@ public class JsonRead {
 		return a;
 	}
 
-	
-	
-	public ArrayList<ScoreboardRecord> readScoreBoardFromJson()
-	{
+	public ArrayList<ScoreboardRecord> readScoreBoardFromJson() {
 		ArrayList<ScoreboardRecord> records = new ArrayList<ScoreboardRecord>();
 		try {
 			String text = new String(Files.readAllBytes(Paths.get("Scoreboard.json")), StandardCharsets.UTF_8);
-			//System.out.println(text);
-			if(text.length() ==0)
+			// System.out.println(text);
+			if (text.length() == 0)
 				return records;
-			
+
 			JSONObject obj = new JSONObject(text);
 			JSONArray arr = obj.getJSONArray("records");
 			for (int i = 0; i < arr.length(); i++) {
 				String nickname = arr.getJSONObject(i).getString("nickname");
-				int score =(arr.getJSONObject(i).getInt("score"));
+				int score = (arr.getJSONObject(i).getInt("score"));
 				String date = arr.getJSONObject(i).getString("date");
-
 
 				ScoreboardRecord sr = new ScoreboardRecord(nickname, score, date);
 
-				
 				records.add(sr);
 			}
 		} catch (Exception ex) {
@@ -95,5 +97,5 @@ public class JsonRead {
 		return records;
 
 	}
-	
+
 }

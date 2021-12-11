@@ -160,27 +160,27 @@
             <Image url="@../images/delete.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="editBtn3" fitHeight="26.0" fitWidth="33.0" layoutX="770.0" layoutY="328.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="editBtn3" fitHeight="26.0" fitWidth="33.0" layoutX="770.0" layoutY="328.0" onMouseClicked="#EditQuestionClicked" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/edit.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="editBtn4" fitHeight="26.0" fitWidth="33.0" layoutX="770.0" layoutY="376.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="editBtn4" fitHeight="26.0" fitWidth="33.0" layoutX="770.0" layoutY="376.0" onMouseClicked="#EditQuestionClicked" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/edit.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="editBtn5" fitHeight="26.0" fitWidth="33.0" layoutX="770.0" layoutY="424.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="editBtn5" fitHeight="26.0" fitWidth="33.0" layoutX="770.0" layoutY="424.0" onMouseClicked="#EditQuestionClicked" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/edit.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="editBtn6" fitHeight="26.0" fitWidth="33.0" layoutX="770.0" layoutY="470.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="editBtn6" fitHeight="26.0" fitWidth="33.0" layoutX="770.0" layoutY="470.0" onMouseClicked="#EditQuestionClicked" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/edit.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="editBtn2" fitHeight="26.0" fitWidth="33.0" layoutX="770.0" layoutY="281.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="editBtn2" fitHeight="26.0" fitWidth="33.0" layoutX="770.0" layoutY="281.0" onMouseClicked="#EditQuestionClicked" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/edit.png" />
          </image>

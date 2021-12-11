@@ -21,6 +21,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 import misc.GlobalFuncations;
+import misc.JsonRead;
 import misc.JsonWriterEx;
 import model.QuestionInJson;
 
@@ -88,6 +89,7 @@ public class EditQuestionScreen {
 		Font f = Font.loadFont(getClass().getResourceAsStream("/resources/fonts/OCRExtendedV1.ttf"), 60);
 		title.setFont(f);
 		title.setText(screenType + " Question");
+
 		if (screenType.equals("Add")) {
 			addBtn.setVisible(true);
 			saveBtn.setVisible(false);
@@ -95,11 +97,18 @@ public class EditQuestionScreen {
 		} else {
 			addBtn.setVisible(false);
 			saveBtn.setVisible(true);
+			addQuestionToScreen();
 		}
 		type = screenType;
 
 		levelField.setItems(FXCollections.observableArrayList(new String[] { "1", "2", "3" }));
 		levelField.setValue("1");
+	}
+
+	private void addQuestionToScreen() {
+		JsonRead jr = new JsonRead();
+		QuestionInJson q = jr.getQuestionFromJson();
+
 	}
 
 	// Hover Section
@@ -155,8 +164,8 @@ public class EditQuestionScreen {
 
 	@FXML
 	void BackBtnClicked(MouseEvent event) {
-		GlobalFuncations.switchScreen(pane, "QuestionScreen",
-				(getClass().getResource("/view/" + "QuestionScreen" + ".fxml")), "");
+		GlobalFuncations.switchScreen(pane, "QuestionsListScreen",
+				(getClass().getResource("/view/" + "QuestionsListScreen" + ".fxml")), "");
 
 	}
 
@@ -171,14 +180,14 @@ public class EditQuestionScreen {
 		errorLabel.setText("");
 
 		if (type.equals("Add")) {
-		
-		QuestionInJson q = createJsonQuestion();
-		JsonWriterEx jw = new JsonWriterEx();
-		boolean res = jw.writeQuestions(q);
-		System.out.println(res);
-		if(res)
-			GlobalFuncations.switchScreen(pane, "ConfirmPopUp",
-					(getClass().getResource("/view/" + "ConfirmPopUp" + ".fxml")), "");
+
+			QuestionInJson q = createJsonQuestion();
+			JsonWriterEx jw = new JsonWriterEx();
+			boolean res = jw.writeQuestions(q);
+			System.out.println(res);
+			if (res)
+				GlobalFuncations.switchScreen(pane, "ConfirmPopUp",
+						(getClass().getResource("/view/" + "ConfirmPopUp" + ".fxml")), "");
 		}
 	}
 
@@ -212,8 +221,8 @@ public class EditQuestionScreen {
 	private String getCorrectAnsIndex(String[] answerList, String correctAns) {
 
 		for (int i = 0; i < 4; i++) {
-			if (answerList[i].toString().trim().equals(correctAns.toString().trim() ))
-				return String.valueOf(i+1);
+			if (answerList[i].toString().trim().equals(correctAns.toString().trim()))
+				return String.valueOf(i + 1);
 		}
 		return null;
 	}
