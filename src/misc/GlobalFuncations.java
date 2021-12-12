@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import view.ConfirmPopUp;
 import view.EditQuestionScreen;
 import view.QuestionScreen;
 import view.Rules1Screen;
@@ -58,6 +59,10 @@ public class GlobalFuncations {
 		case "Rules1Screen":
 			Rules1Screen controller3 = loader.getController();
 			controller3.initialize();
+			break;
+		case "ConfirmPopUp":
+			ConfirmPopUp controller4 = loader.getController();
+			controller4.initialize(type);
 			break;
 		default:
 			break;

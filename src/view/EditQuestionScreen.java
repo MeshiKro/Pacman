@@ -1,6 +1,7 @@
 package view;
 
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -90,6 +91,9 @@ public class EditQuestionScreen {
 		title.setFont(f);
 		title.setText(screenType + " Question");
 
+		levelField.setItems(FXCollections.observableArrayList(new String[] { "1", "2", "3" }));
+		levelField.setValue("1");
+
 		if (screenType.equals("Add")) {
 			addBtn.setVisible(true);
 			saveBtn.setVisible(false);
@@ -101,14 +105,38 @@ public class EditQuestionScreen {
 		}
 		type = screenType;
 
-		levelField.setItems(FXCollections.observableArrayList(new String[] { "1", "2", "3" }));
-		levelField.setValue("1");
 	}
 
 	private void addQuestionToScreen() {
 		JsonRead jr = new JsonRead();
 		QuestionInJson q = jr.getQuestionFromJson();
+		questionField.setText(q.getQuestion());
+		correctAnsField.setText(getCorrectAnswer(q.getCorrect_ans(), q));
+		System.out.print("(q.getLevel()) " + (q.getLevel()));
+		levelField.getSelectionModel().select(q.getLevel());
+		ArrayList<String> wrongAnswer = getWrongAnswerList(q);
+		wrongAns1.setText(wrongAnswer.get(0));
+		wrongAns2.setText(wrongAnswer.get(1));
+		wrongAns3.setText(wrongAnswer.get(2));
 
+	}
+
+	private ArrayList<String> getWrongAnswerList(QuestionInJson q) {
+		String[] answer = q.getAnswers();
+		int coorectIndex = Integer.parseInt(q.getCorrect_ans()) - 1;
+
+		ArrayList<String> wrongAnswer = new ArrayList<String>();
+		for (int i = 0; i < 4; i++) {
+			if (i != coorectIndex)
+				wrongAnswer.add(answer[i]);
+		}
+
+		return wrongAnswer;
+	}
+
+	private String getCorrectAnswer(String correct_ans, QuestionInJson q) {
+		int coorectIndex = Integer.parseInt(correct_ans) - 1;
+		return q.getAnswers()[coorectIndex];
 	}
 
 	// Hover Section
@@ -179,16 +207,60 @@ public class EditQuestionScreen {
 		}
 		errorLabel.setText("");
 
-		if (type.equals("Add")) {
+		if (type.equals("Add"))
+			addQuestion();
+		else
+			editQuestion();
 
-			QuestionInJson q = createJsonQuestion();
-			JsonWriterEx jw = new JsonWriterEx();
-			boolean res = jw.writeQuestions(q);
-			System.out.println(res);
-			if (res)
-				GlobalFuncations.switchScreen(pane, "ConfirmPopUp",
-						(getClass().getResource("/view/" + "ConfirmPopUp" + ".fxml")), "");
-		}
+	}
+
+	private void editQuestion() {		
+
+		// Update Question
+		QuestionInJson q = updateQuestion();		
+
+		// Delete Question
+		JsonWriterEx jw = new JsonWriterEx();
+		QuestionsListScreen.questionToDelete = QuestionsListScreen.questionToEdit;
+		jw.deleteQuestion();
+
+		// Write updatedQuestion to Json
+		boolean res = jw.writeQuestions(q);
+		System.out.println(res);
+		if (res)
+			GlobalFuncations.switchScreen(pane, "ConfirmPopUp",
+					(getClass().getResource("/view/" + "ConfirmPopUp" + ".fxml")), "Edit");
+	}
+
+	private QuestionInJson updateQuestion() {
+		// Find Question
+		JsonRead jr = new JsonRead();
+		QuestionInJson q = jr.getQuestionFromJson();
+
+		// Update Question
+		String question = questionField.getText();
+		String correctAns = correctAnsField.getText();
+		String level = levelField.getSelectionModel().getSelectedItem();
+		String[] answerList = createAnswerList(correctAnsField.getText(), wrongAns1.getText(), wrongAns2.getText(),
+				wrongAns3.getText());
+		String CorrectAnsIndex = getCorrectAnsIndex(answerList, correctAns);
+
+		q.setQuestion(question);
+		q.setLevel(level);
+		q.setAnswers(answerList);
+		q.setCorrect_ans(getCorrectAnsIndex(answerList, correctAns));
+		return q;
+	}
+
+	private void addQuestion() {
+		QuestionInJson q = createJsonQuestion();
+		JsonWriterEx jw = new JsonWriterEx();
+		boolean res = jw.writeQuestions(q);
+		System.out.println(res);
+		if (res)
+			GlobalFuncations.switchScreen(pane, "ConfirmPopUp",
+					(getClass().getResource("/view/" + "ConfirmPopUp" + ".fxml")), "");
+
 	}
 
 	private QuestionInJson createJsonQuestion() {
