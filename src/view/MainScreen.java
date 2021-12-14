@@ -20,7 +20,7 @@ public class MainScreen {
     public static boolean isMute=false;
 
     public static String theme="Basic";
-	
+    
 	@FXML
 	private AnchorPane pane;
 
@@ -145,20 +145,20 @@ public class MainScreen {
 	
 	// OnClick Section//
 	@FXML
-	void muteBtnClicked(MouseEvent event) {
-		
-	/*	if(isMute==false) {
-			Image muteImage=createImage("unMute");
-			muteTest.setImage(muteImage);
-			setMute(true);
-			return;
-		}
-		else if (isMute==true) {
-			Image muteImage=createImage("mute");
-			muteTest.setImage(muteImage);
-			setMute(false);
-			return;
-		}*/
+	void muteBtnClicked(MouseEvent event) {	
+		if(isMute==false) {
+		Image muteImage=createImage("unMute");
+		muteTest.setImage(muteImage);
+		setMute(true);
+		return;
+	}
+	else if (isMute==true) {
+		Image muteImage=createImage("mute");
+		muteTest.setImage(muteImage);
+		setMute(false);
+		return;
+	}
+
 	}
 
     @FXML
