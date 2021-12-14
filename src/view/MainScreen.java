@@ -63,6 +63,9 @@ public class MainScreen {
     @FXML
     private Label noNameLabel;
     
+    @FXML
+    private ImageView muteTest;
+    
 
 	public void initialize() {
 		themeField.getItems().addAll("Basic", "Candy Land", "Zombie Land");
@@ -143,7 +146,19 @@ public class MainScreen {
 	// OnClick Section//
 	@FXML
 	void muteBtnClicked(MouseEvent event) {
-		setMute(true);	
+		
+	/*	if(isMute==false) {
+			Image muteImage=createImage("unMute");
+			muteTest.setImage(muteImage);
+			setMute(true);
+			return;
+		}
+		else if (isMute==true) {
+			Image muteImage=createImage("mute");
+			muteTest.setImage(muteImage);
+			setMute(false);
+			return;
+		}*/
 	}
 
     @FXML
