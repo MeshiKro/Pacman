@@ -36,7 +36,7 @@ public class SysData extends JPanel {
 	public Image goImage;
 	public Image vicImage;
 
-	public Pacman pacman;
+	public static Pacman pacman;
 	public ArrayList<Food> foods;
 	public ArrayList<Bomb> pufoods;
 	public ArrayList<Ghost> ghosts;
@@ -391,11 +391,11 @@ public class SysData extends JPanel {
 		}
 
 	}
-	 private void changeMap(MapData map) {
-		 m_x = map.getX();
-			m_y = map.getY();
-			this.map = map.getMap();	
-			//pacman = new Pacman(map.getPacmanPosition().x, map.getPacmanPosition().y, this);
+	 private void changeMap(MapData newMap) {
+		 m_x = newMap.getX();
+			m_y = newMap.getY();
+			this.map = newMap.getMap();	
+		
 
 	}
 
@@ -516,11 +516,11 @@ public class SysData extends JPanel {
 
 	@Override
 	public void processEvent(AWTEvent ae) {
-		System.out.println(" pacman.pixelPosition.x " + pacman.pixelPosition.x);
+		/*System.out.println(" pacman.pixelPosition.x " + pacman.pixelPosition.x);
 		  System.out.println(" pacman.pixelPosition.y " + pacman.pixelPosition.y);
 		  
 			System.out.println(" pacman.logicalPosition.x " + pacman.logicalPosition.x);
-			  System.out.println(" pacman.logicalPosition.y " + pacman.logicalPosition.y);
+			  System.out.println(" pacman.logicalPosition.y " + pacman.logicalPosition.y);*/
 		if (ae.getID() == Messages.UPDATE) {
 			update();
 		} else if (ae.getID() == Messages.COLTEST) {

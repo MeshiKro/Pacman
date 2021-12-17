@@ -123,12 +123,33 @@ public class BFSFinder {
         MazeCell t = mazeCellTable[ttx][tty];
         MazeCell tl = null;
         while (t != start) {
+        	try {
             Point tp = parentTable[ttx][tty];
             ttx = tp.x;
             tty = tp.y;
             tl = t;
             t = mazeCellTable[ttx][tty];
+        	}
+        	catch ( Exception ex)
+        	{
+        		if(ttx <=5 && tty==12) {
+        		  Point tp = parentTable[6][13];
+                  ttx = tp.x;
+                  tty = tp.y;
+                  tl = t;
+                  t = mazeCellTable[6][13];
+        		}
+        		else
+        		{
+        			  Point tp = parentTable[20][12];
+                      ttx = tp.x;
+                      tty = tp.y;
+                      tl = t;
+                      t = mazeCellTable[24][13];
+        		}
+        	}
         }
+        
 
         if (x == tl.x - 1 && y == tl.y) {
             return moveType.RIGHT;

@@ -61,6 +61,10 @@ public class Pacman implements KeyListener {
 		moveAL = new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 
+				
+				/* */
+				  
+				
 				// update logical position
 				if ((pixelPosition.x % 28 == 0) && (pixelPosition.y % 28 == 0)) {
 					if (!isStuck) {
@@ -84,7 +88,7 @@ public class Pacman implements KeyListener {
 					isStuck = true;
 					animTimer.stop();
 
-					if (todoMove != moveType.NONE && isPossibleMove(todoMove)) {
+					 if (todoMove != moveType.NONE && isPossibleMove(todoMove)) {
 
 						activeMove = todoMove;
 						todoMove = moveType.NONE;
@@ -96,17 +100,18 @@ public class Pacman implements KeyListener {
 						pixelPosition.x = 728;
 						activeMove = todoMove= moveType.LEFT;
 					
-						return;
-					} else if ( pixelPosition.y == 336 && pixelPosition.x == 728 && todoMove == moveType.RIGHT) {						
-					logicalPosition.x= 26;
-						logicalPosition.y = 12;
-
-						pixelPosition.y = 336;
-						pixelPosition.x = 0;
-						activeMove = todoMove= moveType.RIGHT;
 						
-						return;
 					}
+					else	 if ( pixelPosition.y == 336 && pixelPosition.x == 728 && todoMove == moveType.RIGHT) {						
+							/*logicalPosition.x= 26;
+								logicalPosition.y = 12;
+
+								pixelPosition.y = 336;*/
+								pixelPosition.x = 1;
+
+								SysData.pacman = new Pacman(logicalPosition.x,logicalPosition.y,pb);	
+							return;
+							}
 				} else {
 					isStuck = false;
 					animTimer.start();
