@@ -4,6 +4,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 
 import org.json.JSONObject;
 
@@ -149,5 +150,26 @@ public class JsonWriterEx {
 			}
 		}
 		return -1;
+	}
+
+	public void SetConfugartion(boolean isMute, String username) {
+		
+		HashMap<String,String> config = new HashMap<String,String>();
+		config.put("isMute", String.valueOf(isMute));
+		config.put("username", username);
+
+		FileWriter writer;
+		try {
+			writer = new FileWriter("Config.json");
+			Gson gson = new Gson();
+
+			gson.toJson(config, writer);
+			writer.flush();
+			writer.close();
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

@@ -10,7 +10,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import misc.GlobalFuncations;
-
+import misc.JsonRead;
+import misc.JsonWriterEx;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -70,6 +71,16 @@ public class MainScreen {
 	public void initialize() {
 		themeField.getItems().addAll("Basic", "Candy Land", "Zombie Land");
 		themeField.getSelectionModel().select(0);
+	
+		setScreenConfig();
+		
+	}
+
+	private void setScreenConfig() {
+		JsonRead jr = new JsonRead();
+		jr.readConfig();
+		nameFeild.setText(GlobalFuncations.username);
+		muteBtnClicked(new MouseEvent(null, 0, 0, 0, 0, null, 0, false, false, false, false, false, false, false, false, false, false, null));		
 	}
 
 	// Hover Section
@@ -195,6 +206,9 @@ public class MainScreen {
 		GlobalFuncations.username = nameFeild.getText();
 		noNameLabel.setText("");
 		Stage stage = (Stage) startGameBtn.getScene().getWindow();
+		JsonWriterEx wr = new JsonWriterEx();
+		wr.SetConfugartion(MainScreen.isMute,GlobalFuncations.username);
+		
 		stage.close();
 	}
 	

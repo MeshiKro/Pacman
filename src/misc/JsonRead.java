@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-
 import model.QuestionInJson;
 
 import model.ScoreboardRecord;
+import view.MainScreen;
 import view.QuestionsListScreen;
 
 public class JsonRead {
@@ -98,4 +98,24 @@ public class JsonRead {
 
 	}
 
+	public boolean readConfig() {
+		try {
+			String text = new String(Files.readAllBytes(Paths.get("Config.json")), StandardCharsets.UTF_8);
+
+			String mute= new JSONObject(text).getString("isMute");
+			if(mute.equals("true"))
+				MainScreen.isMute = true;
+			else
+				MainScreen.isMute = false;
+
+			GlobalFuncations.username = new JSONObject(text).getString("username");
+
+
+			return true;
+		} catch (Exception ex) {
+			System.out.println(ex.toString());
+			return false;
+		}
+
+	}
 }
