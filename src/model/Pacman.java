@@ -62,7 +62,7 @@ public class Pacman implements KeyListener{
 
         moveAL = new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-
+           	
                 //update logical position
                 if((pixelPosition.x % 28 == 0) && (pixelPosition.y % 28 == 0)){
                     if(!isStuck) {
@@ -163,6 +163,8 @@ public class Pacman implements KeyListener{
         moveTimer.start();
 
     }
+   
+    
     public void changePacmanColor(String color){
     	 try 
          {    
@@ -215,7 +217,7 @@ public class Pacman implements KeyListener{
     //Handle Arrow Keys
     @Override
     public void keyPressed(KeyEvent ke){
-        switch(ke.getKeyCode()){
+        switch(ke.getKeyCode()){        
             case 37:
                 todoMove = moveType.LEFT;
                 break;
@@ -234,6 +236,9 @@ public class Pacman implements KeyListener{
         }
         //System.out.println(ke.getKeyCode());
     }
+
+
+	
 
 
 }

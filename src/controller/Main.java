@@ -21,16 +21,7 @@ public class Main extends Application {
 		ArrayList<QuestionObject> a = new ArrayList<QuestionObject>();
 		JsonRead JR = new JsonRead();
 		JsonWriterEx JW = new JsonWriterEx();
-// TEST
-		// Read Json Question from file
-	//	a = JR.readQuestionsFromJson();
 
-		// Write to json file
-	//	JW.serialazation(a);
-
-		//JW.writeScordboardRecords("fff",132,"15.12.2021");
-		
-		//System.out.println(JR.readScoreBoardFromJson());
 
 	launch(args);
 
