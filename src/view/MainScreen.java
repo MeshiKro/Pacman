@@ -2,7 +2,6 @@ package view;
 
 import java.io.InputStream;
 
-
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -18,10 +17,10 @@ import javafx.scene.input.MouseEvent;
 
 public class MainScreen {
 
-    public static boolean isMute=false;
+	public static boolean isMute = false;
 
-    public static String theme="Basic";
-    
+	public static String theme = "Basic";
+
 	@FXML
 	private AnchorPane pane;
 
@@ -60,59 +59,67 @@ public class MainScreen {
 
 	@FXML
 	private TextField nameFeild;
-	
-    @FXML
-    private Label noNameLabel;
-    
-    @FXML
-    private ImageView muteTest;
-    
+
+	@FXML
+	private Label noNameLabel;
+
+	@FXML
+	private ImageView muteTest;
 
 	public void initialize() {
 		themeField.getItems().addAll("Basic", "Candy Land", "Zombie Land");
 		themeField.getSelectionModel().select(0);
-	
+
 		setScreenConfig();
-		
+
 	}
 
 	private void setScreenConfig() {
 		JsonRead jr = new JsonRead();
 		jr.readConfig();
 		nameFeild.setText(GlobalFuncations.username);
-		muteBtnClicked(new MouseEvent(null, 0, 0, 0, 0, null, 0, false, false, false, false, false, false, false, false, false, false, null));		
+		if (isMute == true) {
+			Image muteImage = createImage("unMute");
+			muteTest.setImage(muteImage);
+			setMute(true);
+		} else {
+			Image muteImage = createImage("mute");
+			muteTest.setImage(muteImage);
+			setMute(false);
+		}
+		
 	}
 
 	// Hover Section
 	@FXML
 	void HoverEnd(MouseEvent event) {
-		String img ="startButton";
-		GlobalFuncations.hoverButton(getClass().getResourceAsStream("/images/" + img + ".png"), startGameBtn);		
+		String img = "startButton";
+		GlobalFuncations.hoverButton(getClass().getResourceAsStream("/images/" + img + ".png"), startGameBtn);
 
 	}
 
 	@FXML
 	void hoverStart(MouseEvent event) {
-		String img ="startButtonClicked";
-		GlobalFuncations.hoverButton(getClass().getResourceAsStream("/images/" + img + ".png"), startGameBtn);		
+		String img = "startButtonClicked";
+		GlobalFuncations.hoverButton(getClass().getResourceAsStream("/images/" + img + ".png"), startGameBtn);
 	}
 
 	@FXML
 	void hoverStartSideButton(MouseEvent event) {
-		if(event != null)
-		hoverSideButton(event.getPickResult().getIntersectedNode().getId());
+		if (event != null)
+			hoverSideButton(event.getPickResult().getIntersectedNode().getId());
 
 	}
 
 	@FXML
 	void hoverEndSideButton(MouseEvent event) {
-		if(event != null)
-		hoverSideButton(event.getPickResult().getIntersectedNode().getId());
+		if (event != null)
+			hoverSideButton(event.getPickResult().getIntersectedNode().getId());
 
 	}
 
 	private void hoverSideButton(String id) {
-		if(id == null)
+		if (id == null)
 			return;
 		Image image = createImage("buttonconinterClicked");
 		id = id.replace("Btn", "").replace("Pane", "");
@@ -151,29 +158,25 @@ public class MainScreen {
 
 	// End Hover Section
 
-	
-	
-	
 	// OnClick Section//
 	@FXML
-	void muteBtnClicked(MouseEvent event) {	
-		if(isMute==false) {
-		Image muteImage=createImage("unMute");
-		muteTest.setImage(muteImage);
-		setMute(true);
-		return;
-	}
-	else if (isMute==true) {
-		Image muteImage=createImage("mute");
-		muteTest.setImage(muteImage);
-		setMute(false);
-		return;
-	}
+	void muteBtnClicked(MouseEvent event) {
+		if (isMute == false) {
+			Image muteImage = createImage("unMute");
+			muteTest.setImage(muteImage);
+			setMute(true);
+			return;
+		} else if (isMute == true) {
+			Image muteImage = createImage("mute");
+			muteTest.setImage(muteImage);
+			setMute(false);
+			return;
+		}
 
 	}
 
-    @FXML
-    public static boolean isMute() {
+	@FXML
+	public static boolean isMute() {
 		return isMute;
 	}
 
@@ -183,20 +186,20 @@ public class MainScreen {
 
 	@FXML
 	void startGame(MouseEvent event) {
-		
+
 		String th = themeField.getSelectionModel().getSelectedItem();
-		
-		if(th.equals("Basic")){
-			theme="Basic";
+
+		if (th.equals("Basic")) {
+			theme = "Basic";
 		}
-		if(th.equals("Candy Land")){
-			theme="Candy Land";
+		if (th.equals("Candy Land")) {
+			theme = "Candy Land";
 		}
-		if(th.equals("Zombie Land")){
-			theme="Zombie Land";
+		if (th.equals("Zombie Land")) {
+			theme = "Zombie Land";
 		}
-		
-		//check for a name input
+
+		// check for a name input
 		if (nameFeild.getText().isEmpty()) {
 			noNameLabel.setText("*you must enter name");
 			return;
@@ -207,29 +210,29 @@ public class MainScreen {
 		noNameLabel.setText("");
 		Stage stage = (Stage) startGameBtn.getScene().getWindow();
 		JsonWriterEx wr = new JsonWriterEx();
-		wr.SetConfugartion(MainScreen.isMute,GlobalFuncations.username);
-		
+		wr.SetConfugartion(MainScreen.isMute, GlobalFuncations.username);
+
 		stage.close();
 	}
-	
+
 	@FXML
-    void QuestionWizardBtnClicked(MouseEvent event) {
-    	GlobalFuncations.switchScreen(pane,"QuestionScreen",(getClass().getResource("/view/" + "QuestionScreen" + ".fxml")),"");
-    }
-    
-    
-    
-    @FXML
-    void ScoreBoardButtonClicked(MouseEvent event) {
-    	GlobalFuncations.switchScreen(pane,"ScoreBoardScreen",(getClass().getResource("/view/" + "ScoreBoardScreen" + ".fxml")),"");
-    	
-    }
+	void QuestionWizardBtnClicked(MouseEvent event) {
+		GlobalFuncations.switchScreen(pane, "QuestionScreen",
+				(getClass().getResource("/view/" + "QuestionScreen" + ".fxml")), "");
+	}
 
+	@FXML
+	void ScoreBoardButtonClicked(MouseEvent event) {
+		GlobalFuncations.switchScreen(pane, "ScoreBoardScreen",
+				(getClass().getResource("/view/" + "ScoreBoardScreen" + ".fxml")), "");
 
-    @FXML
-    void rulesClicked(MouseEvent event) {
-    	GlobalFuncations.switchScreen(pane,"Rules1Screen",(getClass().getResource("/view/" + "Rules1Screen" + ".fxml")),"");
-    }
+	}
+
+	@FXML
+	void rulesClicked(MouseEvent event) {
+		GlobalFuncations.switchScreen(pane, "Rules1Screen",
+				(getClass().getResource("/view/" + "Rules1Screen" + ".fxml")), "");
+	}
 	// End OnClick Section
 
 }

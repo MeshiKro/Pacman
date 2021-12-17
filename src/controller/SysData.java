@@ -13,6 +13,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class SysData extends JPanel {
 
@@ -65,6 +66,7 @@ public class SysData extends JPanel {
 
 	public int m_x;
 	public int m_y;
+	public int pacmanLife = 3;
 
 	public MapData md_backup;
 	public PacWindow windowParent;
@@ -103,7 +105,7 @@ public class SysData extends JPanel {
 		} else {
 			foods = md.getFoodPositions();
 		}
-
+		
 		pufoods = md.getpufoodPositions();
 
 		ghosts = new ArrayList<>();
@@ -206,7 +208,7 @@ public class SysData extends JPanel {
 		am.put("space", new AbstractAction() {
 			public void actionPerformed(ActionEvent evt) {
 				if (userHasBomb)
-				blowBomb();
+					blowBomb();
 			}
 		});
 
@@ -274,19 +276,27 @@ public class SysData extends JPanel {
 			}
 			foods.remove(foodToEat);
 			score++;
-			if (score <= 2) {
+			
+			// Levels:
+			if (score <= 50) {
 				scoreboard.setText("       Level : 1       Score : " + score); // to change the level to a counter
-																				// variable
-			} else if (score <= 5) {
+			} else if (score >= 51 ) {
 				scoreboard.setText("       Level : 2       Score : " + score); // to change the level to a counter
-																				// variable
+		        MapData map = getMapFromResource("/resources/maps/þþmap_level2.txt");
+				changeMap(map);	
+			// variable
+				/*	} else if (score >= 51 && score <= 100) {
+				scoreboard.setText("       Level : 2       Score : " + score); // to change the level to a counter
+		        MapData map = getMapFromResource("/resources/maps/þþmap_level2.txt");
+				changeMap(map);	
+							
 
-			} else if (score <= 8) {
+			} else if (score >= 101 && score <= 150) {
 				scoreboard.setText("       Level : 3       Score : " + score); // to change the level to a counter
 																				// variable
 			} else {
 				scoreboard.setText("       Level : 4       Score : " + score); // to change the level to a counter
-																				// variable
+						updateGhostSpeed();	*/													// variable
 			}
 
 			if (foods.size() == 0) {
@@ -381,6 +391,33 @@ public class SysData extends JPanel {
 		}
 
 	}
+	 private void changeMap(MapData map) {
+		 m_x = map.getX();
+			m_y = map.getY();
+			this.map = map.getMap();	
+			//pacman = new Pacman(map.getPacmanPosition().x, map.getPacmanPosition().y, this);
+
+	}
+
+	public  MapData getMapFromResource(String relPath) {
+	        String mapStr = "";
+	        try {
+	            Scanner scn = new Scanner(this.getClass().getResourceAsStream(relPath));
+	            StringBuilder sb = new StringBuilder();
+	            String line;
+	            while (scn.hasNextLine()) {
+	                line = scn.nextLine();
+	                sb.append(line).append('\n');
+	            }
+	            mapStr = sb.toString();
+	        } catch (Exception e) {
+	            System.err.println("Error Reading Map File !");
+	        }
+	        if ("".equals(mapStr)) {
+	            System.err.println("Map is Empty !");
+	        }
+	        return MapEditor.compileMap(mapStr);
+	    }
 
 	@Override
 	public void paintComponent(Graphics g) {
@@ -479,7 +516,11 @@ public class SysData extends JPanel {
 
 	@Override
 	public void processEvent(AWTEvent ae) {
-
+		System.out.println(" pacman.pixelPosition.x " + pacman.pixelPosition.x);
+		  System.out.println(" pacman.pixelPosition.y " + pacman.pixelPosition.y);
+		  
+			System.out.println(" pacman.logicalPosition.x " + pacman.logicalPosition.x);
+			  System.out.println(" pacman.logicalPosition.y " + pacman.logicalPosition.y);
 		if (ae.getID() == Messages.UPDATE) {
 			update();
 		} else if (ae.getID() == Messages.COLTEST) {
@@ -553,9 +594,9 @@ public class SysData extends JPanel {
 
 	}
 
-	// In Case of Level Up
+	// In Case of Level Up increae ghost speed
 	public void updateGhostSpeed() {
-		speedGhost -= 10;
+		speedGhost -= 20;
 	}
 
 	public void blowBomb() {
@@ -564,18 +605,20 @@ public class SysData extends JPanel {
 
 		for (Ghost g : ghosts) {
 			if (!g.isDead()) {
-				
+
 				if (ghostNextToPacman(g)) {
-				//	System.out.println(" remove");
+					// System.out.println(" remove");
 					removeGhost(g);
 					return;
 				}
-					/*System.out.println(" pacman.pixelPosition.x " + pacman.pixelPosition.x);
-				System.out.println(" pacman.pixelPosition.y " + pacman.pixelPosition.y);
-
-				System.out.println(" g.logicalPosition.x " + g.logicalPosition.x);
-				System.out.println(" g.logicalPosition.y " + g.logicalPosition.y);
-				System.out.println();*/
+				/*
+				 * System.out.println(" pacman.pixelPosition.x " + pacman.pixelPosition.x);
+				 * System.out.println(" pacman.pixelPosition.y " + pacman.pixelPosition.y);
+				 * 
+				 * System.out.println(" g.logicalPosition.x " + g.logicalPosition.x);
+				 * System.out.println(" g.logicalPosition.y " + g.logicalPosition.y);
+				 * System.out.println();
+				 */
 			}
 		}
 
@@ -591,29 +634,24 @@ public class SysData extends JPanel {
 	private boolean ghostNextToPacman(Ghost g) {
 		Point point = g.logicalPosition;
 		int gx = point.x;
-		int gy =point.y;
+		int gy = point.y;
 
-		point =  pacman.logicalPosition;
-		int px =point.x;
+		point = pacman.logicalPosition;
+		int px = point.x;
 		int py = point.y;
 
-		/*System.out.println("  gx " + gx);
-		System.out.println("  gy " + gy);
+		/*
+		 * System.out.println("  gx " + gx); System.out.println("  gy " + gy);
+		 * 
+		 * System.out.println("  px " + px); System.out.println("  py " + py);
+		 * System.out.println("  dis " + (distanceBetweenPoints(gx,gy,px,py)));
+		 */
 
-		System.out.println("  px " + px);
-		System.out.println("  py " + py);
-		System.out.println("  dis " + (distanceBetweenPoints(gx,gy,px,py)));*/
-
-		
-		return 				(distanceBetweenPoints(gx,gy,px,py) <=3);
+		return (distanceBetweenPoints(gx, gy, px, py) <= 3);
 	}
-	
-	public double distanceBetweenPoints(
-			  double x1, 
-			  double y1, 
-			  double x2, 
-			  double y2) {       
-			    return Math.abs(Math.sqrt((y2 - y1) * (y2 - y1) + (x2 - x1) * (x2 - x1)));
-			}
+
+	public double distanceBetweenPoints(double x1, double y1, double x2, double y2) {
+		return Math.abs(Math.sqrt((y2 - y1) * (y2 - y1) + (x2 - x1) * (x2 - x1)));
+	}
 
 }

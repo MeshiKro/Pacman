@@ -113,7 +113,7 @@ public class JsonRead {
 
 			return true;
 		} catch (Exception ex) {
-			System.out.println(ex.toString());
+			//System.out.println(ex.toString());
 			return false;
 		}
 

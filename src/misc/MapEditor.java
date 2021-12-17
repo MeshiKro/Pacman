@@ -156,7 +156,7 @@ public class MapEditor extends JFrame {
 
         customMap.setMap(map);
         customMap.setCustom(true);
-        System.out.println("Map Read OK !");
+      //  System.out.println("Map Read OK !");
         return customMap;
         //new PacWindow(customMap);
     }
