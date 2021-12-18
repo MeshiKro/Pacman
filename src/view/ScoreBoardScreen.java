@@ -115,6 +115,37 @@ public class ScoreBoardScreen {
     @FXML
     private Label Date10;
     
+
+    @FXML
+    private ImageView trophy1;
+
+    @FXML
+    private ImageView trophy10;
+
+    @FXML
+    private ImageView trophy2;
+
+    @FXML
+    private ImageView trophy3;
+
+    @FXML
+    private ImageView trophy4;
+
+    @FXML
+    private ImageView trophy5;
+
+    @FXML
+    private ImageView trophy6;
+
+    @FXML
+    private ImageView trophy7;
+
+    @FXML
+    private ImageView trophy8;
+
+    @FXML
+    private ImageView trophy9;
+    
     private  Font f;
  
 	
@@ -123,7 +154,16 @@ public class ScoreBoardScreen {
     //Initialize ScoreBoard//
 	public void initialize() {
 		
-		
+		trophy1.setVisible(false);
+		trophy2.setVisible(false);
+		trophy3.setVisible(false);
+		trophy4.setVisible(false);
+		trophy5.setVisible(false);
+		trophy6.setVisible(false);
+		trophy7.setVisible(false);
+		trophy8.setVisible(false);
+		trophy9.setVisible(false);
+		trophy10.setVisible(false);
 		
 		JsonRead JR = new JsonRead();
 
@@ -143,11 +183,42 @@ public class ScoreBoardScreen {
 
 		}
 		
-		
+		if(Integer.parseInt(Score1.getText())>=200) {
+			trophy1.setVisible(true);
+		}
+		if(Integer.parseInt(Score2.getText())>=200) {
+			trophy2.setVisible(true);
+		}
+		if(Integer.parseInt(Score3.getText())>=200) {
+			trophy3.setVisible(true);
+		}
+		if(Integer.parseInt(Score4.getText())>=200) {
+			trophy4.setVisible(true);
+		}
+		if(Integer.parseInt(Score5.getText())>=200) {
+			trophy5.setVisible(true);
+		}
+		if(Integer.parseInt(Score6.getText())>=200) {
+			trophy6.setVisible(true);
+		}
+		if(Integer.parseInt(Score7.getText())>=200) {
+			trophy7.setVisible(true);
+		}
+		if(Integer.parseInt(Score8.getText())>=200) {
+			trophy8.setVisible(true);
+		}
+		if(Integer.parseInt(Score9.getText())>=200) {
+			trophy9.setVisible(true);
+		}
+		if(Integer.parseInt(Score10.getText())>=200) {
+			trophy10.setVisible(true);
+		}
 		
 		
 	}
-    private void setLabel(String id, String text) {
+   
+	private void setLabel(String id, String text) {
+    	
 		Label label = findLabel(id);		
 		if(label == null)
 			return;
