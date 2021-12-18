@@ -67,7 +67,7 @@ public class SysData extends JPanel {
 	public int m_x;
 	public int m_y;
 	public int pacmanLife = 3;
-
+	int level =1;
 	public MapData md_backup;
 	public PacWindow windowParent;
 	boolean isSiren = MainScreen.isMute;
@@ -105,7 +105,7 @@ public class SysData extends JPanel {
 		} else {
 			foods = md.getFoodPositions();
 		}
-		
+
 		pufoods = md.getpufoodPositions();
 
 		ghosts = new ArrayList<>();
@@ -276,122 +276,147 @@ public class SysData extends JPanel {
 			}
 			foods.remove(foodToEat);
 			score++;
-			
+
 			// Levels:
 			if (score <= 50) {
-				scoreboard.setText("       Level : 1       Score : " + score); // to change the level to a counter
-			} else if (score >= 51 ) {
-				scoreboard.setText("       Level : 2       Score : " + score); // to change the level to a counter
-		        MapData map = getMapFromResource("/resources/maps/þþmap_level2M.txt");
-				changeMap(map);	
-			// variable
-				/*	} else if (score >= 51 && score <= 100) {
-				scoreboard.setText("       Level : 2       Score : " + score); // to change the level to a counter
-		        MapData map = getMapFromResource("/resources/maps/þþmap_level2.txt");
-				changeMap(map);	
-							
 
-			} else if (score >= 101 && score <= 150) {
-				scoreboard.setText("       Level : 3       Score : " + score); // to change the level to a counter
-																				// variable
-			} else {
-				scoreboard.setText("       Level : 4       Score : " + score); // to change the level to a counter
-						updateGhostSpeed();	*/													// variable
+				scoreboard.setText("       Level : 1       Score : " + score);
+			}
+			/*
+			 * } else if (score >= 51 ) {
+			 * scoreboard.setText("       Level : 2       Score : " + score); // to change
+			 * the level to a counter MapData map =
+			 * getMapFromResource("/resources/maps/þþmap_level2M.txt"); changeMap(map); //
+			 * variable
+			 */
+		} else if (score >= 51 && score <= 100) {
+			
+			scoreboard.setText("       Level : 2       Score : " + score); // to change the level to a counter
+			if(level <2) {
+			MapData map = getMapFromResource("/resources/maps/þþmap_level2M.txt");
+			changeMap(map);
+			level =2;
 			}
 
-			if (foods.size() == 0) {
-				siren.stop();
-				pac6.stop();
-				if (!isSiren) {
-					SoundPlayer.play("pacman_eat.wav");
-				}
-				isWin = true;
-				JsonWriterEx JW = new JsonWriterEx();
-				String date = java.time.LocalDate.now().toString();
+		} else if (score >= 101 && score <= 150) {
+			scoreboard.setText("       Level : 3       Score : " + score); // to change the level to a counter
+			if(level <3) {
+		       MapData map1 = getMapFromResource("/resources/maps/map1_c.txt");
+			changeMap(map1);
+			pacman.pacmanSpeed = 0;
+			pacman.pacmanSpeedMove = 30;
+			level =3;
+			}
 
-				JW.writeScordboardRecords(GlobalFuncations.username, score, date);
-
-				pacman.moveTimer.stop();
-				for (Ghost g : ghosts) {
-					g.moveTimer.stop();
-				}
+		} else if (score >= 151){
+			scoreboard.setText("       Level : 4       Score : " + score); // to change the level to a counter
+			if(level <4) {
+			updateGhostSpeed(); // variable
+			level =4;
 			}
 		}
 
-		Bomb puFoodToEat = null;
-		// Check pu food eat
-		for (Bomb puf : pufoods) {
-			if (pacman.logicalPosition.x == puf.position.x && pacman.logicalPosition.y == puf.position.y)
-				puFoodToEat = puf;
-		}
-		if (puFoodToEat != null) {
-			// SoundPlayer.play("pacman_eat.wav");
-			switch (puFoodToEat.type) {
-			// If User Eat Bomb
-			case 0:
-				pufoods.remove(puFoodToEat);
-				mustReactivateSiren = true;
-				pacman.changePacmanColor("Purple");
-				userHasBomb = true;
-				if (!isSiren) {
-					siren.stop();
-					pac6.start();
-				}
-				for (Ghost g : ghosts) {
-					g.weaken();
-				}
-				scoreToAdd = 0;
-				break;
-			default:
-				if (!isSiren) {
-					SoundPlayer.play("pacman_eatfruit.wav");
-				}
-				pufoods.remove(puFoodToEat);
-				scoreToAdd = 1;
-
-				drawScore = true;
-			}
-			// score ++;
-			// scoreboard.setText(" Score : "+score);
-		}
-
-		// Check Ghost Undie
-		for (Ghost g : ghosts) {
-			if (g.isDead() && g.logicalPosition.x == ghostBase.x && g.logicalPosition.y == ghostBase.y) {
-				g.undie();
-			}
-		}
-
-		// Check Teleport
-		for (Teleport tp : teleports) {
-			if (pacman.logicalPosition.x == tp.getFrom().x && pacman.logicalPosition.y == tp.getFrom().y
-					&& pacman.activeMove == tp.getReqMove()) {
-				// System.out.println("TELE !");
-				pacman.logicalPosition = tp.getTo();
-				pacman.pixelPosition.x = pacman.logicalPosition.x * 28;
-				pacman.pixelPosition.y = pacman.logicalPosition.y * 28;
-			}
-		}
-
-		// Check isSiren
-		if (!isSiren) {
-			for (Ghost g : ghosts) {
-				if (g.isWeak()) {
-					isSiren = false;
-				}
-			}
+		if (foods.size() == 0) {
+			siren.stop();
+			pac6.stop();
 			if (!isSiren) {
-				// pac6.stop();
-				if (mustReactivateSiren) {
-					mustReactivateSiren = false;
-					siren.start();
-				}
+				SoundPlayer.play("pacman_eat.wav");
 			}
+			isWin = true;
+			JsonWriterEx JW = new JsonWriterEx();
+			String date = java.time.LocalDate.now().toString();
 
+			JW.writeScordboardRecords(GlobalFuncations.username, score, date);
+
+			pacman.moveTimer.stop();
+			for (Ghost g : ghosts) {
+				g.moveTimer.stop();
+			}
+		}
+	
+
+	Bomb puFoodToEat = null;
+	// Check pu food eat
+	for(
+	Bomb puf:pufoods)
+	{
+		if (pacman.logicalPosition.x == puf.position.x && pacman.logicalPosition.y == puf.position.y)
+			puFoodToEat = puf;
+	}if(puFoodToEat!=null)
+	{
+		// SoundPlayer.play("pacman_eat.wav");
+		switch (puFoodToEat.type) {
+		// If User Eat Bomb
+		case 0:
+			pufoods.remove(puFoodToEat);
+			mustReactivateSiren = true;
+			pacman.changePacmanColor("Purple");
+			userHasBomb = true;
+			if (!isSiren) {
+				siren.stop();
+				pac6.start();
+			}
+			for (Ghost g : ghosts) {
+				g.weaken();
+			}
+			scoreToAdd = 0;
+			break;
+		default:
+			if (!isSiren) {
+				SoundPlayer.play("pacman_eatfruit.wav");
+			}
+			pufoods.remove(puFoodToEat);
+			scoreToAdd = 1;
+
+			drawScore = true;
+		}
+		// score ++;
+		// scoreboard.setText(" Score : "+score);
+	}
+
+	// Check Ghost Undie
+	for(
+	Ghost g:ghosts)
+	{
+		if (g.isDead() && g.logicalPosition.x == ghostBase.x && g.logicalPosition.y == ghostBase.y) {
+			g.undie();
+		}
+	}
+
+	// Check Teleport
+	for(
+	Teleport tp:teleports)
+	{
+		if (pacman.logicalPosition.x == tp.getFrom().x && pacman.logicalPosition.y == tp.getFrom().y
+				&& pacman.activeMove == tp.getReqMove()) {
+			// System.out.println("TELE !");
+			pacman.logicalPosition = tp.getTo();
+			pacman.pixelPosition.x = pacman.logicalPosition.x * 28;
+			pacman.pixelPosition.y = pacman.logicalPosition.y * 28;
+		}
+	}
+
+	// Check isSiren
+	if(!isSiren)
+	{
+		for (Ghost g : ghosts) {
+			if (g.isWeak()) {
+				isSiren = false;
+			}
+		}
+		if (!isSiren) {
+			// pac6.stop();
+			if (mustReactivateSiren) {
+				mustReactivateSiren = false;
+				siren.start();
+			}
 		}
 
 	}
-	 private void changeMap(MapData newMap) {
+
+	}
+
+	private void changeMap(MapData newMap) {
 		 m_x = newMap.getX();
 			m_y = newMap.getY();
 			this.map = newMap.getMap();	
@@ -516,11 +541,11 @@ public class SysData extends JPanel {
 
 	@Override
 	public void processEvent(AWTEvent ae) {
-		System.out.println(" pacman.pixelPosition.x " + pacman.pixelPosition.x);
+	/*	System.out.println(" pacman.pixelPosition.x " + pacman.pixelPosition.x);
 		  System.out.println(" pacman.pixelPosition.y " + pacman.pixelPosition.y);
 		  
 			System.out.println(" pacman.logicalPosition.x " + pacman.logicalPosition.x);
-			  System.out.println(" pacman.logicalPosition.y " + pacman.logicalPosition.y);
+			  System.out.println(" pacman.logicalPosition.y " + pacman.logicalPosition.y);*/
 		if (ae.getID() == Messages.UPDATE) {
 			update();
 		} else if (ae.getID() == Messages.COLTEST) {
@@ -596,7 +621,10 @@ public class SysData extends JPanel {
 
 	// In Case of Level Up increae ghost speed
 	public void updateGhostSpeed() {
-		speedGhost -= 20;
+
+		for (Ghost g : ghosts) {
+g.ghostSpeed = 99999;
+		}
 	}
 
 	public void blowBomb() {
@@ -611,9 +639,7 @@ public class SysData extends JPanel {
 					removeGhost(g);
 					return;
 				}
-				
-			
-				 
+
 			}
 		}
 

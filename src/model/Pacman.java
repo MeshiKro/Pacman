@@ -27,9 +27,10 @@ public class Pacman implements KeyListener {
 	public Image[] pac;
 	public int activeImage = 0;
 	public int addFactor = 1;
-
+public int pacmanSpeed =20;
 	public Point pixelPosition;
 	public Point logicalPosition;
+	public int pacmanSpeedMove =100;
 
 	public SysData parentBoard;
 
@@ -55,15 +56,16 @@ public class Pacman implements KeyListener {
 				}
 			}
 		};
-		animTimer = new Timer(40, animAL);
+		animTimer = new Timer(pacmanSpeedMove, animAL);
 		animTimer.start();
 
 		moveAL = new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-
 				
+				if(pacmanSpeedMove < 100)
+				animTimer.setDelay(0);
 				/* */
-				  
+				//animTimer.setDelay(pacmanSpeedMove);
 				
 				// update logical position
 				if ((pixelPosition.x % 28 == 0) && (pixelPosition.y % 28 == 0)) {
@@ -196,7 +198,7 @@ public class Pacman implements KeyListener {
 
 			}
 		};
-		moveTimer = new Timer(1, moveAL);
+		moveTimer = new Timer(pacmanSpeed, moveAL);
 		moveTimer.start();
 
 	}

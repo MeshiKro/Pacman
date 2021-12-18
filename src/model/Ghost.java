@@ -70,6 +70,7 @@ public abstract class Ghost {
 	public int ghostDeadDelay = 5;
 
 	public BFSFinder baseReturner;
+	public int ghostSpeed = 100;
 
 	protected SysData parentBoard;
 
@@ -114,12 +115,15 @@ public abstract class Ghost {
 				activeImage = (activeImage + 1) % 2;
 			}
 		};
-		animTimer = new Timer(100, animAL);
+		animTimer = new Timer(ghostSpeed, animAL);
 		animTimer.start();
 
 		moveAL = new ActionListener() {
+
 			public void actionPerformed(ActionEvent evt) {
 
+				animTimer.setDelay(ghostSpeed);
+				
 				if ((pixelPosition.x % 28 == 0) && (pixelPosition.y % 28 == 0)) {
 					if (!isStuck) {
 						switch (activeMove) {
@@ -203,7 +207,7 @@ public abstract class Ghost {
 				parentBoard.dispatchEvent(new ActionEvent(this, Messages.COLTEST, null));
 			}
 		};
-		moveTimer = new Timer(ghostDelay, moveAL);
+		moveTimer = new Timer(ghostNormalDelay, moveAL);
 		moveTimer.start();
 
 		unweak1 = new ActionListener() {
