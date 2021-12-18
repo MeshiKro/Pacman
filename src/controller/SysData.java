@@ -282,7 +282,7 @@ public class SysData extends JPanel {
 				scoreboard.setText("       Level : 1       Score : " + score); // to change the level to a counter
 			} else if (score >= 51 ) {
 				scoreboard.setText("       Level : 2       Score : " + score); // to change the level to a counter
-		        MapData map = getMapFromResource("/resources/maps/þþmap_level2.txt");
+		        MapData map = getMapFromResource("/resources/maps/þþmap_level2M.txt");
 				changeMap(map);	
 			// variable
 				/*	} else if (score >= 51 && score <= 100) {
@@ -516,11 +516,11 @@ public class SysData extends JPanel {
 
 	@Override
 	public void processEvent(AWTEvent ae) {
-		/*System.out.println(" pacman.pixelPosition.x " + pacman.pixelPosition.x);
+		System.out.println(" pacman.pixelPosition.x " + pacman.pixelPosition.x);
 		  System.out.println(" pacman.pixelPosition.y " + pacman.pixelPosition.y);
 		  
 			System.out.println(" pacman.logicalPosition.x " + pacman.logicalPosition.x);
-			  System.out.println(" pacman.logicalPosition.y " + pacman.logicalPosition.y);*/
+			  System.out.println(" pacman.logicalPosition.y " + pacman.logicalPosition.y);
 		if (ae.getID() == Messages.UPDATE) {
 			update();
 		} else if (ae.getID() == Messages.COLTEST) {
@@ -611,14 +611,9 @@ public class SysData extends JPanel {
 					removeGhost(g);
 					return;
 				}
-				/*
-				 * System.out.println(" pacman.pixelPosition.x " + pacman.pixelPosition.x);
-				 * System.out.println(" pacman.pixelPosition.y " + pacman.pixelPosition.y);
-				 * 
-				 * System.out.println(" g.logicalPosition.x " + g.logicalPosition.x);
-				 * System.out.println(" g.logicalPosition.y " + g.logicalPosition.y);
-				 * System.out.println();
-				 */
+				
+			
+				 
 			}
 		}
 

@@ -56,8 +56,8 @@ public class PacWindow extends JFrame {
         
         scoreboard.setForeground(new Color(255, 243, 36));
 
-        MapData map1 = getMapFromResource("/resources/maps/map1_c.txt");
-        //MapData map1 = getMapFromResource("/resources/maps/þþmap_level2.txt");
+       MapData map1 = getMapFromResource("/resources/maps/map1_c.txt");
+      //  MapData map1 = getMapFromResource("/resources/maps/þþmap_level2M.txt");
         adjustMap(map1);
         SysData pb = new SysData(scoreboard, map1, this);
 

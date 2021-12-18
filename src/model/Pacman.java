@@ -92,24 +92,30 @@ public class Pacman implements KeyListener {
 
 						activeMove = todoMove;
 						todoMove = moveType.NONE;
-					} else if (!isPossibleMove(todoMove) && (todoMove == moveType.LEFTTANNEL)) {
-						logicalPosition.x= 26;
-						logicalPosition.y = 12;
-
-						pixelPosition.y = 336;
-						pixelPosition.x = 728;
-						activeMove = todoMove= moveType.LEFT;
-					
-						
 					}
+					 // Left Tannel
+					else if(InTannel(28,336))
+					{
+						System.out.print("left tannl");
+						transportPacman(700,336,25,12);
+					}
+					 // Right Tannel
+					else if(InTannel(700,336))
+
+					{
+						System.out.print("Right tannl");
+						transportPacman(28,336,1,12);
+
+					}
+					 
 					else	 if ( pixelPosition.y == 336 && pixelPosition.x == 728 && todoMove == moveType.RIGHT) {						
 							/*logicalPosition.x= 26;
 								logicalPosition.y = 12;
 
 								pixelPosition.y = 336;*/
-								pixelPosition.x = 1;
+								//pixelPosition.x = 1;
 
-								SysData.pacman = new Pacman(logicalPosition.x,logicalPosition.y,pb);	
+//								SysData.pacman = new Pacman(logicalPosition.x,logicalPosition.y,pb);	
 							return;
 							}
 				} else {
@@ -190,9 +196,26 @@ public class Pacman implements KeyListener {
 
 			}
 		};
-		moveTimer = new Timer(9, moveAL);
+		moveTimer = new Timer(1, moveAL);
 		moveTimer.start();
 
+	}
+
+	protected void transportPacman(int px, int py, int lx, int ly) {
+		pixelPosition.x = px;
+		pixelPosition.y = py;
+		
+		logicalPosition.x = lx;
+		logicalPosition.y = ly;
+
+	}
+
+	protected boolean InTannel(int x,int y) {
+	return	(pixelPosition.x ==x) &&  (pixelPosition.y ==y);
+			
+		
+
+		
 	}
 
 	public void changePacmanColor(String color) {
@@ -228,22 +251,11 @@ public class Pacman implements KeyListener {
 				}
 			}
 		} catch (Exception ex) {
-			moveThorghTannel(move);
 			return false;
 		}
 		return false;
 	}
 
-	private void moveThorghTannel(moveType move) {
-		switch (move) {
-
-		case LEFT:
-			activeMove = todoMove = moveType.LEFTTANNEL;
-		//case RIGHT:
-			//activeMove = todoMove =moveType.RIGHTTANNEL;
-
-		}
-	}
 
 	public Image getPacmanImage() {
 		return pac[activeImage];
