@@ -315,9 +315,13 @@ public class SysData extends JPanel {
 			level =4;
 			}
 		}
+ 
 
-		if (foods.size() == 0) {
+		//winning
+		if (score >= 200) {
+			if(this.siren!=null)
 			siren.stop();
+			if(pac6!=null)
 			pac6.stop();
 			if (!isSiren) {
 				SoundPlayer.play("pacman_eat.wav");
@@ -325,6 +329,8 @@ public class SysData extends JPanel {
 			isWin = true;
 			JsonWriterEx JW = new JsonWriterEx();
 			String date = java.time.LocalDate.now().toString();
+
+
 
 			JW.writeScordboardRecords(GlobalFuncations.username, score, date);
 
