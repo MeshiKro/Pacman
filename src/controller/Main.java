@@ -20,8 +20,7 @@ public class Main extends Application {
 
 		ArrayList<QuestionObject> a = new ArrayList<QuestionObject>();
 		JsonRead JR = new JsonRead();
-		JsonWriterEx JW = new JsonWriterEx();
-
+		JR.readQuestionsFromJson();
 
 	launch(args);
 

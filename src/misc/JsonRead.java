@@ -4,6 +4,8 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -14,7 +16,7 @@ import model.ScoreboardRecord;
 import view.MainScreen;
 import view.QuestionsListScreen;
 
-public class JsonRead {
+public class JsonRead  implements Observer {
 
 	public static ArrayList<QuestionInJson> questionsAndAnswers = new ArrayList<QuestionInJson>();
 
@@ -46,14 +48,14 @@ public class JsonRead {
 		return questionsAndAnswers;
 
 	}
+	
 
 	public QuestionInJson getQuestionFromJson() {
-		ArrayList<QuestionInJson> array = readQuestionsFromJson();
 		String question = QuestionsListScreen.questionToEdit;
 
-		for (int i = 0; i < array.size(); i++) {
-			if (array.get(i).getQuestion().equals(question))
-				return array.get(i);
+		for (int i = 0; i < questionsAndAnswers.size(); i++) {
+			if (questionsAndAnswers.get(i).getQuestion().equals(question))
+				return questionsAndAnswers.get(i);
 		}
 		return null;
 	}
@@ -117,5 +119,12 @@ public class JsonRead {
 			return false;
 		}
 
+	}
+
+
+	@Override
+	public void update(Observable o, Object arg) {
+		questionsAndAnswers.clear();
+		readQuestionsFromJson() ;		
 	}
 }

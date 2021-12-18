@@ -5,26 +5,24 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
-
-import org.json.JSONObject;
+import java.util.Observable;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonIOException;
 
 import model.AllScoreBoardRecords;
-import model.AnswerObject;
 import model.QuestionInJson;
-import model.QuestionObject;
 import model.ScoreboardRecord;
 import model.questions;
 import view.QuestionsListScreen;
 
-public class JsonWriterEx {
+@SuppressWarnings("deprecation")
+public class JsonWriterEx extends Observable {
 
 	public boolean writeQuestions(QuestionInJson q) {
 		questions qu = getArrayOfQuestionFromJSON();
 		qu.questions.add(q);
-
+		JsonRead.questionsAndAnswers.add(q);
 		return writeQuestionToJson(qu);
 
 	}
@@ -38,6 +36,8 @@ public class JsonWriterEx {
 			gson.toJson(qu, writer);
 			writer.flush();
 			writer.close();
+			   setChanged();
+		        notifyObservers();
 			return true;
 		} catch (JsonIOException e) {
 
@@ -56,8 +56,10 @@ public class JsonWriterEx {
 		questions qu = getArrayOfQuestionFromJSON();
 
 		int index = getIndexOfQuestion(qu, question);
-
+		if(index ==-1)
+			return;
 		qu.questions.remove(index);
+		JsonRead.questionsAndAnswers.remove(index-1);
 
 		writeQuestionToJson(qu);
 
@@ -65,8 +67,8 @@ public class JsonWriterEx {
 
 	private int getIndexOfQuestion(questions qu, String question) {
 		int index = -1;
-		for (int i = 0; i < qu.questions.size(); i++) {
-			String q = qu.questions.get(i).getQuestion();
+		for (int i = 0; i < JsonRead.questionsAndAnswers.size(); i++) {
+			String q = JsonRead.questionsAndAnswers.get(i).getQuestion();
 			if (q.equals(question))
 				index = i;
 		}
@@ -74,10 +76,9 @@ public class JsonWriterEx {
 	}
 
 	private questions getArrayOfQuestionFromJSON() {
-		JsonRead jr = new JsonRead();
-		ArrayList<QuestionInJson> questionsAndAnswers = jr.readQuestionsFromJson();
+	
 		questions qu = new questions();
-		qu.questions = questionsAndAnswers;
+		qu.questions = 	JsonRead.questionsAndAnswers;
 
 		return qu;
 	}
@@ -172,4 +173,6 @@ public class JsonWriterEx {
 			e.printStackTrace();
 		}
 	}
+
+
 }
