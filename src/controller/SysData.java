@@ -278,9 +278,11 @@ public class SysData extends JPanel {
 			score++;
 
 			// Levels:
-			if (score <= 50) {
+			if(score<=10)
+				scoreboard.setText("     Level : 1       Score : " + score);
+			if (score <= 50&&score>10) {
 
-				scoreboard.setText("       Level : 1       Score : " + score);
+				scoreboard.setText("    Level : 1       Score : " + score);
 			}
 			/*
 			 * } else if (score >= 51 ) {
@@ -291,7 +293,7 @@ public class SysData extends JPanel {
 			 */
 		} else if (score >= 51 && score <= 100) {
 			
-			scoreboard.setText("       Level : 2       Score : " + score); // to change the level to a counter
+			scoreboard.setText("    Level : 2       Score : " + score); // to change the level to a counter
 			if(level <2) {
 			MapData map = getMapFromResource("/resources/maps/þþmap_level2M.txt");
 			changeMap(map);
@@ -299,7 +301,7 @@ public class SysData extends JPanel {
 			}
 
 		} else if (score >= 101 && score <= 150) {
-			scoreboard.setText("       Level : 3       Score : " + score); // to change the level to a counter
+			scoreboard.setText("   Level : 3       Score : " + score); // to change the level to a counter
 			if(level <3) {
 		       MapData map1 = getMapFromResource("/resources/maps/map1_c.txt");
 			changeMap(map1);
@@ -309,7 +311,7 @@ public class SysData extends JPanel {
 			}
 
 		} else if (score >= 151){
-			scoreboard.setText("       Level : 4       Score : " + score); // to change the level to a counter
+			scoreboard.setText("   Level : 4       Score : " + score); // to change the level to a counter
 			if(level <4) {
 			updateGhostSpeed(); // variable
 			level =4;
@@ -528,7 +530,21 @@ public class SysData extends JPanel {
 			g.drawString(s.toString(), pacman.pixelPosition.x + 13, pacman.pixelPosition.y + 50);
 			// drawScore = false;
 			score += s;
-			scoreboard.setText("    Score : " + score);
+			if (score<=10)
+				scoreboard.setText("     Level : 1       Score : " + score);
+			if (score <= 50) {
+				scoreboard.setText("    Level : 1       Score : " + score);
+			}
+			if (score >= 51 && score <= 100) {
+				scoreboard.setText("    Level : 2       Score : " + score);
+			}
+			if (score >= 101 && score <= 150) {
+				scoreboard.setText("   Level : 3       Score : " + score);
+			}
+			if (score >= 151) {
+				scoreboard.setText("   Level : 4       Score : " + score);
+			}
+		//	scoreboard.setText("    Score : " + score);
 			clearScore = true;
 
 		}

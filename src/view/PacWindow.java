@@ -4,9 +4,11 @@ import misc.MapData;
 import misc.MapEditor;
 import controller.SysData;
 import javafx.application.Application;
-
-import javax.imageio.ImageIO;
+//import javafx.scene.input.MouseEvent;
+import java.awt.event.MouseEvent;
 import javax.swing.*;
+import javax.imageio.*;
+import javax.imageio.ImageIO;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
@@ -22,10 +24,20 @@ public class PacWindow extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+	
+	
+	  BufferedImage myPicture = null;
+	public void mouseClicked(MouseEvent me) {
+	    Point clicked = me.getPoint();
+	    Rectangle bounds = new Rectangle(250, 250, myPicture.getWidth(), myPicture.getHeight());
+	    if (bounds.contains(clicked)) {
+	        System.out.println("?????????????");
+	    }
+	}
+	
 	public PacWindow()  {
 		
-		
+
 		setIconImage(new ImageIcon("./resources/images/pac/pac2.png").getImage());
 
 	//	setIconImage(new ImageIcon(getClass().getResource("./resources/images/pac/pac2.png")).getImage());
@@ -38,7 +50,7 @@ public class PacWindow extends JFrame {
         setSize(794, 707);
         setLocationRelativeTo(null);
         
-        BufferedImage myPicture = null;
+     //   BufferedImage myPicture = null;
    		try {
    			myPicture = ImageIO.read(new File("./resources/images/pac/3lives.png"));
    		} catch (IOException e) {
@@ -46,13 +58,31 @@ public class PacWindow extends JFrame {
    			e.printStackTrace();
    		}
    		 JLabel picLabel = new JLabel(new ImageIcon(myPicture));
-   		 picLabel.setHorizontalAlignment(JLabel.RIGHT);
+   		 picLabel.setHorizontalAlignment(JLabel.LEFT);
+   		 
+   		    BufferedImage homePicture = null;
+    		try {
+    			homePicture = ImageIO.read(new File("./resources/images/pac/homeBtn.png"));
+    		} catch (IOException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		}
+    		 JLabel picLabel2 = new JLabel(new ImageIcon(homePicture));
+    		 picLabel2.setHorizontalAlignment(JLabel.LEFT);
 
-        JLabel scoreboard = new JLabel("       Level : 1       Score : 0",new ImageIcon(myPicture), SwingConstants.HORIZONTAL);
+        JLabel scoreboard = new JLabel("     Level : 1       Score : 0",new ImageIcon(myPicture), SwingConstants.HORIZONTAL);
         scoreboard.setHorizontalAlignment(JLabel.LEFT);
         scoreboard.setFont(new Font("OCR A Extended", Font.PLAIN, 23));
         
-      
+       // scoreboard.
+        
+        
+    /*    this.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent me) {
+        	//Solution Code goes here
+        	 }
+        	});*/
         
         scoreboard.setForeground(new Color(255, 243, 36));
 
@@ -64,8 +94,18 @@ public class PacWindow extends JFrame {
         pb.setBorder(new CompoundBorder(new EmptyBorder(7, 7, 7, 7), new LineBorder(Color.BLUE)));
         addKeyListener(pb.pacman);
        
-        //this.getContentPane().add(picLabel, BorderLayout.SOUTH);
-        this.getContentPane().add(scoreboard, BorderLayout.SOUTH); 
+        JPanel buttonPane = new JPanel();
+        buttonPane.setLayout(new BoxLayout(buttonPane, BoxLayout.X_AXIS));
+        buttonPane.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 20));
+        buttonPane.add(Box.createHorizontalGlue());
+        buttonPane.add(picLabel2);
+        buttonPane.add(Box.createRigidArea(new Dimension(10, 0)));
+        buttonPane.add(scoreboard);
+        buttonPane.setBackground(Color.BLACK);
+        this.getContentPane().add(buttonPane, BorderLayout.SOUTH); 
+    //    this.add(Box.createRigidArea(new Dimension(10, 0)));
+      //  this.getContentPane().add(picLabel2, BorderLayout.SOUTH);
+ 
        // this.getContentPane().add(picLabel);
         this.getContentPane().add(pb);
         setVisible(true);
@@ -80,7 +120,7 @@ public class PacWindow extends JFrame {
 //        setSize(794, 884);
   //      setLocationRelativeTo(null);
 
-        JLabel scoreboard = new JLabel("       Level : 1       Score : 0");
+        JLabel scoreboard = new JLabel("      Level : 1       Score : 0");
         scoreboard.setForeground(new Color(255, 243, 36));
 
         JFrame frame=new JFrame("first way");
