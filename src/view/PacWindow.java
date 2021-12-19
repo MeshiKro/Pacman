@@ -65,7 +65,7 @@ public class PacWindow extends JFrame {
 		
         setTitle("Scorpion Pacman");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+     //   setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         setLayout(new BorderLayout());
         getContentPane().setBackground(Color.black);
 
