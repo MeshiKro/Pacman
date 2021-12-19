@@ -4,6 +4,9 @@ import misc.*;
 import model.*;
 import view.PacWindow;
 import view.MainScreen;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -214,7 +217,7 @@ public class SysData extends JPanel {
 
 	}
 
-	public void collisionTest() {
+	public void collisionTest() throws IOException {
 		Rectangle pr = new Rectangle(pacman.pixelPosition.x + 13, pacman.pixelPosition.y + 13, 2, 2);
 		Ghost ghostToRemove = null;
 		for (Ghost g : ghosts) {
@@ -223,7 +226,8 @@ public class SysData extends JPanel {
 			if (pr.intersects(gr)) {
 				if (!g.isDead()) {
 					if (!g.isWeak()) {
-						// Game Over
+						// totally Game Over
+						if(pacmanLife==0) {
 						if (!isSiren) {
 							SoundPlayer.play("pacman_lose.wav");
 							siren.stop();
@@ -234,7 +238,6 @@ public class SysData extends JPanel {
 						isGameOver = true;
 						JsonWriterEx JW = new JsonWriterEx();
 						String date = java.time.LocalDate.now().toString();
-
 						JW.writeScordboardRecords(GlobalFuncations.username, score, date);
 						if(score<=9)
 							scoreboard.setText("Press R to try again!		\t\t score: "+score);
@@ -244,6 +247,37 @@ public class SysData extends JPanel {
 							scoreboard.setText("Press R to try again	\t\t score:"+score);
 						// scoreboard.setForeground(Color.red);
 						break;
+						}
+						//still have lives
+						if(pacmanLife>=1 && pacmanLife<=3) {
+							pacmanLife--;
+							//logo lost life
+							//change life pic
+							pacman.moveTimer.stop();
+							pacman.animTimer.stop();
+							g.moveTimer.stop();
+							isGameOver = false;
+							//to save score and level
+							
+							if(pacmanLife==2) {
+								BufferedImage in = ImageIO.read(new File("./resources/images/pac/2lives.png"));
+							BufferedImage newImage = new BufferedImage(in.getWidth(), in.getHeight(), BufferedImage.TYPE_INT_ARGB);
+							Graphics2D g2 = newImage.createGraphics();
+							g2.drawImage(in, 0, 0, in.getWidth(), in.getHeight(), null);
+							g2.dispose();
+						     JLabel scoreboard = new JLabel("     Level : 1       Score : 0",new ImageIcon(newImage), SwingConstants.HORIZONTAL);
+						 	if (siren != null)
+								siren.stop();
+
+							new PacWindow();
+					//		windowParent.dispose();
+							}
+						     else if(score<100 && score>=10)
+								scoreboard.setText("Press R to try again!		\t\t score:"+score);
+							else if(score>=100)
+								scoreboard.setText("Press R to try again	\t\t score:"+score);
+						}
+			
 					} else {
 						// Eat Ghost
 						if (!isSiren) {
@@ -576,7 +610,12 @@ public class SysData extends JPanel {
 			update();
 		} else if (ae.getID() == Messages.COLTEST) {
 			if (!isGameOver) {
-				collisionTest();
+				try {
+					collisionTest();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		} else if (ae.getID() == Messages.RESET) {
 			if (isGameOver)

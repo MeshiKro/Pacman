@@ -36,6 +36,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import misc.MapData;
 import misc.MapEditor;
+import  javafx.embed.swing.JFXPanel;
 public class PacWindow extends JFrame {
 
     /**
