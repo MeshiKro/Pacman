@@ -17,6 +17,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class SysData extends JPanel {
 
@@ -75,6 +78,7 @@ public class SysData extends JPanel {
 	public PacWindow windowParent;
 	boolean isSiren = MainScreen.isMute;
 	public static boolean userHasBomb = false;
+	public int createFoodDelay=2;
 
 	public SysData(JLabel scoreboard, MapData md, PacWindow pw) {
 		this.scoreboard = scoreboard;
@@ -107,6 +111,8 @@ public class SysData extends JPanel {
 			}
 		} else {
 			foods = md.getFoodPositions();
+			//when the pac move a new pac point will be created
+			foods.add(new Food(md.getPacmanPosition().x, md.getPacmanPosition().y));
 		}
 
 		pufoods = md.getpufoodPositions();
@@ -210,8 +216,19 @@ public class SysData extends JPanel {
 		im.put(KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0), "space");
 		am.put("space", new AbstractAction() {
 			public void actionPerformed(ActionEvent evt) {
-				if (userHasBomb)
-					blowBomb();
+				if (userHasBomb) {
+					Ghost newGhostReturn=blowBomb();
+					
+					ScheduledExecutorService schedulerGhost = Executors.newSingleThreadScheduledExecutor();
+					Runnable taskGhost = new Runnable() {
+			            public void run() {
+			            	ghosts.add(newGhostReturn);
+			            }
+			        };
+			        schedulerGhost.schedule(taskGhost, 5, TimeUnit.SECONDS);
+			        schedulerGhost.shutdown();
+				}
+						
 			}
 		});
 
@@ -312,8 +329,19 @@ public class SysData extends JPanel {
 			if (!isSiren) {
 				SoundPlayer.play("pacman_eat.wav");
 			}
+			int x=foodToEat.position.x;
+			int y=foodToEat.position.y;
 			foods.remove(foodToEat);
 			score++;
+			ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
+			Runnable task = new Runnable() {
+	            public void run() {
+	            	foods.add(new Food(x, y));
+	            }
+	        };
+	        scheduler.schedule(task, createFoodDelay, TimeUnit.SECONDS);
+			scheduler.shutdown();
+		
 
 			// Levels:
 			if(score<10)
@@ -394,7 +422,17 @@ public class SysData extends JPanel {
 		switch (puFoodToEat.type) {
 		// If User Eat Bomb
 		case 0:
+			int x=puFoodToEat.position.x;
+			int y=puFoodToEat.position.y;
 			pufoods.remove(puFoodToEat);
+			ScheduledExecutorService schedulerBomb = Executors.newSingleThreadScheduledExecutor();
+			Runnable taskBomb = new Runnable() {
+	            public void run() {
+	            	pufoods.add(new Bomb(x, y,0));
+	            }
+	        };
+	        schedulerBomb.schedule(taskBomb, createFoodDelay, TimeUnit.SECONDS);
+	        schedulerBomb.shutdown();	
 			mustReactivateSiren = true;
 			pacman.changePacmanColor("Purple");
 			userHasBomb = true;
@@ -692,23 +730,23 @@ g.ghostSpeed = 99999;
 		}
 	}
 
-	public void blowBomb() {
+	public Ghost blowBomb() {
 		pacman.changePacmanColor("");
 		userHasBomb = false;
+		Ghost gToReturn=null;
+		for (int i = 0; i < ghosts.size(); i++){
+			if (!ghosts.get(i).isDead()) {
 
-		for (Ghost g : ghosts) {
-			if (!g.isDead()) {
-
-				if (ghostNextToPacman(g)) {
-					// System.out.println(" remove");
-					removeGhost(g);
-					return;
-				}
-
+			if (ghostNextToPacman(ghosts.get(i))) {
+				gToReturn=ghosts.get(i);
+				// System.out.println(" remove");
+				removeGhost(gToReturn);
+				
 			}
-		}
-
+		}	
 	}
+		return gToReturn;
+		}
 
 	private void removeGhost(Ghost g) {
 		g.die();
