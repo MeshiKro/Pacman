@@ -78,7 +78,7 @@ public class SysData extends JPanel {
 	public PacWindow windowParent;
 	boolean isSiren = MainScreen.isMute;
 	public static boolean userHasBomb = false;
-	public int createFoodDelay=2;
+	public int createFoodDelay=30;
 
 	public SysData(JLabel scoreboard, MapData md, PacWindow pw) {
 		this.scoreboard = scoreboard;
@@ -341,6 +341,7 @@ public class SysData extends JPanel {
 	        };
 	        scheduler.schedule(task, createFoodDelay, TimeUnit.SECONDS);
 			scheduler.shutdown();
+			
 		
 
 			// Levels:
