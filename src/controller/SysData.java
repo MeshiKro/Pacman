@@ -236,8 +236,12 @@ public class SysData extends JPanel {
 						String date = java.time.LocalDate.now().toString();
 
 						JW.writeScordboardRecords(GlobalFuncations.username, score, date);
-
-						scoreboard.setText("    Press R to try again !");
+						if(score==0)
+							scoreboard.setText("Press R to try again!		\t\t score: "+score);
+						if(score<100 && score>=10)
+							scoreboard.setText("Press R to try again!		\t\t score:"+score);
+						if(score>=100)
+							scoreboard.setText("Press R to try again!	\t\t score:"+score);
 						// scoreboard.setForeground(Color.red);
 						break;
 					} else {
@@ -278,9 +282,9 @@ public class SysData extends JPanel {
 			score++;
 
 			// Levels:
-			if(score<=10)
+			if(score<10)
 				scoreboard.setText("     Level : 1       Score : " + score);
-			if (score <= 50&&score>10) {
+			if (score <= 50&&score>=10) {
 
 				scoreboard.setText("    Level : 1       Score : " + score);
 			}
@@ -530,9 +534,9 @@ public class SysData extends JPanel {
 			g.drawString(s.toString(), pacman.pixelPosition.x + 13, pacman.pixelPosition.y + 50);
 			// drawScore = false;
 			score += s;
-			if (score<=10)
+			if (score<10)
 				scoreboard.setText("     Level : 1       Score : " + score);
-			if (score <= 50) {
+			if (score <= 50&&score>=10) {
 				scoreboard.setText("    Level : 1       Score : " + score);
 			}
 			if (score >= 51 && score <= 100) {
