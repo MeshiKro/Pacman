@@ -236,12 +236,12 @@ public class SysData extends JPanel {
 						String date = java.time.LocalDate.now().toString();
 
 						JW.writeScordboardRecords(GlobalFuncations.username, score, date);
-						if(score==0)
+						if(score<=9)
 							scoreboard.setText("Press R to try again!		\t\t score: "+score);
-						if(score<100 && score>=10)
+						else if(score<100 && score>=10)
 							scoreboard.setText("Press R to try again!		\t\t score:"+score);
-						if(score>=100)
-							scoreboard.setText("Press R to try again!	\t\t score:"+score);
+						else if(score>=100)
+							scoreboard.setText("Press R to try again	\t\t score:"+score);
 						// scoreboard.setForeground(Color.red);
 						break;
 					} else {

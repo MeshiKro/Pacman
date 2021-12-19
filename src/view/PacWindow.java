@@ -1,23 +1,41 @@
 package view;
 
-import misc.MapData;
-import misc.MapEditor;
-import controller.SysData;
-import javafx.application.Application;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Point;
+import java.awt.Rectangle;
 //import javafx.scene.input.MouseEvent;
 import java.awt.event.MouseEvent;
-import javax.swing.*;
-import javax.imageio.*;
-import javax.imageio.ImageIO;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.LineBorder;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
+import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.WindowConstants;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
+import javax.swing.event.MouseInputAdapter;
+import javafx.embed.swing.JFXPanel;
+import controller.SysData;
+import javafx.application.Platform;
+import javafx.embed.swing.JFXPanel;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import misc.MapData;
+import misc.MapEditor;
 public class PacWindow extends JFrame {
 
     /**
@@ -69,6 +87,64 @@ public class PacWindow extends JFrame {
     		}
     		 JLabel picLabel2 = new JLabel(new ImageIcon(homePicture));
     		 picLabel2.setHorizontalAlignment(JLabel.LEFT);
+    		 
+    		 picLabel2.addMouseListener(new MouseInputAdapter() {
+    	
+    			  public void mouseClicked(MouseEvent e)   {
+    			        JFrame frame = new JFrame();
+    			        JFXPanel jfxPanel = new JFXPanel();
+    			        Platform.runLater(() -> {
+    			            Parent root = null;
+							try {
+								root = FXMLLoader.load(getClass().getResource("/view/MainScreen.fxml"));
+							} catch (IOException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}  // create JavaFX content, can be in a separate class
+    			            Scene scene = new Scene(root);
+    			            jfxPanel.setScene(scene);
+    			        });
+    			        frame.add(jfxPanel);
+    			 //       frame.setSize(...);
+    			        frame.setVisible(true);
+    			    }       
+    			});
+    		 
+    		/*picLabel2.addMouseListener(new MouseInputAdapter() {
+    		     public void mouseClicked(MouseEvent e)  
+    		     {  
+    		   /* 	 GlobalFuncations.switchScreen(this, "MainScreen",
+    		 				(getClass().getResource("/view/" + "MainScreen" + ".fxml")), "");
+    		    	*/
+    	/*	    	 Parent root = null;
+					try {
+						root = FXMLLoader.load(getClass().getResource("/view/MainScreen.fxml"));
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+//    		 		Parent root = FXMLLoader.load(getClass().getResource("/view/ConfirmPopUp.fxml"));
+    		    	Stage primaryStage = new Stage();
+    		 		Scene scene = new Scene(root);
+    		 		primaryStage.setScene(scene);
+    		 		primaryStage.setResizable(true);
+    		 		primaryStage.setTitle("Pacman");
+    		 		primaryStage.getIcons().add(new Image("/images/pacicon.png"));
+    		 		primaryStage.initStyle(StageStyle.DECORATED);
+    		 		primaryStage.show();
+
+    		     }  
+    		 }); */
+
+    	/*	 picLabel2.addMouseListener(new MouseAdapter() {
+    		        public void mouseClicked(MouseEvent e) {
+    		           JFrame jf=new JFrame("new one");
+    		        jf.setBackground(Color.BLACK);
+    		        jf.setSize(new Dimension(200,70));
+    		        jf.setVisible(true);
+    		        jf.setDefaultCloseOperation(EXIT_ON_CLOSE);
+    		        }
+    		    });*/
 
         JLabel scoreboard = new JLabel("     Level : 1       Score : 0",new ImageIcon(myPicture), SwingConstants.HORIZONTAL);
         scoreboard.setHorizontalAlignment(JLabel.LEFT);
