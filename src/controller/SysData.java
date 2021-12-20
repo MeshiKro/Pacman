@@ -61,7 +61,7 @@ public class SysData extends JPanel {
 
 	int speedGhost = 30;
 
-	public int score;
+	public static int score;
 	public JLabel scoreboard;
 
 	public LoopPlayer siren;
@@ -72,7 +72,7 @@ public class SysData extends JPanel {
 
 	public int m_x;
 	public int m_y;
-	public int pacmanLife = 3;
+
 	int level =1;
 	public MapData md_backup;
 	public PacWindow windowParent;
@@ -244,7 +244,7 @@ public class SysData extends JPanel {
 				if (!g.isDead()) {
 					if (!g.isWeak()) {
 						// totally Game Over
-						if(pacmanLife==0) {
+						if(PacWindow.pacmanLife==0) {
 						if (!isSiren) {
 							SoundPlayer.play("pacman_lose.wav");
 							siren.stop();
@@ -266,33 +266,30 @@ public class SysData extends JPanel {
 						break;
 						}
 						//still have lives
-						if(pacmanLife>=1 && pacmanLife<=3) {
-							pacmanLife--;
+						if(PacWindow.pacmanLife>=1 && PacWindow.pacmanLife<=3) {
 							//logo lost life
 							//change life pic
 							pacman.moveTimer.stop();
 							pacman.animTimer.stop();
 							g.moveTimer.stop();
-							isGameOver = false;
+							isGameOver = true;
 							//to save score and level
-							
-							if(pacmanLife==2) {
-								BufferedImage in = ImageIO.read(new File("./resources/images/pac/2lives.png"));
+							PacWindow.pacmanLife--;
+							System.out.println(PacWindow.pacmanLife);
+						/*		BufferedImage in = ImageIO.read(new File("./resources/images/pac/2lives.png"));
 							BufferedImage newImage = new BufferedImage(in.getWidth(), in.getHeight(), BufferedImage.TYPE_INT_ARGB);
 							Graphics2D g2 = newImage.createGraphics();
 							g2.drawImage(in, 0, 0, in.getWidth(), in.getHeight(), null);
-							g2.dispose();
+							g2.dispose(); 
 						     JLabel scoreboard = new JLabel("     Level : 1       Score : 0",new ImageIcon(newImage), SwingConstants.HORIZONTAL);
+						*/
 						 	if (siren != null)
 								siren.stop();
-
 							new PacWindow();
-					//		windowParent.dispose();
-							}
-						     else if(score<100 && score>=10)
-								scoreboard.setText("Press R to try again!		\t\t score:"+score);
-							else if(score>=100)
-								scoreboard.setText("Press R to try again	\t\t score:"+score);
+							windowParent.dispose();
+							break;
+							
+						
 						}
 			
 					} else {
@@ -398,11 +395,7 @@ public class SysData extends JPanel {
 			isWin = true;
 			JsonWriterEx JW = new JsonWriterEx();
 			String date = java.time.LocalDate.now().toString();
-
-
-
 			JW.writeScordboardRecords(GlobalFuncations.username, score, date);
-
 			pacman.moveTimer.stop();
 			for (Ghost g : ghosts) {
 				g.moveTimer.stop();
@@ -599,11 +592,12 @@ public class SysData extends JPanel {
 			clearScore = false;
 		}
 
+		//eat fruit
 		if (drawScore) {
 			// System.out.println("must draw score !");
 			g.setFont(new Font("Arial", Font.BOLD, 15));
 			g.setColor(Color.yellow);
-			Integer s = scoreToAdd * 100;
+			Integer s = scoreToAdd * 20;
 			g.drawString(s.toString(), pacman.pixelPosition.x + 13, pacman.pixelPosition.y + 50);
 			// drawScore = false;
 			score += s;
@@ -626,7 +620,7 @@ public class SysData extends JPanel {
 
 		}
 
-		if (isGameOver) {
+		if (isGameOver&&PacWindow.pacmanLife==0) {
 			g.drawImage(goImage, this.getSize().width / 2 - 315, this.getSize().height / 2 - 75, null);
 
 		}

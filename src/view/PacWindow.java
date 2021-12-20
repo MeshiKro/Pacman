@@ -18,6 +18,7 @@ import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -37,13 +38,14 @@ import javafx.scene.Scene;
 import misc.MapData;
 import misc.MapEditor;
 import  javafx.embed.swing.JFXPanel;
-public class PacWindow extends JFrame {
 
+public class PacWindow extends JFrame {
+	public static int pacmanLife = 2;
     /**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	
 	  BufferedImage myPicture = null;
 	public void mouseClicked(MouseEvent me) {
@@ -56,13 +58,14 @@ public class PacWindow extends JFrame {
 	
 	public PacWindow()  {
 		
-
+	
 		setIconImage(new ImageIcon("./resources/images/pac/pac2.png").getImage());
 
 	//	setIconImage(new ImageIcon(getClass().getResource("./resources/images/pac/pac2.png")).getImage());
 		
         setTitle("Scorpion Pacman");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+     //   setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         setLayout(new BorderLayout());
         getContentPane().setBackground(Color.black);
 
@@ -71,11 +74,26 @@ public class PacWindow extends JFrame {
         
      //   BufferedImage myPicture = null;
    		try {
+   			if(pacmanLife==2)
    			myPicture = ImageIO.read(new File("./resources/images/pac/3lives.png"));
+   			if(pacmanLife==1)
+   	   			myPicture = ImageIO.read(new File("./resources/images/pac/2lives.png"));
+   			if(pacmanLife==0)
+   	   			myPicture = ImageIO.read(new File("./resources/images/pac/1lives.png"));
+   			//if(pacmanLife==0)
+   	   			//myPicture = ImageIO.read(new File("./resources/images/pac/0lives.png"));
+   			
    		} catch (IOException e) {
    			// TODO Auto-generated catch block
    			e.printStackTrace();
    		}
+if(myPicture==null)
+	try {
+		myPicture = ImageIO.read(new File("./resources/images/pac/0lives.png"));
+	} catch (IOException e2) {
+		// TODO Auto-generated catch block
+		e2.printStackTrace();
+	}
    		 JLabel picLabel = new JLabel(new ImageIcon(myPicture));
    		 picLabel.setHorizontalAlignment(JLabel.LEFT);
    		 
@@ -147,7 +165,7 @@ public class PacWindow extends JFrame {
     		        }
     		    });*/
 
-        JLabel scoreboard = new JLabel("     Level : 1       Score : 0",new ImageIcon(myPicture), SwingConstants.HORIZONTAL);
+        JLabel scoreboard = new JLabel("     Level : 1       Score : "+SysData.score,new ImageIcon(myPicture), SwingConstants.HORIZONTAL);
         scoreboard.setHorizontalAlignment(JLabel.LEFT);
         scoreboard.setFont(new Font("OCR A Extended", Font.PLAIN, 23));
         
@@ -196,8 +214,7 @@ public class PacWindow extends JFrame {
 
 //        setSize(794, 884);
   //      setLocationRelativeTo(null);
-
-        JLabel scoreboard = new JLabel("      Level : 1       Score : 0");
+    	JLabel scoreboard = new JLabel("      Level : 1       Score : "+SysData.score);
         scoreboard.setForeground(new Color(255, 243, 36));
 
         JFrame frame=new JFrame("first way");

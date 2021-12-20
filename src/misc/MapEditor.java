@@ -41,8 +41,12 @@ public class MapEditor extends JFrame {
 		JLabel l5 = new JLabel("1 : Red Ghost (Chaser)");
 		JLabel l6 = new JLabel("2 : Pink Ghost (Traveler)");
 		JLabel l7 = new JLabel("3 : Cyan Ghost (Patrol)");
-		JLabel l8 = new JLabel("F : Fruit");
+		//JLabel l8 = new JLabel("F : Fruit");
 		JLabel l9 = new JLabel("B : Ghost Base");
+		JLabel easyQ = new JLabel("E : Easy Question");
+		JLabel mediumQ = new JLabel("M : Medium Question");
+		JLabel hardQ = new JLabel("H : Hard Question");
+
 		// JLabel l4 = new JLabel("1 : Red Ghost (Chaser)");
 
 		l0.setForeground(Color.yellow);
@@ -53,8 +57,10 @@ public class MapEditor extends JFrame {
 		l5.setForeground(Color.yellow);
 		l6.setForeground(Color.yellow);
 		l7.setForeground(Color.yellow);
-		l8.setForeground(Color.yellow);
 		l9.setForeground(Color.yellow);
+		easyQ.setForeground(Color.yellow);
+		mediumQ.setForeground(Color.yellow);
+		hardQ.setForeground(Color.yellow);
 
 		ghostSelection.add(l0);
 		ghostSelection.add(l1);
@@ -64,8 +70,11 @@ public class MapEditor extends JFrame {
 		ghostSelection.add(l5);
 		ghostSelection.add(l6);
 		ghostSelection.add(l7);
-		ghostSelection.add(l8);
+		//ghostSelection.add(l8);
 		ghostSelection.add(l9);
+		ghostSelection.add(easyQ);
+		ghostSelection.add(mediumQ);
+		ghostSelection.add(hardQ);
 
 		setLayout(new BorderLayout());
 		sideBar.add(ghostSelection, BorderLayout.NORTH);
@@ -140,9 +149,21 @@ public class MapEditor extends JFrame {
 				map[i][j] = 0;
 				customMap.getpufoodPositions().add(new Bomb(i, j, 0));
 			}
-			if (c == 'F') {
+			/*if (c == 'F') {
 				map[i][j] = 0;
 				customMap.getpufoodPositions().add(new Bomb(i, j, ThreadLocalRandom.current().nextInt(4) + 1));
+			}*/
+			if (c == 'E') {
+				map[i][j] = 0;
+				customMap.getpufoodPositions().add(new Bomb(i, j, 4));
+			}
+			if (c == 'M') {
+				map[i][j] = 0;
+				customMap.getpufoodPositions().add(new Bomb(i, j, 3));
+			}
+			if (c == 'H') {
+				map[i][j] = 0;
+				customMap.getpufoodPositions().add(new Bomb(i, j, 2));
 			}
 			if (c == 'B') {
 				map[i][j] = 0;
