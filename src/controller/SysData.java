@@ -7,6 +7,8 @@ import view.MainScreen;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -17,6 +19,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.TimerTask;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -79,6 +82,10 @@ public class SysData extends JPanel {
 	boolean isSiren = MainScreen.isMute;
 	public static boolean userHasBomb = false;
 	public int createFoodDelay=30;
+
+	private boolean isLevelUp = false;
+
+	private BufferedImage levelupImage;
 
 	public SysData(JLabel scoreboard, MapData md, PacWindow pw) {
 		this.scoreboard = scoreboard;
@@ -188,6 +195,8 @@ public class SysData extends JPanel {
 				foodImage = ImageIO.read(this.getClass().getResource("/resources/images/zombieLand/food.png"));
 			}
 			goImage = ImageIO.read(this.getClass().getResource("/resources/images/gameover.png"));
+			levelupImage = ImageIO.read(this.getClass().getResource("/resources/images/levelup.png"));
+
 			vicImage = ImageIO.read(this.getClass().getResource("/resources/images/victory.png"));
 			// pfoodImage = ImageIO.read(this.getClass().getResource("/images/pfood.png"));
 		} catch (Exception e) {
@@ -347,7 +356,7 @@ public class SysData extends JPanel {
 			if(score<10)
 				scoreboard.setText("     Level : 1       Score : " + score);
 			if (score <= 50&&score>=10) {
-
+				stopScreen();
 				scoreboard.setText("    Level : 1       Score : " + score);
 			}
 			/*
@@ -361,6 +370,10 @@ public class SysData extends JPanel {
 			
 			scoreboard.setText("    Level : 2       Score : " + score); // to change the level to a counter
 			if(level <2) {
+				
+			
+			
+				
 			MapData map = getMapFromResource("/resources/maps/þþmap_level2M.txt");
 			changeMap(map);
 			level =2;
@@ -493,6 +506,20 @@ public class SysData extends JPanel {
 		}
 
 	}
+
+	}
+
+	private void stopScreen() {
+		isLevelUp = true;
+
+		pacman.moveTimer.stop();
+		pacman.animTimer.stop();
+		System.out.print("start");  
+		
+		 pacman.moveTimer.start();
+			pacman.animTimer.start();
+		
+			//isLevelUp = false;
 
 	}
 
@@ -631,6 +658,13 @@ public class SysData extends JPanel {
 			g.drawImage(vicImage, this.getSize().width / 2 - 315, this.getSize().height / 2 - 75, null);
 
 		}
+		if(isLevelUp) {
+			//g.drawImage(levelupImage, this.getSize().width / 2 - 375, this.getSize().height / 2 - 375, null);
+	        g.drawImage(levelupImage, 2, 0, null);
+	       
+		//isLevelUp = false;
+	
+		}
 
 	}
 
@@ -638,9 +672,12 @@ public class SysData extends JPanel {
 	public void processEvent(AWTEvent ae) {
 	/*	System.out.println(" pacman.pixelPosition.x " + pacman.pixelPosition.x);
 		  System.out.println(" pacman.pixelPosition.y " + pacman.pixelPosition.y);
-		  
+		  		isLevelUp = false;
+
 			System.out.println(" pacman.logicalPosition.x " + pacman.logicalPosition.x);
 			  System.out.println(" pacman.logicalPosition.y " + pacman.logicalPosition.y);*/
+		isLevelUp = false;
+
 		if (ae.getID() == Messages.UPDATE) {
 			update();
 		} else if (ae.getID() == Messages.COLTEST) {
