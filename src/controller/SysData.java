@@ -597,7 +597,7 @@ public class SysData extends JPanel {
 			// System.out.println("must draw score !");
 			g.setFont(new Font("Arial", Font.BOLD, 15));
 			g.setColor(Color.yellow);
-			Integer s = scoreToAdd * 100;
+			Integer s = scoreToAdd * 20;
 			g.drawString(s.toString(), pacman.pixelPosition.x + 13, pacman.pixelPosition.y + 50);
 			// drawScore = false;
 			score += s;
