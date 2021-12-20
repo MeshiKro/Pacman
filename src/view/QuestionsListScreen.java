@@ -145,6 +145,8 @@ public class QuestionsListScreen {
 
 	ArrayList<QuestionInJson> array;
 
+	public static String questionString;
+
 	public static String questionToDelete;
 	
 	public static String questionToEdit;
@@ -383,6 +385,7 @@ System.out.print(" id " + id);
 		if(field != null)
 		{
 			questionToEdit = field.getText();
+			questionString = questionToEdit;
 
 	    	GlobalFuncations.switchScreen(pane,"EditQuestionScreen",(getClass().getResource("/view/" + "EditQuestionScreen" + ".fxml")),"Edit");
 

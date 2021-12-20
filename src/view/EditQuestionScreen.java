@@ -25,6 +25,7 @@ import misc.GlobalFuncations;
 import misc.JsonRead;
 import misc.JsonWriterEx;
 import model.QuestionInJson;
+import model.questions;
 
 public class EditQuestionScreen {
 
@@ -85,6 +86,12 @@ public class EditQuestionScreen {
 
 	private String type;
 
+	public static  int index;
+
+	public static QuestionInJson quesionFromJson;
+
+	public static String questionString;
+
 	public void initialize(String screenType) {
 
 		Font f = Font.loadFont(getClass().getResourceAsStream("/resources/fonts/OCRExtendedV1.ttf"), 60);
@@ -104,20 +111,24 @@ public class EditQuestionScreen {
 			addQuestionToScreen();
 		}
 		type = screenType;
-
+		
 	}
 
 	private void addQuestionToScreen() {
 		JsonRead jr = new JsonRead();
-		QuestionInJson q = jr.getQuestionFromJson();
-		questionField.setText(q.getQuestion());
-		correctAnsField.setText(getCorrectAnswer(q.getCorrect_ans(), q));
-		System.out.print("(q.getLevel()) " + (q.getLevel()));
-		levelField.getSelectionModel().select(q.getLevel());
-		ArrayList<String> wrongAnswer = getWrongAnswerList(q);
+		 quesionFromJson = jr.getQuestionFromJson();
+		questionField.setText(quesionFromJson.getQuestion());
+		correctAnsField.setText(getCorrectAnswer(quesionFromJson.getCorrect_ans(), quesionFromJson));
+		System.out.print("(q.getLevel()) " + (quesionFromJson.getLevel()));
+		levelField.getSelectionModel().select(quesionFromJson.getLevel());
+		ArrayList<String> wrongAnswer = getWrongAnswerList(quesionFromJson);
 		wrongAns1.setText(wrongAnswer.get(0));
 		wrongAns2.setText(wrongAnswer.get(1));
 		wrongAns3.setText(wrongAnswer.get(2));
+		questions qu = new questions();
+		qu.questions =  JsonRead.questionsAndAnswers;
+		 index = JsonWriterEx.getIndexOfQuestion(qu, quesionFromJson.getQuestion());
+
 
 	}
 

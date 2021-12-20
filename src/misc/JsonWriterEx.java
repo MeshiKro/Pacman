@@ -14,15 +14,17 @@ import model.AllScoreBoardRecords;
 import model.QuestionInJson;
 import model.ScoreboardRecord;
 import model.questions;
+import view.EditQuestionScreen;
 import view.QuestionsListScreen;
 
 @SuppressWarnings("deprecation")
 public class JsonWriterEx extends Observable {
 
 	public boolean writeQuestions(QuestionInJson q) {
-		questions qu = getArrayOfQuestionFromJSON();
-		qu.questions.add(q);
+		questions qu = new questions();
+	
 		JsonRead.questionsAndAnswers.add(q);
+		qu.questions =  JsonRead.questionsAndAnswers;
 		return writeQuestionToJson(qu);
 
 	}
@@ -53,22 +55,26 @@ public class JsonWriterEx extends Observable {
 
 	public void deleteQuestion() {
 		String question = QuestionsListScreen.questionToDelete;
-		questions qu = getArrayOfQuestionFromJSON();
+		
+		questions qu = new questions();
+		qu.questions =  JsonRead.questionsAndAnswers;
 
-		int index = getIndexOfQuestion(qu, question);
+		int index = EditQuestionScreen.index;
+		System.out.print("index " + index);
 		if(index ==-1)
 			return;
 		qu.questions.remove(index);
-		JsonRead.questionsAndAnswers.remove(index-1);
-
 		writeQuestionToJson(qu);
 
 	}
 
-	private int getIndexOfQuestion(questions qu, String question) {
+	public static int getIndexOfQuestion(questions qu, String question) {
 		int index = -1;
 		for (int i = 0; i < JsonRead.questionsAndAnswers.size(); i++) {
 			String q = JsonRead.questionsAndAnswers.get(i).getQuestion();
+			System.out.println("q " + q);
+			System.out.println("question " + question);
+
 			if (q.equals(question))
 				index = i;
 		}

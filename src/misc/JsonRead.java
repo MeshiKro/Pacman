@@ -13,6 +13,7 @@ import org.json.JSONObject;
 import model.QuestionInJson;
 
 import model.ScoreboardRecord;
+import view.EditQuestionScreen;
 import view.MainScreen;
 import view.QuestionsListScreen;
 
@@ -54,7 +55,7 @@ public class JsonRead  implements Observer {
 		String question = QuestionsListScreen.questionToEdit;
 
 		for (int i = 0; i < questionsAndAnswers.size(); i++) {
-			if (questionsAndAnswers.get(i).getQuestion().equals(question))
+			if (questionsAndAnswers.get(i).getQuestion().equals(QuestionsListScreen.questionString))
 				return questionsAndAnswers.get(i);
 		}
 		return null;
