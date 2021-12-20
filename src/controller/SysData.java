@@ -238,6 +238,7 @@ public class SysData extends JPanel {
 		Rectangle pr = new Rectangle(pacman.pixelPosition.x + 13, pacman.pixelPosition.y + 13, 2, 2);
 		Ghost ghostToRemove = null;
 		for (Ghost g : ghosts) {
+			if( g != null) {
 			Rectangle gr = new Rectangle(g.pixelPosition.x, g.pixelPosition.y, 28, 28);
 
 			if (pr.intersects(gr)) {
@@ -311,6 +312,7 @@ public class SysData extends JPanel {
 
 		if (ghostToRemove != null) {
 			ghosts.remove(ghostToRemove);
+		}
 		}
 	}
 
@@ -734,7 +736,7 @@ g.ghostSpeed = 99999;
 
 			if (ghostNextToPacman(ghosts.get(i))) {
 				gToReturn=ghosts.get(i);
-				// System.out.println(" remove");
+				 System.out.println(" remove");
 				removeGhost(gToReturn);
 				
 			}
