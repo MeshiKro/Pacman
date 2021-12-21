@@ -18,6 +18,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.TimerTask;
 import java.util.concurrent.Executors;
@@ -40,6 +41,7 @@ public class SysData extends JPanel {
 	public Image[] mapSegments;
 
 	public Image foodImage;
+	public Image hardQuestion;
 	public Image[] pfoodImage;
 
 	public Image goImage;
@@ -58,6 +60,9 @@ public class SysData extends JPanel {
 	public boolean isCustom = false;
 	public boolean isGameOver = false;
 	public boolean isWin = false;
+	public boolean  isHardQuestionEat=false;
+	public boolean  isMediumQuestionEat=false;
+	public boolean  isEasyQuestionEat=false;
 	public boolean drawScore = false;
 	public boolean clearScore = false;
 	public int scoreToAdd = 0;
@@ -81,7 +86,7 @@ public class SysData extends JPanel {
 	public PacWindow windowParent;
 	boolean isSiren = MainScreen.isMute;
 	public static boolean userHasBomb = false;
-	public int createFoodDelay=30;
+	public int createFoodDelay=2;
 
 	private boolean isLevelUp = false;
 
@@ -285,7 +290,6 @@ public class SysData extends JPanel {
 							isGameOver = true;
 							//to save score and level
 							PacWindow.pacmanLife--;
-							System.out.println(PacWindow.pacmanLife);
 						/*		BufferedImage in = ImageIO.read(new File("./resources/images/pac/2lives.png"));
 							BufferedImage newImage = new BufferedImage(in.getWidth(), in.getHeight(), BufferedImage.TYPE_INT_ARGB);
 							Graphics2D g2 = newImage.createGraphics();
@@ -417,8 +421,7 @@ public class SysData extends JPanel {
 
 	Bomb puFoodToEat = null;
 	// Check pu food eat
-	for(
-	Bomb puf:pufoods)
+	for(Bomb puf:pufoods)
 	{
 		if (pacman.logicalPosition.x == puf.position.x && pacman.logicalPosition.y == puf.position.y)
 			puFoodToEat = puf;
@@ -451,17 +454,98 @@ public class SysData extends JPanel {
 			}
 			scoreToAdd = 0;
 			break;
+		case 2:
+		{
+			int fx2=puFoodToEat.position.x;
+			int fy2=puFoodToEat.position.y;
+			pufoods.remove(puFoodToEat);
+			Point newH=PositionLottery();
+			int qx2=(int) newH.getX();
+			int qy2=(int) newH.getY();
+			ScheduledExecutorService schedulerBomb2 = Executors.newSingleThreadScheduledExecutor();
+			Runnable taskBomb2 = new Runnable() {
+	            public void run() {
+	            	pufoods.add(new Bomb(qx2, qy2,2));
+	            	for (Food f : foods) {
+	        			if(f.position.x==qx2 && f.position.y==qy2)
+	        			foods.remove(f);
+	        		}
+	            	
+	            	
+	            }
+	        };
+	        foods.add(new Food( fx2, fy2));
+	        schedulerBomb2.schedule(taskBomb2, createFoodDelay, TimeUnit.SECONDS);
+	        schedulerBomb2.shutdown();
+	        isHardQuestionEat=true;
+	        scoreToAdd = 1;
+	        drawScore = true;
+	        break;
+		}
+		case 3:
+		{
+			int fx3=puFoodToEat.position.x;
+			int fy3=puFoodToEat.position.y;
+			pufoods.remove(puFoodToEat);
+			Point newM=PositionLottery();
+			int qx3=(int)newM.getX();
+			int qy3=(int)newM.getY();
+			ScheduledExecutorService schedulerBomb3 = Executors.newSingleThreadScheduledExecutor();
+			Runnable taskBomb3 = new Runnable() {
+	            public void run() {
+	            	pufoods.add(new Bomb(qx3, qy3,3));
+	            	for (Food f : foods) {
+	        			if(f.position.x==qx3 && f.position.y==qy3)
+	        			foods.remove(f);
+	        		}
+	            	
+	            }
+	        };
+	        foods.add(new Food( fx3, fy3));
+	        schedulerBomb3.schedule(taskBomb3, createFoodDelay, TimeUnit.SECONDS);
+	        schedulerBomb3.shutdown();
+	        isMediumQuestionEat=true;
+	        scoreToAdd = 1;
+	        drawScore = true;
+	        break;
+		}
+		case 4:
+		{
+			
+			int fx4=puFoodToEat.position.x;
+			int fy4=puFoodToEat.position.y;
+			pufoods.remove(puFoodToEat);
+			Point newE=PositionLottery();
+			int qx4=(int)newE.getX();
+			int qy4=(int)newE.getY();
+			ScheduledExecutorService schedulerBomb4 = Executors.newSingleThreadScheduledExecutor();
+			Runnable taskBomb4 = new Runnable() {
+	            public void run() {
+	            	pufoods.add(new Bomb(qx4, qy4,4));
+	            	for (Food f : foods) {
+	        			if(f.position.x==qx4 && f.position.y==qy4)
+	        			foods.remove(f);
+	        		}
+	            	
+	            }
+	        };
+	        foods.add(new Food( fx4, fy4));
+	        schedulerBomb4.schedule(taskBomb4, createFoodDelay, TimeUnit.SECONDS);
+	        schedulerBomb4.shutdown();
+	        isEasyQuestionEat=true;
+	        scoreToAdd = 1;
+	        drawScore = true;
+	        break;
+			
+		}
 		default:
+		{
 			if (!isSiren) {
 				SoundPlayer.play("pacman_eatfruit.wav");
 			}
-			pufoods.remove(puFoodToEat);
-			scoreToAdd = 1;
-
-			drawScore = true;
+			
 		}
-		// score ++;
-		// scoreboard.setText(" Score : "+score);
+	   }
 	}
 
 	// Check Ghost Undie
@@ -551,13 +635,6 @@ public class SysData extends JPanel {
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-
-		// DEBUG ONLY !
-		/*
-		 * for(int ii=0;ii<=m_x;ii++){ g.drawLine(ii*28+10,10,ii*28+10,m_y*28+10); }
-		 * for(int ii=0;ii<=m_y;ii++){ g.drawLine(10,ii*28+10,m_x*28+10,ii*28+10); }
-		 */
-
 		// Draw Walls
 		g.setColor(Color.blue);
 		for (int i = 0; i < m_x; i++) {
@@ -571,18 +648,20 @@ public class SysData extends JPanel {
 
 		// Draw Food
 		g.setColor(new Color(204, 122, 122));
-		for (Food f : foods) {
-			// g.fillOval(f.position.x*28+22,f.position.y*28+22,4,4);
+		
+		for(int i=0; i<foods.size(); i++) {
+			Food f=foods.get(i);
 			g.drawImage(foodImage, 10 + f.position.x * 28, 10 + f.position.y * 28, null);
+			
 		}
-
+		
 		// Draw PowerUpFoods
 		g.setColor(new Color(204, 174, 168));
 		for (Bomb f : pufoods) {
 			// g.fillOval(f.position.x*28+20,f.position.y*28+20,8,8);
 			g.drawImage(pfoodImage[f.type], 10 + f.position.x * 28, 10 + f.position.y * 28, null);
-		}
-
+			
+			}
 		// Draw Pacman
 		switch (pacman.activeMove) {
 		case NONE:
@@ -656,13 +735,11 @@ public class SysData extends JPanel {
 
 		}
 		if(isLevelUp) {
-			//g.drawImage(levelupImage, this.getSize().width / 2 - 375, this.getSize().height / 2 - 375, null);
 	        g.drawImage(levelupImage, 2, 0, null);
 	       
 		//isLevelUp = false;
 	
 		}
-
 	}
 
 	@Override
@@ -701,36 +778,6 @@ public class SysData extends JPanel {
 		new PacWindow();
 		windowParent.dispose();
 
-		/*
-		 * removeKeyListener(pacman);
-		 * 
-		 * isGameOver = false;
-		 * 
-		 * pacman = new
-		 * Pacman(md_backup.getPacmanPosition().x,md_backup.getPacmanPosition().y,this);
-		 * addKeyListener(pacman);
-		 * 
-		 * foods = new ArrayList<>(); pufoods = new ArrayList<>(); ghosts = new
-		 * ArrayList<>(); teleports = new ArrayList<>();
-		 * 
-		 * //TODO : read food from mapData (Map 1)
-		 * 
-		 * if(!isCustom) { for (int i = 0; i < m_x; i++) { for (int j = 0; j < m_y; j++)
-		 * { if (map[i][j] == 0) foods.add(new Food(i, j)); } } }else{ foods =
-		 * md_backup.getFoodPositions(); }
-		 * 
-		 * 
-		 * 
-		 * pufoods = md_backup.getPufoodPositions();
-		 * 
-		 * ghosts = new ArrayList<>(); for(GhostData gd : md_backup.getGhostsData()){
-		 * switch(gd.getType()) { case RED: ghosts.add(new RedGhost(gd.getX(),
-		 * gd.getY(), this)); break; case PINK: ghosts.add(new PinkGhost(gd.getX(),
-		 * gd.getY(), this)); break; case CYAN: ghosts.add(new CyanGhost(gd.getX(),
-		 * gd.getY(), this)); break; } }
-		 * 
-		 * teleports = md_backup.getTeleports();
-		 */
 	}
 
 	public static SysData getSyso() {
@@ -770,7 +817,6 @@ g.ghostSpeed = 99999;
 
 			if (ghostNextToPacman(ghosts.get(i))) {
 				gToReturn=ghosts.get(i);
-				 System.out.println(" remove");
 				removeGhost(gToReturn);
 				
 			}
@@ -794,19 +840,61 @@ g.ghostSpeed = 99999;
 		point = pacman.logicalPosition;
 		int px = point.x;
 		int py = point.y;
-
-		/*
-		 * System.out.println("  gx " + gx); System.out.println("  gy " + gy);
-		 * 
-		 * System.out.println("  px " + px); System.out.println("  py " + py);
-		 * System.out.println("  dis " + (distanceBetweenPoints(gx,gy,px,py)));
-		 */
-
 		return (distanceBetweenPoints(gx, gy, px, py) <= 3);
 	}
 
 	public double distanceBetweenPoints(double x1, double y1, double x2, double y2) {
 		return Math.abs(Math.sqrt((y2 - y1) * (y2 - y1) + (x2 - x1) * (x2 - x1)));
 	}
+	
+	
+	
+	 public Point PositionLottery() {
+			// TODO Auto-generated method stub
+	    	
+	    	int upperbound=6;
+	    	Random rand = new Random();
+	        int randomPoint=rand.nextInt(upperbound);
+	        Point positionR ;
+	        switch (randomPoint) {
+			// If User Eat Bomb
+			case 0:{
+				positionR = new Point(4,5);
+				 return positionR;
+			}
+			
+			case 1:{
+				positionR = new Point(3,8);
+				 return positionR;
+			}
+			case 2:{
+				positionR = new Point(9,14);
+				 return positionR;
+			}	
+			case 3:{
+				positionR = new Point(1,18);
+				 return positionR;
+			}	
+			case 4:{
+				positionR = new Point(3,20);
+				 return positionR;
+			}	
+			case 5:{
+				positionR = new Point(4,1);
+				 return positionR;
+			}	
+			default:
+			{
+			  System.out.println("ERROR!");	
+			  return null;
+			}	
+		}
+	
+	
+	
+	 }
+	
+	
+	
 
 }

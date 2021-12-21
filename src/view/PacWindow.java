@@ -129,41 +129,6 @@ if(myPicture==null)
     			    }       
     			});
     		 
-    		/*picLabel2.addMouseListener(new MouseInputAdapter() {
-    		     public void mouseClicked(MouseEvent e)  
-    		     {  
-    		   /* 	 GlobalFuncations.switchScreen(this, "MainScreen",
-    		 				(getClass().getResource("/view/" + "MainScreen" + ".fxml")), "");
-    		    	*/
-    	/*	    	 Parent root = null;
-					try {
-						root = FXMLLoader.load(getClass().getResource("/view/MainScreen.fxml"));
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-//    		 		Parent root = FXMLLoader.load(getClass().getResource("/view/ConfirmPopUp.fxml"));
-    		    	Stage primaryStage = new Stage();
-    		 		Scene scene = new Scene(root);
-    		 		primaryStage.setScene(scene);
-    		 		primaryStage.setResizable(true);
-    		 		primaryStage.setTitle("Pacman");
-    		 		primaryStage.getIcons().add(new Image("/images/pacicon.png"));
-    		 		primaryStage.initStyle(StageStyle.DECORATED);
-    		 		primaryStage.show();
-
-    		     }  
-    		 }); */
-
-    	/*	 picLabel2.addMouseListener(new MouseAdapter() {
-    		        public void mouseClicked(MouseEvent e) {
-    		           JFrame jf=new JFrame("new one");
-    		        jf.setBackground(Color.BLACK);
-    		        jf.setSize(new Dimension(200,70));
-    		        jf.setVisible(true);
-    		        jf.setDefaultCloseOperation(EXIT_ON_CLOSE);
-    		        }
-    		    });*/
     		   JLabel scoreboard = new JLabel();
     	if (SysData.score<10)
     		scoreboard = new JLabel("     Level : 1       Score : "+SysData.score,new ImageIcon(myPicture), SwingConstants.HORIZONTAL);
@@ -176,15 +141,6 @@ if(myPicture==null)
     	scoreboard.setHorizontalAlignment(JLabel.LEFT);
         scoreboard.setFont(new Font("OCR A Extended", Font.PLAIN, 23));
         
-       // scoreboard.
-        
-        
-    /*    this.addMouseListener(new MouseAdapter() {
-        	@Override
-        	public void mouseClicked(MouseEvent me) {
-        	//Solution Code goes here
-        	 }
-        	});*/
         
         scoreboard.setForeground(new Color(255, 243, 36));
 
