@@ -134,6 +134,7 @@ public class SysData extends JPanel {
 			switch (gd.getType()) {
 			case RED:
 				ghosts.add(new RedGhost(gd.getX(), gd.getY(), this, speedGhost));
+				foods.add(new Food(gd.getX(), gd.getY()));
 				break;
 			case PINK:
 				ghosts.add(new PinkGhost(gd.getX(), gd.getY(), this, speedGhost));
@@ -459,7 +460,7 @@ public class SysData extends JPanel {
 			int fx2=puFoodToEat.position.x;
 			int fy2=puFoodToEat.position.y;
 			pufoods.remove(puFoodToEat);
-			Point newH=PositionLottery();
+			Point newH=PositionLottery2();
 			int qx2=(int) newH.getX();
 			int qy2=(int) newH.getY();
 			ScheduledExecutorService schedulerBomb2 = Executors.newSingleThreadScheduledExecutor();
@@ -487,7 +488,7 @@ public class SysData extends JPanel {
 			int fx3=puFoodToEat.position.x;
 			int fy3=puFoodToEat.position.y;
 			pufoods.remove(puFoodToEat);
-			Point newM=PositionLottery();
+			Point newM=PositionLottery3();
 			int qx3=(int)newM.getX();
 			int qy3=(int)newM.getY();
 			ScheduledExecutorService schedulerBomb3 = Executors.newSingleThreadScheduledExecutor();
@@ -515,7 +516,7 @@ public class SysData extends JPanel {
 			int fx4=puFoodToEat.position.x;
 			int fy4=puFoodToEat.position.y;
 			pufoods.remove(puFoodToEat);
-			Point newE=PositionLottery();
+			Point newE=PositionLottery4();
 			int qx4=(int)newE.getX();
 			int qy4=(int)newE.getY();
 			ScheduledExecutorService schedulerBomb4 = Executors.newSingleThreadScheduledExecutor();
@@ -849,7 +850,7 @@ g.ghostSpeed = 99999;
 	
 	
 	
-	 public Point PositionLottery() {
+	 public Point PositionLottery2() {
 			// TODO Auto-generated method stub
 	    	
 	    	int upperbound=6;
@@ -864,7 +865,7 @@ g.ghostSpeed = 99999;
 			}
 			
 			case 1:{
-				positionR = new Point(3,8);
+				positionR = new Point(14,2);
 				 return positionR;
 			}
 			case 2:{
@@ -872,11 +873,11 @@ g.ghostSpeed = 99999;
 				 return positionR;
 			}	
 			case 3:{
-				positionR = new Point(1,18);
+				positionR = new Point(10,8);
 				 return positionR;
 			}	
 			case 4:{
-				positionR = new Point(3,20);
+				positionR = new Point(11,11);
 				 return positionR;
 			}	
 			case 5:{
@@ -890,7 +891,91 @@ g.ghostSpeed = 99999;
 			}	
 		}
 	
+	 }
+	 
+	 public Point PositionLottery3() {
+			// TODO Auto-generated method stub
+	    	
+	    	int upperbound=6;
+	    	Random rand = new Random();
+	        int randomPoint=rand.nextInt(upperbound);
+	        Point positionR ;
+	        switch (randomPoint) {
+			// If User Eat Bomb
+			case 0:{
+				positionR = new Point(5,16);
+				 return positionR;
+			}
+			
+			case 1:{
+				positionR = new Point(3,8);
+				 return positionR;
+			}
+			case 2:{
+				positionR = new Point(16,1);
+				 return positionR;
+			}	
+			case 3:{
+				positionR = new Point(6,9);
+				 return positionR;
+			}	
+			case 4:{
+				positionR = new Point(3,20);
+				 return positionR;
+			}	
+			case 5:{
+				positionR = new Point(6,15);
+				 return positionR;
+			}	
+			default:
+			{
+			  System.out.println("ERROR!");	
+			  return null;
+			}	
+		}
 	
+	 }
+	 
+	 public Point PositionLottery4() {
+			// TODO Auto-generated method stub
+	    	
+	    	int upperbound=6;
+	    	Random rand = new Random();
+	        int randomPoint=rand.nextInt(upperbound);
+	        Point positionR ;
+	        switch (randomPoint) {
+			// If User Eat Bomb
+			case 0:{
+				positionR = new Point(20,3);
+				 return positionR;
+			}
+			
+			case 1:{
+				positionR = new Point(5,10);
+				 return positionR;
+			}
+			case 2:{
+				positionR = new Point(10,16);
+				 return positionR;
+			}	
+			case 3:{
+				positionR = new Point(1,18);
+				 return positionR;
+			}	
+			case 4:{
+				positionR = new Point(17,20);
+				 return positionR;
+			}	
+			case 5:{
+				positionR = new Point(4,1);
+				 return positionR;
+			}	
+			default:
+			{
+			  System.out.println("ERROR!");	
+			  return null;
+			}	
+		}
 	
 	 }
 	
