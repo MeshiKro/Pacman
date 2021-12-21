@@ -164,9 +164,16 @@ if(myPicture==null)
     		        jf.setDefaultCloseOperation(EXIT_ON_CLOSE);
     		        }
     		    });*/
-
-        JLabel scoreboard = new JLabel("     Level : 1       Score : "+SysData.score,new ImageIcon(myPicture), SwingConstants.HORIZONTAL);
-        scoreboard.setHorizontalAlignment(JLabel.LEFT);
+    		   JLabel scoreboard = new JLabel();
+    	if (SysData.score<10)
+    		scoreboard = new JLabel("     Level : 1       Score : "+SysData.score,new ImageIcon(myPicture), SwingConstants.HORIZONTAL);
+    	if (SysData.score>=10&&SysData.score<100)
+         scoreboard = new JLabel("    Level : 1       Score : "+SysData.score,new ImageIcon(myPicture), SwingConstants.HORIZONTAL);
+    	if (SysData.score>=100)
+            scoreboard = new JLabel("   Level : 1       Score : "+SysData.score,new ImageIcon(myPicture), SwingConstants.HORIZONTAL);
+          
+    	
+    	scoreboard.setHorizontalAlignment(JLabel.LEFT);
         scoreboard.setFont(new Font("OCR A Extended", Font.PLAIN, 23));
         
        // scoreboard.

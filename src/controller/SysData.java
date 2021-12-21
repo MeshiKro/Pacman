@@ -357,7 +357,7 @@ public class SysData extends JPanel {
 				scoreboard.setText("     Level : 1       Score : " + score);
 			if (score <= 50&&score>=10) {
 				stopScreen();
-				scoreboard.setText("    Level : 1       Score : " + score);
+				scoreboard.setText("     Level : 1      Score : " + score);
 			}
 			/*
 			 * } else if (score >= 51 ) {
@@ -368,7 +368,7 @@ public class SysData extends JPanel {
 			 */
 		} else if (score >= 51 && score <= 100) {
 			
-			scoreboard.setText("    Level : 2       Score : " + score); // to change the level to a counter
+			scoreboard.setText("     Level : 2      Score : " + score); // to change the level to a counter
 			if(level <2) {
 				
 			
@@ -380,7 +380,7 @@ public class SysData extends JPanel {
 			}
 
 		} else if (score >= 101 && score <= 150) {
-			scoreboard.setText("   Level : 3       Score : " + score); // to change the level to a counter
+			scoreboard.setText("     Level : 3     Score : " + score); // to change the level to a counter
 			if(level <3) {
 		       MapData map1 = getMapFromResource("/resources/maps/map1_c.txt");
 			changeMap(map1);
@@ -390,7 +390,7 @@ public class SysData extends JPanel {
 			}
 
 		} else if (score >= 151){
-			scoreboard.setText("   Level : 4       Score : " + score); // to change the level to a counter
+			scoreboard.setText("     Level : 4     Score : " + score); // to change the level to a counter
 			if(level <4) {
 			updateGhostSpeed(); // variable
 			level =4;
@@ -633,16 +633,16 @@ public class SysData extends JPanel {
 			if (score<10)
 				scoreboard.setText("     Level : 1       Score : " + score);
 			if (score <= 50&&score>=10) {
-				scoreboard.setText("    Level : 1       Score : " + score);
+				scoreboard.setText("     Level : 1      Score : " + score);
 			}
 			if (score >= 51 && score <= 100) {
-				scoreboard.setText("    Level : 2       Score : " + score);
+				scoreboard.setText("     Level : 1      Score : " + score);
 			}
 			if (score >= 101 && score <= 150) {
-				scoreboard.setText("   Level : 3       Score : " + score);
+				scoreboard.setText("     Level : 3     Score : " + score);
 			}
 			if (score >= 151) {
-				scoreboard.setText("   Level : 4       Score : " + score);
+				scoreboard.setText("     Level : 3     Score : " + score);
 			}
 		//	scoreboard.setText("    Score : " + score);
 			clearScore = true;

@@ -203,6 +203,12 @@ public class EditQuestionScreen {
 
 	@FXML
 	void BackBtnClicked(MouseEvent event) {
+		if (type.equals("Add")) {
+			GlobalFuncations.switchScreen(pane, "QuestionScreen",
+					(getClass().getResource("/view/" + "QuestionScreen" + ".fxml")), "");
+			return;
+		}
+		else
 		GlobalFuncations.switchScreen(pane, "QuestionsListScreen",
 				(getClass().getResource("/view/" + "QuestionsListScreen" + ".fxml")), "");
 
