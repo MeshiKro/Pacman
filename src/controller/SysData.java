@@ -366,20 +366,17 @@ public class SysData extends JPanel {
 			 * getMapFromResource("/resources/maps/þþmap_level2M.txt"); changeMap(map); //
 			 * variable
 			 */
-		} else if (score >= 51 && score <= 100) {
+		  if (score >= 51 && score <= 100) {
 			
 			scoreboard.setText("     Level : 2      Score : " + score); // to change the level to a counter
 			if(level <2) {
-				
-			
-			
 				
 			MapData map = getMapFromResource("/resources/maps/þþmap_level2M.txt");
 			changeMap(map);
 			level =2;
 			}
 
-		} else if (score >= 101 && score <= 150) {
+		}  if (score >= 101 && score <= 150) {
 			scoreboard.setText("     Level : 3     Score : " + score); // to change the level to a counter
 			if(level <3) {
 		       MapData map1 = getMapFromResource("/resources/maps/map1_c.txt");
@@ -389,7 +386,7 @@ public class SysData extends JPanel {
 			level =3;
 			}
 
-		} else if (score >= 151){
+		}  if (score >= 151){
 			scoreboard.setText("     Level : 4     Score : " + score); // to change the level to a counter
 			if(level <4) {
 			updateGhostSpeed(); // variable
@@ -397,7 +394,7 @@ public class SysData extends JPanel {
 			}
 		}
  
-
+		}
 		//winning
 		if (score >= 200) {
 			if(this.siren!=null)
