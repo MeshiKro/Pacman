@@ -206,7 +206,7 @@
       </ImageView>
       <ImageView fx:id="backquestionBtn1" fitHeight="35.0" fitWidth="41.0" layoutX="214.0" layoutY="496.0" onMouseClicked="#BackQuestionBtnClicked" onMouseEntered="#hoverStart2" onMouseExited="#hoverEnd2">
          <image>
-            <Image url="@../images/2.png" />
+            <Image url="@../images/23.png" />
          </image>
       </ImageView>
    </children>

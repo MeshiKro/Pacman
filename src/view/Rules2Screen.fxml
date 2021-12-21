@@ -118,5 +118,10 @@
             <Image url="@../images/food/4.png" />
          </image>
       </ImageView>
+      <Label fx:id="label112111" layoutX="627.0" layoutY="500.0" prefHeight="40.0" prefWidth="200.0" text="MYO - Meshi, Yuval, Ortal" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
