@@ -53,7 +53,7 @@ public class yellowQuestScreen {
     @FXML
     private Label timerLabel;
 
-	private ArrayList<QuestionInJson> mediumQuestionsArray;
+	private ArrayList<QuestionInJson> levelQuestionsArray;
 
 
 	final ToggleGroup group = new ToggleGroup();
@@ -66,10 +66,10 @@ public class yellowQuestScreen {
 
 	private static Timer timer;
 	public void initialize() {
-	mediumQuestionsArray =GlobalFuncations.getQuestionsByLevel("2");
-	int index = GlobalFuncations.randomIndex(mediumQuestionsArray.size());
+	levelQuestionsArray =GlobalFuncations.getQuestionsByLevel("2");
+	int index = GlobalFuncations.randomIndex(levelQuestionsArray.size());
 	
-	 questionToDisplay =mediumQuestionsArray.get(index);
+	 questionToDisplay =levelQuestionsArray.get(index);
 	String question = questionToDisplay.getQuestion();
 
 	label.setText(question);
@@ -117,6 +117,8 @@ public class yellowQuestScreen {
 
     @FXML
     void OkBtnClicked(MouseEvent event) {
+    	if(answer1.isDisable())
+    		return;
     	if(answerIsCorrect) {
     		answerFeedback.setText("answer coorect");
     		SysData.userSelectedCorrectAnswer = true;
@@ -126,7 +128,11 @@ public class yellowQuestScreen {
     		SysData.userSelectedCorrectAnswer = false;
 
     	}
-    	
+    	answer1.setDisable(true);
+    	answer2.setDisable(true);
+    	answer3.setDisable(true);
+    	answer4.setDisable(true);
+
     }
 
     @FXML
@@ -141,7 +147,7 @@ public class yellowQuestScreen {
     		return;
       answerIsCorrect = isAnswerCorrect(event.getPickResult().getIntersectedNode().getId());
 
-      ((Node)(event.getSource())).getScene().getWindow().hide();
+    
 
 
     }
