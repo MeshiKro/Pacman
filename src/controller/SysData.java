@@ -264,6 +264,7 @@ public static boolean userSelectedCorrectAnswer = false;
 	}
 
 	public void collisionTest() throws IOException {
+	
 		Rectangle pr = new Rectangle(pacman.pixelPosition.x + 13, pacman.pixelPosition.y + 13, 2, 2);
 		Ghost ghostToRemove = null;
 		for (Ghost g : ghosts) {
@@ -282,7 +283,7 @@ public static boolean userSelectedCorrectAnswer = false;
 						pacman.moveTimer.stop();
 						pacman.animTimer.stop();
 						g.moveTimer.stop();
-						isGameOver = true;
+						
 						JsonWriterEx JW = new JsonWriterEx();
 						String date = java.time.LocalDate.now().toString();
 						JW.writeScordboardRecords(GlobalFuncations.username, score, date);
@@ -292,26 +293,19 @@ public static boolean userSelectedCorrectAnswer = false;
 							scoreboard.setText("Press R to try again!		\t\t score:"+score);
 						else if(score>=100)
 							scoreboard.setText("Press R to try again	\t\t score:"+score);
-						// scoreboard.setForeground(Color.red);
+						isGameOver = true;
 						break;
 						}
+						
 						//still have lives
 						if(PacWindow.pacmanLife>=1 && PacWindow.pacmanLife<=3) {
-							//logo lost life
-							//change life pic
+					
 							pacman.moveTimer.stop();
 							pacman.animTimer.stop();
 							g.moveTimer.stop();
 							isGameOver = true;
-							//to save score and level
+					
 							PacWindow.pacmanLife--;
-						/*		BufferedImage in = ImageIO.read(new File("./resources/images/pac/2lives.png"));
-							BufferedImage newImage = new BufferedImage(in.getWidth(), in.getHeight(), BufferedImage.TYPE_INT_ARGB);
-							Graphics2D g2 = newImage.createGraphics();
-							g2.drawImage(in, 0, 0, in.getWidth(), in.getHeight(), null);
-							g2.dispose(); 
-						     JLabel scoreboard = new JLabel("     Level : 1       Score : 0",new ImageIcon(newImage), SwingConstants.HORIZONTAL);
-						*/
 						 	if (siren != null)
 								siren.stop();
 							new PacWindow();
@@ -352,6 +346,8 @@ public static boolean userSelectedCorrectAnswer = false;
 			if (pacman.logicalPosition.x == f.position.x && pacman.logicalPosition.y == f.position.y)
 				foodToEat = f;
 		}
+		
+		
 		if (foodToEat != null) {
 			if (!isSiren) {
 				SoundPlayer.play("pacman_eat.wav");
@@ -381,13 +377,7 @@ public static boolean userSelectedCorrectAnswer = false;
 				
 				scoreboard.setText("     Level : 1      Score : " + score);
 			}
-			/*
-			 * } else if (score >= 51 ) {
-			 * scoreboard.setText("       Level : 2       Score : " + score); // to change
-			 * the level to a counter MapData map =
-			 * getMapFromResource("/resources/maps/þþmap_level2M.txt"); changeMap(map); //
-			 * variable
-			 */
+			
 		  if (score >= 51 && score <= 100) {
 			
 			scoreboard.setText("     Level : 2      Score : " + score); 
