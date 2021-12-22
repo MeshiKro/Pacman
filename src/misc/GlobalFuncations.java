@@ -3,12 +3,14 @@ package misc;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.ArrayList;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import model.QuestionInJson;
 import view.ConfirmPopUp;
 import view.EditQuestionScreen;
 import view.QuestionScreen;
@@ -23,7 +25,7 @@ public class GlobalFuncations {
 		element.setImage(new Image(inStream));
 	}
 
-	public static void switchScreen(Pane pane, String screenName, URL Path,String type) {
+	public static void switchScreen(Pane pane, String screenName, URL Path, String type) {
 		FXMLLoader loader = new FXMLLoader(Path);
 		try {
 			AnchorPane newPane = loader.load();
@@ -32,7 +34,7 @@ public class GlobalFuncations {
 			pane.setMinSize(pane.getWidth(), pane.getHeight());
 			pane.getChildren().removeAll(pane.getChildren());
 
-			initializeConroller(loader, screenName,type);
+			initializeConroller(loader, screenName, type);
 
 			pane.getChildren().add(newPane);
 		} catch (IOException e) {
@@ -41,7 +43,26 @@ public class GlobalFuncations {
 
 	}
 
-	private static void initializeConroller(FXMLLoader loader, String screenName,String type) {
+	public static ArrayList<QuestionInJson> getQuestionsByLevel(String level) {
+		ArrayList<QuestionInJson> array = new ArrayList<QuestionInJson>();
+		ArrayList<QuestionInJson> allQuestion = JsonRead.questionsAndAnswers;
+		System.out.println(allQuestion.size());
+
+		for(int i=0;i<allQuestion.size();i++)
+		{
+			if(allQuestion.get(i).getLevel().equals(level))
+				array.add(allQuestion.get(i));
+		}
+		return array;
+	}
+	public static int randomIndex(int arraySize) {
+
+	    return (int) ((Math.random() * (arraySize - 0)) + 0);
+
+		
+	}
+	
+	private static void initializeConroller(FXMLLoader loader, String screenName, String type) {
 
 		switch (screenName) {
 		case "QuestionScreen":

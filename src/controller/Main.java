@@ -18,9 +18,8 @@ public class Main extends Application {
 
 	public static void main(String[] args) throws Exception {
 
-		ArrayList<QuestionObject> a = new ArrayList<QuestionObject>();
 		JsonRead JR = new JsonRead();
-		JR.readQuestionsFromJson();
+		JsonRead.questionsAndAnswers	 = JR.readQuestionsFromJson();
 
 	launch(args);
 

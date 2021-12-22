@@ -75,7 +75,7 @@ int counter =0;
 	public boolean drawScore = false;
 	public boolean clearScore = false;
 	public int scoreToAdd = 0;
-
+public static boolean userSelectedCorrectAnswer = false;
 	int speedGhost = 30;
 
 	public static int score;
@@ -640,7 +640,7 @@ int counter =0;
 	        frame.setLocationRelativeTo(null); // this method display the JFrame to center position of a screen
 	        frame.setVisible(true);	
 	        
-	         timer = new Timer(3000, new ActionListener() {
+	         timer = new Timer(15000, new ActionListener() {
 	            public void actionPerformed(ActionEvent evt) {
 	        	//...Update the progress bar...
 
@@ -649,6 +649,13 @@ int counter =0;
 	            }    
 	        });
 	        timer.start();
+	        
+	        if(userSelectedCorrectAnswer)
+	        	score +=10;
+	        else
+	        	score-=10;
+	        
+	        userSelectedCorrectAnswer = false;
 	}
 
 	private void stopScreen() {

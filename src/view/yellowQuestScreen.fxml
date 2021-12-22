@@ -34,30 +34,40 @@
             <Image url="@../images/question-shield-512%20(2).png" />
          </image>
       </ImageView>
-      <Label fx:id="label" layoutX="425.0" layoutY="204.0" text="what is Agile?" textFill="WHITE">
+      <Label fx:id="label" layoutX="359.0" layoutY="205.0" prefHeight="51.0" prefWidth="343.0" text="what is Agile?" textFill="WHITE">
          <font>
             <Font size="35.0" />
          </font>
       </Label>
-      <RadioButton layoutX="253.0" layoutY="275.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="527.0" text="iterative approach to software delivery that builds.. " textFill="WHITE">
+      <RadioButton fx:id="answer1" layoutX="253.0" layoutY="275.0" mnemonicParsing="false" onMouseClicked="#answerClicked" prefHeight="35.0" prefWidth="527.0" text="iterative approach to software delivery that builds.. " textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </RadioButton>
-      <RadioButton layoutX="252.0" layoutY="327.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="563.0" text="treats analysis, design, coding, and testing as discrete.." textFill="WHITE">
+      <RadioButton fx:id="answer2" layoutX="252.0" layoutY="327.0" mnemonicParsing="false" onMouseClicked="#answerClicked" prefHeight="35.0" prefWidth="563.0" text="treats analysis, design, coding, and testing as discrete.." textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </RadioButton>
-      <RadioButton layoutX="252.0" layoutY="381.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="369.0" text="a name of an angel" textFill="WHITE">
+      <RadioButton fx:id="answer3" layoutX="252.0" layoutY="381.0" mnemonicParsing="false" onMouseClicked="#answerClicked" prefHeight="35.0" prefWidth="369.0" text="a name of an angel" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </RadioButton>
-      <RadioButton layoutX="252.0" layoutY="433.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="369.0" text="kind of development plan" textFill="WHITE">
+      <RadioButton fx:id="answer4" layoutX="252.0" layoutY="433.0" mnemonicParsing="false" onMouseClicked="#answerClicked" prefHeight="35.0" prefWidth="369.0" text="kind of development plan" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </RadioButton>
+      <Label fx:id="timerLabel" layoutX="56.0" layoutY="51.0" text="10" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="answerFeedback" layoutX="56.0" layoutY="534.0" prefHeight="35.0" prefWidth="257.0" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
