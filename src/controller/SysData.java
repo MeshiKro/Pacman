@@ -244,7 +244,9 @@ public static boolean userSelectedCorrectAnswer = false;
 			public void actionPerformed(ActionEvent evt) {
 				if (userHasBomb) {
 					Ghost newGhostReturn=blowBomb();
-					
+					if(newGhostReturn==null) {
+						return;
+					}
 					ScheduledExecutorService schedulerGhost = Executors.newSingleThreadScheduledExecutor();
 					Runnable taskGhost = new Runnable() {
 			            public void run() {
@@ -897,7 +899,8 @@ g.ghostSpeed = 1;
 				gToReturn=ghosts.get(i);
 				removeGhost(gToReturn);
 				
-			}
+			}else 
+				return gToReturn;
 		}	
 	}
 		return gToReturn;
