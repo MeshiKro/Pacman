@@ -530,7 +530,7 @@ public static boolean userSelectedCorrectAnswer = false;
 	        schedulerBomb3.schedule(taskBomb3, createFoodDelay, TimeUnit.SECONDS);
 	        schedulerBomb3.shutdown();
 	        isMediumQuestionEat=true;
-	        scoreToAdd = 1;
+	        //scoreToAdd = 1;
 	        drawScore = true;
 	        break;
 		}

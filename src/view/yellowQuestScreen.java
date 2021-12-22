@@ -1,6 +1,10 @@
 package view;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
+
+import javax.swing.Timer;
 
 import controller.SysData;
 import javafx.fxml.FXML;
@@ -56,12 +60,13 @@ public class yellowQuestScreen {
 
 	private boolean answerIsCorrect;
 
-    
+	private static int interval =10;
+
+	private static Timer timer;
 	public void initialize() {
 	mediumQuestionsArray =GlobalFuncations.getQuestionsByLevel("2");
 	int index = GlobalFuncations.randomIndex(mediumQuestionsArray.size());
-	System.out.println(mediumQuestionsArray.size());
-	System.out.println(index);
+	
 	 questionToDisplay =mediumQuestionsArray.get(index);
 	String question = questionToDisplay.getQuestion();
 
@@ -78,9 +83,31 @@ public class yellowQuestScreen {
 	answer3.setToggleGroup(group);	
 	answer4.setToggleGroup(group);	
 
+	
+     timer = new Timer(0, new ActionListener() {
+        public void actionPerformed(ActionEvent evt) {
+
+        	
+        	//timerLabel.setText(String.valueOf(interval));
+        	System.out.println(interval);
+        	
+        	if (interval == 0)
+    			try {
+    			//	OkBtnClicked(new MouseEvent(null, index, index, index, index, null, index, answerIsCorrect, answerIsCorrect, answerIsCorrect, answerIsCorrect, answerIsCorrect, answerIsCorrect, answerIsCorrect, answerIsCorrect, answerIsCorrect, answerIsCorrect, null));
+
+    				timer.stop();
+    			} catch (Exception e) {
+    				// TODO Auto-generated catch block
+    				e.printStackTrace();
+    			}
+    	     --interval;
+        	
+        }    
+    });
+    timer.start();
+	
 	}  
 
-    
 
 	@FXML
     void HoverEnd(MouseEvent event) {
