@@ -244,6 +244,7 @@ public static boolean userSelectedCorrectAnswer = false;
 			public void actionPerformed(ActionEvent evt) {
 				if (userHasBomb) {
 					Ghost newGhostReturn=blowBomb();
+					System.out.println(newGhostReturn);
 					if(newGhostReturn==null) {
 						return;
 					}
@@ -899,8 +900,7 @@ g.ghostSpeed = 1;
 				gToReturn=ghosts.get(i);
 				removeGhost(gToReturn);
 				
-			}else 
-				return gToReturn;
+			}
 		}	
 	}
 		return gToReturn;
