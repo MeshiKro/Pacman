@@ -95,7 +95,7 @@ public static boolean userSelectedCorrectAnswer = false;
 	public PacWindow windowParent;
 	boolean isSiren = MainScreen.isMute;
 	public static boolean userHasBomb = false;
-	public int createFoodDelay=2;
+	public int createFoodDelay=30;
 
 	private boolean isLevelUp = false;
 
