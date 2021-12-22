@@ -96,6 +96,7 @@ public static boolean userSelectedCorrectAnswer = false;
 	boolean isSiren = MainScreen.isMute;
 	public static boolean userHasBomb = false;
 	public int createFoodDelay=30;
+	 public static String qLevel;
 
 	private boolean isLevelUp = false;
 
@@ -615,7 +616,7 @@ public static boolean userSelectedCorrectAnswer = false;
 
 	protected void openQuestionScreen(String questionLevel) {
 		 JFrame frame = new JFrame();
-	       
+	        qLevel = questionLevel;
 	        JFXPanel jfxPanel = new JFXPanel();
 	        Platform.runLater(() -> {
 	            Parent root = null;

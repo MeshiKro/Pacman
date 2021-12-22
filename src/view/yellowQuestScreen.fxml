@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -9,6 +10,11 @@
 
 <AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #2c2929;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.yellowQuestScreen">
    <children>
+      <ImageView fitHeight="97.0" fitWidth="97.0" layoutX="906.0" layoutY="54.0">
+         <image>
+            <Image url="@../../images/buttonconinter.png" />
+         </image>
+      </ImageView>
       <ImageView fitHeight="326.0" fitWidth="734.0" layoutX="163.0" layoutY="181.0">
          <image>
             <Image url="@../../images/Rectangle.png" />
@@ -24,47 +30,50 @@
             <Image url="@../images/answer.png" />
          </image>
       </ImageView>
-      <Label fx:id="meg" layoutX="420.0" layoutY="114.0" prefHeight="69.0" prefWidth="248.0" text="medium question" textAlignment="CENTER" textFill="ORANGE" wrapText="true">
+      <Label fx:id="meg" alignment="CENTER" contentDisplay="CENTER" layoutX="396.0" layoutY="114.0" prefHeight="69.0" prefWidth="266.0" text="medium question" textAlignment="CENTER" textFill="ORANGE" wrapText="true">
          <font>
             <Font name="System Bold" size="27.0" />
          </font>
       </Label>
-      <ImageView fitHeight="110.0" fitWidth="110.0" layoutX="475.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="qImg" fitHeight="110.0" fitWidth="110.0" layoutX="475.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/question-shield-512%20(2).png" />
          </image>
       </ImageView>
-      <Label fx:id="label" layoutX="359.0" layoutY="205.0" prefHeight="51.0" prefWidth="343.0" text="what is Agile?" textFill="WHITE">
+      <Label fx:id="label" alignment="CENTER" contentDisplay="CENTER" layoutX="197.0" layoutY="205.0" prefHeight="51.0" prefWidth="675.0" text="what is Agile?" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="35.0" />
          </font>
       </Label>
-      <RadioButton fx:id="answer1" layoutX="253.0" layoutY="275.0" mnemonicParsing="false" onMouseClicked="#answerClicked" prefHeight="35.0" prefWidth="527.0" text="iterative approach to software delivery that builds.. " textFill="WHITE">
+      <RadioButton fx:id="answer1" layoutX="253.0" layoutY="275.0" mnemonicParsing="false" onMouseClicked="#answerClicked" prefHeight="35.0" prefWidth="623.0" text="iterative approach to software delivery that builds.. " textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="answer2" layoutX="252.0" layoutY="327.0" mnemonicParsing="false" onMouseClicked="#answerClicked" prefHeight="35.0" prefWidth="563.0" text="treats analysis, design, coding, and testing as discrete.." textFill="WHITE">
+      <RadioButton fx:id="answer2" layoutX="252.0" layoutY="327.0" mnemonicParsing="false" onMouseClicked="#answerClicked" prefHeight="35.0" prefWidth="623.0" text="treats analysis, design, coding, and testing as discrete.." textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="answer3" layoutX="252.0" layoutY="381.0" mnemonicParsing="false" onMouseClicked="#answerClicked" prefHeight="35.0" prefWidth="369.0" text="a name of an angel" textFill="WHITE">
+      <RadioButton fx:id="answer3" layoutX="252.0" layoutY="381.0" mnemonicParsing="false" onMouseClicked="#answerClicked" prefHeight="35.0" prefWidth="623.0" text="a name of an angel" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="answer4" layoutX="252.0" layoutY="433.0" mnemonicParsing="false" onMouseClicked="#answerClicked" prefHeight="35.0" prefWidth="369.0" text="kind of development plan" textFill="WHITE">
+      <RadioButton fx:id="answer4" layoutX="252.0" layoutY="433.0" mnemonicParsing="false" onMouseClicked="#answerClicked" prefHeight="35.0" prefWidth="630.0" text="kind of development plan" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </RadioButton>
-      <Label fx:id="timerLabel" layoutX="56.0" layoutY="51.0" text="10" textFill="WHITE">
+      <Label fx:id="timerLabel" layoutX="931.0" layoutY="74.0" text="15" textFill="#d33f00">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="40.0" />
          </font>
+         <effect>
+            <DropShadow />
+         </effect>
       </Label>
-      <Label fx:id="answerFeedback" layoutX="56.0" layoutY="534.0" prefHeight="35.0" prefWidth="257.0" textFill="WHITE">
+      <Label fx:id="answerFeedback" layoutX="647.0" layoutY="529.0" prefHeight="35.0" prefWidth="257.0" textFill="WHITE">
          <font>
             <Font size="24.0" />
          </font>
