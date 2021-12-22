@@ -45,6 +45,8 @@ public class PacWindow extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	public static boolean openMainScreen = false;
+	public static PacWindow pacWindowContext;
 
 	
 	  BufferedImage myPicture = null;
@@ -58,7 +60,7 @@ public class PacWindow extends JFrame {
 	
 	public PacWindow()  {
 		
-	
+pacWindowContext = this;
 		setIconImage(new ImageIcon("./resources/images/pac/pac2.png").getImage());
 
 	//	setIconImage(new ImageIcon(getClass().getResource("./resources/images/pac/pac2.png")).getImage());
@@ -109,23 +111,12 @@ if(myPicture==null)
     		 
     		 picLabel2.addMouseListener(new MouseInputAdapter() {
     	
-    			  public void mouseClicked(MouseEvent e)   {
-    			        JFrame frame = new JFrame();
-    			        JFXPanel jfxPanel = new JFXPanel();
-    			        Platform.runLater(() -> {
-    			            Parent root = null;
-							try {
-								root = FXMLLoader.load(getClass().getResource("/view/MainScreen.fxml"));
-							} catch (IOException e1) {
-								// TODO Auto-generated catch block
-								e1.printStackTrace();
-							}  // create JavaFX content, can be in a separate class
-    			            Scene scene = new Scene(root);
-    			            jfxPanel.setScene(scene);
-    			        });
-    			        frame.add(jfxPanel);
-    			 //       frame.setSize(...);
-    			        frame.setVisible(true);
+
+				public void mouseClicked(MouseEvent e)   {
+					
+					openMainScreen();
+    				 
+
     			    }       
     			});
     		 
@@ -169,51 +160,35 @@ if(myPicture==null)
         setVisible(true);
     }
 
-    public PacWindow(MapData md) {
-//        setTitle("AKP Pacman v1.0");
-  //      setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-    //    setLayout(new BorderLayout());
-      //  getContentPane().setBackground(Color.black);
+  
 
-//        setSize(794, 884);
-  //      setLocationRelativeTo(null);
-    	JLabel scoreboard = new JLabel("      Level : 1       Score : "+SysData.score);
-        scoreboard.setForeground(new Color(255, 243, 36));
+    protected void openMainScreen() {
+    	 openMainScreen =true;
+	        JFrame frame = new JFrame();
+	       
+	        JFXPanel jfxPanel = new JFXPanel();
+	        Platform.runLater(() -> {
+	            Parent root = null;
+				try {
+					root = FXMLLoader.load(getClass().getResource("/view/MainScreen.fxml"));
+				} catch (IOException e1) {
+				
+					e1.printStackTrace();
+				} 
+	             jfxPanel.setScene(new Scene(root, 1060, 650));
 
-        JFrame frame=new JFrame("first way");
-        
-        JPanel  panel = new JPanel();
-        panel.setSize(794, 707);
-        
-    
-		 BufferedImage myPicture = null;
-		try {
-			myPicture = ImageIO.read(new File("./resources/images/pac/pac2.png"));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		 JLabel picLabel = new JLabel(new ImageIcon(myPicture));
-		 picLabel.setHorizontalAlignment(JLabel.RIGHT);
-        
-        //int[][] mapLoaded = loadMap(27,29,"/maps/map1.txt");
-        adjustMap(md);
-        SysData pb = new SysData(scoreboard, md, this);
-        pb.setBorder(new CompoundBorder(new EmptyBorder(10, 10, 10, 10), new LineBorder(Color.BLUE)));
-        addKeyListener(pb.pacman);
+	            
+	        });
+	        frame.add(jfxPanel);
+	        frame.setSize(1060, 650); 
+	        frame.setLocationRelativeTo(null); // this method display the JFrame to center position of a screen
+	        frame.setVisible(true);
 
-        frame.setSize(1000, 900);
-        
-frame.getContentPane().add(scoreboard, BorderLayout.SOUTH);
-frame.getContentPane().add(pb);
-this.getContentPane().add(picLabel, BorderLayout.SOUTH);
-this.getContentPane().add(frame);
-frame.setVisible(true);
-      //  setVisible(true);
-    }
+	        pacWindowContext.dispose(); // close window
+		
+	}
 
-
-    public int[][] loadMap(int mx, int my, String relPath) {
+	public int[][] loadMap(int mx, int my, String relPath) {
         try {
             @SuppressWarnings("resource")
 			Scanner scn = new Scanner(this.getClass().getResourceAsStream(relPath));

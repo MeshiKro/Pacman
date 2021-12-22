@@ -309,7 +309,7 @@ public abstract class Ghost {
 	 */
 
 	public void weaken() {
-		isWeak = true;
+		//isWeak = true;
 		moveTimer.setDelay(ghostWeakDelay);
 		unweakBlinks = 0;
 		isWhite = false;

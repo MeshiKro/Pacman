@@ -1,7 +1,13 @@
 package view;
 
 import java.io.InputStream;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
+import com.sun.javafx.stage.EmbeddedWindow;
+
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -66,6 +72,13 @@ public class MainScreen {
 	@FXML
 	private ImageView muteTest;
 
+	public Stage stage = new Stage();
+
+	private EmbeddedWindow stage1;
+
+
+
+	
 	public void initialize() {
 		themeField.getItems().addAll("Basic", "Candy Land", "Zombie Land");
 		themeField.getSelectionModel().select(0);
@@ -87,7 +100,7 @@ public class MainScreen {
 			muteTest.setImage(muteImage);
 			setMute(false);
 		}
-		
+
 	}
 
 	// Hover Section
@@ -208,11 +221,58 @@ public class MainScreen {
 		PacWindow pw = new PacWindow();
 		GlobalFuncations.username = nameFeild.getText();
 		noNameLabel.setText("");
-		Stage stage = (Stage) startGameBtn.getScene().getWindow();
+		stage1 = null;
+		try {
+		 stage  = (Stage) startGameBtn.getScene().getWindow();
+		}
+		catch(Exception e)
+		{
+			System.out.print(e.getMessage());
+
+
+			stage1  = (com.sun.javafx.stage.EmbeddedWindow) startGameBtn.getScene().getWindow();
+
+		}
 		JsonWriterEx wr = new JsonWriterEx();
 		wr.SetConfugartion(MainScreen.isMute, GlobalFuncations.username);
 
-		stage.close();
+
+		/*Platform.runLater(new Runnable() {
+			@Override
+			public void run() {
+				stage.setOpacity(0);
+
+				
+			}
+		});*/
+		stage.setOpacity(0);
+		if(stage1 != null)
+		stage1.setOpacity(0);
+		Timer timer = new Timer();
+		TimerTask task = new TimerTask() {
+
+		    @Override
+		    public void run() {
+		    	if(PacWindow.openMainScreen) {
+					try {
+					
+					stage.setOpacity(1);
+					if(stage1 != null)
+
+					stage1.setOpacity(1);
+
+					}
+					catch(Exception ex){
+						timer.cancel();
+					}
+
+		    	}
+		    }
+		};
+
+		timer.schedule(task, new Date(), 3000);
+
+
 	}
 
 	@FXML

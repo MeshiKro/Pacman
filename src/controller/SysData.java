@@ -52,7 +52,7 @@ public class SysData extends JPanel {
 	public ArrayList<Bomb> pufoods;
 	public ArrayList<Ghost> ghosts;
 	public ArrayList<Teleport> teleports;
-
+int counter =0;
 	// this is the Question Dynamic DataBase that we can manipulate in the
 	// Question-Wizard//
 	public static ArrayList<QuestionInJson> questions;
@@ -358,10 +358,13 @@ public class SysData extends JPanel {
 		
 
 			// Levels:
-			if(score<10)
+			if(score<10) {
 				scoreboard.setText("     Level : 1       Score : " + score);
+				
+				
+			}
 			if (score <= 50&&score>=10) {
-				stopScreen();
+				
 				scoreboard.setText("     Level : 1      Score : " + score);
 			}
 			/*
@@ -373,17 +376,18 @@ public class SysData extends JPanel {
 			 */
 		  if (score >= 51 && score <= 100) {
 			
-			scoreboard.setText("     Level : 2      Score : " + score); // to change the level to a counter
+			scoreboard.setText("     Level : 2      Score : " + score); 
 			if(level <2) {
-				
+				isLevelUp = true;
 			MapData map = getMapFromResource("/resources/maps/þþmap_level2M.txt");
 			changeMap(map);
 			level =2;
 			}
 
 		}  if (score >= 101 && score <= 150) {
-			scoreboard.setText("     Level : 3     Score : " + score); // to change the level to a counter
+			scoreboard.setText("     Level : 3     Score : " + score); 
 			if(level <3) {
+				isLevelUp = true;
 		       MapData map1 = getMapFromResource("/resources/maps/map1_c.txt");
 			changeMap(map1);
 			pacman.pacmanSpeed = 0;
@@ -392,9 +396,10 @@ public class SysData extends JPanel {
 			}
 
 		}  if (score >= 151){
-			scoreboard.setText("     Level : 4     Score : " + score); // to change the level to a counter
+			scoreboard.setText("     Level : 4     Score : " + score); 
 			if(level <4) {
-			updateGhostSpeed(); // variable
+				isLevelUp = true;
+			updateGhostSpeed();
 			level =4;
 			}
 		}
@@ -596,7 +601,6 @@ public class SysData extends JPanel {
 
 		pacman.moveTimer.stop();
 		pacman.animTimer.stop();
-		System.out.print("start");  
 		
 		 pacman.moveTimer.start();
 			pacman.animTimer.start();
@@ -736,23 +740,24 @@ public class SysData extends JPanel {
 
 		}
 		if(isLevelUp) {
-	        g.drawImage(levelupImage, 2, 0, null);
-	       
-		//isLevelUp = false;
+	      //  g.drawImage(levelupImage, 7, 0, null);
+	    	g.drawImage(levelupImage, this.getSize().width / 2 - 380, this.getSize().height / 2 - 325, null);
+		//isLevelUp = false;		
+
 	
 		}
+
 	}
 
 	@Override
 	public void processEvent(AWTEvent ae) {
-	/*	System.out.println(" pacman.pixelPosition.x " + pacman.pixelPosition.x);
-		  System.out.println(" pacman.pixelPosition.y " + pacman.pixelPosition.y);
-		  		isLevelUp = false;
-
-			System.out.println(" pacman.logicalPosition.x " + pacman.logicalPosition.x);
-			  System.out.println(" pacman.logicalPosition.y " + pacman.logicalPosition.y);*/
-		isLevelUp = false;
-
+		if(isLevelUp)
+			counter++;
+		if(counter ==100) {
+			isLevelUp = false;
+			counter=0;
+		}
+		
 		if (ae.getID() == Messages.UPDATE) {
 			update();
 		} else if (ae.getID() == Messages.COLTEST) {
@@ -805,7 +810,7 @@ public class SysData extends JPanel {
 	public void updateGhostSpeed() {
 
 		for (Ghost g : ghosts) {
-g.ghostSpeed = 99999;
+g.ghostSpeed = 1;
 		}
 	}
 
