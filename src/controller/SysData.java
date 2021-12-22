@@ -3,6 +3,8 @@ package controller;
 import misc.*;
 import model.*;
 import view.PacWindow;
+import view.QuestionScreen;
+import view.yellowQuestScreen;
 import view.MainScreen;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -470,7 +472,8 @@ int counter =0;
 			scoreToAdd = 0;
 			break;
 		case 2:
-		{
+		{		// Eat  Question - Hard Question
+
 			int fx2=puFoodToEat.position.x;
 			int fy2=puFoodToEat.position.y;
 			pufoods.remove(puFoodToEat);
@@ -499,12 +502,13 @@ int counter =0;
 	        drawScore = true;
 	        break;
 		}
-		// Eat Orange Question
+		// Eat Orange Question - Medium Question
 		case 3:
 		{
 			int fx3=puFoodToEat.position.x;
 			int fy3=puFoodToEat.position.y;
 			pufoods.remove(puFoodToEat);
+			openQuestionScreen("Medium");
 			Point newM=PositionLottery3();
 			int qx3=(int)newM.getX();
 			int qy3=(int)newM.getY();
@@ -516,7 +520,7 @@ int counter =0;
 	        			if(f.position.x==qx3 && f.position.y==qy3) {
 	        			foods.remove(f);
 	        			System.out.print("Eat Orange Question");
-	        			openQuestionScreen();
+	        	
 	        			}
 	        		}
 	            	
@@ -533,6 +537,7 @@ int counter =0;
 		case 4:
 		{
 			
+			// Eat  Question - Easy Question
 			int fx4=puFoodToEat.position.x;
 			int fy4=puFoodToEat.position.y;
 			pufoods.remove(puFoodToEat);
@@ -613,20 +618,21 @@ int counter =0;
 
 	}
 
-	protected void openQuestionScreen() {
+	protected void openQuestionScreen(String questionLevel) {
 		 JFrame frame = new JFrame();
 	       
 	        JFXPanel jfxPanel = new JFXPanel();
 	        Platform.runLater(() -> {
 	            Parent root = null;
 				try {
-					root = FXMLLoader.load(getClass().getResource("/view/QuestionScreenInGame.fxml"));
-				} catch (IOException e1) {
+					if(questionLevel.equals("Medium"))
+					root = FXMLLoader.load(getClass().getResource("/view/yellowQuestScreen.fxml"));
+				} catch (Exception e1) {
 				
 					e1.printStackTrace();
 				} 
 	             jfxPanel.setScene(new Scene(root, 1060, 650));
-
+	          
 	            
 	        });
 	        frame.add(jfxPanel);
