@@ -12,6 +12,13 @@ import java.time.LocalDateTime;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+
+import javafx.application.Platform;
+import javafx.embed.swing.JFXPanel;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+
 import java.awt.event.KeyEvent;
 
 import java.awt.*;
@@ -91,6 +98,8 @@ int counter =0;
 	private boolean isLevelUp = false;
 
 	private BufferedImage levelupImage;
+
+	private Timer timer;
 
 	public SysData(JLabel scoreboard, MapData md, PacWindow pw) {
 		this.scoreboard = scoreboard;
@@ -475,6 +484,8 @@ int counter =0;
 	            	for (Food f : foods) {
 	        			if(f.position.x==qx2 && f.position.y==qy2)
 	        			foods.remove(f);
+	        			System.out.print("23452345");
+
 	        		}
 	            	
 	            	
@@ -488,6 +499,7 @@ int counter =0;
 	        drawScore = true;
 	        break;
 		}
+		// Eat Orange Question
 		case 3:
 		{
 			int fx3=puFoodToEat.position.x;
@@ -501,8 +513,11 @@ int counter =0;
 	            public void run() {
 	            	pufoods.add(new Bomb(qx3, qy3,3));
 	            	for (Food f : foods) {
-	        			if(f.position.x==qx3 && f.position.y==qy3)
+	        			if(f.position.x==qx3 && f.position.y==qy3) {
 	        			foods.remove(f);
+	        			System.out.print("Eat Orange Question");
+	        			openQuestionScreen();
+	        			}
 	        		}
 	            	
 	            }
@@ -531,6 +546,8 @@ int counter =0;
 	            	for (Food f : foods) {
 	        			if(f.position.x==qx4 && f.position.y==qy4)
 	        			foods.remove(f);
+	        			System.out.print("sdfgdsfffffffffffffffffffg");
+
 	        		}
 	            	
 	            }
@@ -594,6 +611,38 @@ int counter =0;
 
 	}
 
+	}
+
+	protected void openQuestionScreen() {
+		 JFrame frame = new JFrame();
+	       
+	        JFXPanel jfxPanel = new JFXPanel();
+	        Platform.runLater(() -> {
+	            Parent root = null;
+				try {
+					root = FXMLLoader.load(getClass().getResource("/view/QuestionScreenInGame.fxml"));
+				} catch (IOException e1) {
+				
+					e1.printStackTrace();
+				} 
+	             jfxPanel.setScene(new Scene(root, 1060, 650));
+
+	            
+	        });
+	        frame.add(jfxPanel);
+	        frame.setSize(1060, 650); 
+	        frame.setLocationRelativeTo(null); // this method display the JFrame to center position of a screen
+	        frame.setVisible(true);	
+	        
+	         timer = new Timer(3000, new ActionListener() {
+	            public void actionPerformed(ActionEvent evt) {
+	        	//...Update the progress bar...
+
+	                    timer.stop();
+	                    frame.dispose();
+	            }    
+	        });
+	        timer.start();
 	}
 
 	private void stopScreen() {
