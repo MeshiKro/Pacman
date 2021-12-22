@@ -8,12 +8,14 @@ import javax.swing.Timer;
 
 import controller.SysData;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import misc.GlobalFuncations;
 import misc.JsonRead;
 import model.QuestionInJson;
@@ -83,11 +85,10 @@ public class yellowQuestScreen {
 	answer3.setToggleGroup(group);	
 	answer4.setToggleGroup(group);	
 
-	
+		
      timer = new Timer(0, new ActionListener() {
         public void actionPerformed(ActionEvent evt) {
-
-        	
+	
         	//timerLabel.setText(String.valueOf(interval));
         	System.out.println(interval);
         	
@@ -125,6 +126,7 @@ public class yellowQuestScreen {
     		SysData.userSelectedCorrectAnswer = false;
 
     	}
+    	
     }
 
     @FXML
@@ -138,7 +140,9 @@ public class yellowQuestScreen {
     	if(event.getPickResult().getIntersectedNode().getId() == null)
     		return;
       answerIsCorrect = isAnswerCorrect(event.getPickResult().getIntersectedNode().getId());
-    	
+
+      ((Node)(event.getSource())).getScene().getWindow().hide();
+
 
     }
 
