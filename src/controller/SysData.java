@@ -508,6 +508,8 @@ public static boolean userSelectedCorrectAnswer = false;
 			int fx3=puFoodToEat.position.x;
 			int fy3=puFoodToEat.position.y;
 			pufoods.remove(puFoodToEat);
+			stopScreenForQuestion();
+			Ghost.stopScreenForQ=true;
 			openQuestionScreen("Medium");
 			Point newM=PositionLottery3();
 			int qx3=(int)newM.getX();
@@ -645,6 +647,8 @@ public static boolean userSelectedCorrectAnswer = false;
 	        	//...Update the progress bar...
 
 	                    timer.stop();
+	                    Ghost.stopScreenForQ=false;
+	                    pacman.moveTimer.start();
 	                    frame.dispose();
 	            }    
 	        });
@@ -669,6 +673,12 @@ public static boolean userSelectedCorrectAnswer = false;
 		
 			//isLevelUp = false;
 
+	}
+	private void stopScreenForQuestion() {
+		Ghost.stopScreenForQ=true;
+		pacman.moveTimer.stop();
+		pacman.animTimer.stop();
+		
 	}
 
 	private void changeMap(MapData newMap) {

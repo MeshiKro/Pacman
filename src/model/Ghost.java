@@ -71,6 +71,7 @@ public abstract class Ghost {
 
 	public BFSFinder baseReturner;
 	public int ghostSpeed = 100;
+	public static boolean stopScreenForQ=false;
 
 	protected SysData parentBoard;
 
@@ -121,7 +122,9 @@ public abstract class Ghost {
 		moveAL = new ActionListener() {
 
 			public void actionPerformed(ActionEvent evt) {
-
+				if (stopScreenForQ) {
+					return;
+				}
 				animTimer.setDelay(ghostSpeed);
 				
 				if ((pixelPosition.x % 28 == 0) && (pixelPosition.y % 28 == 0)) {
