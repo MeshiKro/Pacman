@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Rules2Screen">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Rules2Screen">
    <children>
       <ImageView fitHeight="361.0" fitWidth="369.0" layoutY="241.0">
          <image>
@@ -73,7 +73,7 @@
             </ImageView>
             <ImageView fx:id="backicon" fitHeight="33.0" fitWidth="33.0" layoutX="19.0" layoutY="31.0" onMouseClicked="#BackBtnClicked" style="-fx-rotate: 180;">
                <image>
-                  <Image url="@../images/right-arrow%20(1).png" />
+                  <Image url="@../../images/rightarrow.png" />
                </image>
             </ImageView>
          </children>
