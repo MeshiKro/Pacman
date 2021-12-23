@@ -44,7 +44,7 @@
             <Image url="@../images/question-shield-512%20(2).png" />
          </image>
       </ImageView>
-      <Label fx:id="timerLabel" layoutX="892.0" layoutY="49.0" text="15" textFill="#d33f00">
+      <Label fx:id="timerLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="892.0" layoutY="49.0" text="15" textAlignment="CENTER" textFill="#d33f00">
          <font>
             <Font name="System Bold" size="40.0" />
          </font>
@@ -152,7 +152,7 @@
                   <Image url="@../../images/backG.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="248.0" layoutX="240.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="248.0" layoutX="240.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/pinkFrame.png" />
                </image>
@@ -165,7 +165,7 @@
                   <Image url="@../images/—Pngtree—hand-held%20signage%20right%20or%20wrong_5770019%20(1).png" />
                </image>
             </ImageView>
-            <Label fx:id="pointsLabalMinus" alignment="CENTER" contentDisplay="CENTER" layoutX="27.0" layoutY="185.0" prefHeight="51.0" prefWidth="675.0" text="-10 points" textAlignment="CENTER" textFill="#ff3f60">
+            <Label fx:id="pointsLabalMinus" alignment="CENTER" contentDisplay="CENTER" layoutX="27.0" layoutY="190.0" prefHeight="51.0" prefWidth="675.0" text="-10 points" textAlignment="CENTER" textFill="#ff3f60">
                <font>
                   <Font name="Rockwell Extra Bold" size="28.0" />
                </font>
@@ -183,9 +183,9 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="131.0" prefHeight="51.0" prefWidth="675.0" text="You lost" textAlignment="CENTER" textFill="#ff3f60">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="127.0" prefHeight="51.0" prefWidth="675.0" text="You lost" textAlignment="CENTER" textFill="#ff3f60">
                <font>
-                  <Font name="Rockwell Extra Bold" size="44.0" />
+                  <Font name="System Bold" size="44.0" />
                </font>
                <effect>
                   <DropShadow>

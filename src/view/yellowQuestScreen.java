@@ -43,65 +43,64 @@ import model.QuestionInJson;
 
 public class yellowQuestScreen {
 
-    @FXML
-    private RadioButton answer1;
+	@FXML
+	private RadioButton answer1;
 
-    @FXML
-    private RadioButton answer2;
+	@FXML
+	private RadioButton answer2;
 
-    @FXML
-    private RadioButton answer3;
+	@FXML
+	private RadioButton answer3;
 
-    @FXML
-    private RadioButton answer4;
-    @FXML
-    private Label pointsLabalMinus;
+	@FXML
+	private RadioButton answer4;
+	@FXML
+	private Label pointsLabalMinus;
 
-    @FXML
-    private Label pointsLabalPlus;
-    @FXML
-    private Pane questionPane;
+	@FXML
+	private Label pointsLabalPlus;
+	@FXML
+	private Pane questionPane;
 
-    @FXML
-    private AnchorPane wrongPane;
+	@FXML
+	private AnchorPane wrongPane;
 
-    @FXML
-    private Pane correctPane;
+	@FXML
+	private Pane correctPane;
 
-    @FXML
-    private Label label;
+	@FXML
+	private Label label;
 
-    @FXML
-    private Label meg;
+	@FXML
+	private Label meg;
 
-    @FXML
-    private ImageView okBtn;
+	@FXML
+	private ImageView okBtn;
 
-    @FXML
-    private AnchorPane pane;
+	@FXML
+	private AnchorPane pane;
 
-    @FXML
-    private ImageView startButtonClicked;
-    @FXML
-    private Label answerFeedback;
-    @FXML
-    private Label timerLabel;
-    @FXML
-    private ImageView qImg;
+	@FXML
+	private ImageView startButtonClicked;
+	@FXML
+	private Label answerFeedback;
+	@FXML
+	private Label timerLabel;
+	@FXML
+	private ImageView qImg;
 
-    @FXML
-    private Label timeC;
+	@FXML
+	private Label timeC;
 
-    @FXML
-    private Label timeW;
-    
-   private static  int countdownStarter = 15;
-    
-    private String path;
-    private MediaPlayer mediaPlayer;
+	@FXML
+	private Label timeW;
+
+	private static int countdownStarter;
+
+	private String path;
+	private MediaPlayer mediaPlayer;
 
 	private ArrayList<QuestionInJson> levelQuestionsArray;
-
 
 	final ToggleGroup group = new ToggleGroup();
 
@@ -109,245 +108,190 @@ public class yellowQuestScreen {
 
 	private boolean answerIsCorrect;
 
-	private static int interval =10;
-
 	private static Timer timer;
-	
-	
-/*	//timer
-	 final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
-	 @FXML
-      final Runnable runnable = new Runnable() {
-          int countdownStarter = 15;
-          
-          public void run() {
-        //  	timerLabel.setText(String.valueOf(countdownStarter));
-         /*     System.out.println(countdownStarter);
-              countdownStarter--;
 
-              if (countdownStarter < 0) {
-                  System.out.println("Timer Over!");
-                  scheduler.shutdown();
-              }*/
-   /*       }
-      }; */
-  
-	
 	public void initialize() {
 
-		
 		okBtn.setVisible(true);
 		questionPane.setVisible(true);
 		correctPane.setVisible(false);
 		wrongPane.setVisible(false);
-		
-		//adjustment to the level of the question
-		if(SysData.qLevel.equals("Easy")){
-		Image img = createImage("question-shield-512");
-		qImg.setImage(img);
-		meg.setText("easy question");
-		meg.setStyle("-fx-text-fill:  #ffffff;");
+
+		// adjustment to the level of the question
+		if (SysData.qLevel.equals("Easy")) {
+			Image img = createImage("question-shield-512");
+			qImg.setImage(img);
+			meg.setText("easy question");
+			meg.setStyle("-fx-text-fill:  #ffffff;");
 		}
-		
-		if(SysData.qLevel.equals("Medium")){
+
+		if (SysData.qLevel.equals("Medium")) {
 			Image img = createImage("question-shield-512 (2)");
 			qImg.setImage(img);
 			meg.setText("medium question");
 			meg.setStyle("-fx-text-fill: #ffa500;");
 		}
 
-		if(SysData.qLevel.equals("Hard")){
-		Image img = createImage("question-shield-512 (1)");
-		qImg.setImage(img);
-		meg.setText("tough question");
-		meg.setStyle("-fx-text-fill: #e04006;");
+		if (SysData.qLevel.equals("Hard")) {
+			Image img = createImage("question-shield-512 (1)");
+			qImg.setImage(img);
+			meg.setText("tough question");
+			meg.setStyle("-fx-text-fill: #e04006;");
 		}
-		
-		/* timer = new Timer(15000, new ActionListener() {
-	            public void actionPerformed(ActionEvent evt) {
-	        	//...Update the progress bar...
-
-	                 
-	            }    
-	        });
-	        timer.start();*/
-	
-		/*	ScheduledExecutorService timer=Executors.newSingleThreadScheduledExecutor();
-
-			int countDown=15;
-			timer.schedule(new Runnable() {
-	       
-
-		    @Override
-		        public void run() {
-		        Platform.runLater(new Runnable() {
-		           public void run() {
-		               countDown--;
-		               timerLabel.setText("Time left:" + countDown);
-
-		                if (countDown < 0)
-		                    ((TimerTask) timer).cancel();
-		          }
-		        });
-		    }
-		    }, 1000, 1000); //Every 1 second*/
-		    
-		//timer
-	 final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
-	
-      final Runnable runnable = new Runnable() {
-     
-          @FXML
-          public void run() {
-          //	timerLabel.setText(""+countdownStarter);
-              System.out.println(countdownStarter);
-              countdownStarter--;
-
-              if (countdownStarter < 0) {
-                  System.out.println("Timer Over!");
-                  scheduler.shutdown();
-              }
-          }
-      }; 
-	
-		 scheduler.scheduleAtFixedRate(runnable, 0, 1, TimeUnit.SECONDS);
-	//	  	timerLabel.setText(String.valueOf(countdownStarter));
-		 
-	if(SysData.qLevel.equals("Medium")){
-	levelQuestionsArray =GlobalFuncations.getQuestionsByLevel("2");
-	int index = GlobalFuncations.randomIndex(levelQuestionsArray.size());
-	 questionToDisplay =levelQuestionsArray.get(index);
-	String question = questionToDisplay.getQuestion();
-	label.setText(question);
-	}
-	if(SysData.qLevel.equals("Hard")){
-	levelQuestionsArray =GlobalFuncations.getQuestionsByLevel("3");
-	int index = GlobalFuncations.randomIndex(levelQuestionsArray.size());
-	 questionToDisplay =levelQuestionsArray.get(index);
-	String question = questionToDisplay.getQuestion();
-	label.setText(question);
-	}
-	if(SysData.qLevel.equals("Easy")){
-	levelQuestionsArray =GlobalFuncations.getQuestionsByLevel("1");
-	int index = GlobalFuncations.randomIndex(levelQuestionsArray.size());
-	 questionToDisplay =levelQuestionsArray.get(index);
-	String question = questionToDisplay.getQuestion();
-	label.setText(question);
-	}
-	
-	answer1.setText(questionToDisplay.getAnswers()[0]);
-	answer2.setText(questionToDisplay.getAnswers()[1]);
-	answer3.setText(questionToDisplay.getAnswers()[2]);
-	answer4.setText(questionToDisplay.getAnswers()[3]);
-
-	// Single choice question
-	answer1.setToggleGroup(group);	
-	answer2.setToggleGroup(group);	
-	answer3.setToggleGroup(group);	
-	answer4.setToggleGroup(group);	
+		countdownStarter = 15;
 
 		
-     timer = new Timer(0, new ActionListener() {
-        public void actionPerformed(ActionEvent evt) {
-	
-        	//timerLabel.setText(String.valueOf(interval));
-      //  	System.out.println(interval);
-        	
-        	if (interval == 0)
-    			try {
-    			//	OkBtnClicked(new MouseEvent(null, index, index, index, index, null, index, answerIsCorrect, answerIsCorrect, answerIsCorrect, answerIsCorrect, answerIsCorrect, answerIsCorrect, answerIsCorrect, answerIsCorrect, answerIsCorrect, answerIsCorrect, null));
+		// timer
+		final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 
-    				timer.stop();
-    			} catch (Exception e) {
-    				// TODO Auto-generated catch block
-    				e.printStackTrace();
-    			}
-    	     --interval;
-        	
-        }    
-    });
-    timer.start();
-	
-    
+		final Runnable runnable = new Runnable() {
+
+			@FXML
+			public void run() {
+				Platform.runLater(new Runnable() {
+					@Override
+					public void run() {
+						timerLabel.setText("" + countdownStarter);
+						// if(answerIsCorrect)
+						timeW.setText("" + countdownStarter);
+						// else
+						timeC.setText("" + countdownStarter);
+
+					}
+				});
+
+				System.out.println(countdownStarter);
+				countdownStarter--;
+
+				if (countdownStarter < 0) {
+					System.out.println("Timer Over!");
+					scheduler.shutdown();
+
+				}
+			}
+		};
+
+		scheduler.scheduleAtFixedRate(runnable, 0, 1, TimeUnit.SECONDS);
+		// timerLabel.setText(String.valueOf(countdownStarter));
+
+		if (SysData.qLevel.equals("Medium")) {
+			levelQuestionsArray = GlobalFuncations.getQuestionsByLevel("2");
+			int index = GlobalFuncations.randomIndex(levelQuestionsArray.size());
+			questionToDisplay = levelQuestionsArray.get(index);
+			String question = questionToDisplay.getQuestion();
+			label.setText(question);
+		}
+		if (SysData.qLevel.equals("Hard")) {
+			levelQuestionsArray = GlobalFuncations.getQuestionsByLevel("3");
+			int index = GlobalFuncations.randomIndex(levelQuestionsArray.size());
+			questionToDisplay = levelQuestionsArray.get(index);
+			String question = questionToDisplay.getQuestion();
+			label.setText(question);
+		}
+		if (SysData.qLevel.equals("Easy")) {
+			levelQuestionsArray = GlobalFuncations.getQuestionsByLevel("1");
+			int index = GlobalFuncations.randomIndex(levelQuestionsArray.size());
+			questionToDisplay = levelQuestionsArray.get(index);
+			String question = questionToDisplay.getQuestion();
+			label.setText(question);
+		}
+
+		answer1.setText(questionToDisplay.getAnswers()[0]);
+		answer2.setText(questionToDisplay.getAnswers()[1]);
+		answer3.setText(questionToDisplay.getAnswers()[2]);
+		answer4.setText(questionToDisplay.getAnswers()[3]);
+
+		// Single choice question
+		answer1.setToggleGroup(group);
+		answer2.setToggleGroup(group);
+		answer3.setToggleGroup(group);
+		answer4.setToggleGroup(group);
+
 	}
-
 
 	@FXML
-    void HoverEnd(MouseEvent event) {
+	void HoverEnd(MouseEvent event) {
 
-    }
+	}
 
-    @FXML
-    void OkBtnClicked(MouseEvent event) {
-    	okBtn.setVisible(false);
-    	if(answer1.isDisable())
-    		return;
-    	if(answerIsCorrect) {
-    		timeC.setText(""+countdownStarter);
-    		answerFeedback.setText("");
-    		SysData.userSelectedCorrectAnswer = true;
-    		correctPane.setVisible(true);
-    		if(SysData.qLevel.equals("Easy"))
-    		pointsLabalPlus.setText("+1 points");
-    		if(SysData.qLevel.equals("Medium"))
-        		pointsLabalPlus.setText("+2 points");
-    		if(SysData.qLevel.equals("Hard"))
-        		pointsLabalPlus.setText("+3 points");
-    		wrongPane.setVisible(false);
-    		questionPane.setVisible(false);
-    	}
-    	else {
-    		answerFeedback.setText("");
-    		timeC.setText(""+countdownStarter);
-    		SysData.userSelectedCorrectAnswer = false;
-    		wrongPane.setVisible(true);
-    		if(SysData.qLevel.equals("Easy"))
-    			pointsLabalMinus.setText("-10 points");
-        		if(SysData.qLevel.equals("Medium"))
-        			pointsLabalMinus.setText("-20 points");
-        		if(SysData.qLevel.equals("Hard"))
-        			pointsLabalMinus.setText("-30 points");
-    		correctPane.setVisible(false);
-    		questionPane.setVisible(false);
-    	
-    	}
-    	answer1.setDisable(true);
-    	answer2.setDisable(true);
-    	answer3.setDisable(true);
-    	answer4.setDisable(true);
+	@FXML
+	void OkBtnClicked(MouseEvent event) {
+		okBtn.setVisible(false);
+		if (answer1.isDisable())
+			return;
+		if (answerIsCorrect) {
+			timeC.setText("" + countdownStarter);
+			answerFeedback.setText("");
+			SysData.userSelectedCorrectAnswer = true;
+			correctPane.setVisible(true);
+			if (SysData.qLevel.equals("Easy"))
+				pointsLabalPlus.setText("+1 points");
+			if (SysData.qLevel.equals("Medium"))
+				pointsLabalPlus.setText("+2 points");
+			if (SysData.qLevel.equals("Hard"))
+				pointsLabalPlus.setText("+3 points");
+			wrongPane.setVisible(false);
+			questionPane.setVisible(false);
+		} else {
+			answerFeedback.setText("");
+			timeC.setText("" + countdownStarter);
+			SysData.userSelectedCorrectAnswer = false;
+			wrongPane.setVisible(true);
+			if (SysData.qLevel.equals("Easy"))
+				pointsLabalMinus.setText("-10 points");
+			if (SysData.qLevel.equals("Medium"))
+				pointsLabalMinus.setText("-20 points");
+			if (SysData.qLevel.equals("Hard"))
+				pointsLabalMinus.setText("-30 points");
+			correctPane.setVisible(false);
+			questionPane.setVisible(false);
 
-    }
+		}
+		answer1.setDisable(true);
+		answer2.setDisable(true);
+		answer3.setDisable(true);
+		answer4.setDisable(true);
 
-    @FXML
-    void hoverStart(MouseEvent event) {
+	}
 
-    }
-    @FXML
-    void answerClicked(MouseEvent event) {
-    	if(event == null)
-    		return;
-    	if(event.getPickResult().getIntersectedNode().getId() == null)
-    		return;
-      answerIsCorrect = isAnswerCorrect(event.getPickResult().getIntersectedNode().getId());
+	@FXML
+	void hoverStart(MouseEvent event) {
 
-    
+	}
 
+	@FXML
+	void answerClicked(MouseEvent event) {
+		Boolean answer1Selected = answer1.isSelected();
+		Boolean answer2Selected = answer2.isSelected();
+		Boolean answer3Selected = answer3.isSelected();
+		Boolean answer4Selected = answer4.isSelected();
+		String id ="1";
+		if (answer1Selected)
+			id = "1";
+		else if (answer2Selected)
+			id = "2";
+		else if (answer3Selected)
+			id = "3";
+		else if (answer4Selected)
+			id = "4";
+		answerIsCorrect = isAnswerCorrect(id);
 
-    }
-
-
+	}
 
 	private boolean isAnswerCorrect(String id) {
-		int correctAnswerIndex = Integer.parseInt(questionToDisplay.getCorrect_ans())-1;
-		System.out.println("?????????????????"+correctAnswerIndex);
-		
-    	int selectedAnswerIndex = Integer.parseInt(id.replace("answer",""));
-    	if (correctAnswerIndex== selectedAnswerIndex)
-    	return true;
-    	else return false;
-		
+		int correctAnswerIndex = Integer.parseInt(questionToDisplay.getCorrect_ans()) - 1;
+		System.out.println("?????????????????" + correctAnswerIndex);
+
+		int selectedAnswerIndex = Integer.parseInt(id);
+		System.out.println("is correct : " + (correctAnswerIndex == selectedAnswerIndex));
+
+		if (correctAnswerIndex == selectedAnswerIndex)
+			return true;
+		else
+			return false;
+
 	}
-	
+
 	private Image createImage(String img) {
 		InputStream inStream = getClass().getResourceAsStream("/images/" + img + ".png");
 		return new Image(inStream);
