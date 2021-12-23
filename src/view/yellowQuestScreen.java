@@ -160,11 +160,9 @@ public class yellowQuestScreen {
 					}
 				});
 
-				System.out.println(countdownStarter);
 				countdownStarter--;
 
 				if (countdownStarter < 0) {
-					System.out.println("Timer Over!");
 					scheduler.shutdown();
 
 				}
@@ -174,28 +172,23 @@ public class yellowQuestScreen {
 		scheduler.scheduleAtFixedRate(runnable, 0, 1, TimeUnit.SECONDS);
 		// timerLabel.setText(String.valueOf(countdownStarter));
 
+
+		if (SysData.qLevel.equals("Easy")) {
+			levelQuestionsArray = GlobalFuncations.getQuestionsByLevel("1");		
+		}
 		if (SysData.qLevel.equals("Medium")) {
-			levelQuestionsArray = GlobalFuncations.getQuestionsByLevel("2");
-			int index = GlobalFuncations.randomIndex(levelQuestionsArray.size());
-			questionToDisplay = levelQuestionsArray.get(index);
-			String question = questionToDisplay.getQuestion();
-			label.setText(question);
+			levelQuestionsArray = GlobalFuncations.getQuestionsByLevel("2");		
 		}
 		if (SysData.qLevel.equals("Hard")) {
-			levelQuestionsArray = GlobalFuncations.getQuestionsByLevel("3");
-			int index = GlobalFuncations.randomIndex(levelQuestionsArray.size());
-			questionToDisplay = levelQuestionsArray.get(index);
-			String question = questionToDisplay.getQuestion();
-			label.setText(question);
+			levelQuestionsArray = GlobalFuncations.getQuestionsByLevel("3");			
 		}
-		if (SysData.qLevel.equals("Easy")) {
-			levelQuestionsArray = GlobalFuncations.getQuestionsByLevel("1");
-			int index = GlobalFuncations.randomIndex(levelQuestionsArray.size());
-			questionToDisplay = levelQuestionsArray.get(index);
-			String question = questionToDisplay.getQuestion();
-			label.setText(question);
-		}
+		
 
+		int index = GlobalFuncations.randomIndex(levelQuestionsArray.size());
+		questionToDisplay = levelQuestionsArray.get(index);
+		String question = questionToDisplay.getQuestion();
+		label.setText(question);
+		
 		answer1.setText(questionToDisplay.getAnswers()[0]);
 		answer2.setText(questionToDisplay.getAnswers()[1]);
 		answer3.setText(questionToDisplay.getAnswers()[2]);
@@ -247,10 +240,7 @@ public class yellowQuestScreen {
 			questionPane.setVisible(false);
 
 		}
-		answer1.setDisable(true);
-		answer2.setDisable(true);
-		answer3.setDisable(true);
-		answer4.setDisable(true);
+	
 
 	}
 
@@ -280,8 +270,6 @@ public class yellowQuestScreen {
 
 	private boolean isAnswerCorrect(String id) {
 		int correctAnswerIndex = Integer.parseInt(questionToDisplay.getCorrect_ans()) - 1;
-		System.out.println("?????????????????" + correctAnswerIndex);
-
 		int selectedAnswerIndex = Integer.parseInt(id);
 		System.out.println("is correct : " + (correctAnswerIndex == selectedAnswerIndex));
 

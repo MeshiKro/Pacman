@@ -27,7 +27,7 @@ public class Pacman implements KeyListener {
 	public Image[] pac;
 	public int activeImage = 0;
 	public int addFactor = 1;
-public int pacmanSpeed =10;
+public int pacmanSpeed =20;
 	public Point pixelPosition;
 	public Point logicalPosition;
 	public int pacmanSpeedMove =100;
