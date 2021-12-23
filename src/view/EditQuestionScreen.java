@@ -116,7 +116,6 @@ public class EditQuestionScreen {
 		 quesionFromJson = jr.getQuestionFromJson();
 		questionField.setText(quesionFromJson.getQuestion());
 		correctAnsField.setText(getCorrectAnswer(quesionFromJson.getCorrect_ans(), quesionFromJson));
-		System.out.print("(q.getLevel()) " + (quesionFromJson.getLevel()));
 		levelField.getSelectionModel().select(quesionFromJson.getLevel());
 		ArrayList<String> wrongAnswer = getWrongAnswerList(quesionFromJson);
 		wrongAns1.setText(wrongAnswer.get(0));

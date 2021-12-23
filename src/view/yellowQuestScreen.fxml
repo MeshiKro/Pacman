@@ -91,70 +91,11 @@
             </RadioButton>
          </children>
       </Pane>
-      <Pane fx:id="correctPane" layoutX="166.0" layoutY="194.0" prefHeight="313.0" prefWidth="734.0">
-         <children>
-            <ImageView fitHeight="281.0" fitWidth="675.0" layoutX="36.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../images/backG.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="127.0" fitWidth="274.0" layoutX="236.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/greenFrame.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="156.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../images/rightIcon.png" />
-               </image>
-            </ImageView>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="45.0" layoutY="63.0" prefHeight="51.0" prefWidth="675.0" text="Correct answer!" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font size="44.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" layoutX="47.0" layoutY="257.0" prefHeight="35.0" prefWidth="649.0" text="the screen will close and the game will continue in        second" textFill="WHITE">
-               <font>
-                  <Font size="17.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="133.0" prefHeight="51.0" prefWidth="675.0" text="You got" textAlignment="CENTER" textFill="#aae468">
-               <font>
-                  <Font name="Rockwell Extra Bold" size="44.0" />
-               </font>
-               <effect>
-                  <DropShadow>
-                     <color>
-                        <Color blue="1.0" green="1.0" red="1.0" />
-                     </color>
-                  </DropShadow>
-               </effect>
-            </Label>
-            <Label fx:id="pointsLabalPlus" alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="187.0" prefHeight="51.0" prefWidth="675.0" text="+1 points" textAlignment="CENTER" textFill="#aae468">
-               <font>
-                  <Font name="Rockwell Extra Bold" size="28.0" />
-               </font>
-               <effect>
-                  <InnerShadow />
-               </effect>
-            </Label>
-            <Label fx:id="timeC" alignment="CENTER" layoutX="504.0" layoutY="257.0" prefHeight="35.0" prefWidth="56.0" text="15" textFill="WHITE">
-               <font>
-                  <Font size="17.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
       <AnchorPane fx:id="wrongPane" layoutX="171.0" layoutY="196.0" prefHeight="346.0" prefWidth="620.0">
          <children>
-            <ImageView fitHeight="272.0" fitWidth="675.0" layoutX="37.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../images/backG.png" />
-               </image>
-            </ImageView>
             <ImageView fitHeight="150.0" fitWidth="248.0" layoutX="240.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/pinkFrame.png" />
+                  <Image url="@../../images/pinkFrame.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="NONE" />
@@ -167,7 +108,7 @@
             </ImageView>
             <Label fx:id="pointsLabalMinus" alignment="CENTER" contentDisplay="CENTER" layoutX="27.0" layoutY="190.0" prefHeight="51.0" prefWidth="675.0" text="-10 points" textAlignment="CENTER" textFill="#ff3f60">
                <font>
-                  <Font name="Rockwell Extra Bold" size="28.0" />
+                  <Font name="System Bold" size="28.0" />
                </font>
                <effect>
                   <InnerShadow />
@@ -202,5 +143,59 @@
             </Label>
          </children>
       </AnchorPane>
+      <Pane fx:id="correctPane" layoutX="166.0" layoutY="194.0" prefHeight="313.0" prefWidth="734.0">
+         <children>
+            <ImageView fitHeight="281.0" fitWidth="675.0" layoutX="36.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/backG.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="127.0" fitWidth="274.0" layoutX="236.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/greenFrame.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="156.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/rightIcon.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="45.0" layoutY="63.0" prefHeight="51.0" prefWidth="675.0" text="Correct answer!" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="44.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="47.0" layoutY="257.0" prefHeight="35.0" prefWidth="649.0" text="the screen will close and the game will continue in        second" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="35.0" layoutY="126.0" prefHeight="51.0" prefWidth="675.0" text="You got" textAlignment="CENTER" textFill="#aae468">
+               <font>
+                  <Font name="System Bold" size="44.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color blue="1.0" green="1.0" red="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Label>
+            <Label fx:id="pointsLabalPlus" alignment="CENTER" contentDisplay="CENTER" layoutX="34.0" layoutY="187.0" prefHeight="51.0" prefWidth="675.0" text="+1 points" textAlignment="CENTER" textFill="#aae468">
+               <font>
+                  <Font name="System Bold" size="28.0" />
+               </font>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </Label>
+            <Label fx:id="timeC" alignment="CENTER" layoutX="504.0" layoutY="257.0" prefHeight="35.0" prefWidth="56.0" text="15" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
