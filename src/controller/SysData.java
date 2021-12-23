@@ -658,11 +658,27 @@ public static boolean userSelectedCorrectAnswer = false;
 	                    Ghost.stopScreenForQ=false;
 	                    pacman.moveTimer.start();
 	                    frame.dispose();
+	                    if(questionLevel.equals("Easy")) {
 	                    if(userSelectedCorrectAnswer)
-	        	        	score +=10;
+	        	        	score +=1;
 	        	        else
 	        	        	score-=10;
 	                    userSelectedCorrectAnswer = false;
+	                    }
+	                    if(questionLevel.equals("Medium")) {
+		                    if(userSelectedCorrectAnswer)
+		        	        	score +=2;
+		        	        else
+		        	        	score-=20;
+		                    userSelectedCorrectAnswer = false;
+		                    }
+	                    if(questionLevel.equals("Hard")) {
+		                    if(userSelectedCorrectAnswer)
+		        	        	score +=3;
+		        	        else
+		        	        	score-=30;
+		                    userSelectedCorrectAnswer = false;
+		                    }
 	            }    
 	        });
 	        timer.start();
