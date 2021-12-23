@@ -109,8 +109,7 @@ public class SysData extends JPanel {
 		m_x = md.getX();
 		m_y = md.getY();
 		
-		System.out.print(m_x);
-		System.out.print(m_y);
+	
 		this.map = md.getMap();
 
 		this.isCustom = md.isCustom();

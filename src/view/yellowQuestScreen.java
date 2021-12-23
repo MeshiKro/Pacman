@@ -249,7 +249,6 @@ public class yellowQuestScreen {
 	private boolean isAnswerCorrect(String id) {
 		int correctAnswerIndex = Integer.parseInt(questionToDisplay.getCorrect_ans()) - 1;
 		int selectedAnswerIndex = Integer.parseInt(id);
-		System.out.println("is correct : " + (correctAnswerIndex == selectedAnswerIndex));
 
 		if (correctAnswerIndex == selectedAnswerIndex)
 			return true;

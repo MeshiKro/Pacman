@@ -29,12 +29,9 @@ public class JsonRead implements Observer {
 		questionsAndAnswers.clear();
 		Path root = FileSystems.getDefault().getPath("").toAbsolutePath();
 		Path filePath = Paths.get(root.toString(), "QuestionBank.json");
-		System.out.println(filePath);
 		String text = "";
 		try {
 			try {
-				System.out.println(Paths.get("QuestionBank.json"));
-
 				text = new String(Files.readAllBytes(Paths.get("QuestionBank.json")), StandardCharsets.UTF_8);
 			} catch (Exception e) {
 				 root = FileSystems.getDefault().getPath("").toAbsolutePath();

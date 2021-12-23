@@ -97,7 +97,6 @@ public class MapEditor extends JFrame {
 	public static MapData compileMap(String input) {
 		int mx = input.indexOf('\n');
 		int my = StringHelper.countLines(input);
-		System.out.println("Making Map " + mx + "x" + my);
 
 		MapData customMap = new MapData(mx, my);
 		customMap.setCustom(true);

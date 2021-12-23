@@ -19,16 +19,20 @@ public class Main extends Application {
 
 		JsonRead JR = new JsonRead();
 		JsonRead.questionsAndAnswers = JR.readQuestionsFromJson();
+		
+		if(ruuningThorthJar())
+			runJarCommand();
+		printPacmanByScorption();
+		//launch(args);
 	}
 
-	private static void runJarCommand(String[] args) {
+	private static void runJarCommand() {
 		 try {
 			 Runtime.
 			   getRuntime().
 			   exec("cmd /c start \"\" run.bat");
 		} catch (IOException e) {
 			System.out.print(e.getMessage());
-			launch(args);
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -37,17 +41,51 @@ public class Main extends Application {
 
 	}
 
-	private static String getCommand() {
-		// TODO Auto-generated method stub
-		return "java -jar --module-path \"javafx-sdk-11.0.2\\lib\" --add-modules=javafx.controls,javafx.fxml,javafx.swing game.jar";
-	}
+	
 
 	public static boolean ruuningThorthJar() {
 
 		String res = Main.class.getResource("Main.class").toString().substring(0, 4);
-		System.out.println(res);
+		printPacmanByScorption();
+	
 
 		return res.equals("rsrc");
+	}
+
+	private static void printPacmanByScorption() {
+		System.out.println("     .-.   .-.    \r\n"
+				+ "    | OO| | OO|    o  o  o \r\n"
+				+ "    |   | |   |   \r\n"
+				+ "    '^^^' '^^^'   \r\n"
+				+ "  _____                                   ____                              \r\n"
+				+ " |  __ \\                                 |  _ \\                             \r\n"
+				+ " | |__) |_ _  ___ _ __ ___   __ _ _ __   | |_) |_   _                       \r\n"
+				+ " |  ___/ _` |/ __| '_ ` _ \\ / _` | '_ \\  |  _ <| | | |                      \r\n"
+				+ " | |  | (_| | (__| | | | | | (_| | | | | | |_) | |_| |                      \r\n"
+				+ " |_|   \\__,_|\\___|_| |_| |_|\\__,_|_| |_| |____/ \\__, |                      \r\n"
+				+ "                                                 __/ |                      \r\n"
+				+ "   _____                      _   _             |___/____                   \r\n"
+				+ "  / ____|                    | | (_)             |__   __|                  \r\n"
+				+ " | (___   ___ ___  _ __ _ __ | |_ _  ___  _ __      | | ___  __ _ _ __ ___  \r\n"
+				+ "  \\___ \\ / __/ _ \\| '__| '_ \\| __| |/ _ \\| '_ \\     | |/ _ \\/ _` | '_ ` _ \\ \r\n"
+				+ "  ____) | (_| (_) | |  | |_) | |_| | (_) | | | |    | |  __/ (_| | | | | | |\r\n"
+				+ " |_____/ \\___\\___/|_|  | .__/ \\__|_|\\___/|_| |_|    |_|\\___|\\__,_|_| |_| |_|\r\n"
+				+ "                       | |                                                  \r\n"
+				+ "                       |_|                                                  \r\n"
+				+ "\r\n"
+				+ " ___    ___\r\n"
+				+ "( _<    >_ )\r\n"
+				+ "//        \\\\\r\n"
+				+ "\\\\___..___//\r\n"
+				+ " `-(    )-'\r\n"
+				+ "   _|__|_\r\n"
+				+ "  /_|__|_\\\r\n"
+				+ "  /_|__|_\\\r\n"
+				+ "  /_\\__/_\\\r\n"
+				+ "   \\ || /  _)\r\n"
+				+ "     ||   ( )\r\n"
+				+ "     \\\\___//\r\n"
+				+ "      `---'");		
 	}
 
 	public void start(Stage primaryStage) throws Exception {
