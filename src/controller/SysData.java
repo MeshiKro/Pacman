@@ -467,10 +467,16 @@ public static boolean userSelectedCorrectAnswer = false;
 			break;
 		case 2:
 		{		// Eat  Question - Hard Question
+		
 
 			int fx2=puFoodToEat.position.x;
 			int fy2=puFoodToEat.position.y;
 			pufoods.remove(puFoodToEat);
+			
+			stopScreenForQuestion();
+			Ghost.stopScreenForQ=true;
+			openQuestionScreen("Hard");
+			
 			Point newH=PositionLottery2();
 			int qx2=(int) newH.getX();
 			int qy2=(int) newH.getY();
@@ -479,20 +485,19 @@ public static boolean userSelectedCorrectAnswer = false;
 	            public void run() {
 	            	pufoods.add(new Bomb(qx2, qy2,2));
 	            	for (Food f : foods) {
-	        			if(f.position.x==qx2 && f.position.y==qy2)
+	        			if(f.position.x==qx2 && f.position.y==qy2) {
 	        			foods.remove(f);
-	        			System.out.print("23452345");
+	        			System.out.print(" ");
+	        			}
 
-	        		}
-	            	
-	            	
+	        		}	
 	            }
-	        };
+	        };	        
 	        foods.add(new Food( fx2, fy2));
 	        schedulerBomb2.schedule(taskBomb2, createFoodDelay, TimeUnit.SECONDS);
 	        schedulerBomb2.shutdown();
 	        isHardQuestionEat=true;
-	        scoreToAdd = 1;
+	    //    scoreToAdd = 1;
 	        drawScore = true;
 	        break;
 		}
@@ -508,6 +513,7 @@ public static boolean userSelectedCorrectAnswer = false;
 			Point newM=PositionLottery3();
 			int qx3=(int)newM.getX();
 			int qy3=(int)newM.getY();
+			
 			ScheduledExecutorService schedulerBomb3 = Executors.newSingleThreadScheduledExecutor();
 			Runnable taskBomb3 = new Runnable() {
 	            public void run() {
@@ -515,11 +521,10 @@ public static boolean userSelectedCorrectAnswer = false;
 	            	for (Food f : foods) {
 	        			if(f.position.x==qx3 && f.position.y==qy3) {
 	        			foods.remove(f);
-	        			System.out.print("Eat Orange Question");
+	        			System.out.print(" ");
 	        	
 	        			}
 	        		}
-	            	
 	            }
 	        };
 	        foods.add(new Food( fx3, fy3));
@@ -537,6 +542,9 @@ public static boolean userSelectedCorrectAnswer = false;
 			int fx4=puFoodToEat.position.x;
 			int fy4=puFoodToEat.position.y;
 			pufoods.remove(puFoodToEat);
+			stopScreenForQuestion();
+			Ghost.stopScreenForQ=true;
+			openQuestionScreen("Easy");
 			Point newE=PositionLottery4();
 			int qx4=(int)newE.getX();
 			int qy4=(int)newE.getY();
@@ -545,9 +553,10 @@ public static boolean userSelectedCorrectAnswer = false;
 	            public void run() {
 	            	pufoods.add(new Bomb(qx4, qy4,4));
 	            	for (Food f : foods) {
-	        			if(f.position.x==qx4 && f.position.y==qy4)
+	        			if(f.position.x==qx4 && f.position.y==qy4) {
 	        			foods.remove(f);
-	        			System.out.print("sdfgdsfffffffffffffffffffg");
+	        			System.out.print(" ");
+	        			}
 
 	        		}
 	            	
@@ -623,6 +632,11 @@ public static boolean userSelectedCorrectAnswer = false;
 				try {
 					if(questionLevel.equals("Medium"))
 					root = FXMLLoader.load(getClass().getResource("/view/yellowQuestScreen.fxml"));
+					if(questionLevel.equals("Easy"))
+						root = FXMLLoader.load(getClass().getResource("/view/yellowQuestScreen.fxml"));
+					if(questionLevel.equals("Hard"))
+						root = FXMLLoader.load(getClass().getResource("/view/yellowQuestScreen.fxml"));
+					
 				} catch (Exception e1) {
 				
 					e1.printStackTrace();
@@ -644,16 +658,18 @@ public static boolean userSelectedCorrectAnswer = false;
 	                    Ghost.stopScreenForQ=false;
 	                    pacman.moveTimer.start();
 	                    frame.dispose();
+	                    if(userSelectedCorrectAnswer)
+	        	        	score +=10;
+	        	        else
+	        	        	score-=10;
+	                    userSelectedCorrectAnswer = false;
 	            }    
 	        });
 	        timer.start();
 	        
-	        if(userSelectedCorrectAnswer)
-	        	score +=10;
-	        else
-	        	score-=10;
+
 	        
-	        userSelectedCorrectAnswer = false;
+	        
 	}
 
 	private void stopScreen() {

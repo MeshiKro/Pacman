@@ -42,27 +42,27 @@
       </ImageView>
       <Label fx:id="label" alignment="CENTER" contentDisplay="CENTER" layoutX="197.0" layoutY="205.0" prefHeight="51.0" prefWidth="675.0" text="what is Agile?" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="35.0" />
+            <Font size="32.0" />
          </font>
       </Label>
-      <RadioButton fx:id="answer1" layoutX="253.0" layoutY="275.0" mnemonicParsing="false" onMouseClicked="#answerClicked" prefHeight="35.0" prefWidth="623.0" text="iterative approach to software delivery that builds.. " textFill="WHITE">
+      <RadioButton fx:id="answer1" layoutX="207.0" layoutY="270.0" mnemonicParsing="false" onMouseClicked="#answerClicked" prefHeight="35.0" prefWidth="649.0" text="iterative approach to software delivery that builds.. " textFill="WHITE">
          <font>
-            <Font size="20.0" />
+            <Font size="15.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="answer2" layoutX="252.0" layoutY="327.0" mnemonicParsing="false" onMouseClicked="#answerClicked" prefHeight="35.0" prefWidth="623.0" text="treats analysis, design, coding, and testing as discrete.." textFill="WHITE">
+      <RadioButton fx:id="answer2" layoutX="206.0" layoutY="319.0" mnemonicParsing="false" onMouseClicked="#answerClicked" prefHeight="35.0" prefWidth="656.0" text="treats analysis, design, coding, and testing as discrete.." textFill="WHITE">
          <font>
-            <Font size="20.0" />
+            <Font size="15.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="answer3" layoutX="252.0" layoutY="381.0" mnemonicParsing="false" onMouseClicked="#answerClicked" prefHeight="35.0" prefWidth="623.0" text="a name of an angel" textFill="WHITE">
+      <RadioButton fx:id="answer3" layoutX="206.0" layoutY="369.0" mnemonicParsing="false" onMouseClicked="#answerClicked" prefHeight="35.0" prefWidth="649.0" text="a name of an angel" textFill="WHITE">
          <font>
-            <Font size="20.0" />
+            <Font size="15.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="answer4" layoutX="252.0" layoutY="433.0" mnemonicParsing="false" onMouseClicked="#answerClicked" prefHeight="35.0" prefWidth="630.0" text="kind of development plan" textFill="WHITE">
+      <RadioButton fx:id="answer4" layoutX="206.0" layoutY="419.0" mnemonicParsing="false" onMouseClicked="#answerClicked" prefHeight="35.0" prefWidth="656.0" text="kind of development plan" textFill="WHITE">
          <font>
-            <Font size="20.0" />
+            <Font size="15.0" />
          </font>
       </RadioButton>
       <Label fx:id="timerLabel" layoutX="931.0" layoutY="74.0" text="15" textFill="#d33f00">

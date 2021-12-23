@@ -13,6 +13,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+import javax.swing.ImageIcon;
 import javax.swing.Timer;
 
 import controller.SysData;
@@ -109,10 +110,7 @@ public class yellowQuestScreen {
               }*/
    /*       }
       }; */
-   
-    
-	
-
+  
 	
 	public void initialize() {
 		
@@ -123,6 +121,7 @@ public class yellowQuestScreen {
 		meg.setText("easy question");
 		meg.setStyle("-fx-text-fill:  #ffffff;");
 		}
+		
 		if(SysData.qLevel.equals("Medium")){
 			Image img = createImage("question-shield-512 (2)");
 			qImg.setImage(img);
@@ -188,14 +187,28 @@ public class yellowQuestScreen {
 	
 		 scheduler.scheduleAtFixedRate(runnable, 0, 1, TimeUnit.SECONDS);
 	//	  	timerLabel.setText(String.valueOf(countdownStarter));
-	
+		 
+	if(SysData.qLevel.equals("Medium")){
 	levelQuestionsArray =GlobalFuncations.getQuestionsByLevel("2");
 	int index = GlobalFuncations.randomIndex(levelQuestionsArray.size());
-	
 	 questionToDisplay =levelQuestionsArray.get(index);
 	String question = questionToDisplay.getQuestion();
-
 	label.setText(question);
+	}
+	if(SysData.qLevel.equals("Hard")){
+	levelQuestionsArray =GlobalFuncations.getQuestionsByLevel("3");
+	int index = GlobalFuncations.randomIndex(levelQuestionsArray.size());
+	 questionToDisplay =levelQuestionsArray.get(index);
+	String question = questionToDisplay.getQuestion();
+	label.setText(question);
+	}
+	if(SysData.qLevel.equals("Easy")){
+	levelQuestionsArray =GlobalFuncations.getQuestionsByLevel("1");
+	int index = GlobalFuncations.randomIndex(levelQuestionsArray.size());
+	 questionToDisplay =levelQuestionsArray.get(index);
+	String question = questionToDisplay.getQuestion();
+	label.setText(question);
+	}
 	
 	answer1.setText(questionToDisplay.getAnswers()[0]);
 	answer2.setText(questionToDisplay.getAnswers()[1]);
@@ -213,7 +226,7 @@ public class yellowQuestScreen {
         public void actionPerformed(ActionEvent evt) {
 	
         	//timerLabel.setText(String.valueOf(interval));
-        	System.out.println(interval);
+      //  	System.out.println(interval);
         	
         	if (interval == 0)
     			try {
@@ -280,8 +293,12 @@ public class yellowQuestScreen {
 
 	private boolean isAnswerCorrect(String id) {
 		int correctAnswerIndex = Integer.parseInt(questionToDisplay.getCorrect_ans())-1;
+		System.out.println("?????????????????"+correctAnswerIndex);
+		
     	int selectedAnswerIndex = Integer.parseInt(id.replace("answer",""));
-    	return correctAnswerIndex== selectedAnswerIndex;
+    	if (correctAnswerIndex== selectedAnswerIndex)
+    	return true;
+    	else return false;
 		
 	}
 	
