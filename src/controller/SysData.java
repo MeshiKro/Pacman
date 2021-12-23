@@ -110,13 +110,16 @@ public class SysData extends JPanel {
 		md_backup = md;
 		windowParent = pw;
 
+
 		m_x = md.getX();
 		m_y = md.getY();
+		
+		System.out.print(m_x);
+		System.out.print(m_y);
 		this.map = md.getMap();
 
 		this.isCustom = md.isCustom();
 		this.ghostBase = md.getGhostBasePosition();
-		SysData.questions = JsonRead.questionsAndAnswers;
 
 		pacman = new Pacman(md.getPacmanPosition().x, md.getPacmanPosition().y, this);
 		addKeyListener(pacman);
@@ -160,6 +163,7 @@ public class SysData extends JPanel {
 		teleports = md.getTeleports();
 
 		setLayout(null);
+		
 		setSize(20 * m_x, 20 * m_y);
 		setBackground(Color.black);
 

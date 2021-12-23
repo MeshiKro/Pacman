@@ -222,8 +222,6 @@ public int pacmanSpeed =20;
 
 	public void changePacmanColor(String color) {
 		try {
-			System.err.println("path " + this.getClass().getResource("/resources/images/pac/Purplepac0.png"));
-
 			String path = this.getClass().getResource("/resources/images/pac/" + color + "pac0.png").toString();
 
 			pac[0] = ImageIO.read(this.getClass().getResource("/resources/images/pac/" + color + "pac0.png"));
