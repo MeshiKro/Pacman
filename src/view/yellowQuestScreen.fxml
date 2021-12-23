@@ -12,11 +12,11 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #2c2929;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.yellowQuestScreen">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #2c2929;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.yellowQuestScreen">
    <children>
       <ImageView fx:id="okBtn" fitHeight="82.0" fitWidth="212.0" layoutX="428.0" layoutY="511.0" onMouseClicked="#OkBtnClicked" onMouseEntered="#hoverStart" onMouseExited="#HoverEnd">
          <image>
-            <Image url="@../images/answer.png" />
+            <Image url="@../../images/answer.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="326.0" fitWidth="734.0" layoutX="171.0" layoutY="185.0">
@@ -105,7 +105,7 @@
             </ImageView>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="156.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/—Pngtree—hand-held%20signage%20right%20or%20wrong_5770019%20(2).png" />
+                  <Image url="@../../images/rightIcon.png" />
                </image>
             </ImageView>
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="45.0" layoutY="63.0" prefHeight="51.0" prefWidth="675.0" text="Correct answer!" textAlignment="CENTER" textFill="WHITE">
@@ -125,7 +125,7 @@
                <effect>
                   <DropShadow>
                      <color>
-                        <Color red="1.0" green="1.0" blue="1.0" />
+                        <Color blue="1.0" green="1.0" red="1.0" />
                      </color>
                   </DropShadow>
                </effect>
@@ -162,7 +162,7 @@
             </ImageView>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="152.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/—Pngtree—hand-held%20signage%20right%20or%20wrong_5770019%20(1).png" />
+                  <Image url="@../../images/wrongIcon.png" />
                </image>
             </ImageView>
             <Label fx:id="pointsLabalMinus" alignment="CENTER" contentDisplay="CENTER" layoutX="27.0" layoutY="190.0" prefHeight="51.0" prefWidth="675.0" text="-10 points" textAlignment="CENTER" textFill="#ff3f60">
@@ -190,7 +190,7 @@
                <effect>
                   <DropShadow>
                      <color>
-                        <Color red="1.0" green="1.0" blue="1.0" />
+                        <Color blue="1.0" green="1.0" red="1.0" />
                      </color>
                   </DropShadow>
                </effect>
