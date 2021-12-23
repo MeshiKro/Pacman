@@ -44,7 +44,7 @@
             <Image url="@../images/question-shield-512%20(2).png" />
          </image>
       </ImageView>
-      <Label fx:id="timerLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="892.0" layoutY="49.0" text="15" textAlignment="CENTER" textFill="#d33f00">
+      <Label fx:id="timerLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="868.0" layoutY="49.0" prefHeight="58.0" prefWidth="92.0" text="15" textAlignment="CENTER" textFill="#d33f00">
          <font>
             <Font name="System Bold" size="40.0" />
          </font>
