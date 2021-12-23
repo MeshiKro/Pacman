@@ -4,8 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Point;
-import java.awt.Rectangle;
+
 //import javafx.scene.input.MouseEvent;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
@@ -18,7 +17,7 @@ import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
-import javax.swing.JDialog;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -93,7 +92,7 @@ public class PacWindow extends JFrame {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		JLabel picLabel2 = new JLabel(new ImageIcon(homePicture));
+		JLabel picLabel2 = new JLabel();
 		picLabel2.setHorizontalAlignment(JLabel.LEFT);
 
 		picLabel2.addMouseListener(new MouseInputAdapter() {

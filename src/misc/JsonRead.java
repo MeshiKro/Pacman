@@ -1,7 +1,9 @@
 package misc;
 
 import java.nio.charset.StandardCharsets;
+import java.nio.file.FileSystems;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Observable;
@@ -13,21 +15,36 @@ import org.json.JSONObject;
 import model.QuestionInJson;
 
 import model.ScoreboardRecord;
-import view.EditQuestionScreen;
+
 import view.MainScreen;
 import view.QuestionsListScreen;
 
-public class JsonRead  implements Observer {
+@SuppressWarnings("deprecation")
+public class JsonRead implements Observer {
 
 	public static ArrayList<QuestionInJson> questionsAndAnswers = new ArrayList<QuestionInJson>();
 
 	public ArrayList<QuestionInJson> readQuestionsFromJson() {
 
 		questionsAndAnswers.clear();
-
+		Path root = FileSystems.getDefault().getPath("").toAbsolutePath();
+		Path filePath = Paths.get(root.toString(), "QuestionBank.json");
+		System.out.println(filePath);
+		String text = "";
 		try {
-			String text = new String(Files.readAllBytes(Paths.get("QuestionBank.json")), StandardCharsets.UTF_8);
-			// System.out.println(text);
+			try {
+				System.out.println(Paths.get("QuestionBank.json"));
+
+				text = new String(Files.readAllBytes(Paths.get("QuestionBank.json")), StandardCharsets.UTF_8);
+			} catch (Exception e) {
+				 root = FileSystems.getDefault().getPath("").toAbsolutePath();
+				 filePath = Paths.get(root.toString(), "QuestionBank.json");
+				System.out.println(filePath);
+				text = new String(Files.readAllBytes(filePath), StandardCharsets.UTF_8);
+
+			}
+			//System.out.println(text);
+			System.out.println();
 			JSONObject obj = new JSONObject(text);
 			JSONArray arr = obj.getJSONArray("questions");
 			for (int i = 0; i < arr.length(); i++) {
@@ -49,10 +66,8 @@ public class JsonRead  implements Observer {
 		return questionsAndAnswers;
 
 	}
-	
 
 	public QuestionInJson getQuestionFromJson() {
-		String question = QuestionsListScreen.questionToEdit;
 
 		for (int i = 0; i < questionsAndAnswers.size(); i++) {
 			if (questionsAndAnswers.get(i).getQuestion().equals(QuestionsListScreen.questionString))
@@ -105,27 +120,25 @@ public class JsonRead  implements Observer {
 		try {
 			String text = new String(Files.readAllBytes(Paths.get("Config.json")), StandardCharsets.UTF_8);
 
-			String mute= new JSONObject(text).getString("isMute");
-			if(mute.equals("true"))
+			String mute = new JSONObject(text).getString("isMute");
+			if (mute.equals("true"))
 				MainScreen.isMute = true;
 			else
 				MainScreen.isMute = false;
 
 			GlobalFuncations.username = new JSONObject(text).getString("username");
 
-
 			return true;
 		} catch (Exception ex) {
-			//System.out.println(ex.toString());
+			// System.out.println(ex.toString());
 			return false;
 		}
 
 	}
 
-
 	@Override
-	public void update(Observable o, Object arg) {
+	public void update(@SuppressWarnings("deprecation") Observable o, Object arg) {
 		questionsAndAnswers.clear();
-		readQuestionsFromJson() ;		
+		readQuestionsFromJson();
 	}
 }

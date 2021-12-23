@@ -54,7 +54,6 @@ public class JsonWriterEx extends Observable {
 	}
 
 	public void deleteQuestion() {
-		String question = QuestionsListScreen.questionToDelete;
 		
 		questions qu = new questions();
 		qu.questions =  JsonRead.questionsAndAnswers;
