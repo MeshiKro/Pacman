@@ -1,1 +1,1 @@
-java -jar --module-path "javafx-sdk-11.0.2\lib" --add-modules=javafx.controls,javafx.fxml,javafx.swing tetttrrst.jar 
+java -jar --module-path "javafx-sdk-11.0.2\lib" --add-modules=javafx.controls,javafx.fxml,javafx.swing game.jar 
