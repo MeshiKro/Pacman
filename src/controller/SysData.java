@@ -648,6 +648,7 @@ public static boolean userSelectedCorrectAnswer = false;
 	        frame.add(jfxPanel);
 	        frame.setSize(1060, 650); 
 	        frame.setLocationRelativeTo(null); // this method display the JFrame to center position of a screen
+	        frame.setIconImage(new ImageIcon("./resources/images/pac/pac2.png").getImage());
 	        frame.setVisible(true);	
 	        
 	         timer = new Timer(15000, new ActionListener() {

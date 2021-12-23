@@ -24,7 +24,7 @@
             <Image url="@../../images/Rectangle.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="97.0" fitWidth="97.0" layoutX="906.0" layoutY="54.0">
+      <ImageView fitHeight="97.0" fitWidth="97.0" layoutX="867.0" layoutY="29.0">
          <image>
             <Image url="@../../images/buttonconinter.png" />
          </image>
@@ -44,7 +44,7 @@
             <Image url="@../images/question-shield-512%20(2).png" />
          </image>
       </ImageView>
-      <Label fx:id="timerLabel" layoutX="931.0" layoutY="74.0" text="15" textFill="#d33f00">
+      <Label fx:id="timerLabel" layoutX="892.0" layoutY="49.0" text="15" textFill="#d33f00">
          <font>
             <Font name="System Bold" size="40.0" />
          </font>
@@ -57,58 +57,6 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <AnchorPane fx:id="wrongPane" layoutX="171.0" layoutY="196.0" prefHeight="346.0" prefWidth="620.0">
-         <children>
-            <ImageView fitHeight="272.0" fitWidth="675.0" layoutX="37.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../images/backG.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="248.0" layoutX="240.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/pinkFrame.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="NONE" />
-               </cursor>
-            </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="152.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/—Pngtree—hand-held%20signage%20right%20or%20wrong_5770019%20(1).png" />
-               </image>
-            </ImageView>
-            <Label fx:id="pointsLabalMinus" alignment="CENTER" contentDisplay="CENTER" layoutX="27.0" layoutY="185.0" prefHeight="51.0" prefWidth="675.0" text="-10 points" textAlignment="CENTER" textFill="#ff3f60">
-               <font>
-                  <Font name="Rockwell Extra Bold" size="28.0" />
-               </font>
-               <effect>
-                  <InnerShadow />
-               </effect>
-            </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="35.0" layoutY="61.0" prefHeight="51.0" prefWidth="675.0" text="Wrong answer!" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font size="44.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" layoutX="37.0" layoutY="255.0" prefHeight="35.0" prefWidth="649.0" text="the screen will close and the game will continue in -15- second" textFill="WHITE">
-               <font>
-                  <Font size="17.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="131.0" prefHeight="51.0" prefWidth="675.0" text="You lost" textAlignment="CENTER" textFill="#ff3f60">
-               <font>
-                  <Font name="Rockwell Extra Bold" size="44.0" />
-               </font>
-               <effect>
-                  <DropShadow>
-                     <color>
-                        <Color red="1.0" green="1.0" blue="1.0" />
-                     </color>
-                  </DropShadow>
-               </effect>
-            </Label>
-         </children>
-      </AnchorPane>
       <Pane fx:id="questionPane" layoutX="171.0" layoutY="192.0" prefHeight="346.0" prefWidth="798.0">
          <children>
             <ImageView fitHeight="272.0" fitWidth="675.0" layoutX="37.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
@@ -165,7 +113,7 @@
                   <Font size="44.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="47.0" layoutY="257.0" prefHeight="35.0" prefWidth="649.0" text="the screen will close and the game will continue in -15- second" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="47.0" layoutY="257.0" prefHeight="35.0" prefWidth="649.0" text="the screen will close and the game will continue in        second" textFill="WHITE">
                <font>
                   <Font size="17.0" />
                </font>
@@ -190,7 +138,69 @@
                   <InnerShadow />
                </effect>
             </Label>
+            <Label fx:id="timeC" alignment="CENTER" layoutX="504.0" layoutY="257.0" prefHeight="35.0" prefWidth="56.0" text="15" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
+      <AnchorPane fx:id="wrongPane" layoutX="171.0" layoutY="196.0" prefHeight="346.0" prefWidth="620.0">
+         <children>
+            <ImageView fitHeight="272.0" fitWidth="675.0" layoutX="37.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/backG.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="248.0" layoutX="240.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/pinkFrame.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="NONE" />
+               </cursor>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="152.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/—Pngtree—hand-held%20signage%20right%20or%20wrong_5770019%20(1).png" />
+               </image>
+            </ImageView>
+            <Label fx:id="pointsLabalMinus" alignment="CENTER" contentDisplay="CENTER" layoutX="27.0" layoutY="185.0" prefHeight="51.0" prefWidth="675.0" text="-10 points" textAlignment="CENTER" textFill="#ff3f60">
+               <font>
+                  <Font name="Rockwell Extra Bold" size="28.0" />
+               </font>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="35.0" layoutY="61.0" prefHeight="51.0" prefWidth="675.0" text="Wrong answer!" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="44.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="37.0" layoutY="255.0" prefHeight="35.0" prefWidth="649.0" text="the screen will close and the game will continue in        second" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="131.0" prefHeight="51.0" prefWidth="675.0" text="You lost" textAlignment="CENTER" textFill="#ff3f60">
+               <font>
+                  <Font name="Rockwell Extra Bold" size="44.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Label>
+            <Label fx:id="timeW" alignment="CENTER" layoutX="493.0" layoutY="256.0" prefHeight="35.0" prefWidth="56.0" text="15" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

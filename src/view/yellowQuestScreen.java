@@ -89,6 +89,13 @@ public class yellowQuestScreen {
     @FXML
     private ImageView qImg;
 
+    @FXML
+    private Label timeC;
+
+    @FXML
+    private Label timeW;
+    
+   private static  int countdownStarter = 15;
     
     private String path;
     private MediaPlayer mediaPlayer;
@@ -127,10 +134,13 @@ public class yellowQuestScreen {
   
 	
 	public void initialize() {
+
+		
 		okBtn.setVisible(true);
 		questionPane.setVisible(true);
 		correctPane.setVisible(false);
 		wrongPane.setVisible(false);
+		
 		//adjustment to the level of the question
 		if(SysData.qLevel.equals("Easy")){
 		Image img = createImage("question-shield-512");
@@ -144,8 +154,6 @@ public class yellowQuestScreen {
 			qImg.setImage(img);
 			meg.setText("medium question");
 			meg.setStyle("-fx-text-fill: #ffa500;");
-			
-		
 		}
 
 		if(SysData.qLevel.equals("Hard")){
@@ -188,7 +196,7 @@ public class yellowQuestScreen {
 	 final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 	
       final Runnable runnable = new Runnable() {
-          int countdownStarter = 15;
+     
           @FXML
           public void run() {
           //	timerLabel.setText(""+countdownStarter);
@@ -275,16 +283,30 @@ public class yellowQuestScreen {
     	if(answer1.isDisable())
     		return;
     	if(answerIsCorrect) {
-    		answerFeedback.setText("answer coorect");
+    		timeC.setText(""+countdownStarter);
+    		answerFeedback.setText("");
     		SysData.userSelectedCorrectAnswer = true;
     		correctPane.setVisible(true);
+    		if(SysData.qLevel.equals("Easy"))
+    		pointsLabalPlus.setText("+1 points");
+    		if(SysData.qLevel.equals("Medium"))
+        		pointsLabalPlus.setText("+2 points");
+    		if(SysData.qLevel.equals("Hard"))
+        		pointsLabalPlus.setText("+3 points");
     		wrongPane.setVisible(false);
     		questionPane.setVisible(false);
     	}
     	else {
     		answerFeedback.setText("");
+    		timeC.setText(""+countdownStarter);
     		SysData.userSelectedCorrectAnswer = false;
     		wrongPane.setVisible(true);
+    		if(SysData.qLevel.equals("Easy"))
+    			pointsLabalMinus.setText("-10 points");
+        		if(SysData.qLevel.equals("Medium"))
+        			pointsLabalMinus.setText("-20 points");
+        		if(SysData.qLevel.equals("Hard"))
+        			pointsLabalMinus.setText("-30 points");
     		correctPane.setVisible(false);
     		questionPane.setVisible(false);
     	
