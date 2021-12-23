@@ -30,6 +30,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
@@ -53,6 +54,19 @@ public class yellowQuestScreen {
 
     @FXML
     private RadioButton answer4;
+    @FXML
+    private Label pointsLabalMinus;
+
+    @FXML
+    private Label pointsLabalPlus;
+    @FXML
+    private Pane questionPane;
+
+    @FXML
+    private AnchorPane wrongPane;
+
+    @FXML
+    private Pane correctPane;
 
     @FXML
     private Label label;
@@ -113,7 +127,10 @@ public class yellowQuestScreen {
   
 	
 	public void initialize() {
-		
+		okBtn.setVisible(true);
+		questionPane.setVisible(true);
+		correctPane.setVisible(false);
+		wrongPane.setVisible(false);
 		//adjustment to the level of the question
 		if(SysData.qLevel.equals("Easy")){
 		Image img = createImage("question-shield-512");
@@ -254,16 +271,23 @@ public class yellowQuestScreen {
 
     @FXML
     void OkBtnClicked(MouseEvent event) {
+    	okBtn.setVisible(false);
     	if(answer1.isDisable())
     		return;
     	if(answerIsCorrect) {
     		answerFeedback.setText("answer coorect");
     		SysData.userSelectedCorrectAnswer = true;
+    		correctPane.setVisible(true);
+    		wrongPane.setVisible(false);
+    		questionPane.setVisible(false);
     	}
     	else {
-    		answerFeedback.setText("answer not correct!!");
+    		answerFeedback.setText("");
     		SysData.userSelectedCorrectAnswer = false;
-
+    		wrongPane.setVisible(true);
+    		correctPane.setVisible(false);
+    		questionPane.setVisible(false);
+    	
     	}
     	answer1.setDisable(true);
     	answer2.setDisable(true);
