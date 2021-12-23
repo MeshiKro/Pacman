@@ -97,7 +97,7 @@ public class SysData extends JPanel {
 
 	private BufferedImage levelupImage;
 
-	private Timer timer;
+	public Timer timer;
 
 	public SysData(JLabel scoreboard, MapData md, PacWindow pw) {
 		this.scoreboard = scoreboard;

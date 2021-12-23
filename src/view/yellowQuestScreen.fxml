@@ -12,7 +12,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #2c2929;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.yellowQuestScreen">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #2c2929;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.yellowQuestScreen">
    <children>
       <ImageView fx:id="okBtn" fitHeight="82.0" fitWidth="212.0" layoutX="428.0" layoutY="511.0" onMouseClicked="#OkBtnClicked" onMouseEntered="#hoverStart" onMouseExited="#HoverEnd">
          <image>
@@ -131,7 +131,7 @@
                <effect>
                   <DropShadow>
                      <color>
-                        <Color blue="1.0" green="1.0" red="1.0" />
+                        <Color red="1.0" green="1.0" blue="1.0" />
                      </color>
                   </DropShadow>
                </effect>
@@ -177,7 +177,7 @@
                <effect>
                   <DropShadow>
                      <color>
-                        <Color blue="1.0" green="1.0" red="1.0" />
+                        <Color red="1.0" green="1.0" blue="1.0" />
                      </color>
                   </DropShadow>
                </effect>

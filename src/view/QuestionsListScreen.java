@@ -441,7 +441,7 @@ System.out.print(" id " + id);
 				break;
 	
 			default:
-				image = createImage("2");
+				image = createImage("23");
 				backquestionBtn1.setImage(image);
 	
 
