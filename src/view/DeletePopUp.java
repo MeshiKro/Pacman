@@ -35,7 +35,6 @@ public class DeletePopUp {
 			GlobalFuncations.hoverButton(getClass().getResourceAsStream("/images/" + "noBtn" + ".png"), noBtn);
 			return;
 		}
-		// System.out.println(id);
 		String img = "";
 		ImageView imgToHover = null;
 

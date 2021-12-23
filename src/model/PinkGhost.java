@@ -15,7 +15,6 @@ import java.util.concurrent.ThreadLocalRandom;
 public class PinkGhost extends Ghost {
 
     public PinkGhost(int x, int y, SysData pb,int speed){
-        //super(x,y,pb,9);
     	super(x,y,pb,speed);
     }
 

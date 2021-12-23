@@ -133,9 +133,7 @@ public class yellowQuestScreen {
 					@Override
 					public void run() {
 						timerLabel.setText("" + countdownStarter);
-						// if(answerIsCorrect)
 						timeW.setText("" + countdownStarter);
-						// else
 						timeC.setText("" + countdownStarter);
 
 					}
@@ -151,7 +149,6 @@ public class yellowQuestScreen {
 		};
 
 		scheduler.scheduleAtFixedRate(runnable, 0, 1, TimeUnit.SECONDS);
-		// timerLabel.setText(String.valueOf(countdownStarter));
 
 
 		if (SysData.qLevel.equals("Easy")) {

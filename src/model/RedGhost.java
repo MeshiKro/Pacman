@@ -15,7 +15,6 @@ public class RedGhost extends Ghost {
     BFSFinder bfs;
 
     public RedGhost(int x, int y, SysData pb,int speed){
-        //super(x,y,pb,9);
     	super(x,y,pb,speed);
     }
 

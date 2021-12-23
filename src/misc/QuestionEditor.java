@@ -33,8 +33,6 @@ public class QuestionEditor extends JFrame {
         JLabel l1 = new JLabel("2: Remove A Question");
         JLabel l2 = new JLabel("3: Alter A Question");
 
-        //JLabel l4 = new JLabel("1 : Red Ghost (Chaser)");
-
         l0.setForeground(Color.yellow);
         l1.setForeground(Color.yellow);
         l2.setForeground(Color.yellow);
@@ -56,10 +54,6 @@ public class QuestionEditor extends JFrame {
         getContentPane().add(ta);
 
 
-      
-      
-        //setLayout(new Grid);
-
         setVisible(true);
     }
 
@@ -78,7 +72,6 @@ public class QuestionEditor extends JFrame {
         customMap.setCustom(true);
         System.out.println("Map Read OK !");
         return customMap;
-        //new PacWindow(customMap);
     }
 
 }

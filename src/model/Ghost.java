@@ -48,7 +48,7 @@ public abstract class Ghost {
 		return isDead;
 	}
 
-	// Image[] pac;
+	
 	public Image ghostImg;
 	public int activeImage = 0;
 	public int addFactor = 1;
@@ -88,21 +88,6 @@ public abstract class Ghost {
 
 		loadImages();
 
-		// load weak Image
-		/*
-		 * ghostW = new Image[2]; try { // ghostW[0] =
-		 * ImageIO.read(this.getClass().getResource("/resources/images/ghost/blue/1.png"
-		 * )); // ghostW[1] =
-		 * ImageIO.read(this.getClass().getResource("/resources/images/ghost/blue/3.png"
-		 * )); } catch (IOException e) { e.printStackTrace(); }
-		 * 
-		 * ghostWW = new Image[2]; try { // ghostWW[0] =
-		 * ImageIO.read(this.getClass().getResource(
-		 * "/resources/images/ghost/white/1.png")); // ghostWW[1] =
-		 * ImageIO.read(this.getClass().getResource(
-		 * "/resources/images/ghost/white/3.png")); } catch (IOException e) {
-		 * e.printStackTrace(); }
-		 */
 
 		try {
 			ghostEye = ImageIO.read(this.getClass().getResource("/resources/images/eye.png"));
@@ -151,16 +136,9 @@ public abstract class Ghost {
 					activeMove = getMoveAI();
 					isStuck = true;
 
-					// animTimer.stop();
-					// System.out.println("LOGICAL POS :" + logicalPosition.x + " , " +
-					// logicalPosition.y);
-					// if(todoMove != moveType.NONE) {
-					// activeMove = todoMove;
-					// todoMove = moveType.NONE;
-					// }
 				} else {
 					isStuck = false;
-					// animTimer.start();
+					
 				}
 				// }
 				// TODO : fix ghost movements
@@ -270,7 +248,6 @@ public abstract class Ghost {
 
 		if (logicalPosition.x >= 0 && logicalPosition.x < parentBoard.m_x - 1 && logicalPosition.y >= 0
 				&& logicalPosition.y < parentBoard.m_y - 1) {
-			// System.out.println(this.toString());
 			if (!(parentBoard.map[logicalPosition.x + 1][logicalPosition.y] > 0)) {
 				possibleMoves.add(moveType.RIGHT);
 			}
@@ -312,13 +289,8 @@ public abstract class Ghost {
 			return ghostEye;
 
 	}
-	/*
-	 * } else { if (isWhite) { // return ghostWW[activeImage]; } else { // return
-	 * ghostW[activeImage]; } } } /* }
-	 */
-
+	
 	public void weaken() {
-		//isWeak = true;
 		moveTimer.setDelay(ghostWeakDelay);
 		unweakBlinks = 0;
 		isWhite = false;

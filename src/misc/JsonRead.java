@@ -43,7 +43,6 @@ public class JsonRead implements Observer {
 				text = new String(Files.readAllBytes(filePath), StandardCharsets.UTF_8);
 
 			}
-			//System.out.println(text);
 			System.out.println();
 			JSONObject obj = new JSONObject(text);
 			JSONArray arr = obj.getJSONArray("questions");
@@ -95,7 +94,6 @@ public class JsonRead implements Observer {
 		ArrayList<ScoreboardRecord> records = new ArrayList<ScoreboardRecord>();
 		try {
 			String text = new String(Files.readAllBytes(Paths.get("Scoreboard.json")), StandardCharsets.UTF_8);
-			// System.out.println(text);
 			if (text.length() == 0)
 				return records;
 
@@ -131,7 +129,6 @@ public class JsonRead implements Observer {
 
 			return true;
 		} catch (Exception ex) {
-			// System.out.println(ex.toString());
 			return false;
 		}
 

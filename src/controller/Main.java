@@ -19,12 +19,6 @@ public class Main extends Application {
 
 		JsonRead JR = new JsonRead();
 		JsonRead.questionsAndAnswers = JR.readQuestionsFromJson();
-		
-	//	if (ruuningThorthJar())
-	runJarCommand(args);
-		//else
-		
-		//launch(args);
 	}
 
 	private static void runJarCommand(String[] args) {
@@ -58,8 +52,6 @@ public class Main extends Application {
 
 	public void start(Stage primaryStage) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/MainScreen.fxml"));
-//		Parent root = FXMLLoader.load(getClass().getResource("/view/ConfirmPopUp.fxml"));
-
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
 		primaryStage.setResizable(true);

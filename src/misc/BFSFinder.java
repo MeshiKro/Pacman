@@ -56,7 +56,7 @@ public class BFSFinder {
             return moveType.NONE;
         }
 
-        //System.out.println("FINDING PATH FROM : " + x + "," + y + " TO " + tx + "," + ty);
+  
 
         MazeCell[][] mazeCellTable = new MazeCell[mx][my];
         Point[][] parentTable = new Point[mx][my];

@@ -70,8 +70,6 @@ public class JsonWriterEx extends Observable {
 		int index = -1;
 		for (int i = 0; i < JsonRead.questionsAndAnswers.size(); i++) {
 			String q = JsonRead.questionsAndAnswers.get(i).getQuestion();
-			System.out.println("q " + q);
-			System.out.println("question " + question);
 
 			if (q.equals(question))
 				index = i;
@@ -89,11 +87,6 @@ public class JsonWriterEx extends Observable {
 		JsonRead JR = new JsonRead();
 
 		ArrayList<ScoreboardRecord> records = JR.readScoreBoardFromJson();
-		/*
-		 * System.out.println("reading:");
-		 * 
-		 * System.out.println(records); System.out.println();
-		 */
 		int index = userExsist(records, nickname, score);
 		if (index >= 0)
 			records.get(index).setScore(score);
@@ -116,11 +109,6 @@ public class JsonWriterEx extends Observable {
 			records.remove(10);
 
 		AllScoreBoardRecords allRecords = new AllScoreBoardRecords(records);
-		/*
-		 * System.out.println();
-		 * 
-		 * System.out.println(records); System.out.println();
-		 */
 
 		FileWriter writer;
 		try {

@@ -39,14 +39,12 @@ public class MapEditor extends JFrame {
 		JLabel l5 = new JLabel("1 : Red Ghost (Chaser)");
 		JLabel l6 = new JLabel("2 : Pink Ghost (Traveler)");
 		JLabel l7 = new JLabel("3 : Cyan Ghost (Patrol)");
-		//JLabel l8 = new JLabel("F : Fruit");
 		JLabel l9 = new JLabel("B : Ghost Base");
 		JLabel easyQ = new JLabel("E : Easy Question");
 		JLabel mediumQ = new JLabel("M : Medium Question");
 		JLabel hardQ = new JLabel("H : Hard Question");
 
-		// JLabel l4 = new JLabel("1 : Red Ghost (Chaser)");
-
+		
 		l0.setForeground(Color.yellow);
 		l1.setForeground(Color.yellow);
 		l2.setForeground(Color.yellow);
@@ -68,7 +66,6 @@ public class MapEditor extends JFrame {
 		ghostSelection.add(l5);
 		ghostSelection.add(l6);
 		ghostSelection.add(l7);
-		//ghostSelection.add(l8);
 		ghostSelection.add(l9);
 		ghostSelection.add(easyQ);
 		ghostSelection.add(mediumQ);
@@ -92,8 +89,7 @@ public class MapEditor extends JFrame {
 						new EmptyBorder(10, 10, 10, 10)));
 		getContentPane().add(ta);
 
-		// setLayout(new Grid);
-
+		
 		setVisible(true);
 	}
 
@@ -147,10 +143,6 @@ public class MapEditor extends JFrame {
 				map[i][j] = 0;
 				customMap.getpufoodPositions().add(new Bomb(i, j, 0));
 			}
-			/*if (c == 'F') {
-				map[i][j] = 0;
-				customMap.getpufoodPositions().add(new Bomb(i, j, ThreadLocalRandom.current().nextInt(4) + 1));
-			}*/
 			if (c == 'E') {
 				map[i][j] = 0;
 				customMap.getpufoodPositions().add(new Bomb(i, j, 4));
@@ -176,9 +168,7 @@ public class MapEditor extends JFrame {
 
 		customMap.setMap(map);
 		customMap.setCustom(true);
-		// System.out.println("Map Read OK !");
 		return customMap;
-		// new PacWindow(customMap);
 	}
 
 }

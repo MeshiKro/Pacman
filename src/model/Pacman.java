@@ -65,8 +65,6 @@ public int pacmanSpeed =20;
 				
 				if(pacmanSpeedMove < 100)
 				animTimer.setDelay(0);
-				/* */
-				//animTimer.setDelay(pacmanSpeedMove);
 				
 				// update logical position
 				if ((pixelPosition.x % 28 == 0) && (pixelPosition.y % 28 == 0)) {
@@ -99,26 +97,18 @@ public int pacmanSpeed =20;
 					 // Left Tannel
 					else if(InTannel(28,336))
 					{
-						System.out.print("left tannl");
 						transportPacman(700,336,25,12);
 					}
 					 // Right Tannel
 					else if(InTannel(700,336))
 
 					{
-						System.out.print("Right tannl");
 						transportPacman(28,336,1,12);
 
 					}
 					 
 					else	 if ( pixelPosition.y == 336 && pixelPosition.x == 728 && todoMove == moveType.RIGHT) {						
-							/*logicalPosition.x= 26;
-								logicalPosition.y = 12;
-
-								pixelPosition.y = 336;*/
-								//pixelPosition.x = 1;
-
-//								SysData.pacman = new Pacman(logicalPosition.x,logicalPosition.y,pb);	
+							
 							return;
 							}
 				} else {
@@ -131,10 +121,7 @@ public int pacmanSpeed =20;
 					if ((pixelPosition.x >= (parentBoard.m_x - 1) * 28) && parentBoard.isCustom) {
 						return;
 					}
-					/*
-					 * if((logicalPosition.x+1 < parentBoard.m_x) &&
-					 * (parentBoard.map[logicalPosition.x+1][logicalPosition.y]>0)){ return; }
-					 */
+					
 					if (logicalPosition.x >= 0 && logicalPosition.x < parentBoard.m_x - 1 && logicalPosition.y >= 0
 							&& logicalPosition.y < parentBoard.m_y - 1) {
 						if (parentBoard.map[logicalPosition.x + 1][logicalPosition.y] > 0) {
@@ -147,10 +134,7 @@ public int pacmanSpeed =20;
 					if ((pixelPosition.x <= 0) && parentBoard.isCustom) {
 						return;
 					}
-					/*
-					 * if((logicalPosition.x-1 >= 0) &&
-					 * (parentBoard.map[logicalPosition.x-1][logicalPosition.y]>0)){ return; }
-					 */
+					
 					if (logicalPosition.x > 0 && logicalPosition.x < parentBoard.m_x - 1 && logicalPosition.y >= 0
 							&& logicalPosition.y < parentBoard.m_y - 1) {
 						if (parentBoard.map[logicalPosition.x - 1][logicalPosition.y] > 0) {
@@ -163,10 +147,7 @@ public int pacmanSpeed =20;
 					if ((pixelPosition.y <= 0) && parentBoard.isCustom) {
 						return;
 					}
-					/*
-					 * if((logicalPosition.y-1 >= 0) &&
-					 * (parentBoard.map[logicalPosition.x][logicalPosition.y-1]>0)){ return; }
-					 */
+					
 					if (logicalPosition.x >= 0 && logicalPosition.x < parentBoard.m_x - 1 && logicalPosition.y >= 0
 							&& logicalPosition.y < parentBoard.m_y - 1) {
 						if (parentBoard.map[logicalPosition.x][logicalPosition.y - 1] > 0) {
@@ -179,10 +160,7 @@ public int pacmanSpeed =20;
 					if ((pixelPosition.y >= (parentBoard.m_y - 1) * 28) && parentBoard.isCustom) {
 						return;
 					}
-					/*
-					 * if((logicalPosition.y+1 < parentBoard.m_y) &&
-					 * (parentBoard.map[logicalPosition.x][logicalPosition.y+1]>0)){ return; }
-					 */
+					
 					if (logicalPosition.x >= 0 && logicalPosition.x < parentBoard.m_x - 1 && logicalPosition.y >= 0
 							&& logicalPosition.y < parentBoard.m_y - 1) {
 						if (parentBoard.map[logicalPosition.x][logicalPosition.y + 1] > 0) {
@@ -293,7 +271,6 @@ public int pacmanSpeed =20;
 			parentBoard.dispatchEvent(new ActionEvent(this, Messages.RESET, null));
 			break;
 		}
-		// System.out.println(ke.getKeyCode());
 	}
 
 }

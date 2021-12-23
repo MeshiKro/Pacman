@@ -63,7 +63,6 @@ public class PacWindow extends JFrame {
         setSize(794, 707);
 		setLocationRelativeTo(null);
 
-		// BufferedImage myPicture = null;
 		try {
 			if (pacmanLife == 2)
 				myPicture = ImageIO.read(new File("./resources/images/pac/3lives.png"));
@@ -85,14 +84,6 @@ public class PacWindow extends JFrame {
 			}
 		JLabel picLabel = new JLabel(new ImageIcon(myPicture));
 		picLabel.setHorizontalAlignment(JLabel.LEFT);
-
-	/*	BufferedImage homePicture = null;
-		try {
-			homePicture = ImageIO.read(new File("./resources/images/pac/homeBtn.png"));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
 		JLabel picLabel2 = new JLabel();
 		picLabel2.setHorizontalAlignment(JLabel.LEFT);
 
@@ -122,7 +113,6 @@ public class PacWindow extends JFrame {
 		scoreboard.setForeground(new Color(255, 243, 36));
 
 		MapData map1 = getMapFromResource("/resources/maps/map1_c.txt");
-		// MapData map1 = getMapFromResource("/resources/maps/þþmap_level2M.txt");
 		adjustMap(map1);
 		SysData pb = new SysData(scoreboard, map1, this);
 
@@ -336,7 +326,6 @@ public class PacWindow extends JFrame {
 						mustSet = 18;
 					}
 
-					// System.out.println("MAP SEGMENT : " + mustSet);
 					map[x][y] = mustSet;
 				}
 				mapd.setMap(map);
