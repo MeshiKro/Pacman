@@ -60,6 +60,7 @@ public int pacmanSpeed =20;
 		animTimer.start();
 
 		moveAL = new ActionListener() {
+			@SuppressWarnings("incomplete-switch")
 			public void actionPerformed(ActionEvent evt) {
 				
 				if(pacmanSpeedMove < 100)
@@ -222,7 +223,6 @@ public int pacmanSpeed =20;
 
 	public void changePacmanColor(String color) {
 		try {
-			String path = this.getClass().getResource("/resources/images/pac/" + color + "pac0.png").toString();
 
 			pac[0] = ImageIO.read(this.getClass().getResource("/resources/images/pac/" + color + "pac0.png"));
 			pac[1] = ImageIO.read(this.getClass().getResource("/resources/images/pac/" + color + "pac1.png"));
@@ -248,6 +248,8 @@ public int pacmanSpeed =20;
 					return !(parentBoard.map[logicalPosition.x][logicalPosition.y - 1] > 0);
 				case DOWN:
 					return !(parentBoard.map[logicalPosition.x][logicalPosition.y + 1] > 0);
+				default:
+					break;
 				}
 			}
 		} catch (Exception ex) {

@@ -1,6 +1,5 @@
 package controller;
 
-import java.util.ArrayList;
 
 import javafx.application.Application;
 
@@ -11,24 +10,23 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import misc.JsonRead;
-import misc.JsonWriterEx;
-import model.QuestionObject;
+
 
 public class Main extends Application {
 
 	public static void main(String[] args) throws Exception {
 
 		JsonRead JR = new JsonRead();
-		JsonRead.questionsAndAnswers	 = JR.readQuestionsFromJson();
+		JsonRead.questionsAndAnswers = JR.readQuestionsFromJson();
 
-	launch(args);
+		launch(args);
 
 	}
 
 	public void start(Stage primaryStage) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/MainScreen.fxml"));
 //		Parent root = FXMLLoader.load(getClass().getResource("/view/ConfirmPopUp.fxml"));
-
+	
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
 		primaryStage.setResizable(true);

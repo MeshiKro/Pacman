@@ -5,7 +5,5 @@ public enum moveType {
     UP,
     DOWN,
     LEFT,
-    RIGHT,
-    LEFTTANNEL,
-    RIGHTTANNEL
+    RIGHT
 }

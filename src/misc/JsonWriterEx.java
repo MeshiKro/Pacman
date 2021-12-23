@@ -15,7 +15,6 @@ import model.QuestionInJson;
 import model.ScoreboardRecord;
 import model.questions;
 import view.EditQuestionScreen;
-import view.QuestionsListScreen;
 
 @SuppressWarnings("deprecation")
 public class JsonWriterEx extends Observable {
@@ -78,14 +77,6 @@ public class JsonWriterEx extends Observable {
 				index = i;
 		}
 		return index;
-	}
-
-	private questions getArrayOfQuestionFromJSON() {
-	
-		questions qu = new questions();
-		qu.questions = 	JsonRead.questionsAndAnswers;
-
-		return qu;
 	}
 
 	public QuestionInJson createNewQuestion(String question, String[] answers, String correct_ans, String level) {

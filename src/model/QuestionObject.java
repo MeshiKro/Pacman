@@ -4,9 +4,6 @@ import java.awt.*;
 import java.io.Serializable;
 import java.util.Arrays;
 
-import org.json.JSONArray;
-
-import com.google.gson.JsonArray;
 
 //this is QuestionObject class, ea question we will read from JarFile//
 public class QuestionObject implements Serializable {

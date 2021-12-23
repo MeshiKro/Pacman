@@ -65,7 +65,8 @@ public class RedGhost extends Ghost {
     moveType pendMove = moveType.UP;
 
     //find closest path using BFS
-    @Override
+    @SuppressWarnings("static-access")
+	@Override
     public moveType getMoveAI(){
         if(isPending){
             if(isStuck){

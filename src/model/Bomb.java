@@ -1,16 +1,7 @@
 package model;
 
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.Random;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
-import javax.imageio.ImageIO;
-
-import misc.SoundPlayer;
 
 public class Bomb {
 

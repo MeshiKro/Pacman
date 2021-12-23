@@ -5,9 +5,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
-
-import org.json.JSONArray;
 
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -260,7 +257,6 @@ public class EditQuestionScreen {
 		String level = levelField.getSelectionModel().getSelectedItem();
 		String[] answerList = createAnswerList(correctAnsField.getText(), wrongAns1.getText(), wrongAns2.getText(),
 				wrongAns3.getText());
-		String CorrectAnsIndex = getCorrectAnsIndex(answerList, correctAns);
 
 		q.setQuestion(question);
 		q.setLevel(level);

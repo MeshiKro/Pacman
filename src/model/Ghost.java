@@ -142,6 +142,8 @@ public abstract class Ghost {
 						case DOWN:
 							logicalPosition.y++;
 							break;
+						default:
+							break;
 						}
 						parentBoard.dispatchEvent(new ActionEvent(this, Messages.UPDATE, null));
 					}
@@ -204,6 +206,8 @@ public abstract class Ghost {
 						return;
 					}
 					pixelPosition.y++;
+					break;
+				default:
 					break;
 				}
 
@@ -299,6 +303,8 @@ public abstract class Ghost {
 					return ghostU[activeImage];
 				case DOWN:
 					return ghostD[activeImage];
+				default:
+					break;
 				}
 				return ghostR[activeImage];
 			 

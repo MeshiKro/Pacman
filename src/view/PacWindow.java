@@ -49,6 +49,7 @@ public class PacWindow extends JFrame {
 
 	BufferedImage myPicture = null;
 
+	@SuppressWarnings("static-access")
 	public PacWindow() {
 
 		pacWindowContext = this;
@@ -85,13 +86,13 @@ public class PacWindow extends JFrame {
 		JLabel picLabel = new JLabel(new ImageIcon(myPicture));
 		picLabel.setHorizontalAlignment(JLabel.LEFT);
 
-		BufferedImage homePicture = null;
+	/*	BufferedImage homePicture = null;
 		try {
 			homePicture = ImageIO.read(new File("./resources/images/pac/homeBtn.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		JLabel picLabel2 = new JLabel();
 		picLabel2.setHorizontalAlignment(JLabel.LEFT);
 

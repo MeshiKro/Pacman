@@ -11,7 +11,6 @@ import misc.MapData;
 import misc.JsonRead;
 import misc.moveType;
 import model.QuestionInJson;
-import model.QuestionObject;
 import model.RedGhost;
 
 

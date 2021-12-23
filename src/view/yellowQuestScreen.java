@@ -7,13 +7,11 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-import javax.swing.Timer;
-
 import controller.SysData;
 import javafx.application.Platform;
 
 import javafx.fxml.FXML;
-import javafx.scene.Node;
+
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
@@ -23,7 +21,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
-import javafx.scene.media.MediaPlayer;
 
 import misc.GlobalFuncations;
 
@@ -85,9 +82,6 @@ public class yellowQuestScreen {
 
 	private static int countdownStarter;
 
-	private String path;
-	private MediaPlayer mediaPlayer;
-
 	private ArrayList<QuestionInJson> levelQuestionsArray;
 
 	final ToggleGroup group = new ToggleGroup();
@@ -96,7 +90,6 @@ public class yellowQuestScreen {
 
 	private boolean answerIsCorrect;
 
-	private static Timer timer;
 
 	public void initialize() {
 

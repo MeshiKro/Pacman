@@ -3,14 +3,10 @@ package controller;
 import misc.*;
 import model.*;
 import view.PacWindow;
-import view.QuestionScreen;
-import view.yellowQuestScreen;
+
 import view.MainScreen;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -29,7 +25,6 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.TimerTask;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -246,6 +241,11 @@ public class SysData extends JPanel {
 
 		im.put(KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0), "space");
 		am.put("space", new AbstractAction() {
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
 			public void actionPerformed(ActionEvent evt) {
 				if (userHasBomb) {
 					Ghost newGhostReturn = blowBomb();
@@ -674,18 +674,6 @@ public class SysData extends JPanel {
 
 	}
 
-	private void stopScreen() {
-		isLevelUp = true;
-
-		pacman.moveTimer.stop();
-		pacman.animTimer.stop();
-
-		pacman.moveTimer.start();
-		pacman.animTimer.start();
-
-		// isLevelUp = false;
-
-	}
 
 	private void stopScreenForQuestion() {
 		Ghost.stopScreenForQ = true;
@@ -768,6 +756,8 @@ public class SysData extends JPanel {
 		case UP:
 			g.drawImage(ImageHelper.flipVer(ImageHelper.rotate90(pacman.getPacmanImage())), 10 + pacman.pixelPosition.x,
 					10 + pacman.pixelPosition.y, null);
+			break;
+		default:
 			break;
 		}
 

@@ -7,7 +7,6 @@ import java.util.TimerTask;
 
 import com.sun.javafx.stage.EmbeddedWindow;
 
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -160,10 +159,6 @@ public class MainScreen {
 
 	}
 
-	private void hoverStartButton(String img) {
-		startGameBtn.setImage(createImage(img));
-	}
-
 	private Image createImage(String img) {
 		InputStream inStream = getClass().getResourceAsStream("/images/" + img + ".png");
 		return new Image(inStream);
@@ -218,7 +213,6 @@ public class MainScreen {
 			return;
 		}
 
-		PacWindow pw = new PacWindow();
 		GlobalFuncations.username = nameFeild.getText();
 		noNameLabel.setText("");
 		stage1 = null;
@@ -245,6 +239,8 @@ public class MainScreen {
 				
 			}
 		});*/
+		@SuppressWarnings("unused")
+		PacWindow pw = new PacWindow();
 		stage.setOpacity(0);
 		if(stage1 != null)
 		stage1.setOpacity(0);

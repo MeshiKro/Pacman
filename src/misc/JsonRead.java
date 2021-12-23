@@ -76,6 +76,7 @@ public class JsonRead implements Observer {
 		return null;
 	}
 
+	@SuppressWarnings("unused")
 	private String[] createAnswerList(JSONArray answers, String correct_ans) {
 
 		String[] a = new String[4];
@@ -137,7 +138,7 @@ public class JsonRead implements Observer {
 	}
 
 	@Override
-	public void update(@SuppressWarnings("deprecation") Observable o, Object arg) {
+	public void update(Observable o, Object arg) {
 		questionsAndAnswers.clear();
 		readQuestionsFromJson();
 	}
