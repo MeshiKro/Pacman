@@ -367,10 +367,9 @@ public class SysData extends JPanel {
 			// Levels:
 			if (score < 10) {
 				scoreboard.setText("     Level : 1       Score : " + score);
-
+				
 			}
 			if (score <= 50 && score >= 10) {
-
 				scoreboard.setText("     Level : 1      Score : " + score);
 			}
 
@@ -401,6 +400,7 @@ public class SysData extends JPanel {
 			if (score >= 151) {
 				scoreboard.setText("     Level : 4     Score : " + score);
 				if (level < 4) {
+					updateGhostSpeed();
 					isLevelUp = true;
 					level = 4;
 				}
@@ -889,7 +889,7 @@ public class SysData extends JPanel {
 	public void updateGhostSpeed() {
 
 		for (Ghost g : ghosts) {
-			g.ghostSpeed = 20;
+			g.ghostSpeed = 10;
 			g.moveTimer.setDelay(g.ghostSpeed);
 		}
 	}
