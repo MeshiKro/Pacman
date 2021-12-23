@@ -20,10 +20,10 @@ public class Main extends Application {
 		JsonRead JR = new JsonRead();
 		JsonRead.questionsAndAnswers = JR.readQuestionsFromJson();
 		
-		if(ruuningThorthJar())
-			runJarCommand();
+		/*if(ruuningThorthJar())
+			runJarCommand();*/
 		printPacmanByScorption();
-		//launch(args);
+		launch(args);
 	}
 
 	private static void runJarCommand() {
