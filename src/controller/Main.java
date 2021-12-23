@@ -53,11 +53,7 @@ public class Main extends Application {
 	}
 
 	private static void printPacmanByScorption() {
-		System.out.println("     .-.   .-.    \r\n"
-				+ "    | OO| | OO|    o  o  o \r\n"
-				+ "    |   | |   |   \r\n"
-				+ "    '^^^' '^^^'   \r\n"
-				+ "  _____                                   ____                              \r\n"
+		System.out.println("  _____                                   ____                              \r\n"
 				+ " |  __ \\                                 |  _ \\                             \r\n"
 				+ " | |__) |_ _  ___ _ __ ___   __ _ _ __   | |_) |_   _                       \r\n"
 				+ " |  ___/ _` |/ __| '_ ` _ \\ / _` | '_ \\  |  _ <| | | |                      \r\n"
@@ -72,7 +68,10 @@ public class Main extends Application {
 				+ " |_____/ \\___\\___/|_|  | .__/ \\__|_|\\___/|_| |_|    |_|\\___|\\__,_|_| |_| |_|\r\n"
 				+ "                       | |                                                  \r\n"
 				+ "                       |_|                                                  \r\n"
-				+ "\r\n"
+				+ "     .-.   .-.    \r\n"
+				+ "    | OO| | OO|    o  o  o  o  o  o  o  o  o  o\r\n"
+				+ "    |   | |   |   \r\n"
+				+ "    '^^^' '^^^'   \r\n"
 				+ " ___    ___\r\n"
 				+ "( _<    >_ )\r\n"
 				+ "//        \\\\\r\n"
@@ -85,7 +84,7 @@ public class Main extends Application {
 				+ "   \\ || /  _)\r\n"
 				+ "     ||   ( )\r\n"
 				+ "     \\\\___//\r\n"
-				+ "      `---'");		
+				+ "      `---'");	
 	}
 
 	public void start(Stage primaryStage) throws Exception {
