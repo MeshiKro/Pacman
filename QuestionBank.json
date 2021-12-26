@@ -111,11 +111,10 @@
       {
          "question":"What is wrong to say about software maintenance costs?",
          "answers":[
-           "usually development costs are greater than maintenance costs",
+            "usually development costs are greater than maintenance costs",
             "Maintenance costs more than hardware ",
             "maintenance costs are usually higher than development costs",
             "the older the software, the more it costs to develop"
-          
          ],
          "correct_ans":"1",
          "level":"2",
@@ -143,6 +142,30 @@
          ],
          "correct_ans":"4",
          "level":"1",
+         "team":"Scorpions"
+      },
+      {
+         "question":"What is SDP?",
+         "answers":[
+            "has detailed development plan of the system: methods,models ,etc ",
+            "to ensure that the system requirements, products and milestones are defined",
+            "documentation Planning and designing the user interface (GUI)",
+            "none of the above"
+         ],
+         "correct_ans":"1",
+         "level":"2",
+         "team":"Scorpions"
+      },
+      {
+         "question":"What on the list is a type of survey?",
+         "answers":[
+            "product approval",
+            "product release review ",
+            "per reviews",
+            "all of the answers are correct"
+         ],
+         "correct_ans":"4",
+         "level":"2",
          "team":"Scorpions"
       }
    ]
