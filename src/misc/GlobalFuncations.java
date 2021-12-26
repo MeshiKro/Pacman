@@ -11,6 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import model.QuestionInJson;
+import view.ChartScreen;
 import view.ConfirmPopUp;
 import view.EditQuestionScreen;
 import view.QuestionScreen;
@@ -85,6 +86,11 @@ public class GlobalFuncations {
 			ConfirmPopUp controller4 = loader.getController();
 			controller4.initialize(type);
 			break;
+		case "ChartScreen":
+			ChartScreen controller5 = loader.getController();
+			controller5.initialize(type);
+			break;
+			
 		default:
 			break;
 

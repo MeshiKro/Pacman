@@ -12,6 +12,7 @@ import com.google.gson.JsonIOException;
 
 import model.AllScoreBoardRecords;
 import model.QuestionInJson;
+import model.QuestionWithData;
 import model.ScoreboardRecord;
 import model.questions;
 import view.EditQuestionScreen;
@@ -21,10 +22,50 @@ public class JsonWriterEx extends Observable {
 
 	public boolean writeQuestions(QuestionInJson q) {
 		questions qu = new questions();
-	
+
 		JsonRead.questionsAndAnswers.add(q);
-		qu.questions =  JsonRead.questionsAndAnswers;
+		qu.questions = JsonRead.questionsAndAnswers;
 		return writeQuestionToJson(qu);
+
+	}
+
+	public boolean writeQuestionsData() {
+
+		ArrayList<QuestionWithData> questionWithData = new ArrayList<QuestionWithData>();
+		for (int i = 0; i < JsonRead.questionsAndAnswers.size(); i++) {
+			String question = JsonRead.questionsAndAnswers.get(i).getQuestion();
+			int index = Integer.parseInt(JsonRead.questionsAndAnswers.get(i).getCorrect_ans()) - 1;
+			String correctAnswer = JsonRead.questionsAndAnswers.get(i).getAnswers()[index];
+
+			questionWithData.add(
+					new QuestionWithData(question, correctAnswer, JsonRead.questionsAndAnswers.get(i).getAnswers()));
+
+		}
+
+		FileWriter writer;
+		try {
+			writer = new FileWriter("QuestionData.json");
+			Gson gson = new Gson();
+			QuestionDataToJSON temp = new QuestionDataToJSON();
+			temp.questionWithData = questionWithData;
+			gson.toJson(temp, writer);
+			writer.flush();
+			writer.close();
+			return true;
+		} catch (JsonIOException e) {
+
+			e.printStackTrace();
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return false;
+
+	}
+	public class QuestionDataToJSON{
+		ArrayList<QuestionWithData> questionWithData = new ArrayList<QuestionWithData>();
 
 	}
 
@@ -37,8 +78,8 @@ public class JsonWriterEx extends Observable {
 			gson.toJson(qu, writer);
 			writer.flush();
 			writer.close();
-			   setChanged();
-		        notifyObservers();
+			setChanged();
+			notifyObservers();
 			return true;
 		} catch (JsonIOException e) {
 
@@ -53,13 +94,13 @@ public class JsonWriterEx extends Observable {
 	}
 
 	public void deleteQuestion() {
-		
+
 		questions qu = new questions();
-		qu.questions =  JsonRead.questionsAndAnswers;
+		qu.questions = JsonRead.questionsAndAnswers;
 
 		int index = EditQuestionScreen.index;
 		System.out.print("index " + index);
-		if(index ==-1)
+		if (index == -1)
 			return;
 		qu.questions.remove(index);
 		writeQuestionToJson(qu);
@@ -138,8 +179,8 @@ public class JsonWriterEx extends Observable {
 	}
 
 	public void SetConfugartion(boolean isMute, String username) {
-		
-		HashMap<String,String> config = new HashMap<String,String>();
+
+		HashMap<String, String> config = new HashMap<String, String>();
 		config.put("isMute", String.valueOf(isMute));
 		config.put("username", username);
 
@@ -157,6 +198,5 @@ public class JsonWriterEx extends Observable {
 			e.printStackTrace();
 		}
 	}
-
 
 }

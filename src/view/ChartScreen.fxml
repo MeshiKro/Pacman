@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ChartScreen">
+   <children>
+      <ImageView fitHeight="361.0" fitWidth="369.0" layoutY="239.0">
+         <image>
+            <Image url="@../../images/logo2.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="154.0" layoutY="98.0" prefHeight="450.0" prefWidth="766.0" style="-fx-background-color: #f0f0f0;">
+         <children>
+            <BarChart fx:id="barChart" layoutX="14.0" layoutY="8.0" prefHeight="434.0" prefWidth="721.0">
+              <xAxis>
+                <CategoryAxis endMargin="0.0" prefHeight="20.0" prefWidth="670.0" side="BOTTOM" startMargin="0.0" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" tickLabelGap="0.0" upperBound="50.0" />
+              </yAxis>
+            </BarChart>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="homePane" layoutX="934.0" layoutY="67.0" onMouseClicked="#HomeBtnClicked" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
+         <children>
+            <ImageView fx:id="homeBtn" fitHeight="84.0" fitWidth="84.0" layoutY="-42.0" onMouseClicked="#HomeBtnClicked">
+               <image>
+                  <Image url="@../../images/buttonconinter.png" />
+               </image>
+            </ImageView>
+            <ImageView layoutX="22.0" layoutY="-21.0" onMouseClicked="#HomeBtnClicked">
+               <image>
+                  <Image url="@../../images/home.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Label fx:id="title" layoutX="280.0" layoutY="23.0" text="Questions Wizard" textFill="#d8a14a">
+         <font>
+            <Font name="OCR A Extended" size="60.0" />
+         </font>
+      </Label>
+      <Line endX="469.0" layoutX="345.0" layoutY="99.0" startX="-100.0" stroke="#757800" strokeWidth="3.0" />
+   </children>
+</AnchorPane>

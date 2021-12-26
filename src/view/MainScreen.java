@@ -287,7 +287,10 @@ public class MainScreen {
 	@FXML
 	void rulesClicked(MouseEvent event) {
 		GlobalFuncations.switchScreen(pane, "Rules1Screen",
-				(getClass().getResource("/view/" + "Rules1Screen" + ".fxml")), "");
+				(getClass().getResource("/view/" + "Rules1Screen" + ".fxml")), "")
+
+		/*GlobalFuncations.switchScreen(pane, "ChartScreen",
+				(getClass().getResource("/view/" + "ChartScreen" + ".fxml")), "what is Agile?");*/
 	}
 	// End OnClick Section
 

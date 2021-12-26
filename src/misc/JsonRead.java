@@ -6,14 +6,17 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Observable;
 import java.util.Observer;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import model.QuestionInJson;
+import com.google.gson.Gson;
 
+import model.QuestionInJson;
+import model.QuestionWithData;
 import model.ScoreboardRecord;
 
 import view.MainScreen;
@@ -23,6 +26,8 @@ import view.QuestionsListScreen;
 public class JsonRead implements Observer {
 
 	public static ArrayList<QuestionInJson> questionsAndAnswers = new ArrayList<QuestionInJson>();
+
+	public static ArrayList<QuestionWithData> questionWithData = new ArrayList<QuestionWithData>();
 
 	public ArrayList<QuestionInJson> readQuestionsFromJson() {
 
@@ -34,8 +39,8 @@ public class JsonRead implements Observer {
 			try {
 				text = new String(Files.readAllBytes(Paths.get("QuestionBank.json")), StandardCharsets.UTF_8);
 			} catch (Exception e) {
-				 root = FileSystems.getDefault().getPath("").toAbsolutePath();
-				 filePath = Paths.get(root.toString(), "QuestionBank.json");
+				root = FileSystems.getDefault().getPath("").toAbsolutePath();
+				filePath = Paths.get(root.toString(), "QuestionBank.json");
 				System.out.println(filePath);
 				text = new String(Files.readAllBytes(filePath), StandardCharsets.UTF_8);
 
@@ -60,6 +65,39 @@ public class JsonRead implements Observer {
 			System.out.println(ex.toString());
 		}
 		return questionsAndAnswers;
+
+	}
+
+	public ArrayList<QuestionWithData> readQuestionsDataFromJson() {
+
+		Path root = FileSystems.getDefault().getPath("").toAbsolutePath();
+		Path filePath = Paths.get(root.toString(), "QuestionData.json");
+		String text = "";
+		try {
+			try {
+				text = new String(Files.readAllBytes(Paths.get("QuestionData.json")), StandardCharsets.UTF_8);
+			} catch (Exception e) {
+				root = FileSystems.getDefault().getPath("").toAbsolutePath();
+				filePath = Paths.get(root.toString(), "QuestionData.json");
+				text = new String(Files.readAllBytes(filePath), StandardCharsets.UTF_8);
+
+			}
+			JSONObject obj = new JSONObject(text);
+			JSONArray arr = obj.getJSONArray("questionWithData");
+			for (int i = 0; i < arr.length(); i++) {
+				String questionString = arr.getJSONObject(i).getString("question");
+				String answers = arr.getJSONObject(i).getJSONObject("answerData").toString();
+				HashMap<String, Integer> map = new Gson().fromJson(answers, HashMap.class);
+				String correct_ans = arr.getJSONObject(i).getString("correct_ans");			
+				
+
+				QuestionWithData q = new QuestionWithData(questionString, correct_ans, map);
+				questionWithData.add(q);
+			}
+		} catch (Exception ex) {
+			System.out.println(ex.toString());
+		}
+		return questionWithData;
 
 	}
 

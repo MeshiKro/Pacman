@@ -11,26 +11,40 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import misc.GlobalFuncations;
 import misc.JsonRead;
+import misc.JsonWriterEx;
 
 public class Main extends Application {
 
 	public static void main(String[] args) throws Exception {
 
-		JsonRead JR = new JsonRead();
-		JsonRead.questionsAndAnswers = JR.readQuestionsFromJson();
-		
-		/*if(ruuningThorthJar())
-			runJarCommand();*/
-		printPacmanByScorption();
+		readJsonData();
+
+		/*
+		 * for (int i=0;i<JsonRead.questionWithData.size();i++)
+		 * System.out.println(JsonRead.questionWithData.get(i).toString());
+		 */
+		/*
+		 * if(ruuningThorthJar()) runJarCommand();
+		 */
+
+		// printPacmanByScorption();
 		launch(args);
 	}
 
+	private static void readJsonData() {
+		JsonRead JR = new JsonRead();
+		JsonRead.questionsAndAnswers = JR.readQuestionsFromJson();
+		JsonRead.questionWithData = JR.readQuestionsDataFromJson();
+
+		// JsonWriterEx jw = new JsonWriterEx();
+		// jw.writeQuestionsData();
+	}
+
 	private static void runJarCommand() {
-		 try {
-			 Runtime.
-			   getRuntime().
-			   exec("cmd /c start \"\" run.bat");
+		try {
+			Runtime.getRuntime().exec("cmd /c start \"\" run.bat");
 		} catch (IOException e) {
 			System.out.print(e.getMessage());
 
@@ -41,13 +55,10 @@ public class Main extends Application {
 
 	}
 
-	
-
 	public static boolean ruuningThorthJar() {
 
 		String res = Main.class.getResource("Main.class").toString().substring(0, 4);
 		printPacmanByScorption();
-	
 
 		return res.equals("rsrc");
 	}
@@ -68,23 +79,18 @@ public class Main extends Application {
 				+ " |_____/ \\___\\___/|_|  | .__/ \\__|_|\\___/|_| |_|    |_|\\___|\\__,_|_| |_| |_|\r\n"
 				+ "                       | |                                                  \r\n"
 				+ "                       |_|                                                      \r\n"
-				+ " ___    ___\r\n"
-				+ "( _<    >_ )          .-.    .-.    \r\n"
+				+ " ___    ___\r\n" + "( _<    >_ )          .-.    .-.    \r\n"
 				+ "//        \\\\         | OO|  | OO| o  o  o  o  o  o  o  o  o  o\r\n"
-				+ "\\\\___..___//         |   |  |   |\r\n"
-				+ " `-(    )-'	     '^^^'  '^^^'\r\n"
-				+ "   _|__|_\r\n"
-				+ "  /_|__|_\\\r\n"
-				+ "  /_|__|_\\\r\n"
-				+ "  /_\\__/_\\\r\n"
-				+ "   \\ || /  _)\r\n"
-				+ "     ||   ( )\r\n"
-				+ "     \\\\___//\r\n"
-				+ "      `---'");	
+				+ "\\\\___..___//         |   |  |   |\r\n" + " `-(    )-'	     '^^^'  '^^^'\r\n" + "   _|__|_\r\n"
+				+ "  /_|__|_\\\r\n" + "  /_|__|_\\\r\n" + "  /_\\__/_\\\r\n" + "   \\ || /  _)\r\n"
+				+ "     ||   ( )\r\n" + "     \\\\___//\r\n" + "      `---'");
 	}
 
 	public void start(Stage primaryStage) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/MainScreen.fxml"));
+		// Parent root =
+		// FXMLLoader.load(getClass().getResource("/view/ChartScreen.fxml"));
+
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
 		primaryStage.setResizable(true);
@@ -93,6 +99,8 @@ public class Main extends Application {
 		primaryStage.initStyle(StageStyle.DECORATED);
 		primaryStage.show();
 
+	
+		
 	}
 
 }
