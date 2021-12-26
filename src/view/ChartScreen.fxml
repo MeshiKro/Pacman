@@ -3,11 +3,12 @@
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ChartScreen">
@@ -19,14 +20,15 @@
       </ImageView>
       <AnchorPane layoutX="154.0" layoutY="98.0" prefHeight="450.0" prefWidth="766.0" style="-fx-background-color: #f0f0f0;">
          <children>
-            <BarChart fx:id="barChart" layoutX="14.0" layoutY="8.0" prefHeight="434.0" prefWidth="721.0">
+            <BarChart fx:id="barChart" layoutX="6.0" layoutY="7.0" prefHeight="436.0" prefWidth="732.0">
               <xAxis>
-                <CategoryAxis endMargin="0.0" prefHeight="20.0" prefWidth="670.0" side="BOTTOM" startMargin="0.0" />
+                <CategoryAxis endMargin="0.0" label="Answers" prefHeight="42.0" prefWidth="652.0" side="BOTTOM" startMargin="0.0" />
               </xAxis>
               <yAxis>
-                <NumberAxis side="LEFT" tickLabelGap="0.0" upperBound="50.0" />
+                <NumberAxis label="Number of user selcted answer" side="LEFT" tickLabelGap="0.0" upperBound="50.0" />
               </yAxis>
             </BarChart>
+            <PieChart fx:id="pieChart" prefHeight="451.0" prefWidth="806.0" visible="false" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="homePane" layoutX="934.0" layoutY="67.0" onMouseClicked="#HomeBtnClicked" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton">
@@ -43,11 +45,15 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <Label fx:id="title" layoutX="280.0" layoutY="23.0" text="Questions Wizard" textFill="#d8a14a">
+      <Label fx:id="title" alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="22.0" prefHeight="58.0" prefWidth="1037.0" text="Questions Wizard" textFill="#d8a14a">
          <font>
-            <Font name="OCR A Extended" size="60.0" />
+            <Font size="40.0" />
          </font>
       </Label>
-      <Line endX="469.0" layoutX="345.0" layoutY="99.0" startX="-100.0" stroke="#757800" strokeWidth="3.0" />
+      <Button fx:id="chartBtn" layoutX="23.0" layoutY="97.0" mnemonicParsing="false" onMouseClicked="#changeChartType" prefHeight="48.0" prefWidth="113.0" text="Pie Chart">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
