@@ -25,6 +25,26 @@ public class QuestionsListScreen {
 
 	@FXML
 	private ImageView backicon;
+	
+
+    @FXML
+    private ImageView chartBtn1;
+
+    @FXML
+    private ImageView chartBtn2;
+
+    @FXML
+    private ImageView chartBtn3;
+
+    @FXML
+    private ImageView chartBtn4;
+
+    @FXML
+    private ImageView chartBtn5;
+
+    @FXML
+    private ImageView chartBtn6;
+
 
 	@FXML
 	private ImageView deleteBtn1;
