@@ -9,6 +9,7 @@ import javafx.scene.chart.PieChart.Data;
 import javafx.scene.chart.XYChart;
 import javafx.scene.chart.XYChart.Series;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -23,12 +24,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import misc.GlobalFuncations;
 import misc.JsonRead;
 import model.QuestionWithData;
 
@@ -42,9 +45,15 @@ public class ChartScreen {
 
 	@FXML
 	private BarChart<String, Integer> barChart;
+	  @FXML
+	    private ImageView backBtn;
 
-	@FXML
-	private ImageView homeBtn;
+	    @FXML
+	    private AnchorPane backBtnPane;
+
+	    @FXML
+	    private ImageView backicon;
+
 
 	@FXML
 	private PieChart pieChart;
@@ -266,6 +275,7 @@ public class ChartScreen {
 
 	@FXML
 	void HomeBtnClicked(MouseEvent event) {
+    	GlobalFuncations.switchScreen(pane,"MainScreen",(getClass().getResource("/view/" + "MainScreen" + ".fxml")),"");
 
 	}
 
@@ -288,13 +298,57 @@ public class ChartScreen {
 
 	}
 
-	@FXML
-	void hoverEndSideButton(MouseEvent event) {
+	private void hoverSideButton(String id) {
+		if (id == null)
+			return;
+		Image image = createImage("buttonconinterClicked");
+		id = id.replace("Btn", "").replace("Pane", "");
+
+		switch (id) {
+
+		case "back":
+			backBtn.setImage(image);
+			break;
+		default:
+			image = createImage("buttonconinter");
+			backBtn.setImage(image);
+
+		}
 
 	}
 
+	private Image createImage(String img) {
+		InputStream inStream = getClass().getResourceAsStream("/images/" + img + ".png");
+		return new Image(inStream);
+	}
+	
 	@FXML
 	void hoverStartSideButton(MouseEvent event) {
+		String img ="buttonconinterClicked";
+		GlobalFuncations.hoverButton(getClass().getResourceAsStream("/images/" + img + ".png"), backBtn);		
 
 	}
+	
+	@FXML
+	void hoverEndSideButton(MouseEvent event) {
+		String img ="buttonconinter";
+		GlobalFuncations.hoverButton(getClass().getResourceAsStream("/images/" + img + ".png"), backBtn);		
+	}
+
+	// End Hover Section
+
+	// OnClick Section
+
+	
+
+	@FXML
+	void BackBtnClicked(MouseEvent event) {
+		GlobalFuncations.switchScreen(pane, "QuestionsListScreen",
+				(getClass().getResource("/view/" + "QuestionsListScreen" + ".fxml")), "");
+
+	}
+
+
+	
+
 }
