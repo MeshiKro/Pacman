@@ -8,46 +8,46 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MainScreen">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MainScreen">
    <children>
       <ImageView fitHeight="361.0" fitWidth="369.0" layoutY="241.0">
          <image>
             <Image url="@../../images/logo2.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="315.0" fitWidth="375.0" layoutX="333.0" layoutY="183.0">
+      <ImageView fitHeight="347.0" fitWidth="375.0" layoutX="333.0" layoutY="183.0">
          <image>
             <Image url="@../../images/Rectangle.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="startGameBtn" fitHeight="82.0" fitWidth="200.0" layoutX="420.0" layoutY="398.0" onMouseClicked="#startGame" onMouseEntered="#hoverStart" onMouseExited="#HoverEnd">
+      <ImageView fx:id="startGameBtn" fitHeight="82.0" fitWidth="200.0" layoutX="420.0" layoutY="425.0" onMouseClicked="#startGame" onMouseEntered="#hoverStart" onMouseExited="#HoverEnd">
          <image>
             <Image url="@../../images/startButton.png" />
          </image>
       </ImageView>
-      <ImageView fitWidth="40.0" layoutX="365.0" layoutY="232.0">
+      <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="368.0" layoutY="202.0">
          <image>
-            <Image url="@../../images/pacmanicon.png" />
+            <Image url="@../images/id-card%20(1).png" />
          </image>
       </ImageView>
-      <ImageView layoutX="363.0" layoutY="300.0">
+      <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="368.0" layoutY="273.0">
          <image>
-            <Image url="@../../images/brushicon.png" />
+            <Image url="@../images/brushicon.png" />
          </image>
       </ImageView>
-      <ComboBox fx:id="themeField" accessibleText="sdfsdf" layoutX="525.0" layoutY="305.0" prefHeight="30.0" prefWidth="144.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
-      <Label layoutX="423.0" layoutY="229.0" prefHeight="30.0" prefWidth="77.0" text="Name:" textFill="WHITE">
+      <ComboBox fx:id="themeField" accessibleText="sdfsdf" layoutX="527.0" layoutY="281.0" prefHeight="30.0" prefWidth="144.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
+      <Label layoutX="432.0" layoutY="214.0" prefHeight="30.0" prefWidth="77.0" text="Name:" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="25.0" />
+            <Font name="System Bold" size="23.0" />
          </font>
       </Label>
-      <Label layoutX="418.0" layoutY="302.0" text="Theme:" textFill="WHITE">
+      <Label layoutX="427.0" layoutY="280.0" text="Theme:" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="25.0" />
+            <Font name="System Bold" size="23.0" />
          </font>
       </Label>
-      <TextField fx:id="nameFeild" layoutX="525.0" layoutY="232.0" prefHeight="25.0" prefWidth="144.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
-      <ImageView layoutX="639.0" layoutY="430.0">
+      <TextField fx:id="nameFeild" layoutX="527.0" layoutY="216.0" prefHeight="25.0" prefWidth="144.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
+      <ImageView layoutX="642.0" layoutY="469.0">
          <image>
             <Image url="@../../images/scorpion.png" />
          </image>
@@ -118,9 +118,20 @@
             <Image url="@../../images/startButtonClicked.png" />
          </image>
       </ImageView>
-      <Label fx:id="noNameLabel" layoutX="526.0" layoutY="265.0" textFill="RED">
+      <Label fx:id="noNameLabel" layoutX="528.0" layoutY="249.0" textFill="RED">
          <font>
             <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="36.0" fitWidth="34.0" layoutX="368.0" layoutY="345.0">
+         <image>
+            <Image url="@../images/pacicon.png" />
+         </image>
+      </ImageView>
+      <ComboBox accessibleText="sdfsdf" layoutX="527.0" layoutY="348.0" prefHeight="30.0" prefWidth="144.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
+      <Label layoutX="408.0" layoutY="347.0" text="Character:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="23.0" />
          </font>
       </Label>
    </children>
