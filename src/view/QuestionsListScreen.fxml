@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -249,5 +250,22 @@
             <Image url="@../images/line-chart-256.png" />
          </image>
       </ImageView>
+      <ImageView fx:id="questionSection1" fitHeight="157.0" fitWidth="157.0" layoutX="22.0" layoutY="232.0">
+         <image>
+            <Image url="@../../images/Rectangle.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="quesionField11" fill="#d8a14a" layoutX="32.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="filter by difficulty:" wrappingWidth="279.28173828125">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text fx:id="quesionField111" fill="#d8a14a" layoutX="33.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text="order by:" wrappingWidth="279.28173828125">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="filterBy" accessibleText="sdfsdf" layoutX="52.0" layoutY="267.0" prefHeight="35.0" prefWidth="117.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
+      <ComboBox fx:id="orderBy" accessibleText="sdfsdf" layoutX="52.0" layoutY="329.0" prefHeight="35.0" prefWidth="117.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
    </children>
 </AnchorPane>
