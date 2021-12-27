@@ -25,26 +25,24 @@ public class QuestionsListScreen {
 
 	@FXML
 	private ImageView backicon;
-	
 
-    @FXML
-    private ImageView chartBtn1;
+	@FXML
+	private ImageView chartBtn1;
 
-    @FXML
-    private ImageView chartBtn2;
+	@FXML
+	private ImageView chartBtn2;
 
-    @FXML
-    private ImageView chartBtn3;
+	@FXML
+	private ImageView chartBtn3;
 
-    @FXML
-    private ImageView chartBtn4;
+	@FXML
+	private ImageView chartBtn4;
 
-    @FXML
-    private ImageView chartBtn5;
+	@FXML
+	private ImageView chartBtn5;
 
-    @FXML
-    private ImageView chartBtn6;
-
+	@FXML
+	private ImageView chartBtn6;
 
 	@FXML
 	private ImageView deleteBtn1;
@@ -76,9 +74,9 @@ public class QuestionsListScreen {
 	@FXML
 	private ImageView editBtn4;
 
-    @FXML
-    private ImageView questionSection;
-    
+	@FXML
+	private ImageView questionSection;
+
 	@FXML
 	private ImageView editBtn5;
 
@@ -167,10 +165,9 @@ public class QuestionsListScreen {
 	public static String questionString;
 
 	public static String questionToDelete;
-	
+
 	public static String questionToEdit;
 
-	
 	public void initialize() {
 		JsonRead jr = new JsonRead();
 		array = jr.readQuestionsFromJson();
@@ -385,12 +382,12 @@ public class QuestionsListScreen {
 	void deleteQuestionClicked(MouseEvent event) {
 		String id = event.getPickResult().getIntersectedNode().getId().substring(9);
 
-		Text field = findText("quesionField"  + id);
-		if(field != null)
-		{
+		Text field = findText("quesionField" + id);
+		if (field != null) {
 			questionToDelete = field.getText();
 
-	    	GlobalFuncations.switchScreen(pane,"DeletePopUp",(getClass().getResource("/view/" + "DeletePopUp" + ".fxml")),"");
+			GlobalFuncations.switchScreen(pane, "DeletePopUp",
+					(getClass().getResource("/view/" + "DeletePopUp" + ".fxml")), "");
 
 		}
 
@@ -399,38 +396,59 @@ public class QuestionsListScreen {
 	@FXML
 	void EditQuestionClicked(MouseEvent event) {
 		String id = event.getPickResult().getIntersectedNode().getId().substring(7);
-System.out.print(" id " + id);
-		Text field = findText("quesionField"  + id);
-		if(field != null)
-		{
+		System.out.print(" id " + id);
+		Text field = findText("quesionField" + id);
+		if (field != null) {
 			questionToEdit = field.getText();
 			questionString = questionToEdit;
 
-	    	GlobalFuncations.switchScreen(pane,"EditQuestionScreen",(getClass().getResource("/view/" + "EditQuestionScreen" + ".fxml")),"Edit");
+			GlobalFuncations.switchScreen(pane, "EditQuestionScreen",
+					(getClass().getResource("/view/" + "EditQuestionScreen" + ".fxml")), "Edit");
 
 		}
 	}
-	
+
 	@FXML
-    void hoverStart(MouseEvent event) {
+	void goToChartScreem(MouseEvent event) {
+		if( event.getPickResult().getIntersectedNode().getId().equals(""))
+			return;
+		
+		try {
+		String id = event.getPickResult().getIntersectedNode().getId().substring(8);
+		Text field = findText("quesionField" + id);
+
+		if (field != null) {
+			GlobalFuncations.switchScreen(pane, "ChartScreen",
+					(getClass().getResource("/view/" + "ChartScreen" + ".fxml")), field.getText());
+
+		}
+		}
+		catch(Exception e)
+		{
+			
+		}
+	}
+
+	@FXML
+	void hoverStart(MouseEvent event) {
 		hover1(event.getPickResult().getIntersectedNode().getId());
-    }
+	}
 
-    @FXML
-    void hoverStart2(MouseEvent event) {
-    	hover2(event.getPickResult().getIntersectedNode().getId());
-    }
-    
-    @FXML
-    void hoverEnd(MouseEvent event) {
-    	hover1(event.getPickResult().getIntersectedNode().getId());
-    }
+	@FXML
+	void hoverStart2(MouseEvent event) {
+		hover2(event.getPickResult().getIntersectedNode().getId());
+	}
 
-    @FXML
-    void hoverEnd2(MouseEvent event) {
-    	hover2(event.getPickResult().getIntersectedNode().getId());
-    }
-	
+	@FXML
+	void hoverEnd(MouseEvent event) {
+		hover1(event.getPickResult().getIntersectedNode().getId());
+	}
+
+	@FXML
+	void hoverEnd2(MouseEvent event) {
+		hover2(event.getPickResult().getIntersectedNode().getId());
+	}
+
 	private void hover1(String id) {
 		if (id == null)
 			return;
@@ -440,32 +458,30 @@ System.out.print(" id " + id);
 		case "nextIcon2":
 			nextIcon2.setImage(image);
 			break;
-			
+
 		default:
 			image = createImage("1");
 			nextIcon2.setImage(image);
-	
-			
+
 		}
 	}
-	
-		private void hover2(String id) {
-			if (id == null)
-				return;
-			Image image = createImage("22");
 
-			switch (id) {
+	private void hover2(String id) {
+		if (id == null)
+			return;
+		Image image = createImage("22");
 
-			case "backquestionBtn1":
-				backquestionBtn1.setImage(image);
-				break;
-	
-			default:
-				image = createImage("23");
-				backquestionBtn1.setImage(image);
-	
+		switch (id) {
 
-			}
+		case "backquestionBtn1":
+			backquestionBtn1.setImage(image);
+			break;
+
+		default:
+			image = createImage("23");
+			backquestionBtn1.setImage(image);
+
+		}
 
 	}
 
