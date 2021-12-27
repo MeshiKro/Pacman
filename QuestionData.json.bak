@@ -1,1 +1,124 @@
-{"questionWithData":[{"question":"what is Agile?","correct_ans":"iterative approach software delivery that builds software incrementally","answerData":{"a name of an angel":1,"kind of development plan":2,"treats analysis, design, coding, and testing as discrete phases the project":0,"iterative approach software delivery that builds software incrementally":0}},{"question":"What is right about Agile?","correct_ans":"All the answers are correct","answerData":{"No answer is correct":0,"Requirements can change and be implemented quickly":0,"Working software is the primary measure of success":0,"All the answers are correct":0}},{"question":"What is the main goal of a SRR?","correct_ans":"to ensure that the system requirements, products and milestones are defined","answerData":{"draft documents for the project":0,"has detailed development plan of the system: methods,models ,etc ":0,"documentation Planning and designing the user interface (GUI)":0,"to ensure that the system requirements, products and milestones are defined":0}},{"question":"What are partial requirements?","correct_ans":"incomplete requirement,that doesn\u0027t cover the required functionality in a case","answerData":{"a requirement that is partially good":0,"incomplete requirement,that doesn\u0027t cover the required functionality in a case":0,"a requirement is missing and is not described at all in the document":0,"a requirement that is implied in two ways":0}},{"question":"walkthrough peer-review is?","correct_ans":"a formal, scheduled activity where a designer presents a design to his team","answerData":{"activity where a designer presents someone else\u0027s design to the team":0,"a formal, scheduled activity where a designer presents a design to his team":0,"routine conversation with team members":0,"feedback conversation with the team manager":0}},{"question":"What is surveyed in a proposal survey?","correct_ans":"all the answers are correct","answerData":{"costs: price, resources, time":0,"ability to meet commitment(the organization and the customer )":0,"customer requirements are clarified and properly documented":0,"all the answers are correct":0}},{"question":"What is the Observer pattern?","correct_ans":"pattern that lets an object ask to be notified when another object changes","answerData":{"pattern that lets an object ask to be notified when another object changes":0,"pattern that creates an object and isolates a client from which class he created":0,"this pattern is implemented as an abstract class":0,"None of the answer are correct ":0}},{"question":"What is Client-Server architecture?","correct_ans":"collection of services that I can get from a server or a variety servers","answerData":{"more then one answer is correct":0,"the client always starts communicating with the server":0,"collection of services that I can get from a server or a variety servers":0,"the behavior of the system will be in the give and take method ":0}},{"question":"What are Lehman laws?","correct_ans":"refer to study of changes that software systems go through during their lives","answerData":{"user interface design rules":0,"refer to study of changes that software systems go through during their lives":0,"contract on system maintenance terms":0,"legal precedent showing how important maintenance is ":0}},{"question":"What is wrong to say about software maintenance costs?","correct_ans":"usually development costs are greater than maintenance costs","answerData":{"the older the software, the more it costs to develop":0,"maintenance costs are usually higher than development costs":0,"usually development costs are greater than maintenance costs":0,"Maintenance costs more than hardware ":0}},{"question":"What is driver?","correct_ans":"component that replaces the UNIT environment and activates test component ","answerData":{"the component on which we want to perform the test":0,"a component that transmits test results":0,"component that replaces the UNIT environment and activates test component ":0,"a component that makes a simple simulation of the world around it":0}},{"question":"What is the difference between a \u0027white box\u0027 and a \u0027black box\u0027 test?","correct_ans":"black box refer component in the system but not his code compared to white","answerData":{"black box refer component in the system but not his code compared to white":0,"white box refer component in the system but not his code compared to black ":0,"there is no difference":0,"various staff members perform the tests":0}}]}
+{
+   "questionWithData":[
+      {
+         "question":"what is Agile?",
+         "correct_ans":"iterative approach software delivery that builds software incrementally",
+         "answerData":{
+            "a name of an angel":1,
+            "kind of development plan":2,
+            "treats analysis, design, coding, and testing as discrete phases the project":3,
+            "iterative approach software delivery that builds software incrementally":7
+         }
+      },
+      {
+         "question":"What is right about Agile?",
+         "correct_ans":"All the answers are correct",
+         "answerData":{
+            "No answer is correct":3,
+            "Requirements can change and be implemented quickly":2,
+            "Working software is the primary measure of success":6,
+            "All the answers are correct":1
+         }
+      },
+      {
+         "question":"What is the main goal of a SRR?",
+         "correct_ans":"to ensure that the system requirements, products and milestones are defined",
+         "answerData":{
+            "draft documents for the project":1,
+            "has detailed development plan of the system: methods,models ,etc ":2,
+            "documentation Planning and designing the user interface (GUI)":5,
+            "to ensure that the system requirements, products and milestones are defined":1
+         }
+      },
+      {
+         "question":"What are partial requirements?",
+         "correct_ans":"incomplete requirement,that doesn\u0027t cover the required functionality in a case",
+         "answerData":{
+            "a requirement that is partially good":0,
+            "incomplete requirement,that doesn\u0027t cover the required functionality in a case":0,
+            "a requirement is missing and is not described at all in the document":0,
+            "a requirement that is implied in two ways":0
+         }
+      },
+      {
+         "question":"walkthrough peer-review is?",
+         "correct_ans":"a formal, scheduled activity where a designer presents a design to his team",
+         "answerData":{
+            "activity where a designer presents someone else\u0027s design to the team":0,
+            "a formal, scheduled activity where a designer presents a design to his team":0,
+            "routine conversation with team members":0,
+            "feedback conversation with the team manager":0
+         }
+      },
+      {
+         "question":"What is surveyed in a proposal survey?",
+         "correct_ans":"all the answers are correct",
+         "answerData":{
+            "costs: price, resources, time":0,
+            "ability to meet commitment(the organization and the customer )":0,
+            "customer requirements are clarified and properly documented":0,
+            "all the answers are correct":0
+         }
+      },
+      {
+         "question":"What is the Observer pattern?",
+         "correct_ans":"pattern that lets an object ask to be notified when another object changes",
+         "answerData":{
+            "pattern that lets an object ask to be notified when another object changes":0,
+            "pattern that creates an object and isolates a client from which class he created":0,
+            "this pattern is implemented as an abstract class":0,
+            "None of the answer are correct ":0
+         }
+      },
+      {
+         "question":"What is Client-Server architecture?",
+         "correct_ans":"collection of services that I can get from a server or a variety servers",
+         "answerData":{
+            "more then one answer is correct":0,
+            "the client always starts communicating with the server":0,
+            "collection of services that I can get from a server or a variety servers":0,
+            "the behavior of the system will be in the give and take method ":0
+         }
+      },
+      {
+         "question":"What are Lehman laws?",
+         "correct_ans":"refer to study of changes that software systems go through during their lives",
+         "answerData":{
+            "user interface design rules":0,
+            "refer to study of changes that software systems go through during their lives":0,
+            "contract on system maintenance terms":0,
+            "legal precedent showing how important maintenance is ":0
+         }
+      },
+      {
+         "question":"What is wrong to say about software maintenance costs?",
+         "correct_ans":"usually development costs are greater than maintenance costs",
+         "answerData":{
+            "the older the software, the more it costs to develop":0,
+            "maintenance costs are usually higher than development costs":0,
+            "usually development costs are greater than maintenance costs":0,
+            "Maintenance costs more than hardware ":0
+         }
+      },
+      {
+         "question":"What is driver?",
+         "correct_ans":"component that replaces the UNIT environment and activates test component ",
+         "answerData":{
+            "the component on which we want to perform the test":0,
+            "a component that transmits test results":0,
+            "component that replaces the UNIT environment and activates test component ":0,
+            "a component that makes a simple simulation of the world around it":0
+         }
+      },
+      {
+         "question":"What is the difference between a \u0027white box\u0027 and a \u0027black box\u0027 test?",
+         "correct_ans":"black box refer component in the system but not his code compared to white",
+         "answerData":{
+            "black box refer component in the system but not his code compared to white":0,
+            "white box refer component in the system but not his code compared to black ":0,
+            "there is no difference":0,
+            "various staff members perform the tests":0
+         }
+      }
+   ]
+}

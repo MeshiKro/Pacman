@@ -23,7 +23,7 @@ import javafx.scene.layout.Pane;
 
 
 import misc.GlobalFuncations;
-
+import misc.JsonWriterEx;
 import model.QuestionInJson;
 
 public class yellowQuestScreen {
@@ -233,23 +233,41 @@ public class yellowQuestScreen {
 		Boolean answer2Selected = answer2.isSelected();
 		Boolean answer3Selected = answer3.isSelected();
 		Boolean answer4Selected = answer4.isSelected();
+		
+		JsonWriterEx jw = new JsonWriterEx();
+		
 		String id ="1";
-		if (answer1Selected)
+		if (answer1Selected) {
 			id = "1";
-		else if (answer2Selected)
+			jw.updateQuestionDataArray(questionToDisplay.getQuestion(),answer1.getText());
+
+		}
+		else if (answer2Selected) {
 			id = "2";
-		else if (answer3Selected)
+			jw.updateQuestionDataArray(questionToDisplay.getQuestion(),answer2.getText());
+
+		}
+		else if (answer3Selected) {
 			id = "3";
-		else if (answer4Selected)
+			jw.updateQuestionDataArray(questionToDisplay.getQuestion(),answer3.getText());
+
+		}
+		else if (answer4Selected) {
 			id = "4";
+			jw.updateQuestionDataArray(questionToDisplay.getQuestion(),answer4.getText());
+
+		}
 		answerIsCorrect = isAnswerCorrect(id);
 
 	}
+
+	
 
 	private boolean isAnswerCorrect(String id) {
 		int correctAnswerIndex = Integer.parseInt(questionToDisplay.getCorrect_ans());
 		int selectedAnswerIndex = Integer.parseInt(id);
 	
+		
 		if (correctAnswerIndex == selectedAnswerIndex)
 			return true;
 		else

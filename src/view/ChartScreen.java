@@ -18,6 +18,7 @@ import java.util.Random;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -26,6 +27,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import misc.JsonRead;
 import model.QuestionWithData;
 
@@ -84,7 +87,7 @@ public class ChartScreen {
 		setStyleToChart();
 	}
 
-	private void addDataToPieChart() {
+	/*private void addDataToPieChart() {
 		ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
 
 		HashMap<String, Integer> list = (HashMap<String, Integer>) question.getAnswerData().clone();
@@ -104,9 +107,18 @@ public class ChartScreen {
 			}
 
 		}
-
+	
 		pieChart.setData(pieChartData);
-	}
+		for (int i=0;i<pieChart.getData().size();i++)
+		{
+			System.out.print(pieChart.getData().get(i).getPieValue());
+			System.out.print(pieChart.getData().get(i).getName());
+
+		}
+		pieChart.getData().get(0).setName("dsfgsdfg");
+		pieChart.getData().get(0).setPieValue(222);
+
+	}*/
 
 	private void initializeColorsArray() {
 		colors = new ArrayList<String>();
@@ -142,6 +154,7 @@ public class ChartScreen {
 				int num = Integer.parseInt(pair.getValue().toString().replace(".0", ""));
 
 				answer.getData().add(new XYChart.Data(ans, num));
+
 				pieChartData.add(new PieChart.Data(ans, num));
 				
 				
@@ -155,19 +168,23 @@ public class ChartScreen {
 
 		
 		pieChart.setData(pieChartData);
+	
 
-		pieChart.getData().stream().forEach(data -> {
-		    Tooltip tooltip = new Tooltip();
-		    tooltip.setText(data.getPieValue() + "%");
-		    Tooltip.install(data.getNode(), tooltip);
-		    data.pieValueProperty().addListener((observable, oldValue, newValue) -> 
-		        tooltip.setText(newValue + "%"));
-		});
-		
-		
+		for (int i=0;i<pieChart.getData().size();i++)
+		{
+			System.out.print(pieChart.getData().get(i).getPieValue());
+			System.out.print(pieChart.getData().get(i).getName());
+
+		}
+
+
+        final Label caption = new Label("");
+        caption.setTextFill(Color.DARKORANGE);
+        caption.setStyle("-fx-font: 24 arial;");
+
 
 	}
-
+	
 	private void setStyleToChart() {
 
 		int indexOfCorrectAnwer = getIndexOfCorrectAnwer() - 1;
@@ -178,9 +195,10 @@ public class ChartScreen {
 
 		PieChart.Data data = pieChartData.get(indexOfCorrectAnwer);
 
-		if (data != null)
-			data.getNode().setStyle("-fx-pie-color: green;");
-
+		if (data != null) {
+			data.getNode().setStyle("-fx-pie-color: green;");		 
+		}
+			
 		for (int i = 0; i < 4; i++) {
 			n = barChart.lookup(".data" + i + ".chart-bar");
 			data = pieChartData.get(i);
@@ -188,6 +206,8 @@ public class ChartScreen {
 				String color = getRandomColor();
 				n.setStyle("-fx-bar-fill: " + color);
 				data.getNode().setStyle("-fx-pie-color: " + color + ";");
+				
+			  
 			}
 
 		}
@@ -195,6 +215,10 @@ public class ChartScreen {
 		initializeColorsArray();
 
 	}
+	  @FXML
+	    void prectengesDisaply(MouseEvent event) {
+		
+	    }
 
 	private String getRandomColor() {
 		Random r = new Random();
@@ -249,22 +273,14 @@ public class ChartScreen {
 	void changeChartType(MouseEvent event) {
 		if (chartBtn.getText().equals("Pie Chart")) {
 			pieChart.setVisible(true);
+			pieChart.toFront();
 			barChart.setVisible(false);
 			chartBtn.setText("Bar Chart");
-			pieChart.setData(pieChartData);
-
-			pieChart.getData().stream().forEach(data -> {
-			    Tooltip tooltip = new Tooltip();
-			    tooltip.setText(data.getPieValue() + "%");
-			    Tooltip.install(data.getNode(), tooltip);
-			    data.pieValueProperty().addListener((observable, oldValue, newValue) -> 
-			        tooltip.setText(newValue + "%"));
-			});
-			
 			
 
 		} else {
 			pieChart.setVisible(false);
+			barChart.toFront();
 			barChart.setVisible(true);
 			chartBtn.setText("Pie Chart");
 

@@ -5,11 +5,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Observable;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonIOException;
 
+import javafx.scene.chart.PieChart;
+import javafx.scene.chart.XYChart;
 import model.AllScoreBoardRecords;
 import model.QuestionInJson;
 import model.QuestionWithData;
@@ -42,6 +46,12 @@ public class JsonWriterEx extends Observable {
 
 		}
 
+	return	WriteQuestionDataToJSon(questionWithData);
+		
+	
+
+	}
+	private boolean WriteQuestionDataToJSon(ArrayList<QuestionWithData> questionWithData) {
 		FileWriter writer;
 		try {
 			writer = new FileWriter("QuestionData.json");
@@ -61,8 +71,7 @@ public class JsonWriterEx extends Observable {
 			e.printStackTrace();
 		}
 
-		return false;
-
+		return false;		
 	}
 	public class QuestionDataToJSON{
 		ArrayList<QuestionWithData> questionWithData = new ArrayList<QuestionWithData>();
@@ -197,6 +206,49 @@ public class JsonWriterEx extends Observable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	public void updateQuestionDataArray(String question, String selectedAnswer) {
+		for(int i=0;i<JsonRead.questionWithData.size();i++)
+		{
+			QuestionWithData current = JsonRead.questionWithData.get(i);
+			if(current.getQuestion().equals(question))
+			{
+				
+
+				HashMap<String, Integer> list = (HashMap<String, Integer>) 	current.getAnswerData();
+
+					Iterator it = (list).entrySet().iterator();
+
+					while (it.hasNext()) {
+
+						Map.Entry pair = (Map.Entry) it.next();
+						String ans = pair.getKey().toString();
+
+						if(ans.equals(selectedAnswer))
+						{
+							int num = Integer.parseInt(pair.getValue().toString().replace(".0", ""));
+							list.put(ans, ++num);
+							
+							WriteQuestionDataToJSon(JsonRead.questionWithData);
+							return;
+						}
+						
+
+						
+						it.remove();
+					}
+
+				
+				
+				
+			
+			}
+			
+			
+		}
+
+		
 	}
 
 }
