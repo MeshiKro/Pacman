@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -16,6 +17,13 @@ import misc.JsonRead;
 import model.QuestionInJson;
 
 public class QuestionsListScreen {
+	
+
+    @FXML
+    private ComboBox<?> filterBy;
+
+    @FXML
+    private ComboBox<?> orderBy;
 
 	@FXML
 	private ImageView backBtn;
