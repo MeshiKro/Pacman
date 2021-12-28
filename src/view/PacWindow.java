@@ -36,6 +36,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import misc.MapData;
 import misc.MapEditor;
+import model.Ghost;
 
 
 public class PacWindow extends JFrame {
@@ -45,6 +46,7 @@ public class PacWindow extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	public static boolean openMainScreen = false;
+	public static boolean isPause = false;
 	public static PacWindow pacWindowContext;
 
 	BufferedImage myPicture = null;
@@ -84,7 +86,7 @@ public class PacWindow extends JFrame {
 			}
 		JLabel picLabel = new JLabel(new ImageIcon(myPicture));
 		picLabel.setHorizontalAlignment(JLabel.LEFT);
-		JLabel picLabel2 = new JLabel();
+		/*JLabel picLabel2 = new JLabel();
 		picLabel2.setHorizontalAlignment(JLabel.LEFT);
 
 		picLabel2.addMouseListener(new MouseInputAdapter() {
@@ -94,7 +96,51 @@ public class PacWindow extends JFrame {
 				openMainScreen();
 
 			}
-		});
+		});*/
+		 BufferedImage pausePic = null;
+		try {
+			pausePic = ImageIO.read(new File("./resources/images/pac/ButtonPauseSmall.png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 JLabel picLabel2 = new JLabel(new ImageIcon(pausePic));
+		 picLabel2.setHorizontalAlignment(JLabel.LEFT);
+		 
+		 picLabel2.addMouseListener(new MouseInputAdapter() {
+				public void mouseClicked(MouseEvent e)   {
+					isPause=!isPause;
+					if(isPause==true) {
+						Ghost.stopScreenForQ = true;
+						SysData.pacman.moveTimer.stop();
+						SysData.pacman.animTimer.stop();
+						BufferedImage playPic = null;
+				 		try {
+				 			playPic = ImageIO.read(new File("./resources/images/pac/ButtonPlaySmall.png"));
+				 		} catch (IOException o) {
+				 			// TODO Auto-generated catch block
+				 			o.printStackTrace();
+				 		}
+				 		picLabel2.setIcon(new ImageIcon(playPic));
+				 		 return;
+						
+					}
+					if(isPause==false) {
+						Ghost.stopScreenForQ = false;
+						SysData.pacman.moveTimer.start();
+						SysData.pacman.animTimer.start();
+						BufferedImage pausePic = null;
+				 		try {
+				 			pausePic = ImageIO.read(new File("./resources/images/pac/ButtonPauseSmall.png"));
+				 		} catch (IOException o) {
+				 			// TODO Auto-generated catch block
+				 			o.printStackTrace();
+				 		}
+				 		picLabel2.setIcon(new ImageIcon(pausePic));
+				 		 return;
+					}
+			    }       
+			});
 
 		JLabel scoreboard = new JLabel();
 		if (SysData.score < 10)
