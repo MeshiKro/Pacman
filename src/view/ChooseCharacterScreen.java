@@ -34,7 +34,21 @@ public class ChooseCharacterScreen {
 
 	    @FXML
 	    private ImageView right;
+	    
+	    @FXML
+	    private ImageView pacImg;
 
+	    @FXML
+	    private Label pacName;
+	    
+	   private int characterNum;
+
+		public void initialize() {
+			characterNum=MainScreen.characterFlag;
+			changeImg(characterNum);
+
+		}	    
+	    
 	    @FXML
 	    void HoverEnd(MouseEvent event) {
 	    	String img = "startButton";
@@ -51,6 +65,7 @@ public class ChooseCharacterScreen {
 
 	    @FXML
 	    void startGame(MouseEvent event) {
+	    	MainScreen.characterFlag=characterNum;
 	    	GlobalFuncations.switchScreen(pane, "MainScreen",
 					(getClass().getResource("/view/" + "MainScreen" + ".fxml")), "");
 	    }
@@ -157,13 +172,79 @@ public class ChooseCharacterScreen {
 		
 	    @FXML
 	    void leftClicked(MouseEvent event) {
-
+	    	if(characterNum>1) {
+	    		characterNum--;		
+	    		changeImg(characterNum);
+	    	}
+	    	else {
+	    		characterNum=8;
+	    		changeImg(characterNum);
+	    	}
 	    }
 
 	    @FXML
 	    void rightClicked(MouseEvent event) {
-
+	    	if(characterNum<8) {
+	    		characterNum++;		
+	    		changeImg(characterNum);	
+	    
+	    	}
+	    	else {
+	    		characterNum=1;
+	    		changeImg(characterNum);
+	    
+	    	}
 	    }
+	    
+	    
+	    
+		private void changeImg(int characterNum) {
+
+    	if(characterNum==1) {
+    		Image Image = createImage("/pac_orig/basic");
+			pacImg.setImage(Image);
+			pacName.setText("pacman");
+    	}
+     	if(characterNum==2) {
+    		Image Image = createImage("/pac_orig/pacWoman");
+			pacImg.setImage(Image);
+			pacName.setText("pacwoman");
+     	}
+       	if(characterNum==3) {
+    		Image Image = createImage("/pac_orig/viking");
+			pacImg.setImage(Image);
+			pacName.setText("viking");
+     	}
+       	if(characterNum==4) {
+    		Image Image = createImage("/pac_orig/pacPolice");
+			pacImg.setImage(Image);
+			pacName.setText("officer");
+     	}
+       	if(characterNum==5) {
+    		Image Image = createImage("/pac_orig/santa");
+			pacImg.setImage(Image);
+			pacName.setText("santa");
+     	}
+       	if(characterNum==6) {
+    		Image Image = createImage("/pac_orig/alien");
+			pacImg.setImage(Image);
+			pacName.setText("alien");
+     	}
+       	if(characterNum==7) {
+       		Image Image = createImage("/pac_orig/angel");
+    		pacImg.setImage(Image);
+			pacName.setText("angel");
+     	}
+       	if(characterNum==8) {
+       		Image Image = createImage("/pac_orig/devil");
+    		pacImg.setImage(Image);
+			pacName.setText("devil");
+     	}
+		}
+	    
+	    
+	    
+	    
 
 	}
 

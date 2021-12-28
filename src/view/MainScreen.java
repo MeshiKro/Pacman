@@ -26,6 +26,8 @@ public class MainScreen {
 	public static boolean isMute = false;
 
 	public static String theme = "Basic";
+	
+	public static int characterFlag = 1;
 
 	@FXML
 	private AnchorPane pane;
@@ -87,8 +89,38 @@ public class MainScreen {
 		themeField.getSelectionModel().select(0);
 
 		setScreenConfig();
+		
+		setBtnLabel(characterFlag);
 
 	}
+	
+	private void setBtnLabel(int characterNum) {
+
+    	if(characterNum==1) {
+    		chooseBtn.setText("pacman");
+    	}
+     	if(characterNum==2) {
+     		chooseBtn.setText("pacwoman");
+     	}
+       	if(characterNum==3) {
+       		chooseBtn.setText("viking");
+     	}
+       	if(characterNum==4) {
+       		chooseBtn.setText("officer");
+     	}
+       	if(characterNum==5) {
+       		chooseBtn.setText("santa");
+     	}
+       	if(characterNum==6) {
+       		chooseBtn.setText("alien");
+     	}
+       	if(characterNum==7) {
+       		chooseBtn.setText("angel");
+     	}
+       	if(characterNum==8) {
+       		chooseBtn.setText("devil");
+     	}
+		}
 
 	private void setScreenConfig() {
 		JsonRead jr = new JsonRead();
@@ -306,12 +338,12 @@ public class MainScreen {
     
     @FXML
     void hoverStartC(MouseEvent event) {
-    	chooseBtn.setStyle("-fx-background-color: #d4b6ab");
+    	chooseBtn.setStyle("-fx-background-color: #cba79a; -fx-background-radius:25; -fx-border-width:5; -fx-border-color:white; -fx-border-radius:25");
     }
     
     @FXML
     void HoverEndC(MouseEvent event) {
-    	chooseBtn.setStyle("-fx-background-color: #efe4e0");
+    	chooseBtn.setStyle("-fx-background-color: #efe4e0; -fx-background-radius:25; -fx-border-width:5; -fx-border-color:white; -fx-border-radius:25");
     }
 
 }

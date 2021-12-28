@@ -48,7 +48,7 @@
             <Image url="@../../images/forChar.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="133.0" fitWidth="133.0" layoutX="449.0" layoutY="256.0">
+      <ImageView fx:id="pacImg" fitHeight="133.0" fitWidth="133.0" layoutX="449.0" layoutY="256.0">
          <image>
             <Image url="@../../images/pac_orig/basic.png" />
          </image>
@@ -73,7 +73,7 @@
             <Image url="@../../images/forChar.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="486.0" layoutY="413.0" text="pacman" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="pacName" alignment="CENTER" contentDisplay="CENTER" layoutX="442.0" layoutY="413.0" prefHeight="26.0" prefWidth="147.0" text="pacman" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="17.0" />
          </font>
