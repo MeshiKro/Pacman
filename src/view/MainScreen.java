@@ -8,6 +8,7 @@ import java.util.TimerTask;
 import com.sun.javafx.stage.EmbeddedWindow;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -31,6 +32,9 @@ public class MainScreen {
 
 	@FXML
 	private ImageView startGameBtn;
+	
+    @FXML
+    private Button chooseBtn;
 
 	@FXML
 	private ComboBox<String> themeField;
@@ -293,5 +297,21 @@ public class MainScreen {
 				(getClass().getResource("/view/" + "ChartScreen" + ".fxml")), "What are partial requirements?");*/
 	}
 	// End OnClick Section
+	
+    @FXML
+    void chooseBtnClicked(MouseEvent event) {
+    	GlobalFuncations.switchScreen(pane, "ChooseCharacterScreen",
+				(getClass().getResource("/view/" + "ChooseCharacterScreen" + ".fxml")), "");
+    }
+    
+    @FXML
+    void hoverStartC(MouseEvent event) {
+    	chooseBtn.setStyle("-fx-background-color: #d4b6ab");
+    }
+    
+    @FXML
+    void HoverEndC(MouseEvent event) {
+    	chooseBtn.setStyle("-fx-background-color: #efe4e0");
+    }
 
 }

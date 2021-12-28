@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ChooseCharacterScreen">
+   <children>
+      <ImageView fitHeight="361.0" fitWidth="369.0" layoutY="241.0">
+         <image>
+            <Image url="@../../images/logo2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="347.0" fitWidth="375.0" layoutX="333.0" layoutY="183.0">
+         <image>
+            <Image url="@../../images/Rectangle.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="startGameBtn" fitHeight="50.0" fitWidth="133.0" layoutX="450.0" layoutY="457.0" onMouseClicked="#startGame" onMouseEntered="#hoverStart" onMouseExited="#HoverEnd">
+         <image>
+            <Image url="@../../images/startButton.png" />
+         </image>
+      </ImageView>
+      <ImageView layoutX="642.0" layoutY="469.0">
+         <image>
+            <Image url="@../../images/scorpion.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="259.0" fitWidth="586.0" layoutX="227.0">
+         <image>
+            <Image url="@../../images/logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="36.0" fitWidth="34.0" layoutX="356.0" layoutY="199.0">
+         <image>
+            <Image url="@../images/pacicon.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="393.0" layoutY="202.0" text="Choose your character:" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="177.0" fitWidth="188.0" layoutX="421.0" layoutY="235.0">
+         <image>
+            <Image url="@../../images/forChar.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="133.0" fitWidth="133.0" layoutX="449.0" layoutY="256.0">
+         <image>
+            <Image url="@../../images/pac_orig/basic.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="right" fitHeight="36.0" fitWidth="44.0" layoutX="613.0" layoutY="305.0" onMouseClicked="#rightClicked" onMouseEntered="#hoverStart1" onMouseExited="#hoverEnd1">
+         <image>
+            <Image url="@../../images/1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="left" fitHeight="36.0" fitWidth="44.0" layoutX="374.0" layoutY="305.0" onMouseClicked="#leftClicked" onMouseEntered="#hoverStart2" onMouseExited="#hoverEnd2">
+         <image>
+            <Image url="@../../images/23.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="44.0" fitWidth="44.0" layoutX="83.0" layoutY="75.0" style="-fx-rotate: 180;">
+         <image>
+            <Image url="@../../images/rightarrow.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="36.0" fitWidth="170.0" layoutX="431.0" layoutY="409.0">
+         <image>
+            <Image url="@../../images/forChar.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="486.0" layoutY="413.0" text="pacman" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="startButtonClicked" fitHeight="56.0" fitWidth="133.0" layoutX="450.0" layoutY="454.0" visible="false">
+         <image>
+            <Image url="@../../images/startButtonClicked.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="backBtnPane" layoutX="54.0" layoutY="46.0" onMouseClicked="#BackBtnClicked" onMouseEntered="#hoverStartSideButton" onMouseExited="#hoverEndSideButton" prefHeight="82.0" prefWidth="84.0">
+         <children>
+            <ImageView fx:id="backBtn" fitHeight="84.0" fitWidth="84.0" layoutY="-1.0" onMouseClicked="#BackBtnClicked">
+               <image>
+                  <Image url="@../../images/buttonconinter.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="backicon" fitHeight="42.0" fitWidth="41.0" layoutX="20.0" layoutY="19.0" onMouseClicked="#BackBtnClicked" style="-fx-rotate: 180;">
+               <image>
+                  <Image url="@../../images/rightarrow.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

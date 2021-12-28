@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -20,7 +21,7 @@
             <Image url="@../../images/Rectangle.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="startGameBtn" fitHeight="82.0" fitWidth="200.0" layoutX="420.0" layoutY="423.0" onMouseClicked="#startGame" onMouseEntered="#hoverStart" onMouseExited="#HoverEnd">
+      <ImageView fx:id="startGameBtn" fitHeight="82.0" fitWidth="200.0" layoutX="420.0" layoutY="425.0" onMouseClicked="#startGame" onMouseEntered="#hoverStart" onMouseExited="#HoverEnd">
          <image>
             <Image url="@../../images/startButton.png" />
          </image>
@@ -128,11 +129,11 @@
             <Image url="@../images/pacicon.png" />
          </image>
       </ImageView>
-      <ComboBox accessibleText="sdfsdf" layoutX="527.0" layoutY="348.0" prefHeight="30.0" prefWidth="144.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
       <Label layoutX="408.0" layoutY="347.0" text="Character:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="23.0" />
          </font>
       </Label>
+      <Button fx:id="chooseBtn" layoutX="528.0" layoutY="348.0" mnemonicParsing="false" onMouseClicked="#chooseBtnClicked" onMouseEntered="#hoverStartC" onMouseExited="#HoverEndC" prefHeight="35.0" prefWidth="144.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" text="choose" />
    </children>
 </AnchorPane>
