@@ -2,6 +2,9 @@ package view;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -12,18 +15,20 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import misc.GlobalFuncations;
 import misc.JsonRead;
+import misc.JsonWriterEx;
 import model.QuestionInJson;
 
 public class QuestionsListScreen {
 	
 
     @FXML
-    private ComboBox<?> filterBy;
+    private ComboBox<String> filterBy;
 
     @FXML
-    private ComboBox<?> orderBy;
+    private ComboBox<String> orderBy;
 
 	@FXML
 	private ImageView backBtn;
@@ -169,8 +174,7 @@ public class QuestionsListScreen {
 	private int quesiotnIndex;
 
 	ArrayList<QuestionInJson> array;
-
-	public static String questionString;
+   public static String questionString;
 
 	public static String questionToDelete;
 
@@ -191,6 +195,10 @@ public class QuestionsListScreen {
 
 			}
 		}
+		filterBy.getItems().addAll("Easy", "Medium", "Hard");
+		filterBy.getSelectionModel().select(0);
+		filterBy.setValue("");
+		
 
 	}
 
@@ -208,12 +216,17 @@ public class QuestionsListScreen {
 	void addQuestion(ArrayList<QuestionInJson> array, int index) {
 
 		int indexID = index;
-		if (indexID >= 6)
+		if (indexID >= 6) {
 			indexID -= 6;
-
+			index-=6;
+		}
+		if(array.get(index)==null) {
+			return;
+		}
 		// Find question / level field
 		Text field = findText("quesionField" + String.valueOf(indexID + 1));
 		field.setText(array.get(index).getQuestion());
+		System.out.println(indexID +"..........."+index);
 		field.setVisible(true);
 
 		field = findText("levleField" + String.valueOf(indexID + 1));
@@ -293,8 +306,57 @@ public class QuestionsListScreen {
 		return lvl;
 
 	}
+	
+	//Add Question according to it's level
+	@FXML
+	void filterQByLevel(MouseEvent event) {
+		String difficulty = filterBy.getSelectionModel().getSelectedItem();
+		JsonRead jr = new JsonRead();
+		array = jr.readQuestionsFromJson();
+		System.out.println(difficulty);
+		if (difficulty.equals("Easy")) {
+			for (int i = 0; i <array.size(); i++) {
+				if(getLevel(array.get(i).getLevel()).equals("Easy")) {
+					System.out.println("................."+getLevel(array.get(i).getLevel()));
+				try {
+					addQuestion(array, i);
 
-	// Hover Section
+				} catch (IndexOutOfBoundsException e) {
+
+				}
+			}
+
+		}
+			
+		} if (difficulty.equals("Medium")) {
+				for (int i = 0; i < array.size(); i++) {
+					if(getLevel(array.get(i).getLevel()).equals("Meduim")) {
+						System.out.println("................."+getLevel(array.get(i).getLevel()));
+					try {
+						addQuestion(array, i);
+
+					} catch (IndexOutOfBoundsException e) {
+
+					}
+				}
+			}
+			
+		}if (difficulty.equals("Hard")) {
+			
+				for (int i = 0; i < array.size(); i++) {
+					if(getLevel(array.get(i).getLevel()).equals("Hard")) {
+						System.out.println("................."+getLevel(array.get(i).getLevel()));
+					try {
+						addQuestion(array, i);
+
+					} catch (IndexOutOfBoundsException e) {
+
+					}
+				}
+			}
+		}	
+	}
+	
 
 	@FXML
 	void hoverStartSideButton(MouseEvent event) {
@@ -357,8 +419,8 @@ public class QuestionsListScreen {
 	void nextQuesiotnBtnClicked(MouseEvent event) {
 
 		int nextMaxIndex = quesiotnIndex + 6;
-
 		for (int i = quesiotnIndex; i < nextMaxIndex; i++) {
+		
 			try {
 				addQuestion(array, i);
 			} catch (IndexOutOfBoundsException e) {
