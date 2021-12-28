@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ChooseCharacterScreen">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="361.0" fitWidth="369.0" layoutY="241.0">
          <image>
@@ -30,10 +30,10 @@
       </ImageView>
       <ImageView fitHeight="36.0" fitWidth="34.0" layoutX="356.0" layoutY="199.0">
          <image>
-            <Image url="@../images/pacicon.png" />
+            <Image url="@../images/brushicon.png" />
          </image>
       </ImageView>
-      <Label layoutX="393.0" layoutY="202.0" text="Choose your character:" textFill="WHITE">
+      <Label layoutX="393.0" layoutY="202.0" text="Choose your theme:" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
@@ -43,9 +43,9 @@
             <Image url="@../../images/forChar.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="pacImg" fitHeight="133.0" fitWidth="133.0" layoutX="449.0" layoutY="256.0">
+      <ImageView fx:id="pacImg" fitHeight="50.0" fitWidth="51.0" layoutX="437.0" layoutY="297.0">
          <image>
-            <Image url="@../../images/pac_orig/basic.png" />
+            <Image url="@../resources/images/ghost_orig/cyan/1.png" />
          </image>
       </ImageView>
       <ImageView fx:id="right" fitHeight="36.0" fitWidth="44.0" layoutX="613.0" layoutY="305.0" onMouseClicked="#rightClicked" onMouseEntered="#hoverStart1" onMouseExited="#hoverEnd1">
@@ -68,7 +68,7 @@
             <Image url="@../../images/forChar.png" />
          </image>
       </ImageView>
-      <Label fx:id="pacName" alignment="CENTER" contentDisplay="CENTER" layoutX="442.0" layoutY="413.0" prefHeight="26.0" prefWidth="147.0" text="pacman" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="pacName" alignment="CENTER" contentDisplay="CENTER" layoutX="442.0" layoutY="413.0" prefHeight="26.0" prefWidth="147.0" text="basic" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="17.0" />
          </font>
@@ -92,5 +92,35 @@
             </ImageView>
          </children>
       </AnchorPane>
+      <ImageView fx:id="pacImg1" fitHeight="50.0" fitWidth="51.0" layoutX="489.0" layoutY="297.0">
+         <image>
+            <Image url="@../resources/images/ghost_orig/pink/1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pacImg11" fitHeight="50.0" fitWidth="51.0" layoutX="542.0" layoutY="297.0">
+         <image>
+            <Image url="@../resources/images/ghost_orig/red/1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pacImg12" fitHeight="50.0" fitWidth="51.0" layoutX="464.0" layoutY="350.0">
+         <image>
+            <Image url="@../resources/images/map%20segments/1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pacImg121" fitHeight="50.0" fitWidth="51.0" layoutX="515.0" layoutY="350.0">
+         <image>
+            <Image url="@../resources/images/map%20segments/27.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pacImg122" fitHeight="50.0" fitWidth="51.0" layoutX="464.0" layoutY="247.0">
+         <image>
+            <Image url="@../resources/images/food/0-2.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pacImg1211" fitHeight="50.0" fitWidth="51.0" layoutX="515.0" layoutY="247.0">
+         <image>
+            <Image url="@../resources/images/food/0.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
