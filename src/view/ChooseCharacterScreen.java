@@ -136,7 +136,6 @@ public class ChooseCharacterScreen {
 			return;
 		}
 		Image image = createImage("11");
-		System.out.print(id);
 		switch (id) {
 		case "right":
 			right.setImage(image);
@@ -155,8 +154,6 @@ public class ChooseCharacterScreen {
 			left.setImage(image);
 			return;
 		}
-		System.out.print(id);
-
 		Image image = createImage("22");
 
 		switch (id) {
@@ -179,7 +176,6 @@ public class ChooseCharacterScreen {
 			return;
 		}
 		Image image = createImage("11");
-		System.out.print(id);
 		switch (id) {
 		case "right":
 			right.setImage(image);
@@ -198,7 +194,6 @@ public class ChooseCharacterScreen {
 			left.setImage(image);
 			return;
 		}
-		System.out.print(id);
 
 		Image image = createImage("22");
 

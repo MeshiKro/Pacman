@@ -2,6 +2,7 @@ package model;
 
 import controller.SysData;
 import misc.moveType;
+import view.MainScreen;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -201,12 +202,62 @@ public int pacmanSpeed =20;
 
 	public void changePacmanColor(String color) {
 		try {
-
-			pac[0] = ImageIO.read(this.getClass().getResource("/resources/images/pac/" + color + "pac0.png"));
-			pac[1] = ImageIO.read(this.getClass().getResource("/resources/images/pac/" + color + "pac1.png"));
-			pac[2] = ImageIO.read(this.getClass().getResource("/resources/images/pac/" + color + "pac2.png"));
-			pac[3] = ImageIO.read(this.getClass().getResource("/resources/images/pac/" + color + "pac3.png"));
-			pac[4] = ImageIO.read(this.getClass().getResource("/resources/images/pac/" + color + "pac4.png"));
+			if (MainScreen.characterFlag==1) {
+				pac[0] = ImageIO.read(this.getClass().getResource("/resources/images/pac/" + color + "pac0.png"));
+				pac[1] = ImageIO.read(this.getClass().getResource("/resources/images/pac/" + color + "pac1.png"));
+				pac[2] = ImageIO.read(this.getClass().getResource("/resources/images/pac/" + color + "pac2.png"));
+				pac[3] = ImageIO.read(this.getClass().getResource("/resources/images/pac/" + color + "pac3.png"));
+				pac[4] = ImageIO.read(this.getClass().getResource("/resources/images/pac/" + color + "pac4.png"));
+			}
+			if (MainScreen.characterFlag==2) {
+				pac[0] = ImageIO.read(this.getClass().getResource("/resources/images/pac/pacWoman/" + color + "pac0.png"));
+				pac[1] = ImageIO.read(this.getClass().getResource("/resources/images/pac/pacWoman/" + color + "pac1.png"));
+				pac[2] = ImageIO.read(this.getClass().getResource("/resources/images/pac/pacWoman/" + color + "pac2.png"));
+				pac[3] = ImageIO.read(this.getClass().getResource("/resources/images/pac/pacWoman/" + color + "pac3.png"));
+				pac[4] = ImageIO.read(this.getClass().getResource("/resources/images/pac/pacWoman/" + color + "pac4.png"));
+			}
+			if (MainScreen.characterFlag==3) {
+				pac[0] = ImageIO.read(this.getClass().getResource("/resources/images/pac/viking/" + color + "pac0.png"));
+				pac[1] = ImageIO.read(this.getClass().getResource("/resources/images/pac/viking/" + color + "pac1.png"));
+				pac[2] = ImageIO.read(this.getClass().getResource("/resources/images/pac/viking/" + color + "pac2.png"));
+				pac[3] = ImageIO.read(this.getClass().getResource("/resources/images/pac/viking/" + color + "pac3.png"));
+				pac[4] = ImageIO.read(this.getClass().getResource("/resources/images/pac/viking/" + color + "pac4.png"));
+			}
+			if (MainScreen.characterFlag==4) {
+				pac[0] = ImageIO.read(this.getClass().getResource("/resources/images/pac/pacPolice/" + color + "pac0.png"));
+				pac[1] = ImageIO.read(this.getClass().getResource("/resources/images/pac/pacPolice/" + color + "pac1.png"));
+				pac[2] = ImageIO.read(this.getClass().getResource("/resources/images/pac/pacPolice/" + color + "pac2.png"));
+				pac[3] = ImageIO.read(this.getClass().getResource("/resources/images/pac/pacPolice/" + color + "pac3.png"));
+				pac[4] = ImageIO.read(this.getClass().getResource("/resources/images/pac/pacPolice/" + color + "pac4.png"));
+			}
+			if (MainScreen.characterFlag==5) {
+				pac[0] = ImageIO.read(this.getClass().getResource("/resources/images/pac/santa/" + color + "pac0.png"));
+				pac[1] = ImageIO.read(this.getClass().getResource("/resources/images/pac/santa/" + color + "pac1.png"));
+				pac[2] = ImageIO.read(this.getClass().getResource("/resources/images/pac/santa/" + color + "pac2.png"));
+				pac[3] = ImageIO.read(this.getClass().getResource("/resources/images/pac/santa/" + color + "pac3.png"));
+				pac[4] = ImageIO.read(this.getClass().getResource("/resources/images/pac/santa/" + color + "pac4.png"));
+			}
+			if (MainScreen.characterFlag==6) {
+				pac[0] = ImageIO.read(this.getClass().getResource("/resources/images/pac/alien/" + color + "pac0.png"));
+				pac[1] = ImageIO.read(this.getClass().getResource("/resources/images/pac/alien/" + color + "pac1.png"));
+				pac[2] = ImageIO.read(this.getClass().getResource("/resources/images/pac/alien/" + color + "pac2.png"));
+				pac[3] = ImageIO.read(this.getClass().getResource("/resources/images/pac/alien/" + color + "pac3.png"));
+				pac[4] = ImageIO.read(this.getClass().getResource("/resources/images/pac/alien/" + color + "pac4.png"));
+			}
+			if (MainScreen.characterFlag==7) {
+				pac[0] = ImageIO.read(this.getClass().getResource("/resources/images/pac/angel/" + color + "pac0.png"));
+				pac[1] = ImageIO.read(this.getClass().getResource("/resources/images/pac/angel/" + color + "pac1.png"));
+				pac[2] = ImageIO.read(this.getClass().getResource("/resources/images/pac/angel/" + color + "pac2.png"));
+				pac[3] = ImageIO.read(this.getClass().getResource("/resources/images/pac/angel/" + color + "pac3.png"));
+				pac[4] = ImageIO.read(this.getClass().getResource("/resources/images/pac/angel/" + color + "pac4.png"));
+			}
+			if (MainScreen.characterFlag==8) {
+				pac[0] = ImageIO.read(this.getClass().getResource("/resources/images/pac/devil/" + color + "pac0.png"));
+				pac[1] = ImageIO.read(this.getClass().getResource("/resources/images/pac/devil/" + color + "pac1.png"));
+				pac[2] = ImageIO.read(this.getClass().getResource("/resources/images/pac/devil/" + color + "pac2.png"));
+				pac[3] = ImageIO.read(this.getClass().getResource("/resources/images/pac/devil/" + color + "pac3.png"));
+				pac[4] = ImageIO.read(this.getClass().getResource("/resources/images/pac/devil/" + color + "pac4.png"));
+			}
 		} catch (IOException e) {
 			System.err.println("Cannot Read Images !");
 		}
