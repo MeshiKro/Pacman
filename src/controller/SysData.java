@@ -296,6 +296,8 @@ public class SysData extends JPanel {
 								else if (score >= 100)
 									scoreboard.setText("Press R to try again	\t\t score:" + score);
 								isGameOver = true;
+								score=0;
+								 
 								break;
 							}
 

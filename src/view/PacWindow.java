@@ -53,6 +53,9 @@ public class PacWindow extends JFrame {
 
 	@SuppressWarnings("static-access")
 	public PacWindow() {
+		System.out.println(pacmanLife+"\n");
+		if(SysData.score==0)
+			pacmanLife=2;
 
 		pacWindowContext = this;
 		setIconImage(new ImageIcon("./resources/images/pac/pac2.png").getImage());
