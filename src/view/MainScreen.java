@@ -46,6 +46,9 @@ public class MainScreen {
 
 	@FXML
 	private AnchorPane rulesPane;
+	
+    @FXML
+    private Button chooseBtnTheme;
 
 	@FXML
 	private AnchorPane qaPane;
@@ -87,10 +90,17 @@ public class MainScreen {
 	public void initialize() {
 		themeField.getItems().addAll("Basic", "Candy Land", "Zombie Land");
 		themeField.getSelectionModel().select(0);
-
+themeField.setVisible(false);
 		setScreenConfig();
 		
 		setBtnLabel(characterFlag);
+		
+		if(theme.equals("Basic"))
+			chooseBtnTheme.setText("basic");
+		if(theme.equals("Candy Land"))
+			chooseBtnTheme.setText("candy land");
+		if(theme.equals("Zombie Land"))
+			chooseBtnTheme.setText("zombie land");
 
 	}
 	
@@ -231,7 +241,8 @@ public class MainScreen {
 	@FXML
 	void startGame(MouseEvent event) {
 
-		String th = themeField.getSelectionModel().getSelectedItem();
+	//	String th = themeField.getSelectionModel().getSelectedItem();
+		String th = theme;
 
 		if (th.equals("Basic")) {
 			theme = "Basic";
@@ -344,6 +355,12 @@ public class MainScreen {
     @FXML
     void HoverEndC(MouseEvent event) {
     	chooseBtn.setStyle("-fx-background-color: #efe4e0; -fx-background-radius:25; -fx-border-width:5; -fx-border-color:white; -fx-border-radius:25");
+    }
+    
+    @FXML
+    void chooseThemeBtnClicked(MouseEvent event) {
+    	GlobalFuncations.switchScreen(pane, "ChooseThemeScreen",
+				(getClass().getResource("/view/" + "ChooseThemeScreen" + ".fxml")), "");
     }
 
 }
