@@ -180,14 +180,32 @@ public class QuestionsListScreen {
 
 	public static String questionToEdit;
 
+	int page =1;
+	
+	int minPage1Index =0;
+	
+	int maxPage1Index=6;
+	
+
+	int minPage2Index =6;
+	
+	int maxPage2Index=12;
+	
+	
+
+	int minPage3Index =12;
+	
+	int maxPage3Index=18;
+	
+	public int QuestionOnScreenIndex =1;
 	public void initialize() {
 		JsonRead jr = new JsonRead();
 		array = jr.readQuestionsFromJson();
-		quesiotnIndex = 6;
 
+		maxPage3Index = array.size();
 		setNextAndBackBtn(array.size());
 
-		for (int i = 0; i < quesiotnIndex; i++) {
+		for (int i = minPage1Index; i < maxPage1Index; i++) {
 			try {
 				addQuestion(array, i);
 
@@ -195,11 +213,50 @@ public class QuestionsListScreen {
 
 			}
 		}
+		
+		if(QuestionOnScreenIndex != 1)
+		{
+			while(QuestionOnScreenIndex != 1)
+			clearPrevoiusQuestion();
+		}
 		filterBy.getItems().addAll("Easy", "Medium", "Hard");
 		filterBy.getSelectionModel().select(0);
 		filterBy.setValue("");
 		
 
+	}
+
+	private void clearPrevoiusQuestion() {
+
+		// Find question / level field
+				Text field = findText("quesionField" + String.valueOf(QuestionOnScreenIndex));
+				if (field != null)
+					field.setVisible(false);
+
+				field = findText("levleField" + String.valueOf(QuestionOnScreenIndex));
+				if (field != null)
+					field.setVisible(false);
+
+				// find edit / delete icon
+				ImageView img = findImageView("editBtn" + String.valueOf(QuestionOnScreenIndex));
+				if (img != null)
+					img.setVisible(false);
+
+				img = findImageView("deleteBtn" + String.valueOf(QuestionOnScreenIndex));
+				if (img != null)
+					img.setVisible(false);
+		
+				
+
+				// find Chart icon
+				img = findImageView("chartBtn" + String.valueOf(QuestionOnScreenIndex));
+				if (img != null)
+				img.setVisible(false);
+				
+				if(QuestionOnScreenIndex ==6)
+					QuestionOnScreenIndex=1;
+				else
+				QuestionOnScreenIndex++;
 	}
 
 	private void setNextAndBackBtn(int size) {
@@ -215,56 +272,62 @@ public class QuestionsListScreen {
 	// Add question to Screen
 	void addQuestion(ArrayList<QuestionInJson> array, int index) {
 
-		int indexID = index;
-		if (indexID >= 6) {
-			indexID -= 6;
-			index-=6;
-		}
 		if(array.get(index)==null) {
 			return;
 		}
 		// Find question / level field
-		Text field = findText("quesionField" + String.valueOf(indexID + 1));
+		Text field = findText("quesionField" + String.valueOf(QuestionOnScreenIndex));
 		field.setText(array.get(index).getQuestion());
-		System.out.println(indexID +"..........."+index);
 		field.setVisible(true);
 
-		field = findText("levleField" + String.valueOf(indexID + 1));
+		field = findText("levleField" + String.valueOf(QuestionOnScreenIndex));
 		field.setText(getLevel(array.get(index).getLevel()));
 		field.setVisible(true);
 
 		// find edit / delete icon
-		ImageView img = findImageView("editBtn" + String.valueOf(indexID + 1));
+		ImageView img = findImageView("editBtn" + String.valueOf(QuestionOnScreenIndex));
 		img.setVisible(true);
 
-		img = findImageView("deleteBtn" + String.valueOf(indexID + 1));
+		img = findImageView("deleteBtn" + String.valueOf(QuestionOnScreenIndex));
 		img.setVisible(true);
-
+		
+		// find Chart icon
+		img = findImageView("chartBtn" + String.valueOf(QuestionOnScreenIndex));
+		img.setVisible(true);
+		
+		
+		if(QuestionOnScreenIndex ==6)
+			QuestionOnScreenIndex=1;
+		else
+		QuestionOnScreenIndex++;
 	}
 
 	// Remove question from Screen
 	private void removeQuestion(ArrayList<QuestionInJson> array, int index) {
-		int indexID = index;
-		if (indexID >= 6)
-			indexID -= 6;
+
 
 		// Find question / level field
-		Text field = findText("quesionField" + String.valueOf(indexID + 1));
+		Text field = findText("quesionField" + String.valueOf(QuestionOnScreenIndex));
 		if (field != null)
 			field.setVisible(false);
 
-		field = findText("levleField" + String.valueOf(indexID + 1));
+		field = findText("levleField" + String.valueOf(QuestionOnScreenIndex));
 		if (field != null)
 			field.setVisible(false);
 
 		// find edit / delete icon
-		ImageView img = findImageView("editBtn" + String.valueOf(indexID + 1));
+		ImageView img = findImageView("editBtn" + String.valueOf(QuestionOnScreenIndex));
 		if (img != null)
 			img.setVisible(false);
 
-		img = findImageView("deleteBtn" + String.valueOf(indexID + 1));
+		img = findImageView("deleteBtn" + String.valueOf(QuestionOnScreenIndex));
 		if (img != null)
 			img.setVisible(false);
+		
+		// find Chart icon
+		img = findImageView("chartBtn" + String.valueOf(QuestionOnScreenIndex));
+		if (img != null)
+		img.setVisible(false);
 	}
 
 	private ImageView findImageView(String id) {
@@ -345,7 +408,6 @@ public class QuestionsListScreen {
 			
 				for (int i = 0; i < array.size(); i++) {
 					if(getLevel(array.get(i).getLevel()).equals("Hard")) {
-						System.out.println("................."+getLevel(array.get(i).getLevel()));
 					try {
 						addQuestion(array, i);
 
@@ -418,33 +480,98 @@ public class QuestionsListScreen {
 	@FXML
 	void nextQuesiotnBtnClicked(MouseEvent event) {
 
-		int nextMaxIndex = quesiotnIndex + 6;
-		for (int i = quesiotnIndex; i < nextMaxIndex; i++) {
+		int min =0;
+		int max=0;
+		page++;
+		System.out.println("page = "  + page);
+		if(page ==1)
+		{
+			QuestionOnScreenIndex=1;
+
+			min=minPage1Index;
+			max=maxPage1Index;
+		}
+		if(page ==2)
+		{
+			QuestionOnScreenIndex=1;
+
+			min=minPage2Index;
+			max=maxPage2Index;
+			
+		}
+		if(page ==3)
+		{
+			QuestionOnScreenIndex=1;
+
+			min=minPage3Index;
+			max=maxPage3Index;
+		}
+		System.out.print("nextQuesiotnBtnClicked  minIndex " + min);
+		System.out.print(" nextQuesiotnBtnClicked  max " + max);
+		for (int i=min; i < max; i++) {
 		
 			try {
 				addQuestion(array, i);
 			} catch (IndexOutOfBoundsException e) {
-				removeQuestion(array, i);
+				//removeQuestion(array, i);
 
 			}
 		}
-		quesiotnIndex = nextMaxIndex;
+		
+		if(QuestionOnScreenIndex != 1 && page ==3)
+		{
+			while(QuestionOnScreenIndex != 1)
+			clearPrevoiusQuestion();
+		}
 
 	}
 
 	@FXML
 	void BackQuestionBtnClicked(MouseEvent event) {
-		int minIndex = quesiotnIndex - 6;
+		
+		int min =0;
+		int max=0;
+		page--;
+		System.out.println("page = "  + page);
 
-		for (int i = minIndex; i < quesiotnIndex; i++) {
+		if(page ==1)
+		{
+			QuestionOnScreenIndex=1;
+			min=minPage1Index;
+			max=maxPage1Index;
+		}
+		if(page ==2)
+		{
+			QuestionOnScreenIndex=1;
+			min=minPage2Index;
+			max=maxPage2Index;
+			
+		}
+		
+		if(page ==3)
+		{
+			QuestionOnScreenIndex=1;
+			min=minPage3Index;
+			max=maxPage3Index;
+		}
+		System.out.print(" minIndex " + min);
+		System.out.print(" max " + max);
+		for (int i = min; i < max; i++) {
 			try {
 				addQuestion(array, i);
 			} catch (IndexOutOfBoundsException e) {
-				removeQuestion(array, i);
+				//removeQuestion(array, i);
 
 			}
 		}
-		quesiotnIndex = minIndex;
+		
+		
+		if(QuestionOnScreenIndex != 1 && page ==3)
+		{
+			while(QuestionOnScreenIndex != 1)
+			clearPrevoiusQuestion();
+		}
+		
 
 	}
 
