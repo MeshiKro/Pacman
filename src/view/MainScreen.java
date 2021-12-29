@@ -358,6 +358,16 @@ themeField.setVisible(false);
     }
     
     @FXML
+    void hoverStartT(MouseEvent event) {
+    	chooseBtnTheme.setStyle("-fx-background-color: #cba79a; -fx-background-radius:25; -fx-border-width:5; -fx-border-color:white; -fx-border-radius:25");
+    }
+    
+    @FXML
+    void HoverEndT(MouseEvent event) {
+    	chooseBtnTheme.setStyle("-fx-background-color: #efe4e0; -fx-background-radius:25; -fx-border-width:5; -fx-border-color:white; -fx-border-radius:25");
+    }
+    
+    @FXML
     void chooseThemeBtnClicked(MouseEvent event) {
     	GlobalFuncations.switchScreen(pane, "ChooseThemeScreen",
 				(getClass().getResource("/view/" + "ChooseThemeScreen" + ".fxml")), "");
