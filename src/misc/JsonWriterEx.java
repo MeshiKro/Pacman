@@ -9,6 +9,8 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Observable;
 
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.SystemMenuBar;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonIOException;
 
@@ -216,32 +218,35 @@ public class JsonWriterEx extends Observable {
 			{
 				
 
-				HashMap<String, Integer> list = (HashMap<String, Integer>) 	current.getAnswerData();
+				HashMap<String, Integer> list =  new HashMap<String, Integer>();
+				HashMap<String, Integer> listClone =  ( HashMap<String, Integer>) current.getAnswerData();
 
-					Iterator it = (list).entrySet().iterator();
+					Iterator it = (listClone).entrySet().iterator();
 
 					while (it.hasNext()) {
 
 						Map.Entry pair = (Map.Entry) it.next();
 						String ans = pair.getKey().toString();
+						int num = Integer.parseInt(pair.getValue().toString().replace(".0", ""));
+
+						list.put(ans,num);
+
 
 						if(ans.equals(selectedAnswer))
-						{
-							int num = Integer.parseInt(pair.getValue().toString().replace(".0", ""));
 							list.put(ans, ++num);
-							
-							WriteQuestionDataToJSon(JsonRead.questionWithData);
-							return;
-						}
+
 						
 
 						
 						it.remove();
 					}
 
-				
-				
-				
+					current.setAnswerData(list);
+					JsonRead.questionWithData.set(i, current);
+					//System.out.println(	JsonRead.questionWithData.get(i).toString());
+					
+					WriteQuestionDataToJSon(JsonRead.questionWithData);
+					return;
 			
 			}
 			

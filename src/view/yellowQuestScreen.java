@@ -214,7 +214,7 @@ public class yellowQuestScreen {
 	void OkBtnClicked(MouseEvent event) {
 		okBtn.setVisible(false);
 		userSelectAnswer=true;
-		countdownStarter =3;
+		countdownStarter =5;
 		// if (answer1.isDisable())
 		// return;
 		if (answerIsCorrect) {

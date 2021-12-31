@@ -648,13 +648,14 @@ public class SysData extends JPanel {
 
 				if(yellowQuestScreen.userSelectAnswer) {
 					 
-					cancelTimer +=3;
+					//cancelTimer +=5;
+					seconds =5;
 					yellowQuestScreen.userSelectAnswer = false;
 				}
 				
-				System.out.println(" seconds " + seconds + "   cancelTimer " + cancelTimer);
+				//System.out.println(" seconds " + seconds + "   cancelTimer " + cancelTimer);
 
-				if (seconds == cancelTimer) {
+				if (seconds == 0) {
 					timer.cancel();
 					frame.dispose();
 

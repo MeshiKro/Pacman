@@ -97,7 +97,7 @@ public class ChartScreen {
 
 		initializeColorsArray();
 		
-		setStyleToChart();
+	//	setStyleToChart();
 	}
 
 	/*private void addDataToPieChart() {
