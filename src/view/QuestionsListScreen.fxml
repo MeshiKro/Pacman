@@ -250,7 +250,7 @@
             <Image url="@../images/line-chart-256.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="questionSection1" fitHeight="157.0" fitWidth="157.0" layoutX="22.0" layoutY="232.0">
+      <ImageView fx:id="questionSection1" fitHeight="185.0" fitWidth="157.0" layoutX="22.0" layoutY="232.0">
          <image>
             <Image url="@../../images/Rectangle.png" />
          </image>
@@ -267,5 +267,10 @@
       </Text>
       <ComboBox fx:id="filterBy" accessibleText="sdfsdf" layoutX="52.0" layoutY="267.0" onMouseClicked="#filterQByLevel" prefHeight="35.0" prefWidth="117.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
       <ComboBox fx:id="orderBy" accessibleText="sdfsdf" layoutX="52.0" layoutY="329.0" prefHeight="35.0" prefWidth="117.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
+      <ImageView fitHeight="28.0" fitWidth="80.0" layoutX="61.0" layoutY="376.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/okBtn.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
