@@ -312,7 +312,7 @@ public class SysData extends JPanel {
 								pacman.animTimer.stop();
 								g.moveTimer.stop();
 								isGameOver = true;
-
+								isLevelUp = false;
 								PacWindow.pacmanLife--;
 								if (siren != null)
 									siren.stop();
