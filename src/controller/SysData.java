@@ -43,7 +43,9 @@ public class SysData extends JPanel {
 
 	public int[][] map;
 	public Image[] mapSegments;
-
+	// Number of times the user can use 50:50 option
+	public static int numberOfFiftyIcon =2;
+	
 	public Image foodImage;
 	public Image hardQuestion;
 	public Image[] pfoodImage;
@@ -92,6 +94,8 @@ public class SysData extends JPanel {
 	public static boolean userHasBomb = false;
 	public int createFoodDelay = 30;
 	public static String qLevel;
+
+	public static int numberOfHelpIcon =2;
 
 	private boolean isLevelUp = false;
 
@@ -635,6 +639,8 @@ public class SysData extends JPanel {
 		frame.setIconImage(new ImageIcon("./resources/images/pac/pac2.png").getImage());
 		frame.setVisible(true);
 
+	
+		
 		timer = new Timer(15000, new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				// ...Update the progress bar...
@@ -642,6 +648,8 @@ public class SysData extends JPanel {
 				timer.stop();
 				Ghost.stopScreenForQ = false;
 				pacman.moveTimer.start();
+				
+			
 				frame.dispose();
 				if (questionLevel.equals("Easy")) {
 					if (userSelectedCorrectAnswer)
@@ -670,6 +678,7 @@ public class SysData extends JPanel {
 
 	}
 
+	
 	//In order to stop the game behind the question
 	private void stopScreenForQuestion() {
 		Ghost.stopScreenForQ = true;

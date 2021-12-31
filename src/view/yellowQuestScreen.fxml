@@ -197,5 +197,25 @@
             </Label>
          </children>
       </Pane>
+      <ImageView fx:id="fiftyIcon" fitHeight="51.0" fitWidth="97.0" layoutX="46.0" layoutY="36.0" onMouseClicked="#fiftyIconClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/fifty.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="fiftyIcon12" fitHeight="51.0" fitWidth="97.0" layoutX="120.0" layoutY="36.0" onMouseClicked="#fiftyIconClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/fifty.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="helpIcon1" fitHeight="51.0" fitWidth="97.0" layoutX="46.0" layoutY="107.0" onMouseClicked="#helpIconClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/lifepreserver.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="helpIcon2" fitHeight="51.0" fitWidth="97.0" layoutX="120.0" layoutY="107.0" onMouseClicked="#helpIconClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/lifepreserver.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

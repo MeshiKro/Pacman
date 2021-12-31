@@ -1,10 +1,10 @@
 package view;
 
-
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 
 import controller.SysData;
@@ -21,7 +21,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
-
 import misc.GlobalFuncations;
 import misc.JsonWriterEx;
 import model.QuestionInJson;
@@ -33,6 +32,8 @@ public class yellowQuestScreen {
 
 	@FXML
 	private RadioButton answer2;
+	@FXML
+	private ImageView fiftyIcon;
 
 	@FXML
 	private RadioButton answer3;
@@ -78,6 +79,11 @@ public class yellowQuestScreen {
 	private Label timeC;
 
 	@FXML
+	private ImageView helpIcon1;
+
+	@FXML
+	private ImageView helpIcon2;
+	@FXML
 	private Label timeW;
 
 	private static int countdownStarter;
@@ -90,6 +96,8 @@ public class yellowQuestScreen {
 
 	private boolean answerIsCorrect;
 
+	@FXML
+	private ImageView fiftyIcon12;
 
 	public void initialize() {
 
@@ -97,6 +105,23 @@ public class yellowQuestScreen {
 		questionPane.setVisible(true);
 		correctPane.setVisible(false);
 		wrongPane.setVisible(false);
+
+		if (SysData.numberOfHelpIcon == 1) {
+			disableIcon(helpIcon2);
+		} else if (SysData.numberOfHelpIcon <= 0) {
+			disableIcon(helpIcon1);
+			disableIcon(helpIcon2);
+
+		}
+
+		
+		if (SysData.numberOfFiftyIcon == 1) {
+			disableIcon(fiftyIcon12);
+		} else if (SysData.numberOfFiftyIcon <= 0) {
+			disableIcon(fiftyIcon12);
+			disableIcon(fiftyIcon);
+
+		}
 
 		// adjustment to the level of the question
 		if (SysData.qLevel.equals("Easy")) {
@@ -121,7 +146,6 @@ public class yellowQuestScreen {
 		}
 		countdownStarter = 15;
 
-		
 		// timer
 		final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 
@@ -150,23 +174,21 @@ public class yellowQuestScreen {
 
 		scheduler.scheduleAtFixedRate(runnable, 0, 1, TimeUnit.SECONDS);
 
-
 		if (SysData.qLevel.equals("Easy")) {
-			levelQuestionsArray = GlobalFuncations.getQuestionsByLevel("1");		
+			levelQuestionsArray = GlobalFuncations.getQuestionsByLevel("1");
 		}
 		if (SysData.qLevel.equals("Medium")) {
-			levelQuestionsArray = GlobalFuncations.getQuestionsByLevel("2");		
+			levelQuestionsArray = GlobalFuncations.getQuestionsByLevel("2");
 		}
 		if (SysData.qLevel.equals("Hard")) {
-			levelQuestionsArray = GlobalFuncations.getQuestionsByLevel("3");			
+			levelQuestionsArray = GlobalFuncations.getQuestionsByLevel("3");
 		}
-		
 
 		int index = GlobalFuncations.randomIndex(levelQuestionsArray.size());
 		questionToDisplay = levelQuestionsArray.get(index);
 		String question = questionToDisplay.getQuestion();
 		label.setText(question);
-		
+
 		answer1.setText(questionToDisplay.getAnswers()[0]);
 		answer2.setText(questionToDisplay.getAnswers()[1]);
 		answer3.setText(questionToDisplay.getAnswers()[2]);
@@ -188,8 +210,8 @@ public class yellowQuestScreen {
 	@FXML
 	void OkBtnClicked(MouseEvent event) {
 		okBtn.setVisible(false);
-		if (answer1.isDisable())
-			return;
+		// if (answer1.isDisable())
+		// return;
 		if (answerIsCorrect) {
 			timeC.setText("" + countdownStarter);
 			answerFeedback.setText("");
@@ -218,7 +240,6 @@ public class yellowQuestScreen {
 			questionPane.setVisible(false);
 
 		}
-	
 
 	}
 
@@ -233,46 +254,138 @@ public class yellowQuestScreen {
 		Boolean answer2Selected = answer2.isSelected();
 		Boolean answer3Selected = answer3.isSelected();
 		Boolean answer4Selected = answer4.isSelected();
-		
+
 		JsonWriterEx jw = new JsonWriterEx();
-		
-		String id ="1";
+
+		String id = "1";
 		if (answer1Selected) {
 			id = "1";
-			jw.updateQuestionDataArray(questionToDisplay.getQuestion(),answer1.getText());
+			jw.updateQuestionDataArray(questionToDisplay.getQuestion(), answer1.getText());
 
-		}
-		else if (answer2Selected) {
+		} else if (answer2Selected) {
 			id = "2";
-			jw.updateQuestionDataArray(questionToDisplay.getQuestion(),answer2.getText());
+			jw.updateQuestionDataArray(questionToDisplay.getQuestion(), answer2.getText());
 
-		}
-		else if (answer3Selected) {
+		} else if (answer3Selected) {
 			id = "3";
-			jw.updateQuestionDataArray(questionToDisplay.getQuestion(),answer3.getText());
+			jw.updateQuestionDataArray(questionToDisplay.getQuestion(), answer3.getText());
 
-		}
-		else if (answer4Selected) {
+		} else if (answer4Selected) {
 			id = "4";
-			jw.updateQuestionDataArray(questionToDisplay.getQuestion(),answer4.getText());
+			jw.updateQuestionDataArray(questionToDisplay.getQuestion(), answer4.getText());
 
 		}
 		answerIsCorrect = isAnswerCorrect(id);
 
 	}
 
-	
-
 	private boolean isAnswerCorrect(String id) {
 		int correctAnswerIndex = Integer.parseInt(questionToDisplay.getCorrect_ans());
 		int selectedAnswerIndex = Integer.parseInt(id);
-	
-		
+
 		if (correctAnswerIndex == selectedAnswerIndex)
 			return true;
 		else
 			return false;
 
+	}
+
+	@FXML
+	void helpIconClicked(MouseEvent event) {
+		if (SysData.numberOfHelpIcon <= 0)
+			return;
+		SysData.numberOfHelpIcon--;
+
+		ArrayList<Integer> wrongAnswer = getWrongAnswersArray(Integer.parseInt(questionToDisplay.getCorrect_ans()));
+		for (int i = 0; i < wrongAnswer.size(); i++) {
+			disableAnswer(wrongAnswer.get(i), true);
+		}
+
+		disableAllHelpIcon();
+	
+
+	}
+
+	private void disableAllHelpIcon() {
+		disableIcon(helpIcon1);
+		disableIcon(helpIcon2);	
+		disableIcon(fiftyIcon12);
+		disableIcon(fiftyIcon);
+	}
+
+	@FXML
+	void fiftyIconClicked(MouseEvent event) {
+
+		if (SysData.numberOfFiftyIcon <= 0)
+			return;
+		SysData.numberOfFiftyIcon--;
+
+		ArrayList<Integer> wrongAnswer = getWrongAnswersArray(Integer.parseInt(questionToDisplay.getCorrect_ans()));
+
+		int randomAnswer1 = getRandomElement(wrongAnswer);
+		wrongAnswer = removeElement(randomAnswer1, wrongAnswer);
+		int randomAnswer2 = getRandomElement(wrongAnswer);
+
+		// System.out.print(" wrongAnswer "+ wrongAnswer);
+		// System.out.print(" randomAnswer1 "+ randomAnswer1);
+
+		// disable 2 wrongs answer
+		disableAnswer(randomAnswer1, true);
+		disableAnswer(randomAnswer2, true);
+
+	
+
+		disableAllHelpIcon();
+	}
+
+	private ArrayList<Integer> getWrongAnswersArray(int correctAnswerIndex) {
+		ArrayList<Integer> wrongAnswer = new ArrayList<Integer>();
+		for (int i = 1; i <= 4; i++) {
+			if (i != correctAnswerIndex)
+				wrongAnswer.add(i);
+
+		}
+		return wrongAnswer;
+	}
+
+	private void disableIcon(ImageView iconToDisable) {
+		iconToDisable.setDisable(true);
+		iconToDisable.setOpacity(0.4);
+
+	}
+
+	private ArrayList<Integer> removeElement(int num, ArrayList<Integer> wrongAnswer) {
+		for (int i = 0; i < wrongAnswer.size(); i++) {
+			if (wrongAnswer.get(i).equals(num)) {
+				wrongAnswer.remove(i);
+				break;
+
+			}
+		}
+		return wrongAnswer;
+	}
+
+	private void disableAnswer(int randomAnswer, boolean status) {
+
+		switch (randomAnswer) {
+		case 1:
+			answer1.setDisable(true);
+			break;
+		case 2:
+			answer2.setDisable(true);
+			break;
+		case 3:
+			answer3.setDisable(true);
+			break;
+		case 4:
+			answer4.setDisable(true);
+			break;
+		}
+
+	}
+
+	public int getRandomElement(ArrayList<Integer> arr) {
+		return arr.get(ThreadLocalRandom.current().nextInt(arr.size()));
 	}
 
 	private Image createImage(String img) {
