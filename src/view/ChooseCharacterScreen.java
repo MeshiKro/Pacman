@@ -25,7 +25,7 @@ public class ChooseCharacterScreen {
 	private ImageView backicon;
 
 	@FXML
-	private ImageView startButtonClicked;
+	private ImageView Clicked;
 
 	@FXML
 	private ImageView startGameBtn;
@@ -52,14 +52,14 @@ public class ChooseCharacterScreen {
 
 	@FXML
 	void HoverEnd(MouseEvent event) {
-		String img = "startButton";
+		String img = "apply";
 		GlobalFuncations.hoverButton(getClass().getResourceAsStream("/images/" + img + ".png"), startGameBtn);
 
 	}
 
 	@FXML
 	void hoverStart(MouseEvent event) {
-		String img = "startButtonClicked";
+		String img = "applyHover";
 		GlobalFuncations.hoverButton(getClass().getResourceAsStream("/images/" + img + ".png"), startGameBtn);
 	}
 

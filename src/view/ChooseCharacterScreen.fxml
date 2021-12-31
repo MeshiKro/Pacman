@@ -20,7 +20,7 @@
       </ImageView>
       <ImageView fx:id="startGameBtn" fitHeight="50.0" fitWidth="133.0" layoutX="450.0" layoutY="457.0" onMouseClicked="#startGame" onMouseEntered="#hoverStart" onMouseExited="#HoverEnd">
          <image>
-            <Image url="@../../images/startButton.png" />
+            <Image url="@../../images/apply.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="259.0" fitWidth="586.0" layoutX="227.0">
