@@ -3,7 +3,7 @@ package controller;
 import misc.*;
 import model.*;
 import view.PacWindow;
-
+import view.yellowQuestScreen;
 import view.MainScreen;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -25,6 +25,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.TimerTask;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -44,8 +45,8 @@ public class SysData extends JPanel {
 	public int[][] map;
 	public Image[] mapSegments;
 	// Number of times the user can use 50:50 option
-	public static int numberOfFiftyIcon =2;
-	
+	public static int numberOfFiftyIcon = 2;
+
 	public Image foodImage;
 	public Image hardQuestion;
 	public Image[] pfoodImage;
@@ -95,7 +96,9 @@ public class SysData extends JPanel {
 	public int createFoodDelay = 30;
 	public static String qLevel;
 
-	public static int numberOfHelpIcon =2;
+	public static int numberOfHelpIcon = 2;
+	int seconds = 15;
+	int cancelTimer = 0;
 
 	private boolean isLevelUp = false;
 
@@ -109,11 +112,9 @@ public class SysData extends JPanel {
 		md_backup = md;
 		windowParent = pw;
 
-
 		m_x = md.getX();
 		m_y = md.getY();
-		
-	
+
 		this.map = md.getMap();
 
 		this.isCustom = md.isCustom();
@@ -161,7 +162,7 @@ public class SysData extends JPanel {
 		teleports = md.getTeleports();
 
 		setLayout(null);
-		
+
 		setSize(20 * m_x, 20 * m_y);
 		setBackground(Color.black);
 
@@ -253,7 +254,7 @@ public class SysData extends JPanel {
 					if (newGhostReturn == null) {
 						return;
 					}
-					//Scheduling the return of the ghost
+					// Scheduling the return of the ghost
 					ScheduledExecutorService schedulerGhost = Executors.newSingleThreadScheduledExecutor();
 					Runnable taskGhost = new Runnable() {
 						public void run() {
@@ -300,8 +301,8 @@ public class SysData extends JPanel {
 								else if (score >= 100)
 									scoreboard.setText("Press R to try again	\t\t score:" + score);
 								isGameOver = true;
-								score=0;
-								 
+								score = 0;
+
 								break;
 							}
 
@@ -361,7 +362,7 @@ public class SysData extends JPanel {
 			int y = foodToEat.position.y;
 			foods.remove(foodToEat);
 			score++;
-			//Scheduling the return of the pac point
+			// Scheduling the return of the pac point
 			ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
 			Runnable task = new Runnable() {
 				public void run() {
@@ -374,7 +375,7 @@ public class SysData extends JPanel {
 			// Levels:
 			if (score < 10) {
 				scoreboard.setText("     Level : 1       Score : " + score);
-				
+
 			}
 			if (score <= 50 && score >= 10) {
 				scoreboard.setText("     Level : 1      Score : " + score);
@@ -446,7 +447,7 @@ public class SysData extends JPanel {
 				int x = puFoodToEat.position.x;
 				int y = puFoodToEat.position.y;
 				pufoods.remove(puFoodToEat);
-				//Scheduling the return of the bomb
+				// Scheduling the return of the bomb
 				ScheduledExecutorService schedulerBomb = Executors.newSingleThreadScheduledExecutor();
 				Runnable taskBomb = new Runnable() {
 					public void run() {
@@ -480,7 +481,7 @@ public class SysData extends JPanel {
 				Point newH = PositionLottery2();
 				int qx2 = (int) newH.getX();
 				int qy2 = (int) newH.getY();
-				//Scheduling the return of the Hard question
+				// Scheduling the return of the Hard question
 				ScheduledExecutorService schedulerBomb2 = Executors.newSingleThreadScheduledExecutor();
 				Runnable taskBomb2 = new Runnable() {
 					public void run() {
@@ -511,7 +512,7 @@ public class SysData extends JPanel {
 				Point newM = PositionLottery3();
 				int qx3 = (int) newM.getX();
 				int qy3 = (int) newM.getY();
-				//Scheduling the return of the Medium question
+				// Scheduling the return of the Medium question
 				ScheduledExecutorService schedulerBomb3 = Executors.newSingleThreadScheduledExecutor();
 				Runnable taskBomb3 = new Runnable() {
 					public void run() {
@@ -544,7 +545,7 @@ public class SysData extends JPanel {
 				Point newE = PositionLottery4();
 				int qx4 = (int) newE.getX();
 				int qy4 = (int) newE.getY();
-				//Scheduling the return of the Easy question
+				// Scheduling the return of the Easy question
 				ScheduledExecutorService schedulerBomb4 = Executors.newSingleThreadScheduledExecutor();
 				Runnable taskBomb4 = new Runnable() {
 					public void run() {
@@ -639,18 +640,33 @@ public class SysData extends JPanel {
 		frame.setIconImage(new ImageIcon("./resources/images/pac/pac2.png").getImage());
 		frame.setVisible(true);
 
-	
-		
-		timer = new Timer(15000, new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				// ...Update the progress bar...
+		java.util.Timer timer = new java.util.Timer();
+		TimerTask myTask = new TimerTask() {
+			@Override
+			public void run() {
+				seconds--;
 
-				timer.stop();
-				Ghost.stopScreenForQ = false;
-				pacman.moveTimer.start();
+				if(yellowQuestScreen.userSelectAnswer) {
+					 
+					cancelTimer +=3;
+					yellowQuestScreen.userSelectAnswer = false;
+				}
 				
-			
-				frame.dispose();
+				System.out.println(" seconds " + seconds + "   cancelTimer " + cancelTimer);
+
+				if (seconds == cancelTimer) {
+					timer.cancel();
+					frame.dispose();
+
+					contiuneGame();
+					updateScore();
+					cancelTimer =0;
+					seconds =15;
+				}
+
+			}
+
+			private void updateScore() {
 				if (questionLevel.equals("Easy")) {
 					if (userSelectedCorrectAnswer)
 						score += 1;
@@ -673,13 +689,35 @@ public class SysData extends JPanel {
 					userSelectedCorrectAnswer = false;
 				}
 			}
-		});
-		timer.start();
 
+			private void contiuneGame() {
+				Ghost.stopScreenForQ = false;
+				pacman.moveTimer.start();
+			}
+
+		};
+
+		timer.schedule(myTask, 0, 1000);
+
+		/*
+		 * 
+		 * timer = new Timer(15000, new ActionListener() { public void
+		 * actionPerformed(ActionEvent evt) {
+		 * 
+		 * timer.stop(); Ghost.stopScreenForQ = false; pacman.moveTimer.start();
+		 * 
+		 * 
+		 * frame.dispose(); if (questionLevel.equals("Easy")) { if
+		 * (userSelectedCorrectAnswer) score += 1; else score -= 10;
+		 * userSelectedCorrectAnswer = false; } if (questionLevel.equals("Medium")) { if
+		 * (userSelectedCorrectAnswer) score += 2; else score -= 20;
+		 * userSelectedCorrectAnswer = false; } if (questionLevel.equals("Hard")) { if
+		 * (userSelectedCorrectAnswer) score += 3; else score -= 30;
+		 * userSelectedCorrectAnswer = false; } } }); timer.start();
+		 */
 	}
 
-	
-	//In order to stop the game behind the question
+	// In order to stop the game behind the question
 	private void stopScreenForQuestion() {
 		Ghost.stopScreenForQ = true;
 		pacman.moveTimer.stop();
@@ -884,7 +922,8 @@ public class SysData extends JPanel {
 			g.moveTimer.setDelay(g.ghostSpeed);
 		}
 	}
-	//The ghost disappears from the game screen
+
+	// The ghost disappears from the game screen
 	public Ghost blowBomb() {
 		pacman.changePacmanColor("");
 		userHasBomb = false;
@@ -923,7 +962,8 @@ public class SysData extends JPanel {
 	public double distanceBetweenPoints(double x1, double y1, double x2, double y2) {
 		return Math.abs(Math.sqrt((y2 - y1) * (y2 - y1) + (x2 - x1) * (x2 - x1)));
 	}
-	//Random point for Hard question 
+
+	// Random point for Hard question
 	public Point PositionLottery2() {
 		// TODO Auto-generated method stub
 
@@ -965,7 +1005,8 @@ public class SysData extends JPanel {
 		}
 
 	}
-	//Random point for Medium question 
+
+	// Random point for Medium question
 	public Point PositionLottery3() {
 		// TODO Auto-generated method stub
 
@@ -1007,7 +1048,8 @@ public class SysData extends JPanel {
 		}
 
 	}
-	//Random point for Easy question 
+
+	// Random point for Easy question
 	public Point PositionLottery4() {
 		// TODO Auto-generated method stub
 

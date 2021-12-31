@@ -88,6 +88,9 @@ public class yellowQuestScreen {
 
 	private static int countdownStarter;
 
+
+	public static boolean userSelectAnswer = false;
+	
 	private ArrayList<QuestionInJson> levelQuestionsArray;
 
 	final ToggleGroup group = new ToggleGroup();
@@ -100,7 +103,7 @@ public class yellowQuestScreen {
 	private ImageView fiftyIcon12;
 
 	public void initialize() {
-
+		userSelectAnswer = false;
 		okBtn.setVisible(true);
 		questionPane.setVisible(true);
 		correctPane.setVisible(false);
@@ -210,6 +213,8 @@ public class yellowQuestScreen {
 	@FXML
 	void OkBtnClicked(MouseEvent event) {
 		okBtn.setVisible(false);
+		userSelectAnswer=true;
+		countdownStarter =3;
 		// if (answer1.isDisable())
 		// return;
 		if (answerIsCorrect) {
