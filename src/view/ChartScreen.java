@@ -80,19 +80,23 @@ public class ChartScreen {
 
 	public void initialize(String questionString) {
 
+		System.out.println("questionString "  + questionString);
+
 		initializeColorsArray();
 
 		findQuestion(questionString);
 
 		initializeChart();
 
-		title.setText(questionString);
+		title.setText(questionString.replace("'", ""));
 
 	}
 
 	private void initializeChart() {
 		addDataToChart();
 
+		initializeColorsArray();
+		
 		setStyleToChart();
 	}
 
@@ -138,7 +142,8 @@ public class ChartScreen {
 	}
 
 	private void findQuestion(String questionString) {
-		questionData = JsonRead.questionWithData;
+		JsonRead JR = new JsonRead();
+		questionData = JR.readQuestionsDataFromJson();
 
 		for (int i = 0; i < questionData.size(); i++) {
 			if (questionData.get(i).getQuestion().equals(questionString))
@@ -151,6 +156,9 @@ public class ChartScreen {
 		XYChart.Series<String, Integer> answer = new XYChart.Series();
 
 		HashMap<String, Integer> list = (HashMap<String, Integer>) question.getAnswerData().clone();
+		System.out.println("list size"  + list.size());
+
+		System.out.println("list "  + list.toString());
 
 		for (int i = 0; i < 4; i++) {
 			Iterator it = (list).entrySet().iterator();
@@ -162,42 +170,56 @@ public class ChartScreen {
 
 				int num = Integer.parseInt(pair.getValue().toString().replace(".0", ""));
 
+				System.out.println("add anser "  + ans);
+				System.out.println("add anser "  + ans.length());
+				
 				answer.getData().add(new XYChart.Data(ans, num));
+				System.out.println("answer: "  + answer.getData().toString());
 
-				pieChartData.add(new PieChart.Data(ans, num));
+			pieChartData.add(new PieChart.Data(ans, num));
 				
 				
 				it.remove();
 			}
 
 		}
-
+try {
 		barChart.getData().add(answer);
+}
+catch(Exception e)
+{
+	e.getStackTrace();
+}
+System.out.println("barChart: "  + barChart.getData().size());
+
 		barChart.setLegendVisible(false);
 
 		
 		pieChart.setData(pieChartData);
 	
 
-		for (int i=0;i<pieChart.getData().size();i++)
+		/*for (int i=0;i<pieChart.getData().size();i++)
 		{
 			System.out.print(pieChart.getData().get(i).getPieValue());
 			System.out.print(pieChart.getData().get(i).getName());
 
-		}
+		}*/
 
 
         final Label caption = new Label("");
         caption.setTextFill(Color.DARKORANGE);
         caption.setStyle("-fx-font: 24 arial;");
 
-
+        barChart.setVisible(true);
 	}
 	
 	private void setStyleToChart() {
 
-		int indexOfCorrectAnwer = getIndexOfCorrectAnwer() - 1;
-
+		int indexOfCorrectAnwer = getIndexOfCorrectAnwer() ;
+		if(indexOfCorrectAnwer >0)
+			indexOfCorrectAnwer +=1;
+		
+System.out.print( " indexOfCorrectAnwer " + indexOfCorrectAnwer);
 		Node n = barChart.lookup(".data" + indexOfCorrectAnwer + ".chart-bar");
 		if (n != null)
 			n.setStyle("-fx-bar-fill: green");
@@ -260,16 +282,17 @@ public class ChartScreen {
 	}
 
 	private String covertToTwoLine(String ans) {
-		if (ans.length() <= 25)
+		if (ans.length() <= 31)
 			return ans;
-		try {
+	
+			if(ans.length() <50)
+				return ans.substring(0, 25) + "\n" + ans.substring(25, ans.length());
+
+			
 			String answer = ans.substring(0, 25) + "\n" + ans.substring(25, 50) + "...";
 			return answer;
 
-		} catch (Exception e) {
-
-			return ans.substring(0, 25) + "\n" + ans.substring(25, ans.length());
-		}
+	
 
 	}
 

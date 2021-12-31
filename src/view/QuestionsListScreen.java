@@ -607,11 +607,18 @@ public class QuestionsListScreen {
 
 	@FXML
 	void goToChartScreem(MouseEvent event) {
+		System.out.println("event "  + event.getSource().toString());
+
 		if( event.getPickResult().getIntersectedNode().getId().equals(""))
 			return;
 		
+		
+		
 		try {
 		String id = event.getPickResult().getIntersectedNode().getId().substring(8);
+		System.out.println("quesionField"  + id);
+		System.out.println();
+
 		Text field = findText("quesionField" + id);
 
 		if (field != null) {
