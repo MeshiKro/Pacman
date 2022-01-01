@@ -45,7 +45,9 @@ public class SysData extends JPanel {
 	public int[][] map;
 	public Image[] mapSegments;
 	// Number of times the user can use 50:50 option
-	public static int numberOfFiftyIcon = 2;
+	public static int numberOfFiftyIcon = 1;
+	// Number of times the user can use help option
+	public static int numberOfHelpIcon = 1;
 
 	public Image foodImage;
 	public Image hardQuestion;
@@ -96,7 +98,6 @@ public class SysData extends JPanel {
 	public int createFoodDelay = 30;
 	public static String qLevel;
 
-	public static int numberOfHelpIcon = 2;
 	int seconds = 15;
 	int cancelTimer = 0;
 

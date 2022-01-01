@@ -32,7 +32,7 @@
       </ImageView>
       <ImageView fitHeight="36.0" fitWidth="34.0" layoutX="356.0" layoutY="199.0">
          <image>
-            <Image url="@../images/brushicon.png" />
+            <Image url="@../../images/brushicon.png" />
          </image>
       </ImageView>
       <Label layoutX="393.0" layoutY="202.0" text="Choose your theme:" textFill="WHITE">
@@ -203,32 +203,32 @@
                   </Label>
                   <ImageView fitHeight="50.0" fitWidth="51.0" layoutX="20.0" layoutY="62.0">
                      <image>
-                        <Image url="@../resources/images/ghost_orig/cyan/1.png" />
+                        <Image url="@../../images/ghost_orig/cyan/1.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="50.0" fitWidth="51.0" layoutX="73.0" layoutY="62.0">
                      <image>
-                        <Image url="@../resources/images/ghost_orig/pink/1.png" />
+                        <Image url="@../../images/ghost_orig/pink/1.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="50.0" fitWidth="51.0" layoutX="124.0" layoutY="62.0">
                      <image>
-                        <Image url="@../resources/images/ghost_orig/red/1.png" />
+                        <Image url="@../../images/ghost_orig/red/1.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="50.0" fitWidth="51.0" layoutX="42.0" layoutY="117.0">
                      <image>
-                        <Image url="@../resources/images/map%20segments/1.png" />
+                        <Image url="@../../images/map%20segments/1.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="50.0" fitWidth="51.0" layoutX="97.0" layoutY="117.0">
                      <image>
-                        <Image url="@../resources/images/map%20segments/27.png" />
+                        <Image url="@../../images/map%20segments/27.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="42.0" fitWidth="41.0" layoutX="49.0" layoutY="15.0">
                      <image>
-                        <Image url="@../resources/images/food/0-2.png" />
+                        <Image url="@../../images/food/0-2.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="50.0" fitWidth="51.0" layoutX="99.0" layoutY="13.0">

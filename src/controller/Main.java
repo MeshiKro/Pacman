@@ -29,7 +29,7 @@ public class Main extends Application {
 		 * if(ruuningThorthJar()) runJarCommand();
 		 */
 
-		// printPacmanByScorption();
+		 printPacmanByScorption();
 		launch(args);
 	}
 
