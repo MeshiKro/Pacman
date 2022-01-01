@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MainScreen">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MainScreen">
    <children>
       <ImageView fitHeight="361.0" fitWidth="369.0" layoutY="241.0">
          <image>
@@ -28,7 +28,7 @@
       </ImageView>
       <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="368.0" layoutY="211.0">
          <image>
-            <Image url="@../../images/id-card1.png" />
+            <Image url="@../../images/‏‏id-card1.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="368.0" layoutY="277.0">
