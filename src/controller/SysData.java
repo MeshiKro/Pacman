@@ -187,8 +187,8 @@ public class SysData extends JPanel {
 			}
 		}
 
-		pfoodImage = new Image[5];
-		for (int ms = 0; ms < 5; ms++) {
+		pfoodImage = new Image[6];
+		for (int ms = 0; ms < 6; ms++) {
 			try {
 				if (MainScreen.theme.equals("Basic")) {
 					pfoodImage[ms] = ImageIO.read(this.getClass().getResource("/resources/images/food/" + ms + ".png"));
@@ -400,7 +400,7 @@ public class SysData extends JPanel {
 					isLevelUp = true;
 					MapData map1 = getMapFromResource("/resources/maps/map1_c.txt");
 					changeMap(map1);
-
+					pufoods.add(new Bomb(1, 4, 5));
 					level = 3;
 				}
 
@@ -568,6 +568,33 @@ public class SysData extends JPanel {
 				break;
 
 			}
+			case 5:{
+				if(PacWindow.pacmanLife<2) {
+				pufoods.remove(puFoodToEat);
+				PacWindow.pacmanLife++;
+				ScheduledExecutorService schedulerpacL = Executors.newSingleThreadScheduledExecutor();
+				Runnable taskPlife = new Runnable() {
+					public void run() {
+						pufoods.add(new Bomb(1, 4, 5));
+					}
+				};
+				schedulerpacL.schedule(taskPlife, 5, TimeUnit.SECONDS);
+				schedulerpacL.shutdown();
+				new PacWindow();
+				windowParent.dispose();
+				}if(PacWindow.pacmanLife==2) {
+				pufoods.remove(puFoodToEat);
+				ScheduledExecutorService schedulerpacL1 = Executors.newSingleThreadScheduledExecutor();
+				Runnable taskPlife1 = new Runnable() {
+					public void run() {
+						pufoods.add(new Bomb(1, 4, 5));
+					}
+				};
+				schedulerpacL1.schedule(taskPlife1, 5, TimeUnit.SECONDS);
+				schedulerpacL1.shutdown();
+				}				
+			break;	
+		}
 			default: {
 				if (!isSiren) {
 					SoundPlayer.play("pacman_eatfruit.wav");
