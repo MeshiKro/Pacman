@@ -28,12 +28,12 @@
       </ImageView>
       <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="368.0" layoutY="211.0">
          <image>
-            <Image url="@../images/id-card%20(1).png" />
+            <Image url="@../../images/id-card1.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="368.0" layoutY="277.0">
          <image>
-            <Image url="@../images/brushicon.png" />
+            <Image url="@../../images/brushicon.png" />
          </image>
       </ImageView>
       <ComboBox fx:id="themeField" accessibleText="sdfsdf" layoutX="527.0" layoutY="288.0" prefHeight="30.0" prefWidth="144.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" />
@@ -126,7 +126,7 @@
       </Label>
       <ImageView fitHeight="36.0" fitWidth="34.0" layoutX="368.0" layoutY="345.0">
          <image>
-            <Image url="@../images/pacicon.png" />
+            <Image url="@../../images/pacicon.png" />
          </image>
       </ImageView>
       <Label layoutX="408.0" layoutY="347.0" text="Character:" textFill="WHITE">
