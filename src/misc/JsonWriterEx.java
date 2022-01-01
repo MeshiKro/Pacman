@@ -22,6 +22,7 @@ import model.QuestionWithData;
 import model.ScoreboardRecord;
 import model.questions;
 import view.EditQuestionScreen;
+import view.QuestionsListScreen;
 
 @SuppressWarnings("deprecation")
 public class JsonWriterEx extends Observable {
@@ -29,11 +30,15 @@ public class JsonWriterEx extends Observable {
 	public boolean writeQuestions(QuestionInJson q) {
 		questions qu = new questions();
 
+	
 		JsonRead.questionsAndAnswers.add(q);
+
 		qu.questions = JsonRead.questionsAndAnswers;
 		return writeQuestionToJson(qu);
 
 	}
+
+	
 
 	public boolean writeQuestionsData() {
 
@@ -109,22 +114,45 @@ public class JsonWriterEx extends Observable {
 		questions qu = new questions();
 		qu.questions = JsonRead.questionsAndAnswers;
 
-		int index = EditQuestionScreen.index;
+		
+		int index = -1;
+		System.out.print(" JsonRead.questionsAndAnswers.size() " + JsonRead.questionsAndAnswers.size());
+
+		for (int i = 0; i < JsonRead.questionsAndAnswers.size(); i++) {
+			String q = JsonRead.questionsAndAnswers.get(i).getQuestion();
+			System.out.print(" q " + q);
+
+			if (q.equals(QuestionsListScreen.questionToDelete.toString())) {
+				index = i;
+				System.out.print(" q " + index);
+
+			}
+		}
+		
+		
+		
 		System.out.print("index " + index);
 		if (index == -1)
 			return;
-		qu.questions.remove(index);
+		JsonRead.questionsAndAnswers.remove(index);
+		qu.questions = JsonRead.questionsAndAnswers;
 		writeQuestionToJson(qu);
 
 	}
 
 	public static int getIndexOfQuestion(questions qu, String question) {
 		int index = -1;
+		System.out.println(" JsonRead.questionsAndAnswers.size() " + JsonRead.questionsAndAnswers.size());
+
 		for (int i = 0; i < JsonRead.questionsAndAnswers.size(); i++) {
 			String q = JsonRead.questionsAndAnswers.get(i).getQuestion();
+			System.out.print(" q " + q);
 
-			if (q.equals(question))
+			if (q.equals(question)) {
 				index = i;
+				System.out.print(" q " + index);
+
+			}
 		}
 		return index;
 	}
@@ -254,6 +282,34 @@ public class JsonWriterEx extends Observable {
 		}
 
 		
+	}
+
+
+
+	public boolean updateQuestions(String questionToEdit, QuestionInJson q) {
+
+		int index = -1;
+		System.out.println(" JsonRead.questionsAndAnswers.size() " + JsonRead.questionsAndAnswers.size());
+		JsonRead JR = new JsonRead();
+		JsonRead.questionsAndAnswers = JR.readQuestionsFromJson();
+		for (int i = 0; i < JsonRead.questionsAndAnswers.size(); i++) {
+			String question = JsonRead.questionsAndAnswers.get(i).getQuestion();
+			System.out.print(" q " + q);
+
+			if (questionToEdit.equals(question)) {
+				index = i;
+				System.out.print(" q " + index);
+
+			}
+		}
+		
+		JsonRead.questionsAndAnswers.set(index, q);
+		
+		
+		
+		questions qu = new questions();
+		qu .questions = JsonRead.questionsAndAnswers;
+		return writeQuestionToJson(qu);
 	}
 
 }

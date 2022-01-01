@@ -582,6 +582,8 @@ public class QuestionsListScreen {
 		Text field = findText("quesionField" + id);
 		if (field != null) {
 			questionToDelete = field.getText();
+			
+			
 
 			GlobalFuncations.switchScreen(pane, "DeletePopUp",
 					(getClass().getResource("/view/" + "DeletePopUp" + ".fxml")), "");
