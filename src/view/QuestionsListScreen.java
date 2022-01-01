@@ -6,6 +6,8 @@ import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import org.json.JSONException;
+
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
@@ -222,9 +224,140 @@ public class QuestionsListScreen {
 		filterBy.getItems().addAll("Easy", "Medium", "Hard");
 		filterBy.getSelectionModel().select(0);
 		filterBy.setValue("");
+		filterBy.setOnAction((event) -> {
+		    int selectedIndex = filterBy.getSelectionModel().getSelectedIndex();
+		    String selectedItem = filterBy.getSelectionModel().getSelectedItem();
+			if (selectedItem.equals("Easy")) {
+				 ArrayList<QuestionInJson> filteredEasy = null;
+				 try {
+					 filteredEasy = new ArrayList<>();
+				        for (int i = 0; i < array.size(); ++i) {
+				            QuestionInJson obj = array.get(i);
+				            String id = obj.getLevel();
+				            if (id.equals("1")) {
+				            	filteredEasy.add(obj);
+				            }
+				        }
+				    } catch (JSONException e) {
+				        // handle exception
+				    }
+				  for(int j=0;j<3;j++) {
+						 clearAllQuestion(j);			
+						 }
+				  setNextAndBackBtn(filteredEasy.size());
+				
+				for (int i = 0; i <filteredEasy.size(); i++) {
+					System.out.println(filteredEasy.get(i));
+					try {
+						addQuestion(filteredEasy, i);
+
+					} catch (IndexOutOfBoundsException e) {
+
+					}
+	
+				}
+	
+			}	 if (selectedItem.equals("Medium")) {
+					 ArrayList<QuestionInJson> filteredMedium = null;
+				 try {
+					 filteredMedium = new ArrayList<>();
+				        for (int i = 0; i < array.size(); ++i) {
+				            QuestionInJson obj = array.get(i);
+				            String id = obj.getLevel();
+				            if (id.equals("2")) {
+				            	filteredMedium.add(obj);
+				            }
+				        }
+				    } catch (JSONException e) {
+				        // handle exception
+				    }
+				  for(int j=0;j<3;j++) {
+						 clearAllQuestion(j);			
+						 }
+				  setNextAndBackBtn(filteredMedium.size());
+				for (int i = 0; i <filteredMedium.size(); i++) {
+					System.out.println(filteredMedium.get(i));
+					try {
+						addQuestion(filteredMedium, i);
+
+					} catch (IndexOutOfBoundsException e) {
+
+					}
+	
+				}
+				
+			}if (selectedItem.equals("Hard")) {
+				
+					ArrayList<QuestionInJson> filteredHard = null;
+				 try {
+					 filteredHard = new ArrayList<>();
+				        for (int i = 0; i < array.size(); ++i) {
+				            QuestionInJson obj = array.get(i);
+				            String id = obj.getLevel();
+				            if (id.equals("3")) {
+				            	filteredHard.add(obj);
+				            }
+				        }
+				    } catch (JSONException e) {
+				        // handle exception
+				    }
+				  for(int j=0;j<3;j++) {
+						 clearAllQuestion(j);			
+						 }
+				  setNextAndBackBtn(filteredHard.size());
+				for (int i = 0; i <filteredHard.size(); i++) {
+					System.out.println(filteredHard.get(i));
+					try {
+						addQuestion(filteredHard, i);
+
+					} catch (IndexOutOfBoundsException e) {
+
+					}
+	
+				}
+		}});
+			
 		
 
 	}
+	
+	private void clearAllQuestion(int p) {
+	int min =0;
+	int max=0;
+	page=p;
+	if(page ==1)
+	{
+		
+
+		min=minPage1Index;
+		max=maxPage1Index;
+	}
+	if(page ==2)
+	{
+
+		min=minPage2Index;
+		max=maxPage2Index;
+		
+	}
+	if(page ==3)
+	{
+
+		min=minPage3Index;
+		max=maxPage3Index;
+	}
+	for (int i=min; i < max; i++) {
+	
+		try {
+			clearPrevoiusQuestion();
+		} catch (IndexOutOfBoundsException e) {
+			
+
+		}
+	}
+	
+	
+	}
+
 
 	private void clearPrevoiusQuestion() {
 
@@ -360,7 +493,7 @@ public class QuestionsListScreen {
 			lvl = "Easy";
 			break;
 		case "2":
-			lvl = "Meduim";
+			lvl = "Medium";
 			break;
 		case "3":
 			lvl = "Hard";
@@ -370,54 +503,7 @@ public class QuestionsListScreen {
 
 	}
 	
-	//Add Question according to it's level
-	@FXML
-	void filterQByLevel(MouseEvent event) {
-		String difficulty = filterBy.getSelectionModel().getSelectedItem();
-		JsonRead jr = new JsonRead();
-		array = jr.readQuestionsFromJson();
-		System.out.println(difficulty);
-		if (difficulty.equals("Easy")) {
-			for (int i = 0; i <array.size(); i++) {
-				if(getLevel(array.get(i).getLevel()).equals("Easy")) {
-					System.out.println("................."+getLevel(array.get(i).getLevel()));
-				try {
-					addQuestion(array, i);
-
-				} catch (IndexOutOfBoundsException e) {
-
-				}
-			}
-
-		}
-			
-		} if (difficulty.equals("Medium")) {
-				for (int i = 0; i < array.size(); i++) {
-					if(getLevel(array.get(i).getLevel()).equals("Meduim")) {
-						System.out.println("................."+getLevel(array.get(i).getLevel()));
-					try {
-						addQuestion(array, i);
-
-					} catch (IndexOutOfBoundsException e) {
-
-					}
-				}
-			}
-			
-		}if (difficulty.equals("Hard")) {
-			
-				for (int i = 0; i < array.size(); i++) {
-					if(getLevel(array.get(i).getLevel()).equals("Hard")) {
-					try {
-						addQuestion(array, i);
-
-					} catch (IndexOutOfBoundsException e) {
-
-					}
-				}
-			}
-		}	
-	}
+	
 	
 
 	@FXML

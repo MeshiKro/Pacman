@@ -188,8 +188,8 @@ public class SysData extends JPanel {
 			}
 		}
 
-		pfoodImage = new Image[6];
-		for (int ms = 0; ms < 6; ms++) {
+		pfoodImage = new Image[7];
+		for (int ms = 0; ms < 7; ms++) {
 			try {
 				if (MainScreen.theme.equals("Basic")) {
 					pfoodImage[ms] = ImageIO.read(this.getClass().getResource("/resources/images/food/" + ms + ".png"));
@@ -402,6 +402,7 @@ public class SysData extends JPanel {
 					MapData map1 = getMapFromResource("/resources/maps/map1_c.txt");
 					changeMap(map1);
 					pufoods.add(new Bomb(1, 4, 5));
+					pufoods.add(new Bomb(3, 5, 6));
 					level = 3;
 				}
 
@@ -594,6 +595,22 @@ public class SysData extends JPanel {
 				schedulerpacL1.schedule(taskPlife1, 5, TimeUnit.SECONDS);
 				schedulerpacL1.shutdown();
 				}				
+			break;	
+		}
+			case 6:{
+				pufoods.remove(puFoodToEat);
+				PacWindow.pacmanLife--;
+				ScheduledExecutorService schedulerpacL = Executors.newSingleThreadScheduledExecutor();
+				Runnable taskPlife = new Runnable() {
+					public void run() {
+						pufoods.add(new Bomb(3, 5, 6));
+					}
+				};
+				schedulerpacL.schedule(taskPlife, 5, TimeUnit.SECONDS);
+				schedulerpacL.shutdown();
+				new PacWindow();
+				windowParent.dispose();
+						
 			break;	
 		}
 			default: {
