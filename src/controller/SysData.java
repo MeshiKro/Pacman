@@ -402,7 +402,7 @@ public class SysData extends JPanel {
 					MapData map1 = getMapFromResource("/resources/maps/map1_c.txt");
 					changeMap(map1);
 					pufoods.add(new Bomb(1, 4, 5));
-					pufoods.add(new Bomb(3, 5, 6));
+					pufoods.add(new Bomb(16, 5, 6));
 					level = 3;
 				}
 
@@ -603,7 +603,7 @@ public class SysData extends JPanel {
 				ScheduledExecutorService schedulerpacL = Executors.newSingleThreadScheduledExecutor();
 				Runnable taskPlife = new Runnable() {
 					public void run() {
-						pufoods.add(new Bomb(3, 5, 6));
+						pufoods.add(new Bomb(16, 5, 6));
 					}
 				};
 				schedulerpacL.schedule(taskPlife, 5, TimeUnit.SECONDS);
