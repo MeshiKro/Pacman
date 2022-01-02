@@ -23,13 +23,13 @@
          <children>
             <BarChart fx:id="barChart" layoutX="72.0" layoutY="48.0" prefHeight="381.0" prefWidth="634.0">
               <xAxis>
-                <CategoryAxis endMargin="0.0" label="Answers" prefHeight="66.0" prefWidth="588.0" side="BOTTOM" startMargin="0.0" stylesheets="@style.css" tickLabelFill="WHITE" />
+                <CategoryAxis endMargin="0.0" label="Answers" prefHeight="66.0" prefWidth="588.0" side="BOTTOM" startMargin="0.0" styleClass="axis-label" stylesheets="@../../images/style.css" tickLabelFill="WHITE" />
               </xAxis>
               <yAxis>
-                <NumberAxis label="Number of user selcted answer" prefHeight="323.0" prefWidth="45.0" side="LEFT" tickLabelFill="WHITE" tickLabelGap="0.0" upperBound="50.0" />
+                <NumberAxis label="Number of user selcted answer" prefHeight="323.0" prefWidth="45.0" side="LEFT" styleClass="axis-label" stylesheets="@../../images/style.css" tickLabelFill="WHITE" tickLabelGap="0.0" upperBound="50.0" />
               </yAxis>
             </BarChart>
-            <PieChart fx:id="pieChart" focusTraversable="true" layoutX="63.0" layoutY="45.0" onMouseClicked="#prectengesDisaply" prefHeight="373.0" prefWidth="663.0" styleClass="chart-pie-label" stylesheets="@style.css" visible="false" />
+            <PieChart fx:id="pieChart" focusTraversable="true" layoutX="63.0" layoutY="45.0" onMouseClicked="#prectengesDisaply" prefHeight="373.0" prefWidth="663.0" styleClass="chart-pie-label" stylesheets="@../../images/style.css" visible="false" />
          </children>
       </AnchorPane>
       <Label fx:id="title" alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="119.0" prefHeight="58.0" prefWidth="1037.0" text="Questions Wizard" textFill="WHITE">

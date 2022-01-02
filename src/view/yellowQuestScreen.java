@@ -337,14 +337,12 @@ public class yellowQuestScreen {
 		wrongAnswer = removeElement(randomAnswer1, wrongAnswer);
 		int randomAnswer2 = getRandomElement(wrongAnswer);
 
-		// System.out.print(" wrongAnswer "+ wrongAnswer);
-		// System.out.print(" randomAnswer1 "+ randomAnswer1);
+	
 
 		// disable 2 wrongs answer
 		disableAnswer(randomAnswer1, true);
 		disableAnswer(randomAnswer2, true);
 
-	//	disableIcon(fiftyIcon);
 
 		disableAllHelpIcon();
 	}

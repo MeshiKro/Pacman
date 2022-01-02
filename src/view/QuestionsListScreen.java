@@ -714,7 +714,7 @@ public class QuestionsListScreen {
 	@FXML
 	void EditQuestionClicked(MouseEvent event) {
 		String id = event.getPickResult().getIntersectedNode().getId().substring(7);
-		System.out.print(" id " + id);
+
 		Text field = findText("quesionField" + id);
 		if (field != null) {
 			questionToEdit = field.getText();
