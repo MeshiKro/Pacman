@@ -50,6 +50,9 @@ public class yellowQuestScreen {
 
 	@FXML
 	private AnchorPane wrongPane;
+	
+    @FXML
+    private Pane helpPane;
 
 	@FXML
 	private Pane correctPane;
@@ -110,10 +113,12 @@ public class yellowQuestScreen {
 		wrongPane.setVisible(false);
 
 		if (SysData.numberOfHelpIcon == 1) {
+			helpPane.setVisible(true); 
 			disableIcon(helpIcon2);
 		} else if (SysData.numberOfHelpIcon <= 0) {
 			disableIcon(helpIcon1);
 			disableIcon(helpIcon2);
+			helpPane.setVisible(false); 
 
 		}
 
@@ -307,7 +312,7 @@ public class yellowQuestScreen {
 		}
 
 		disableAllHelpIcon();
-	
+	//	disableIcon(helpIcon1);
 
 	}
 
@@ -316,6 +321,7 @@ public class yellowQuestScreen {
 		disableIcon(helpIcon2);	
 		disableIcon(fiftyIcon12);
 		disableIcon(fiftyIcon);
+		helpPane.setVisible(false);
 	}
 
 	@FXML
@@ -338,7 +344,7 @@ public class yellowQuestScreen {
 		disableAnswer(randomAnswer1, true);
 		disableAnswer(randomAnswer2, true);
 
-	
+	//	disableIcon(fiftyIcon);
 
 		disableAllHelpIcon();
 	}

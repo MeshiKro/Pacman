@@ -210,6 +210,7 @@
                   <Image url="@../images/half.png" />
                </image>
             </ImageView>
+            <Pane fx:id="helpPane" layoutX="577.0" layoutY="264.0" prefHeight="26.0" prefWidth="30.0" style="-fx-background-color: white;" />
             <ImageView fx:id="helpIcon1" fitHeight="43.0" fitWidth="51.0" layoutX="570.0" layoutY="255.0" onMouseClicked="#helpIconClicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/lifesaver.png" />
