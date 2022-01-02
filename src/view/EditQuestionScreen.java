@@ -236,21 +236,11 @@ public class EditQuestionScreen {
 		JsonWriterEx jw = new JsonWriterEx();
 		QuestionsListScreen.questionToDelete = QuestionsListScreen.questionToEdit;
 		System.out.print( "  " + QuestionsListScreen.questionToDelete);
-		System.out.println( ">>>>>>>>>>>>>> size 1   " + JsonRead.questionsAndAnswers.size());
 
 		boolean res = jw.updateQuestions(QuestionsListScreen.questionToEdit,q);
 
-		
-		
-		/*jw.deleteQuestion();
-		System.out.println( " size 2  " + JsonRead.questionsAndAnswers.size());
+	
 
-		// Write updatedQuestion to Json
-		boolean res = jw.writeQuestions(q);
-		System.out.println( " size 3  " + JsonRead.questionsAndAnswers.size());
-
-		JsonRead.questionsAndAnswers.remove(	JsonRead.questionsAndAnswers.size()-1);
-		System.out.println(res);*/
 		if (res)
 			GlobalFuncations.switchScreen(pane, "ConfirmPopUp",
 					(getClass().getResource("/view/" + "ConfirmPopUp" + ".fxml")), "Edit");

@@ -152,7 +152,7 @@ public class yellowQuestScreen {
 			meg.setText("tough question");
 			meg.setStyle("-fx-text-fill: #e04006;");
 		}
-		countdownStarter = 15;
+		countdownStarter = SysData.secondToQuestion;
 
 		// timer
 		final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
@@ -173,7 +173,7 @@ public class yellowQuestScreen {
 
 				countdownStarter--;
 
-				if (countdownStarter < 0) {
+				if (countdownStarter <= 0) {
 					scheduler.shutdown();
 
 				}

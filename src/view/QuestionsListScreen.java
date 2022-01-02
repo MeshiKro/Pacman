@@ -590,33 +590,7 @@ public class QuestionsListScreen {
 			max = array.size();
 			lastPage = true;
 		}
-		
-		
-	/*	System.out.println("page = "  + page);
-		if(page ==1)
-		{
-			QuestionOnScreenIndex=1;
-
-			min=minPage1Index;
-			max=maxPage1Index;
-		}
-		if(page ==2)
-		{
-			QuestionOnScreenIndex=1;
-
-			min=minPage2Index;
-			max=maxPage2Index;
-			
-		}
-		if(page ==3)
-		{
-			QuestionOnScreenIndex=1;
-
-			min=minPage3Index;
-			max=maxPage3Index;
-		}
-		System.out.print("nextQuesiotnBtnClicked  minIndex " + min);
-		System.out.print(" nextQuesiotnBtnClicked  max " + max);*/
+	
 		for (int i=min; i < max; i++) {
 		
 			try {
@@ -647,28 +621,6 @@ public class QuestionsListScreen {
 			max = array.size();
 		System.out.println("page = "  + page);
 
-		/*if(page ==1)
-		{
-			QuestionOnScreenIndex=1;
-			min=minPage1Index;
-			max=maxPage1Index;
-		}
-		if(page ==2)
-		{
-			QuestionOnScreenIndex=1;
-			min=minPage2Index;
-			max=maxPage2Index;
-			
-		}
-		
-		if(page ==3)
-		{
-			QuestionOnScreenIndex=1;
-			min=minPage3Index;
-			max=maxPage3Index;
-		}
-		System.out.print(" minIndex " + min);
-		System.out.print(" max " + max);*/
 		for (int i = min; i < max; i++) {
 			try {
 				addQuestion(array, i);

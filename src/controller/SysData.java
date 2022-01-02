@@ -98,7 +98,8 @@ public class SysData extends JPanel {
 	public int createFoodDelay = 30;
 	public static String qLevel;
 
-	int seconds = 15;
+	public static int secondToQuestion=60;
+	int seconds = secondToQuestion;
 	int cancelTimer = 0;
 
 	private boolean isLevelUp = false;
@@ -700,14 +701,14 @@ public class SysData extends JPanel {
 				
 				//System.out.println(" seconds " + seconds + "   cancelTimer " + cancelTimer);
 
-				if (seconds == 0) {
+				if (seconds <= 0) {
 					timer.cancel();
 					frame.dispose();
 
 					contiuneGame();
 					updateScore();
 					cancelTimer =0;
-					seconds =15;
+					seconds =secondToQuestion;
 				}
 
 			}
