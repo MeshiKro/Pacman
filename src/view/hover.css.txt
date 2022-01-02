@@ -1,0 +1,7 @@
+.my-button {
+    -fx-graphic: url("delete.png");
+}
+
+.my-button:hover {
+    -fx-graphic: url("deleteB.png");
+}

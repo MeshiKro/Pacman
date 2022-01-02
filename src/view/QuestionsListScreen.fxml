@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.QuestionsListScreen">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #000000;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.QuestionsListScreen">
    <children>
       <ImageView fitHeight="361.0" fitWidth="369.0" layoutY="242.0">
          <image>
@@ -126,62 +126,62 @@
             <Font size="15.0" />
          </font>
       </Text>
-      <ImageView fx:id="deleteBtn1" fitHeight="26.0" fitWidth="40.0" layoutX="721.0" layoutY="235.0" onMouseClicked="#deleteQuestionClicked" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="deleteBtn1" fitHeight="26.0" fitWidth="40.0" layoutX="721.0" layoutY="235.0" onMouseClicked="#deleteQuestionClicked" onMouseEntered="#hoverStartImage" onMouseExited="#hoverEndImage" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/delete.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="editBtn1" fitHeight="26.0" fitWidth="33.0" layoutX="787.0" layoutY="235.0" onMouseClicked="#EditQuestionClicked" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="editBtn1" fitHeight="26.0" fitWidth="33.0" layoutX="787.0" layoutY="235.0" onMouseClicked="#EditQuestionClicked" onMouseEntered="#hoverStartImage" onMouseExited="#hoverEndImage" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/edit.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="deleteBtn2" fitHeight="26.0" fitWidth="40.0" layoutX="721.0" layoutY="282.0" onMouseClicked="#deleteQuestionClicked" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="deleteBtn2" fitHeight="26.0" fitWidth="40.0" layoutX="721.0" layoutY="282.0" onMouseClicked="#deleteQuestionClicked" onMouseEntered="#hoverStartImage" onMouseExited="#hoverEndImage" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../../images/delete.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="deleteBtn3" fitHeight="26.0" fitWidth="40.0" layoutX="721.0" layoutY="329.0" onMouseClicked="#deleteQuestionClicked" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="deleteBtn3" fitHeight="26.0" fitWidth="40.0" layoutX="721.0" layoutY="329.0" onMouseClicked="#deleteQuestionClicked" onMouseEntered="#hoverStartImage" onMouseExited="#hoverEndImage" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../../images/delete.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="deleteBtn4" fitHeight="26.0" fitWidth="40.0" layoutX="721.0" layoutY="377.0" onMouseClicked="#deleteQuestionClicked" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="deleteBtn4" fitHeight="26.0" fitWidth="40.0" layoutX="721.0" layoutY="377.0" onMouseClicked="#deleteQuestionClicked" onMouseEntered="#hoverStartImage" onMouseExited="#hoverEndImage" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../../images/delete.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="deleteBtn5" fitHeight="26.0" fitWidth="40.0" layoutX="721.0" layoutY="425.0" onMouseClicked="#deleteQuestionClicked" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="deleteBtn5" fitHeight="26.0" fitWidth="40.0" layoutX="721.0" layoutY="425.0" onMouseClicked="#deleteQuestionClicked" onMouseEntered="#hoverStartImage" onMouseExited="#hoverEndImage" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../../images/delete.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="deleteBtn6" fitHeight="26.0" fitWidth="85.0" layoutX="721.0" layoutY="471.0" onMouseClicked="#deleteQuestionClicked" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="deleteBtn6" fitHeight="26.0" fitWidth="85.0" layoutX="721.0" layoutY="471.0" onMouseClicked="#deleteQuestionClicked" onMouseEntered="#hoverStartImage" onMouseExited="#hoverEndImage" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../../images/delete.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="editBtn3" fitHeight="26.0" fitWidth="33.0" layoutX="787.0" layoutY="329.0" onMouseClicked="#EditQuestionClicked" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="editBtn3" fitHeight="26.0" fitWidth="33.0" layoutX="787.0" layoutY="329.0" onMouseClicked="#EditQuestionClicked" onMouseEntered="#hoverStartImage" onMouseExited="#hoverEndImage" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../../images/edit.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="editBtn4" fitHeight="26.0" fitWidth="33.0" layoutX="787.0" layoutY="377.0" onMouseClicked="#EditQuestionClicked" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="editBtn4" fitHeight="26.0" fitWidth="33.0" layoutX="787.0" layoutY="377.0" onMouseClicked="#EditQuestionClicked" onMouseEntered="#hoverStartImage" onMouseExited="#hoverEndImage" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../../images/edit.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="editBtn5" fitHeight="26.0" fitWidth="33.0" layoutX="787.0" layoutY="425.0" onMouseClicked="#EditQuestionClicked" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="editBtn5" fitHeight="26.0" fitWidth="33.0" layoutX="787.0" layoutY="425.0" onMouseClicked="#EditQuestionClicked" onMouseEntered="#hoverStartImage" onMouseExited="#hoverEndImage" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../../images/edit.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="editBtn6" fitHeight="26.0" fitWidth="33.0" layoutX="787.0" layoutY="471.0" onMouseClicked="#EditQuestionClicked" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="editBtn6" fitHeight="26.0" fitWidth="33.0" layoutX="787.0" layoutY="471.0" onMouseClicked="#EditQuestionClicked" onMouseEntered="#hoverStartImage" onMouseExited="#hoverEndImage" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../../images/edit.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="editBtn2" fitHeight="26.0" fitWidth="33.0" layoutX="787.0" layoutY="282.0" onMouseClicked="#EditQuestionClicked" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="editBtn2" fitHeight="26.0" fitWidth="33.0" layoutX="787.0" layoutY="282.0" onMouseClicked="#EditQuestionClicked" onMouseEntered="#hoverStartImage" onMouseExited="#hoverEndImage" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../../images/edit.png" />
          </image>
@@ -220,32 +220,32 @@
             <Font name="System Bold" size="19.0" />
          </font>
       </Label>
-      <ImageView fx:id="chartBtn4" fitHeight="26.0" fitWidth="26.0" layoutX="650.0" layoutY="377.0" onMouseClicked="#goToChartScreem" visible="false">
+      <ImageView fx:id="chartBtn4" fitHeight="26.0" fitWidth="26.0" layoutX="650.0" layoutY="377.0" onMouseClicked="#goToChartScreem" onMouseEntered="#hoverStartImage" onMouseExited="#hoverEndImage" visible="false">
          <image>
             <Image url="@../images/line-chart-256.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="chartBtn5" fitHeight="26.0" fitWidth="26.0" layoutX="650.0" layoutY="425.0" onMouseClicked="#goToChartScreem" visible="false">
+      <ImageView fx:id="chartBtn5" fitHeight="26.0" fitWidth="26.0" layoutX="650.0" layoutY="425.0" onMouseClicked="#goToChartScreem" onMouseEntered="#hoverStartImage" onMouseExited="#hoverEndImage" visible="false">
          <image>
             <Image url="@../images/line-chart-256.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="chartBtn6" fitHeight="26.0" fitWidth="26.0" layoutX="650.0" layoutY="471.0" onMouseClicked="#goToChartScreem" visible="false">
+      <ImageView fx:id="chartBtn6" fitHeight="26.0" fitWidth="26.0" layoutX="650.0" layoutY="471.0" onMouseClicked="#goToChartScreem" onMouseEntered="#hoverStartImage" onMouseExited="#hoverEndImage" visible="false">
          <image>
             <Image url="@../images/line-chart-256.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="chartBtn1" fitHeight="26.0" fitWidth="26.0" layoutX="650.0" layoutY="235.0" onMouseClicked="#goToChartScreem">
+      <ImageView fx:id="chartBtn1" fitHeight="26.0" fitWidth="26.0" layoutX="650.0" layoutY="235.0" onMouseClicked="#goToChartScreem" onMouseEntered="#hoverStartImage" onMouseExited="#hoverEndImage">
          <image>
             <Image url="@../images/line-chart-256.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="chartBtn2" fitHeight="26.0" fitWidth="26.0" layoutX="650.0" layoutY="282.0" onMouseClicked="#goToChartScreem" visible="false">
+      <ImageView fx:id="chartBtn2" fitHeight="26.0" fitWidth="26.0" layoutX="650.0" layoutY="282.0" onMouseClicked="#goToChartScreem" onMouseEntered="#hoverStartImage" onMouseExited="#hoverEndImage" visible="false">
          <image>
             <Image url="@../images/line-chart-256.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="chartBtn3" fitHeight="26.0" fitWidth="26.0" layoutX="650.0" layoutY="329.0" onMouseClicked="#goToChartScreem" visible="false">
+      <ImageView fx:id="chartBtn3" fitHeight="26.0" fitWidth="26.0" layoutX="650.0" layoutY="329.0" onMouseClicked="#goToChartScreem" onMouseEntered="#hoverStartImage" onMouseExited="#hoverEndImage" visible="false">
          <image>
             <Image url="@../images/line-chart-256.png" />
          </image>

@@ -775,5 +775,118 @@ public class QuestionsListScreen {
 	}
 
 	// End OnClick Section
+	
+	@FXML
+	void hoverStartImage(MouseEvent event) {
+		if (event != null)
+			hoverImage(event.getPickResult().getIntersectedNode().getId());
+
+	}
+
+	@FXML
+	void hoverEndImage(MouseEvent event) {
+		if (event != null)
+			hoverImage(event.getPickResult().getIntersectedNode().getId());
+
+	}
+
+	private void hoverImage(String id) {
+		if (id == null)
+			return;
+		Image image = createImage("deleteB");
+		Image image2 = createImage("editB");
+		Image image3 = createImage("graphB");
+
+		switch (id) {
+		case "deleteBtn1":
+			deleteBtn1.setImage(image);
+			break;
+		case "deleteBtn2":
+			deleteBtn2.setImage(image);
+			break;
+		case "deleteBtn3":
+			deleteBtn3.setImage(image);
+			break;
+		case "deleteBtn4":
+			deleteBtn4.setImage(image);
+			break;
+		case "deleteBtn5":
+			deleteBtn5.setImage(image);
+			break;
+		case "deleteBtn6":
+			deleteBtn6.setImage(image);
+			break;
+			
+		case "editBtn1":
+			editBtn1.setImage(image2);
+			break;
+		case "editBtn2":
+			editBtn2.setImage(image2);
+			break;
+		case "editBtn3":
+			editBtn3.setImage(image2);
+			break;
+		case "editBtn4":
+			editBtn4.setImage(image2);
+			break;
+		case "editBtn5":
+			editBtn5.setImage(image2);
+			break;
+		case "editBtn6":
+			editBtn6.setImage(image2);
+			break;
+			
+		case "chartBtn1":
+			chartBtn1.setImage(image3);
+			break;
+		case "chartBtn2":
+			chartBtn2.setImage(image3);
+			break;
+		case "chartBtn3":
+			chartBtn3.setImage(image3);
+			break;
+		case "chartBtn4":
+			chartBtn4.setImage(image3);
+			break;
+		case "chartBtn5":
+			chartBtn5.setImage(image3);
+			break;
+		case "chartBtn6":
+			chartBtn6.setImage(image3);
+			break;
+
+		default:
+			image = createImage("delete");
+			image2 = createImage("edit");
+			image3 = createImage("line-chart-256");
+			deleteBtn1.setImage(image);
+			deleteBtn2.setImage(image);
+			deleteBtn3.setImage(image);
+			deleteBtn4.setImage(image);
+			deleteBtn5.setImage(image);
+			deleteBtn6.setImage(image);
+			editBtn1.setImage(image2);
+			editBtn2.setImage(image2);
+			editBtn3.setImage(image2);
+			editBtn4.setImage(image2);
+			editBtn5.setImage(image2);
+			editBtn6.setImage(image2);
+			chartBtn1.setImage(image3);
+			chartBtn2.setImage(image3);
+			chartBtn3.setImage(image3);
+			chartBtn4.setImage(image3);
+			chartBtn5.setImage(image3);
+			chartBtn6.setImage(image3);
+		}
+
+	}
+	
+	public static String removeLastChar(String str) {
+        return removeLastChars(str, 1);
+    }
+
+    public static String removeLastChars(String str, int chars) {
+        return str.substring(0, str.length() - chars);
+    }
 
 }
