@@ -1111,7 +1111,7 @@ public static	int level = 1;
 			return positionR;
 		}
 		case 2: {
-			positionR = new Point(10, 16);
+			positionR = new Point(10, 17);
 			return positionR;
 		}
 		case 3: {
