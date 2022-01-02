@@ -238,13 +238,21 @@ public class QuestionsListScreen {
 				    } catch (JSONException e) {
 				        // handle exception
 				    }
-				  for(int j=0;j<3;j++) {
-						 clearAllQuestion(j);			
-						 }
+
+				 if(filteredEasy.size() %6 != 0) {
+					 
+					 	for(int i=1;i<7;i++)
+					 clearQuestion(i);
+					 
+
+				 }
+				  QuestionOnScreenIndex =1;
 				  setNextAndBackBtn(filteredEasy.size());
-				
+
+				  
+				  
 				for (int i = 0; i <filteredEasy.size(); i++) {
-					System.out.println(filteredEasy.get(i));
+
 					try {
 						addQuestion(filteredEasy, i);
 
@@ -268,12 +276,20 @@ public class QuestionsListScreen {
 				    } catch (JSONException e) {
 				        // handle exception
 				    }
-				  for(int j=0;j<3;j++) {
-						 clearAllQuestion(j);			
-						 }
+
+				 if(filteredMedium.size() %6 != 0) {
+					 
+					 	for(int i=1;i<7;i++)
+					 clearQuestion(i);
+					 
+
+				 }
 				  setNextAndBackBtn(filteredMedium.size());
+				  
+				 
+				  QuestionOnScreenIndex =1;
 				for (int i = 0; i <filteredMedium.size(); i++) {
-					System.out.println(filteredMedium.get(i));
+
 					try {
 						addQuestion(filteredMedium, i);
 
@@ -298,12 +314,18 @@ public class QuestionsListScreen {
 				    } catch (JSONException e) {
 				        // handle exception
 				    }
-				  for(int j=0;j<3;j++) {
-						 clearAllQuestion(j);			
-						 }
+				 if(filteredHard.size() %6 != 0) {
+					 
+					 	for(int i=1;i<7;i++)
+					 clearQuestion(i);
+					 
+
+				 }
+				
+				  QuestionOnScreenIndex =1;
 				  setNextAndBackBtn(filteredHard.size());
 				for (int i = 0; i <filteredHard.size(); i++) {
-					System.out.println(filteredHard.get(i));
+
 					try {
 						addQuestion(filteredHard, i);
 
@@ -374,6 +396,38 @@ public class QuestionsListScreen {
 		return min;
 	}
 
+	
+	private void clearQuestion(int index) {
+
+		// Find question / level field
+				Text field = findText("quesionField" + String.valueOf(index));
+				if (field != null)
+					field.setVisible(false);
+
+				field = findText("levleField" + String.valueOf(index));
+				if (field != null)
+					field.setVisible(false);
+
+				// find edit / delete icon
+				ImageView img = findImageView("editBtn" + String.valueOf(index));
+				if (img != null)
+					img.setVisible(false);
+
+				img = findImageView("deleteBtn" + String.valueOf(index));
+				if (img != null)
+					img.setVisible(false);
+		
+				
+
+				// find Chart icon
+				img = findImageView("chartBtn" + String.valueOf(index));
+				if (img != null)
+				img.setVisible(false);
+				
+			
+	}
+
+	
 	private void clearPrevoiusQuestion() {
 
 		// Find question / level field
@@ -619,7 +673,7 @@ public class QuestionsListScreen {
 		int max=min+6;
 		if(max >array.size())
 			max = array.size();
-		System.out.println("page = "  + page);
+
 
 		for (int i = min; i < max; i++) {
 			try {
@@ -674,7 +728,6 @@ public class QuestionsListScreen {
 
 	@FXML
 	void goToChartScreem(MouseEvent event) {
-		System.out.println("event "  + event.getSource().toString());
 
 		if( event.getPickResult().getIntersectedNode().getId().equals(""))
 			return;
@@ -683,8 +736,8 @@ public class QuestionsListScreen {
 		
 		try {
 		String id = event.getPickResult().getIntersectedNode().getId().substring(8);
-		System.out.println("quesionField"  + id);
-		System.out.println();
+
+
 
 		Text field = findText("quesionField" + id);
 

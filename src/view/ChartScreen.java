@@ -45,15 +45,14 @@ public class ChartScreen {
 
 	@FXML
 	private BarChart<String, Integer> barChart;
-	  @FXML
-	    private ImageView backBtn;
+	@FXML
+	private ImageView backBtn;
 
-	    @FXML
-	    private AnchorPane backBtnPane;
+	@FXML
+	private AnchorPane backBtnPane;
 
-	    @FXML
-	    private ImageView backicon;
-
+	@FXML
+	private ImageView backicon;
 
 	@FXML
 	private PieChart pieChart;
@@ -80,7 +79,7 @@ public class ChartScreen {
 
 	public void initialize(String questionString) {
 
-		System.out.println("questionString "  + questionString);
+		System.out.println("questionString " + questionString);
 
 		initializeColorsArray();
 
@@ -96,42 +95,39 @@ public class ChartScreen {
 		addDataToChart();
 
 		initializeColorsArray();
-		
-	//	setStyleToChart();
+
+		// setStyleToChart();
 	}
 
-	/*private void addDataToPieChart() {
-		ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
-
-		HashMap<String, Integer> list = (HashMap<String, Integer>) question.getAnswerData().clone();
-
-		for (int i = 0; i < 4; i++) {
-			Iterator it = (list).entrySet().iterator();
-
-			while (it.hasNext()) {
-
-				Map.Entry pair = (Map.Entry) it.next();
-				String ans = covertToTwoLine(pair.getKey().toString());
-
-				int num = Integer.parseInt(pair.getValue().toString().replace(".0", ""));
-
-				pieChartData.add(new PieChart.Data(ans, num));
-				it.remove();
-			}
-
-		}
-	
-		pieChart.setData(pieChartData);
-		for (int i=0;i<pieChart.getData().size();i++)
-		{
-			System.out.print(pieChart.getData().get(i).getPieValue());
-			System.out.print(pieChart.getData().get(i).getName());
-
-		}
-		pieChart.getData().get(0).setName("dsfgsdfg");
-		pieChart.getData().get(0).setPieValue(222);
-
-	}*/
+	/*
+	 * private void addDataToPieChart() { ObservableList<PieChart.Data> pieChartData
+	 * = FXCollections.observableArrayList();
+	 * 
+	 * HashMap<String, Integer> list = (HashMap<String, Integer>)
+	 * question.getAnswerData().clone();
+	 * 
+	 * for (int i = 0; i < 4; i++) { Iterator it = (list).entrySet().iterator();
+	 * 
+	 * while (it.hasNext()) {
+	 * 
+	 * Map.Entry pair = (Map.Entry) it.next(); String ans =
+	 * covertToTwoLine(pair.getKey().toString());
+	 * 
+	 * int num = Integer.parseInt(pair.getValue().toString().replace(".0", ""));
+	 * 
+	 * pieChartData.add(new PieChart.Data(ans, num)); it.remove(); }
+	 * 
+	 * }
+	 * 
+	 * pieChart.setData(pieChartData); for (int i=0;i<pieChart.getData().size();i++)
+	 * { System.out.print(pieChart.getData().get(i).getPieValue());
+	 * System.out.print(pieChart.getData().get(i).getName());
+	 * 
+	 * } pieChart.getData().get(0).setName("dsfgsdfg");
+	 * pieChart.getData().get(0).setPieValue(222);
+	 * 
+	 * }
+	 */
 
 	private void initializeColorsArray() {
 		colors = new ArrayList<String>();
@@ -153,13 +149,12 @@ public class ChartScreen {
 
 	private void addDataToChart() {
 
-		
 		XYChart.Series<String, Integer> answer = new XYChart.Series();
 
 		HashMap<String, Integer> list = (HashMap<String, Integer>) question.getAnswerData().clone();
-		System.out.println("list size"  + list.size());
+		System.out.println("list size" + list.size());
 
-		System.out.println("list "  + list.toString());
+		System.out.println("list " + list.toString());
 
 		for (int i = 0; i < 4; i++) {
 			Iterator it = (list).entrySet().iterator();
@@ -171,56 +166,51 @@ public class ChartScreen {
 
 				int num = Integer.parseInt(pair.getValue().toString().replace(".0", ""));
 
-				System.out.println("add anser "  + ans);
-				System.out.println("add anser "  + ans.length());
-				
-				answer.getData().add(new XYChart.Data(ans, num));
-				System.out.println("answer: "  + answer.getData().toString());
+				System.out.println("add anser " + ans);
+				System.out.println("add anser " + ans.length());
 
-			pieChartData.add(new PieChart.Data(ans, num));
-				
-				
+				answer.getData().add(new XYChart.Data(ans, num));
+				System.out.println("answer: " + answer.getData().toString());
+
+				pieChartData.add(new PieChart.Data(ans, num));
+
 				it.remove();
 			}
 
 		}
-try {
-		barChart.getData().add(answer);
-}
-catch(Exception e)
-{
-	e.getStackTrace();
-}
-System.out.println("barChart: "  + barChart.getData().size());
+		try {
+			barChart.getData().add(answer);
+		} catch (Exception e) {
+			e.getStackTrace();
+		}
+		System.out.println("barChart: " + barChart.getData().size());
 
 		barChart.setLegendVisible(false);
 
-		
 		pieChart.setData(pieChartData);
-	
 
-		/*for (int i=0;i<pieChart.getData().size();i++)
-		{
-			System.out.print(pieChart.getData().get(i).getPieValue());
-			System.out.print(pieChart.getData().get(i).getName());
+		/*
+		 * for (int i=0;i<pieChart.getData().size();i++) {
+		 * System.out.print(pieChart.getData().get(i).getPieValue());
+		 * System.out.print(pieChart.getData().get(i).getName());
+		 * 
+		 * }
+		 */
 
-		}*/
+		final Label caption = new Label("");
+		caption.setTextFill(Color.DARKORANGE);
+		caption.setStyle("-fx-font: 24 arial;");
 
-
-        final Label caption = new Label("");
-        caption.setTextFill(Color.DARKORANGE);
-        caption.setStyle("-fx-font: 24 arial;");
-
-        barChart.setVisible(true);
+		barChart.setVisible(true);
 	}
-	
+
 	private void setStyleToChart() {
 
-		int indexOfCorrectAnwer = getIndexOfCorrectAnwer() ;
-		if(indexOfCorrectAnwer >0)
-			indexOfCorrectAnwer +=1;
-		
-System.out.print( " indexOfCorrectAnwer " + indexOfCorrectAnwer);
+		int indexOfCorrectAnwer = getIndexOfCorrectAnwer();
+		if (indexOfCorrectAnwer > 0)
+			indexOfCorrectAnwer += 1;
+
+		System.out.print(" indexOfCorrectAnwer " + indexOfCorrectAnwer);
 		Node n = barChart.lookup(".data" + indexOfCorrectAnwer + ".chart-bar");
 		if (n != null)
 			n.setStyle("-fx-bar-fill: green");
@@ -228,30 +218,30 @@ System.out.print( " indexOfCorrectAnwer " + indexOfCorrectAnwer);
 		PieChart.Data data = pieChartData.get(indexOfCorrectAnwer);
 
 		if (data != null) {
-			data.getNode().setStyle("-fx-pie-color: green;");		 
+			data.getNode().setStyle("-fx-pie-color: green;");
 		}
-			
+
 		for (int i = 0; i < 4; i++) {
 			n = barChart.lookup(".data" + i + ".chart-bar");
 			data = pieChartData.get(i);
 			if (i != indexOfCorrectAnwer && n != null) {
 				String color = getRandomColor();
 				n.setStyle("-fx-bar-fill: " + color);
-			
-				data.getNode().setStyle("-fx-pie-color: " + color + ";"); 
-				
-			  
+
+				data.getNode().setStyle("-fx-pie-color: " + color + ";");
+
 			}
 
 		}
-	
+
 		initializeColorsArray();
 
 	}
-	  @FXML
-	    void prectengesDisaply(MouseEvent event) {
-		
-	    }
+
+	@FXML
+	void prectengesDisaply(MouseEvent event) {
+
+	}
 
 	private String getRandomColor() {
 		Random r = new Random();
@@ -286,21 +276,19 @@ System.out.print( " indexOfCorrectAnwer " + indexOfCorrectAnwer);
 	private String covertToTwoLine(String ans) {
 		if (ans.length() <= 31)
 			return ans;
-	
-			if(ans.length() <50)
-				return ans.substring(0, 25) + "\n" + ans.substring(25, ans.length());
 
-			
-			String answer = ans.substring(0, 25) + "\n" + ans.substring(25, 50) + "...";
-			return answer;
+		if (ans.length() < 50)
+			return ans.substring(0, 25) + "\n" + ans.substring(25, ans.length());
 
-	
+		String answer = ans.substring(0, 25) + "\n" + ans.substring(25, 50) + "...";
+		return answer;
 
 	}
 
 	@FXML
 	void HomeBtnClicked(MouseEvent event) {
-    	GlobalFuncations.switchScreen(pane,"MainScreen",(getClass().getResource("/view/" + "MainScreen" + ".fxml")),"");
+		GlobalFuncations.switchScreen(pane, "MainScreen", (getClass().getResource("/view/" + "MainScreen" + ".fxml")),
+				"");
 
 	}
 
@@ -311,7 +299,6 @@ System.out.print( " indexOfCorrectAnwer " + indexOfCorrectAnwer);
 			pieChart.toFront();
 			barChart.setVisible(false);
 			chartBtn.setText("Bar Chart");
-			
 
 		} else {
 			pieChart.setVisible(false);
@@ -346,25 +333,23 @@ System.out.print( " indexOfCorrectAnwer " + indexOfCorrectAnwer);
 		InputStream inStream = getClass().getResourceAsStream("/images/" + img + ".png");
 		return new Image(inStream);
 	}
-	
+
 	@FXML
 	void hoverStartSideButton(MouseEvent event) {
-		String img ="buttonconinterClicked";
-		GlobalFuncations.hoverButton(getClass().getResourceAsStream("/images/" + img + ".png"), backBtn);		
+		String img = "buttonconinterClicked";
+		GlobalFuncations.hoverButton(getClass().getResourceAsStream("/images/" + img + ".png"), backBtn);
 
 	}
-	
+
 	@FXML
 	void hoverEndSideButton(MouseEvent event) {
-		String img ="buttonconinter";
-		GlobalFuncations.hoverButton(getClass().getResourceAsStream("/images/" + img + ".png"), backBtn);		
+		String img = "buttonconinter";
+		GlobalFuncations.hoverButton(getClass().getResourceAsStream("/images/" + img + ".png"), backBtn);
 	}
 
 	// End Hover Section
 
 	// OnClick Section
-
-	
 
 	@FXML
 	void BackBtnClicked(MouseEvent event) {
@@ -373,17 +358,18 @@ System.out.print( " indexOfCorrectAnwer " + indexOfCorrectAnwer);
 
 	}
 
-    @FXML
-    void hoverStartC(MouseEvent event) {
-    	chartBtn.setStyle("-fx-background-color: #cba79a; -fx-background-radius:25; -fx-border-width:5; -fx-border-color:white; -fx-border-radius:25");
-    	 
-    }
-    
-    @FXML
-    void HoverEndC(MouseEvent event) {
-    	chartBtn.setStyle("-fx-background-color: #efe4e0; -fx-background-radius:25; -fx-border-width:5; -fx-border-color:white; -fx-border-radius:25");
+	@FXML
+	void hoverStartC(MouseEvent event) {
+		chartBtn.setStyle(
+				"-fx-background-color: #cba79a; -fx-background-radius:25; -fx-border-width:5; -fx-border-color:white; -fx-border-radius:25");
 
-    }
-	
+	}
+
+	@FXML
+	void HoverEndC(MouseEvent event) {
+		chartBtn.setStyle(
+				"-fx-background-color: #efe4e0; -fx-background-radius:25; -fx-border-width:5; -fx-border-color:white; -fx-border-radius:25");
+
+	}
 
 }
