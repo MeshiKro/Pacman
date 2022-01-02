@@ -204,7 +204,7 @@ public class QuestionsListScreen {
 		maxPage3Index = array.size();
 		setNextAndBackBtn(array.size());
 
-		for (int i = minPage1Index; i < maxPage1Index; i++) {
+		for (int i = 0; i < 6; i++) {
 			try {
 				addQuestion(array, i);
 
@@ -319,29 +319,13 @@ public class QuestionsListScreen {
 	}
 	
 	private void clearAllQuestion(int p) {
-	int min =0;
-	int max=0;
-	page=p;
-	if(page ==1)
-	{
-		
-
-		min=minPage1Index;
-		max=maxPage1Index;
-	}
-	if(page ==2)
-	{
-
-		min=minPage2Index;
-		max=maxPage2Index;
-		
-	}
-	if(page ==3)
-	{
-
-		min=minPage3Index;
-		max=maxPage3Index;
-	}
+		page=p;
+	int min =getMinIndexOfPage(p);
+	int max=min+6;
+	if(max >array.size())
+		max = array.size();
+	
+	
 	for (int i=min; i < max; i++) {
 	
 		try {
@@ -355,6 +339,40 @@ public class QuestionsListScreen {
 	
 	}
 
+
+	private int getMinIndexOfPage(int p) {
+		int min=0;
+		if(p==1)
+		return min;
+		int tempPage =1;
+		while(tempPage <p)
+		{
+			min+=6;
+			tempPage++;
+		}
+		
+		/*if(page ==1)
+		{
+			
+
+			min=0;
+			//max=maxPage1Index;
+		}
+		if(page ==2)
+		{
+
+			min=6;
+			//max=maxPage2Index;
+			
+		}
+		if(page ==3)
+		{
+
+			min=12;
+			//max=maxPage3Index;
+		}*/
+		return min;
+	}
 
 	private void clearPrevoiusQuestion() {
 
@@ -563,10 +581,18 @@ public class QuestionsListScreen {
 	@FXML
 	void nextQuesiotnBtnClicked(MouseEvent event) {
 
-		int min =0;
-		int max=0;
+	
+		boolean lastPage = false;
 		page++;
-		System.out.println("page = "  + page);
+		int min =getMinIndexOfPage(page);
+		int max=min+6;
+		if(max >array.size()) {
+			max = array.size();
+			lastPage = true;
+		}
+		
+		
+	/*	System.out.println("page = "  + page);
 		if(page ==1)
 		{
 			QuestionOnScreenIndex=1;
@@ -590,7 +616,7 @@ public class QuestionsListScreen {
 			max=maxPage3Index;
 		}
 		System.out.print("nextQuesiotnBtnClicked  minIndex " + min);
-		System.out.print(" nextQuesiotnBtnClicked  max " + max);
+		System.out.print(" nextQuesiotnBtnClicked  max " + max);*/
 		for (int i=min; i < max; i++) {
 		
 			try {
@@ -601,7 +627,7 @@ public class QuestionsListScreen {
 			}
 		}
 		
-		if(QuestionOnScreenIndex != 1 && page ==3)
+		if(QuestionOnScreenIndex != 1 && lastPage)
 		{
 			while(QuestionOnScreenIndex != 1)
 			clearPrevoiusQuestion();
@@ -612,12 +638,16 @@ public class QuestionsListScreen {
 	@FXML
 	void BackQuestionBtnClicked(MouseEvent event) {
 		
-		int min =0;
-		int max=0;
+		if(page >1)
 		page--;
+
+		int min =getMinIndexOfPage(page);
+		int max=min+6;
+		if(max >array.size())
+			max = array.size();
 		System.out.println("page = "  + page);
 
-		if(page ==1)
+		/*if(page ==1)
 		{
 			QuestionOnScreenIndex=1;
 			min=minPage1Index;
@@ -638,7 +668,7 @@ public class QuestionsListScreen {
 			max=maxPage3Index;
 		}
 		System.out.print(" minIndex " + min);
-		System.out.print(" max " + max);
+		System.out.print(" max " + max);*/
 		for (int i = min; i < max; i++) {
 			try {
 				addQuestion(array, i);

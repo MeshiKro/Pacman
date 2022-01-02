@@ -236,13 +236,14 @@ System.out.print( " indexOfCorrectAnwer " + indexOfCorrectAnwer);
 			if (i != indexOfCorrectAnwer && n != null) {
 				String color = getRandomColor();
 				n.setStyle("-fx-bar-fill: " + color);
-				data.getNode().setStyle("-fx-pie-color: " + color + ";");
+			
+				data.getNode().setStyle("-fx-pie-color: " + color + ";"); 
 				
 			  
 			}
 
 		}
-
+	
 		initializeColorsArray();
 
 	}
