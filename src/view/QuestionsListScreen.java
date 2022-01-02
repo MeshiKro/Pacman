@@ -29,9 +29,6 @@ public class QuestionsListScreen {
     @FXML
     private ComboBox<String> filterBy;
 
-    @FXML
-    private ComboBox<String> orderBy;
-
 	@FXML
 	private ImageView backBtn;
 
