@@ -75,6 +75,10 @@ public class PinkGhost extends Ghost {
                     pendMove = moveType.DOWN;
                 }else if(pendMove == moveType.DOWN){
                     pendMove = moveType.UP;
+                }else if(pendMove == moveType.LEFT){
+                    pendMove = moveType.RIGHT;
+                }else if(pendMove == moveType.RIGHT){
+                    pendMove = moveType.LEFT;
                 }
                 return pendMove;
             }else{

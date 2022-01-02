@@ -20,15 +20,7 @@ public class Main extends Application {
 	public static void main(String[] args) throws Exception {
 
 		readJsonData();
-		
-		/*
-		 * for (int i=0;i<JsonRead.questionWithData.size();i++)
-		 * System.out.println(JsonRead.questionWithData.get(i).toString());
-		 */
-		/*
-		 * if(ruuningThorthJar()) runJarCommand();
-		 */
-
+			
 		 printPacmanByScorption();
 		launch(args);
 	}
