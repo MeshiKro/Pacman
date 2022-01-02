@@ -439,6 +439,14 @@ public static	int level = 1;
 			for (Ghost g : ghosts) {
 				g.moveTimer.stop();
 			}
+			if (score <= 9)
+				scoreboard.setText("Press R to try again!		\t\t score: " + score);
+			else if (score < 100 && score >= 10)
+				scoreboard.setText("Press R to try again!		\t\t score:" + score);
+			else if (score >= 100)
+				scoreboard.setText("Press R to try again	\t\t score:" + score);
+			isGameOver = true;
+			score = 0;
 		}
 
 		Bomb puFoodToEat = null;
