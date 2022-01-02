@@ -16,6 +16,7 @@ import javafx.embed.swing.JFXPanel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.WindowEvent;
 
 import java.awt.event.KeyEvent;
 
@@ -108,6 +109,10 @@ public static	int level = 1;
 
 	public Timer timer;
 
+	private PacWindow windowParent1;
+
+	protected boolean oldScreen = false;
+
 	public static boolean userLostLife = false;
 
 	public SysData(JLabel scoreboard, MapData md, PacWindow pw) {
@@ -115,7 +120,7 @@ public static	int level = 1;
 		this.setDoubleBuffered(true);
 		md_backup = md;
 		windowParent = pw;
-
+		windowParent1 =pw;
 		m_x = md.getX();
 		m_y = md.getY();
 
@@ -311,7 +316,7 @@ public static	int level = 1;
 							}
 
 							// still have lives
-							if (PacWindow.pacmanLife >= 1 && PacWindow.pacmanLife <= 3) {
+							if (PacWindow.pacmanLife >= 1 ) {
 								userLostLife = true;
 								pacman.moveTimer.stop();
 								pacman.animTimer.stop();
@@ -322,8 +327,15 @@ public static	int level = 1;
 								PacWindow.pacmanLife--;
 								if (siren != null)
 									siren.stop();
+								windowParent.CloseFrame();
+								foods = new ArrayList<>();
+								pufoods = new ArrayList<>();
+								ghosts = new ArrayList<>();
+								teleports = new ArrayList<>();
+								oldScreen = true;
 								new PacWindow();
-								windowParent.dispose();
+					
+
 								break;
 
 							}
@@ -349,7 +361,7 @@ public static	int level = 1;
 			}
 		}
 	}
-
+	
 	public void update() {
 
 		Food foodToEat = null;
@@ -371,6 +383,9 @@ public static	int level = 1;
 			ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
 			Runnable task = new Runnable() {
 				public void run() {
+					if(oldScreen)
+						return;
+					
 					foods.add(new Food(x, y));
 				}
 			};
@@ -384,15 +399,14 @@ public static	int level = 1;
 			}
 			if (score <= 50 && score >= 10) {
 				scoreboard.setText("     Level : 1      Score : " + score);
-				pufoods.add(new Bomb(1, 4, 5));
-				pufoods.add(new Bomb(16, 5, 6));
+			//	
 			}
 
 			if (score >= 51 && score <= 100) {
 
 				scoreboard.setText("     Level : 2      Score : " + score);
 				if (level < 2 ) {
-					System.out.println("herre ");
+
 					isLevelUp = true;
 					MapData map = getMapFromResource("/resources/maps/þþmap_level2M.txt");
 					changeMap(map);
@@ -403,6 +417,8 @@ public static	int level = 1;
 			if (score >= 101 && score <= 150) {
 				scoreboard.setText("     Level : 3     Score : " + score);
 				if (level < 3 ) {
+					pufoods.add(new Bomb(1, 4, 6));
+					pufoods.add(new Bomb(16, 5, 5));
 					pacman.pacmanSpeed = 10;
 					pacman.moveTimer.setDelay(10);
 					isLevelUp = true;
@@ -492,7 +508,9 @@ public static	int level = 1;
 
 				stopScreenForQuestion();
 				Ghost.stopScreenForQ = true;
+				if(Ghost.stopScreenForQ) {
 				openQuestionScreen("Hard");
+				}
 
 				Point newH = PositionLottery2();
 				int qx2 = (int) newH.getX();
@@ -500,7 +518,11 @@ public static	int level = 1;
 				// Scheduling the return of the Hard question
 				ScheduledExecutorService schedulerBomb2 = Executors.newSingleThreadScheduledExecutor();
 				Runnable taskBomb2 = new Runnable() {
+
 					public void run() {
+						if(oldScreen)
+							return;
+						
 						pufoods.add(new Bomb(qx2, qy2, 2));
 						for (Food f : foods) {
 							if (f.position.x == qx2 && f.position.y == qy2) {
@@ -513,7 +535,7 @@ public static	int level = 1;
 				foods.add(new Food(fx2, fy2));
 				schedulerBomb2.schedule(taskBomb2, createFoodDelay, TimeUnit.SECONDS);
 				schedulerBomb2.shutdown();
-				isHardQuestionEat = true;
+			//	isHardQuestionEat = true;
 				drawScore = true;
 				break;
 			}
@@ -524,14 +546,27 @@ public static	int level = 1;
 				pufoods.remove(puFoodToEat);
 				stopScreenForQuestion();
 				Ghost.stopScreenForQ = true;
+				System.out.println("  >>>agaion");
+
+				if(Ghost.stopScreenForQ) {
+					System.out.print("start question");
+
 				openQuestionScreen("Medium");
+				System.out.println("done question");
+			}
+				System.out.println("                       >>>agaion");
+
 				Point newM = PositionLottery3();
 				int qx3 = (int) newM.getX();
 				int qy3 = (int) newM.getY();
+
+				
 				// Scheduling the return of the Medium question
 				ScheduledExecutorService schedulerBomb3 = Executors.newSingleThreadScheduledExecutor();
 				Runnable taskBomb3 = new Runnable() {
 					public void run() {
+						if(oldScreen)
+							return;
 						pufoods.add(new Bomb(qx3, qy3, 3));
 						for (Food f : foods) {
 							if (f.position.x == qx3 && f.position.y == qy3) {
@@ -545,7 +580,7 @@ public static	int level = 1;
 				foods.add(new Food(fx3, fy3));
 				schedulerBomb3.schedule(taskBomb3, createFoodDelay, TimeUnit.SECONDS);
 				schedulerBomb3.shutdown();
-				isMediumQuestionEat = true;
+			//	isMediumQuestionEat = true;
 				drawScore = true;
 				break;
 			}
@@ -556,7 +591,9 @@ public static	int level = 1;
 				int fy4 = puFoodToEat.position.y;
 				pufoods.remove(puFoodToEat);
 				stopScreenForQuestion();
+
 				Ghost.stopScreenForQ = true;
+				if(Ghost.stopScreenForQ)
 				openQuestionScreen("Easy");
 				Point newE = PositionLottery4();
 				int qx4 = (int) newE.getX();
@@ -565,6 +602,8 @@ public static	int level = 1;
 				ScheduledExecutorService schedulerBomb4 = Executors.newSingleThreadScheduledExecutor();
 				Runnable taskBomb4 = new Runnable() {
 					public void run() {
+						if(oldScreen)
+							return;
 						pufoods.add(new Bomb(qx4, qy4, 4));
 						for (Food f : foods) {
 							if (f.position.x == qx4 && f.position.y == qy4) {
@@ -578,14 +617,17 @@ public static	int level = 1;
 				foods.add(new Food(fx4, fy4));
 				schedulerBomb4.schedule(taskBomb4, createFoodDelay, TimeUnit.SECONDS);
 				schedulerBomb4.shutdown();
-				isEasyQuestionEat = true;
+			//	isEasyQuestionEat = true;
 				scoreToAdd = 1;
 				drawScore = true;
 				break;
 
 			}
+			// add life to pacman
 			case 5:{
+				pufoods.remove(puFoodToEat);
 				if(PacWindow.pacmanLife<2) {
+					
 					userLostLife = true;
 					pacman.moveTimer.stop();
 					pacman.animTimer.stop();
@@ -596,8 +638,10 @@ public static	int level = 1;
 					PacWindow.pacmanLife++;
 					if (siren != null)
 						siren.stop();
-					new PacWindow();
 					windowParent.dispose();
+				//	windowParent.pasueGame();
+					new PacWindow();
+				
 					break;
 			/*	pufoods.remove(puFoodToEat);
 				PacWindow.pacmanLife++;
@@ -614,14 +658,17 @@ public static	int level = 1;
 				}
 				if(PacWindow.pacmanLife>=2) {
 					System.out.println("???????????????");
-				pufoods.remove(puFoodToEat);
+				
+				
+			//	pufoods.remove(puFoodToEat);
+
 			/*	ScheduledExecutorService schedulerpacL1 = Executors.newSingleThreadScheduledExecutor();
 				Runnable taskPlife1 = new Runnable() {
 					public void run() {
 						pufoods.add(new Bomb(1, 4, 5));
 					}
 				};
-				schedulerpacL1.schedule(taskPlife1, 5, TimeUnit.SECONDS);
+				schedulerpacL1.schedule(taskPlife1, 10, TimeUnit.SECONDS);
 				schedulerpacL1.shutdown();*/
 				break;
 				}				
@@ -666,8 +713,9 @@ public static	int level = 1;
 					PacWindow.pacmanLife--;
 					if (siren != null)
 						siren.stop();
-					new PacWindow();
 					windowParent.dispose();
+					//windowParent.setContentPane(new PacWindow());
+					new PacWindow();
 					break;
 
 				}
@@ -730,6 +778,8 @@ public static	int level = 1;
 	}
 
 	protected void openQuestionScreen(String questionLevel) {
+		System.out.print(" 					openQuestionScreen;\r\n"
+				+ " ");
 		JFrame frame = new JFrame();
 		qLevel = questionLevel;
 		JFXPanel jfxPanel = new JFXPanel();
@@ -761,7 +811,6 @@ public static	int level = 1;
 			@Override
 			public void run() {
 				seconds--;
-
 				if(yellowQuestScreen.userSelectAnswer) {
 					 
 					//cancelTimer +=5;
@@ -813,7 +862,6 @@ public static	int level = 1;
 			}
 
 		};
-
 		timer.schedule(myTask, 0, 1000);
 
 	}
@@ -972,10 +1020,13 @@ public static	int level = 1;
 		}
 		userLostLife = false;
 		if (ae.getID() == Messages.UPDATE) {
+
 			update();
 		} else if (ae.getID() == Messages.COLTEST) {
 			if (!isGameOver) {
 				try {
+
+
 					collisionTest();
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
@@ -983,8 +1034,11 @@ public static	int level = 1;
 				}
 			}
 		} else if (ae.getID() == Messages.RESET) {
-			if (isGameOver)
+			if (isGameOver) {
+
+
 				restart();
+			}
 		} else {
 			super.processEvent(ae);
 		}
@@ -996,8 +1050,7 @@ public static	int level = 1;
 		isLevelUp = false;
 		counter = 0;
 		new PacWindow();
-		isLevelUp = false;
-		counter = 0;
+
 		windowParent.dispose();
 
 	}

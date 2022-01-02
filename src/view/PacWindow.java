@@ -51,6 +51,7 @@ public class PacWindow extends JFrame {
 
 	BufferedImage myPicture = null;
 
+
 	@SuppressWarnings("static-access")
 	public PacWindow() {
 		if(SysData.score==0)
@@ -182,7 +183,16 @@ public class PacWindow extends JFrame {
 		this.getContentPane().add(pb, BorderLayout.CENTER);
 		setVisible(true);
 	}
-
+	
+	public void pasueGame()
+	{
+		Ghost.stopScreenForQ = true;
+		SysData.pacman.moveTimer.stop();
+		SysData.pacman.animTimer.stop();
+	}
+	public void CloseFrame(){
+	    super.dispose();
+	}
 	protected void openMainScreen() {
 		openMainScreen = true;
 		JFrame frame = new JFrame();
