@@ -69,11 +69,15 @@ public class CyanGhost extends Ghost {
     public moveType getMoveAI(){
         if(isPending){
             if(isStuck){
-                if(pendMove == moveType.UP){
-                    pendMove = moveType.DOWN;
-                }else if(pendMove == moveType.DOWN){
-                    pendMove = moveType.UP;
-                }
+            	 if(pendMove == moveType.UP){
+                     pendMove = moveType.DOWN;
+                 }else if(pendMove == moveType.DOWN){
+                     pendMove = moveType.UP;
+                 }else if(pendMove == moveType.LEFT){
+                     pendMove = moveType.RIGHT;
+                 }else if(pendMove == moveType.RIGHT){
+                     pendMove = moveType.LEFT;
+                 }
                 return pendMove;
             }else{
                 return pendMove;
