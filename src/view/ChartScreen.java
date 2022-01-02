@@ -371,7 +371,17 @@ System.out.print( " indexOfCorrectAnwer " + indexOfCorrectAnwer);
 
 	}
 
+    @FXML
+    void hoverStartC(MouseEvent event) {
+    	chartBtn.setStyle("-fx-background-color: #cba79a; -fx-background-radius:25; -fx-border-width:5; -fx-border-color:white; -fx-border-radius:25");
+    	 
+    }
+    
+    @FXML
+    void HoverEndC(MouseEvent event) {
+    	chartBtn.setStyle("-fx-background-color: #efe4e0; -fx-background-radius:25; -fx-border-width:5; -fx-border-color:white; -fx-border-radius:25");
 
+    }
 	
 
 }

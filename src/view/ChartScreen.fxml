@@ -9,6 +9,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1060.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ChartScreen">
@@ -18,25 +19,25 @@
             <Image url="@../../images/logo2.png" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="154.0" layoutY="98.0" prefHeight="450.0" prefWidth="766.0" style="-fx-background-color: #f0f0f0;">
+      <AnchorPane layoutX="141.0" layoutY="125.0" prefHeight="450.0" prefWidth="688.0">
          <children>
-            <BarChart fx:id="barChart" layoutX="17.0" layoutY="7.0" prefHeight="436.0" prefWidth="732.0">
+            <BarChart fx:id="barChart" layoutX="72.0" layoutY="48.0" prefHeight="381.0" prefWidth="634.0">
               <xAxis>
-                <CategoryAxis endMargin="0.0" label="Answers" prefHeight="42.0" prefWidth="652.0" side="BOTTOM" startMargin="0.0" />
+                <CategoryAxis endMargin="0.0" label="Answers" prefHeight="66.0" prefWidth="588.0" side="BOTTOM" startMargin="0.0" tickLabelFill="WHITE" />
               </xAxis>
               <yAxis>
-                <NumberAxis label="Number of user selcted answer" side="LEFT" tickLabelGap="0.0" upperBound="50.0" />
+                <NumberAxis label="Number of user selcted answer" prefHeight="323.0" prefWidth="45.0" side="LEFT" tickLabelFill="WHITE" tickLabelGap="0.0" upperBound="50.0" />
               </yAxis>
             </BarChart>
-            <PieChart fx:id="pieChart" focusTraversable="true" onMouseClicked="#prectengesDisaply" prefHeight="451.0" prefWidth="806.0" visible="false" />
+            <PieChart fx:id="pieChart" focusTraversable="true" layoutX="63.0" layoutY="45.0" onMouseClicked="#prectengesDisaply" prefHeight="373.0" prefWidth="663.0" visible="false" />
          </children>
       </AnchorPane>
-      <Label fx:id="title" alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="22.0" prefHeight="58.0" prefWidth="1037.0" text="Questions Wizard" textFill="#d8a14a">
+      <Label fx:id="title" alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="119.0" prefHeight="58.0" prefWidth="1037.0" text="Questions Wizard" textFill="WHITE">
          <font>
-            <Font size="40.0" />
+            <Font size="23.0" />
          </font>
       </Label>
-      <Button fx:id="chartBtn" layoutX="912.0" layoutY="32.0" mnemonicParsing="false" onMouseClicked="#changeChartType" prefHeight="48.0" prefWidth="113.0" text="Pie Chart">
+      <Button fx:id="chartBtn" layoutX="877.0" layoutY="187.0" mnemonicParsing="false" onMouseClicked="#changeChartType" onMouseEntered="#hoverStartC" onMouseExited="#HoverEndC" prefHeight="48.0" prefWidth="113.0" style="-fx-border-radius: 25; -fx-border-color: white; -fx-border-width: 5; -fx-background-color: #efe4e0; -fx-background-radius: 25;" text="Pie Chart">
          <font>
             <Font size="14.0" />
          </font>
@@ -55,5 +56,11 @@
             </ImageView>
          </children>
       </AnchorPane>
+      <Label layoutX="358.0" layoutY="59.0" text="Statistics" textFill="#d8a14a">
+         <font>
+            <Font name="OCR A Extended" size="60.0" />
+         </font>
+      </Label>
+      <Line endX="266.0" layoutX="456.0" layoutY="121.0" startX="-100.0" stroke="#757800" strokeWidth="3.0" />
    </children>
 </AnchorPane>
