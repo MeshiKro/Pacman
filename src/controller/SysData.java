@@ -327,12 +327,14 @@ public static	int level = 1;
 								PacWindow.pacmanLife--;
 								if (siren != null)
 									siren.stop();
+							
 								windowParent.CloseFrame();
 								foods = new ArrayList<>();
 								pufoods = new ArrayList<>();
 								ghosts = new ArrayList<>();
 								teleports = new ArrayList<>();
 								oldScreen = true;
+								
 								new PacWindow();
 					
 
