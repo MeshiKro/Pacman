@@ -746,22 +746,6 @@ public class SysData extends JPanel {
 
 		timer.schedule(myTask, 0, 1000);
 
-		/*
-		 * 
-		 * timer = new Timer(15000, new ActionListener() { public void
-		 * actionPerformed(ActionEvent evt) {
-		 * 
-		 * timer.stop(); Ghost.stopScreenForQ = false; pacman.moveTimer.start();
-		 * 
-		 * 
-		 * frame.dispose(); if (questionLevel.equals("Easy")) { if
-		 * (userSelectedCorrectAnswer) score += 1; else score -= 10;
-		 * userSelectedCorrectAnswer = false; } if (questionLevel.equals("Medium")) { if
-		 * (userSelectedCorrectAnswer) score += 2; else score -= 20;
-		 * userSelectedCorrectAnswer = false; } if (questionLevel.equals("Hard")) { if
-		 * (userSelectedCorrectAnswer) score += 3; else score -= 30;
-		 * userSelectedCorrectAnswer = false; } } }); timer.start();
-		 */
 	}
 
 	// In order to stop the game behind the question
@@ -937,6 +921,7 @@ public class SysData extends JPanel {
 			siren.stop();
 
 		new PacWindow();
+		isLevelUp=false;
 		windowParent.dispose();
 
 	}

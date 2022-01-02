@@ -174,6 +174,7 @@ public class ChooseThemeScreen {
 		}
 		
 		private Image createImage(String img) {
+
 			InputStream inStream = getClass().getResourceAsStream("/images/" + img + ".png");
 			return new Image(inStream);
 		}
