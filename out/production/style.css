@@ -4,3 +4,9 @@ buttonstyle {
     -fx-border-color: white;
   -fx-background-color: #efe4e0;
 }
+.chart-pie-label { 
+    -fx-fill: #8b4513;
+    -fx-font-size: 1em;
+} 
+
+.axis:bottom{-fx-border-color: #0f0f0f transparent transparent;}

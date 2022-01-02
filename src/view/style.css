@@ -13,3 +13,14 @@
    .button: hover {
       -fx -    background - image: url("deleteB.png");;
    }*/
+   
+   .chart-pie-label { /*this is what you need for labels*/
+    -fx-fill: #FFFFFF;
+    -fx-font-size: 1em;
+} 
+
+
+.axis-label {
+  -fx-text-fill: #FFFFFF;
+}
+ 

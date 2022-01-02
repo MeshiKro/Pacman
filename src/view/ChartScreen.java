@@ -153,6 +153,7 @@ public class ChartScreen {
 
 	private void addDataToChart() {
 
+		
 		XYChart.Series<String, Integer> answer = new XYChart.Series();
 
 		HashMap<String, Integer> list = (HashMap<String, Integer>) question.getAnswerData().clone();
