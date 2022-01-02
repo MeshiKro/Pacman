@@ -384,6 +384,8 @@ public static	int level = 1;
 			}
 			if (score <= 50 && score >= 10) {
 				scoreboard.setText("     Level : 1      Score : " + score);
+				pufoods.add(new Bomb(1, 4, 5));
+				pufoods.add(new Bomb(16, 5, 6));
 			}
 
 			if (score >= 51 && score <= 100) {
@@ -406,8 +408,7 @@ public static	int level = 1;
 					isLevelUp = true;
 					MapData map1 = getMapFromResource("/resources/maps/map1_c.txt");
 					changeMap(map1);
-					pufoods.add(new Bomb(1, 4, 5));
-					pufoods.add(new Bomb(16, 5, 6));
+				
 					level = 3;
 				}
 
@@ -585,7 +586,20 @@ public static	int level = 1;
 			}
 			case 5:{
 				if(PacWindow.pacmanLife<2) {
-				pufoods.remove(puFoodToEat);
+					userLostLife = true;
+					pacman.moveTimer.stop();
+					pacman.animTimer.stop();
+				//	g.moveTimer.stop();
+					isGameOver = true;
+					isLevelUp = false;
+					counter =0;
+					PacWindow.pacmanLife++;
+					if (siren != null)
+						siren.stop();
+					new PacWindow();
+					windowParent.dispose();
+					break;
+			/*	pufoods.remove(puFoodToEat);
 				PacWindow.pacmanLife++;
 				ScheduledExecutorService schedulerpacL = Executors.newSingleThreadScheduledExecutor();
 				Runnable taskPlife = new Runnable() {
@@ -596,24 +610,68 @@ public static	int level = 1;
 				schedulerpacL.schedule(taskPlife, 5, TimeUnit.SECONDS);
 				schedulerpacL.shutdown();
 				new PacWindow();
-				windowParent.dispose();
-				}if(PacWindow.pacmanLife==2) {
+				windowParent.dispose();*/
+				}
+				if(PacWindow.pacmanLife>=2) {
+					System.out.println("???????????????");
 				pufoods.remove(puFoodToEat);
-				ScheduledExecutorService schedulerpacL1 = Executors.newSingleThreadScheduledExecutor();
+			/*	ScheduledExecutorService schedulerpacL1 = Executors.newSingleThreadScheduledExecutor();
 				Runnable taskPlife1 = new Runnable() {
 					public void run() {
 						pufoods.add(new Bomb(1, 4, 5));
 					}
 				};
 				schedulerpacL1.schedule(taskPlife1, 5, TimeUnit.SECONDS);
-				schedulerpacL1.shutdown();
+				schedulerpacL1.shutdown();*/
+				break;
 				}				
-			break;	
+				
 		}
 			case 6:{
 				pufoods.remove(puFoodToEat);
-				PacWindow.pacmanLife--;
-				ScheduledExecutorService schedulerpacL = Executors.newSingleThreadScheduledExecutor();
+				
+				if (PacWindow.pacmanLife == 0) {
+					if (!isSiren) {
+						SoundPlayer.play("pacman_lose.wav");
+						siren.stop();
+					}
+					pacman.moveTimer.stop();
+					pacman.animTimer.stop();
+			//		g.moveTimer.stop();
+
+					JsonWriterEx JW = new JsonWriterEx();
+					String date = java.time.LocalDate.now().toString();
+					JW.writeScordboardRecords(GlobalFuncations.username, score, date);
+					if (score <= 9)
+						scoreboard.setText("Press R to try again!		\t\t score: " + score);
+					else if (score < 100 && score >= 10)
+						scoreboard.setText("Press R to try again!		\t\t score:" + score);
+					else if (score >= 100)
+						scoreboard.setText("Press R to try again	\t\t score:" + score);
+					isGameOver = true;
+					score = 0;
+
+					break;
+				}
+
+				// still have lives
+				if (PacWindow.pacmanLife >= 1 && PacWindow.pacmanLife <= 3) {
+					userLostLife = true;
+					pacman.moveTimer.stop();
+					pacman.animTimer.stop();
+				//	g.moveTimer.stop();
+					isGameOver = true;
+					isLevelUp = false;
+					counter =0;
+					PacWindow.pacmanLife--;
+					if (siren != null)
+						siren.stop();
+					new PacWindow();
+					windowParent.dispose();
+					break;
+
+				}
+		/*		ScheduledExecutorService schedulerpacL = Executors.newSingleThreadScheduledExecutor();
 				Runnable taskPlife = new Runnable() {
 					public void run() {
 						pufoods.add(new Bomb(16, 5, 6));
@@ -624,7 +682,7 @@ public static	int level = 1;
 				new PacWindow();
 				windowParent.dispose();
 						
-			break;	
+			break;	*/
 		}
 			default: {
 				if (!isSiren) {
@@ -1115,7 +1173,7 @@ public static	int level = 1;
 		}
 
 		case 1: {
-			positionR = new Point(5, 10);
+			positionR = new Point(10, 10);
 			return positionR;
 		}
 		case 2: {
