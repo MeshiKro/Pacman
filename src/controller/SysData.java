@@ -90,7 +90,7 @@ public class SysData extends JPanel {
 	public int m_x;
 	public int m_y;
 
-	int level = 1;
+public static	int level = 1;
 	public MapData md_backup;
 	public PacWindow windowParent;
 	boolean isSiren = MainScreen.isMute;
@@ -107,6 +107,8 @@ public class SysData extends JPanel {
 	private BufferedImage levelupImage;
 
 	public Timer timer;
+
+	public static boolean userLostLife = false;
 
 	public SysData(JLabel scoreboard, MapData md, PacWindow pw) {
 		this.scoreboard = scoreboard;
@@ -310,12 +312,13 @@ public class SysData extends JPanel {
 
 							// still have lives
 							if (PacWindow.pacmanLife >= 1 && PacWindow.pacmanLife <= 3) {
-
+								userLostLife = true;
 								pacman.moveTimer.stop();
 								pacman.animTimer.stop();
 								g.moveTimer.stop();
 								isGameOver = true;
 								isLevelUp = false;
+								counter =0;
 								PacWindow.pacmanLife--;
 								if (siren != null)
 									siren.stop();
@@ -386,7 +389,8 @@ public class SysData extends JPanel {
 			if (score >= 51 && score <= 100) {
 
 				scoreboard.setText("     Level : 2      Score : " + score);
-				if (level < 2) {
+				if (level < 2 ) {
+					System.out.println("herre ");
 					isLevelUp = true;
 					MapData map = getMapFromResource("/resources/maps/þþmap_level2M.txt");
 					changeMap(map);
@@ -396,7 +400,7 @@ public class SysData extends JPanel {
 			}
 			if (score >= 101 && score <= 150) {
 				scoreboard.setText("     Level : 3     Score : " + score);
-				if (level < 3) {
+				if (level < 3 ) {
 					pacman.pacmanSpeed = 10;
 					pacman.moveTimer.setDelay(10);
 					isLevelUp = true;
@@ -410,7 +414,7 @@ public class SysData extends JPanel {
 			}
 			if (score >= 151) {
 				scoreboard.setText("     Level : 4     Score : " + score);
-				if (level < 4) {
+				if (level < 4 ) {
 					updateGhostSpeed();
 					isLevelUp = true;
 					level = 4;
@@ -882,6 +886,7 @@ public class SysData extends JPanel {
 			g.drawImage(vicImage, this.getSize().width / 2 - 315, this.getSize().height / 2 - 75, null);
 
 		}
+
 		if (isLevelUp) {
 			g.drawImage(levelupImage, this.getSize().width / 2 - 380, this.getSize().height / 2 - 325, null);
 		}
@@ -890,13 +895,16 @@ public class SysData extends JPanel {
 
 	@Override
 	public void processEvent(AWTEvent ae) {
+		if(!userLostLife) {
+		
 		if (isLevelUp)
 			counter++;
 		if (counter == 100) {
 			isLevelUp = false;
 			counter = 0;
 		}
-
+		}
+		userLostLife = false;
 		if (ae.getID() == Messages.UPDATE) {
 			update();
 		} else if (ae.getID() == Messages.COLTEST) {
@@ -919,9 +927,11 @@ public class SysData extends JPanel {
 	public void restart() {
 		if (siren != null)
 			siren.stop();
-
+		isLevelUp = false;
+		counter = 0;
 		new PacWindow();
-		isLevelUp=false;
+		isLevelUp = false;
+		counter = 0;
 		windowParent.dispose();
 
 	}
